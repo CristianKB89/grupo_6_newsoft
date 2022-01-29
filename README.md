@@ -9,7 +9,6 @@ Jinson Stevenson Moreno Aguilar ->Ingeniero biomédico, estudiante y  futuro des
 
 Astrid Carolina Tierradentro Solano → Estudiante de ciencias de la información y futura desarrolladora web, entusiasmada en el uso y prácticas de las diferentes tecnologías, puesta a aportar de mis conocimientos en todas las áreas que devengan. Me gusta practicar ejercicio, leer y estar en conocimiento de diferentes temas y áreas.
 
-
 Andres Julian Ovalle Fonseca 
 Estudiante de ingeniería informática , futuro desarrollador web , amante al Deporte triatlonista en proceso , y mi reto es llegar a ser especialista de ciberseguridad y organizador de torneos de videojuegos. 
 
@@ -18,7 +17,7 @@ NewSoft está enfocada en crear productos de calidad para jugadores, creadores d
 
 <li><strong>Listado de al menos 5 referentes: </strong></li>
 Estos sitios fueron elegidos por el público objetivo que manejan ya que es similar al que queremos enfocar nuestro proyecto, y por su navegabilidad y dinámica.
-<ol>
+<ol type = "1">
 <li>https://www.skullcandy.com/</li>
 <li>https://www.corsair.com/us/en/</li>
 <li>https://www.logitechg.com/es-es</li>
