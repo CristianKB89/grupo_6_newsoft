@@ -9,7 +9,6 @@ Jinson Stevenson Moreno Aguilar ->Ingeniero biomédico, estudiante y  futuro des
 
 Astrid Carolina Tierradentro Solano → Estudiante de ciencias de la información y futura desarrolladora web, entusiasmada en el uso y prácticas de las diferentes tecnologías, puesta a aportar de mis conocimientos en todas las áreas que devengan. Me gusta practicar ejercicio, leer y estar en conocimiento de diferentes temas y áreas.
 
-
 Andres Julian Ovalle Fonseca 
 Estudiante de ingeniería informática , futuro desarrollador web , amante al Deporte triatlonista en proceso , y mi reto es llegar a ser especialista de ciberseguridad y organizador de torneos de videojuegos. 
 
@@ -18,7 +17,7 @@ NewSoft está enfocada en crear productos de calidad para jugadores, creadores d
 
 <li><strong>Listado de al menos 5 referentes: </strong></li>
 Estos sitios fueron elegidos por el público objetivo que manejan ya que es similar al que queremos enfocar nuestro proyecto, y por su navegabilidad y dinámica.
-<ol>
+<ol type = "1">
 <li>https://www.skullcandy.com/</li>
 <li>https://www.corsair.com/us/en/</li>
 <li>https://www.logitechg.com/es-es</li>
@@ -26,10 +25,21 @@ Estos sitios fueron elegidos por el público objetivo que manejan ya que es simi
 <li>https://www.astrogaming.com/es-roam</li>
 </ol>
 <li><strong>Wareframes:</strong></li>
-Home: https://wireframe.cc/pro/pp/b42630bab513178
-Detalle de producto: https://wireframe.cc/pro/pp/f673ae709513258
-Carrito de compras: 
-Formulario de registro: https://wireframe.cc/pro/pp/4638c59c5513221
-https://wireframe.cc/pro/pp/5aa263a00513130
-Formulario de login: https://wireframe.cc/pro/pp/4638c59c5513221
+<ul>
+    <li>Home: https://wireframe.cc/pro/pp/b42630bab513178</li>
+    <li>Detalle de producto: https://wireframe.cc/pro/pp/f673ae709513258</li>
+    <li>Carrito de compras: 
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </li>
+    <li>Formulario de registro: 
+        <ul>
+            <li>https://wireframe.cc/pro/pp/4638c59c5513221</li>
+            <li>https://wireframe.cc/pro/pp/5aa263a00513130</li>
+        </ul>
+    </li>
+    <li>Formulario de login: https://wireframe.cc/pro/pp/4638c59c5513221
+</ul>
 </ul>
