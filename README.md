@@ -31,7 +31,7 @@ Estos sitios fueron elegidos por el público objetivo que manejan ya que es simi
     <li>Carrito de compras: 
         <ul>
             <li>Link carrito de compras WF: https://wireframe.cc/pro/pp/b52549a1a513124</li>
-            <li>Información de contacto: https://wireframe.cc/pro/pp/5a2595f78513310</li>
+            <li>Información de contacto: https://wireframe.cc/pro/pp/a3507525a513421</li>
             <li>Método de envío: https://wireframe.cc/pro/pp/5a2595f78513310</li>
             <li>Método de pago: https://wireframe.cc/pro/pp/94f1dfd98513315</li>
         </ul>
