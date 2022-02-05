@@ -42,6 +42,7 @@ Estos sitios fueron elegidos por el público objetivo que manejan ya que es simi
             <li>https://wireframe.cc/pro/pp/5aa263a00513130</li>
         </ul>
     </li>
-    <li>Formulario de login: https://wireframe.cc/pro/pp/4638c59c5513221
+    <li>Formulario de login: https://wireframe.cc/pro/pp/4638c59c5513221</li>
 </ul>
+    <li>Diseño opcional: https://xd.adobe.com/view/a117594e-2268-463b-b4eb-823a2711b548-f444/</li>
 </ul>
