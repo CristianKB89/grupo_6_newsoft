@@ -1,0 +1,1 @@
+Backgrounds bgn-nombre.png sin espacios y en minusculas
