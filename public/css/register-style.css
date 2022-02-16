@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    color:#fff;
+    background-color:black;
+    margin: auto;
+    text-align: center;
+}
+
+p{
+    font-size:14px ;
+}
+
+a{
+    font-size:16px ;
+}
+
+h1{
+    font-size:32px ;
+}
+
+h2{
+    font-size:24px ;
+}
+
+h3{
+    font-size:18px ;
+}
+
+h4{
+    font-size:16px ;
+}
+
+.formulario-forma{
+    padding: 20px 15px;
+}
+
+.control-formulario{
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.control-input{
+    width: 100%;
+    padding: 9px;
+    color: #fff;
+    background-color: black;
+    margin-bottom: 5%;
+    border:0
+}
+
+.boton-formulario, .control-envio{
+    color:black;
+    background-color: #e9e600;
+    border: 0;
+}
+
+body a{
+    color: #fff;
+}
+
+main div{
+    text-align: center;
+}

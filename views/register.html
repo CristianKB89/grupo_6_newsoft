@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/0dc1787e55.js" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <form action="/formulario-registro" method="post" class="formulario-forma">
+         <P>Complete todos los campos para crear su ID</P>  
+          <div class="control-formulario">
+               <label></label>
+               <input type="text" name="nombre_usuario" placeholder="NOMBRE" class="control-input">
+          </div>
+          <div class="control-formulario">
+                <label></label>
+                <input type="text" name="apellido_usuario" placeholder="APELLIDOS" class="control-input">
+          </div>
+          <div class="control-formulario">
+               <label></label>
+               <input type="email" name="email_usuario" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input">
+          </div>
+          <div class="control-formulario">
+               <label></label>
+               <input type="password" name="clave" placeholder="CONTRASEÑA" class="control-input">
+          </div>
+            
+          <div>
+            <input type="checkbox" name="newsletter">
+            <label for="newsletter">Si, quiero recibir noticias y correos electrónicos de productos</label>
+          </div>
+          <p> Al crear una cuenta, acepta nuestros <a href="#">Términos de servicio</a> y confirma que ha leido nuestra <a href="#">
+              Política de privacidad.</a> Este sitio está protegido por Captcha.</p>
+          <div class="control-envio"><button type="submit" class="boton-formulario">CREAR CUENTA</button></div>
+          <br>
+          <div><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-instagram"></i></div>
+          <br>
+          <div><a href="#" class="control-input">INICIAR SESIÓN</a></div>
+        </form>
+    </main>   
+ </body>
+</html>
