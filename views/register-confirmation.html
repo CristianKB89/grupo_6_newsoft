@@ -22,10 +22,10 @@
     rel="stylesheet"
   />
 
-    <title>Registro</title>
+    <title>Register confirmation</title>
 </head>
+<body>
 
-<body class="body-register-confirmation">
     <header>
         <div class="top-header">
           <img
@@ -71,38 +71,30 @@
             <button><i class="fas fa-shopping-cart"></i></button>
           </div>
         </div>
-    </header>
+      </header>
+<br>
+<br>
+<br>
+<br>
 
-    <main>
-        <form action="/register-confirmation" method="post" class="formulario-forma">
-         <div class="mensaje-logo"><h1>FORMULARIO DE REGISTRO</h1> <img src="images/logo-solo.png" class="logo-solo"></div>
-         <P>Complete todos los campos para crear su ID</P>  
+<video autoplay="autoplay" loop="loop" id="video_background" preload="auto" volume="50">
+  <source src="images/Corsair_iCue_Room_Explore.webm" type="video/mp4" />
+</video>
+
+    <main class="register-confirmation">
+        <form action="/formulario-registro" method="post" class="formulario-forma">
+         <h2>Confirmacion</h2><br>  
          <div class="formulado-interno">
+         <p>INGRESE EL CODIGO ENVIADO A SU CORREO ELECTRÓNICO</p>
           <div class="control-formulario">
-               <input type="text" name="nombre_usuario" placeholder="NOMBRE" class="control-input" required>
+               <label></label>
+               <input type="text" name="codigo_confirmacion" placeholder="*1A2B3C" class="control-input" required minlength="6">
           </div>
-          <div class="control-formulario">
-                <input type="text" name="apellido_usuario" placeholder="APELLIDOS" class="control-input" required>
-          </div>
-          <div class="control-formulario">
-               <input type="email" name="email_usuario" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" required>
-          </div>
-          <div class="control-formulario">
-               <input type="password" name="clave" placeholder="CONTRASEÑA" class="control-input" required minlength="8">
-          </div>
-            
-          <div>
-            <input type="checkbox" name="newsletter" id="newsletter">
-            <label for="newsletter">Si, quiero recibir noticias y correos electrónicos de productos</label>
-          </div>
-          <p> Al crear una cuenta, acepta nuestros <a href="#">Términos de servicio</a> y confirma que ha leido nuestra <a href="#">
-              Política de privacidad.</a> Este sitio está protegido por Captcha.</p>
-              <br>
-          <div class="control-envio"><button type="submit" class="boton-formulario">CREAR CUENTA</button></div>
+        
+          <div class="control-envio"><button type="submit" class="boton-formulario">ENVIAR</button></div>
           <br>
-          <div class="iconos-finales"><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-instagram"></i></div>
-          <br>
-          <div><a href="/login.html" class="control-input">INICIAR SESIÓN</a></div>
+          <p>¿No recibiste el codigo? <a href="#">Presiona aqui</a>.</p>
+          <div><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-instagram"></i></div>
         </div>
         </form>
     </main>   

@@ -9,8 +9,12 @@ app.get('/',(req,res) => {
     res.sendFile(path.join(__dirname, './views/index.html'));
 }); 
 
-app.get('/confirmacion',(req,res) => {
-    res.sendFile(path.join(__dirname, './views/index2.html'));
+app.get('/register',(req,res) => {
+    res.sendFile(path.join(__dirname, './views/register.html'));
+}); 
+
+app.post('/register-confirmation',(req,res) => {
+    res.sendFile(path.join(__dirname, './views/register-confirmation.html'));
 }); 
 
 app.listen(port,() => {
