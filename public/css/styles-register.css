@@ -73,6 +73,28 @@ h4{
     border:0;
 }
 
+/*Barra de codigo register-confirmation*/
+.control-input-confirmation:hover{
+    background-color: black;
+    margin: 1px solid white;
+    color:white;
+    border-radius: 8px;
+    padding:5px 15px;
+    border: none;
+}
+
+.control-input-confirmation{
+    width: 100%;
+    padding: 9px;
+    color: #fff;
+    background-color: rgba(150, 152, 154, 0.6);
+    margin-bottom: 5%;
+    border:0;
+    transition: all 0.5s;
+}
+
+/*Barra de codigo register-confirmation*/
+
 .boton-formulario, .control-envio{
     color:black;
     background-color: #e9e600;
@@ -309,9 +331,75 @@ ul{
     font-size: 1vw;
 }
 
+/*footer*/
+/*caja1*/
+.mensaje-suscripcion{
+display: none;
+}
+
+footer div .form{
+    display: none;
+}
+
+footer h1{
+    display: none;
+}
+
+footer h4{
+    display: none;
+}
+
+.barra-suscripcion{
+    display: none;
+}
+
+.boton-formulario-suscripcion{
+    display: none;
+}
+
+footer h1{
+    font-size: 15px;
+}
+
+footer h4{
+    font-weight: lighter;  
+}
+/*caja1*/
+
+/*caja2*/
+
+.second-footer{
+    display: none;
+}
+
+/*caja2*/
+
+/*caja3*/
+.third-footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+footer img{
+    width: 30%;
+}
+
+.third-footer h2{
+    font-size: 11px;
+    font-weight: lighter;
+}
+
+
+/*caja3*/
+/*footer*/
+
+
+
  @media(min-width:361px){
 
-  }
+ }
+
+
 
   @media(min-width:769px){
 
@@ -408,6 +496,80 @@ ul{
 .search-cart button{
     font-size: 40px;
 }
+
+.mensaje-suscripcion{
+    padding:3%;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+    display: flex;
+    font-size: 8px;
+    margin-bottom: 0%;
+    padding-bottom: 0;
+    }
+    
+    .top-footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;  
+    }
+    
+    footer div .form{
+        display: flex;
+    }
+    
+    footer h1{
+        display: flex;
+    }
+    
+    footer h4{
+        display: flex;
+        font-size: smaller;
+        width: 100%;
+       
+    }
+    
+    .barra-suscripcion{
+        width: 45%;
+        height: 30%;
+        padding: 6px;
+        color: black;
+        background-color: white;
+        margin-bottom: 5% white solid;
+        border:0;
+        display: flex;
+    }
+    
+    .boton-formulario-suscripcion{
+        background-color: #E9E600;
+        padding: 6px;
+        height: 10%;
+        display: flex;
+    }
+    
+    footer h1{
+        font-size: 15px;
+    }
+    
+    footer h4{
+        font-weight: lighter;  
+        padding-left: 12%;
+    }
+
+
+.third-footer{
+    padding: 3%;
+    align-items: center;
+}
+.third-footer h2{
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+.third-footer img{
+   width: 50%;
+}
+
 }
 
 
@@ -419,6 +581,64 @@ ul{
     .second-navbar img{
             width: 100%;
             height: 100%;
+        }
+
+        .third-footer h2{
+            font-size: 16px;
+            font-weight: lighter;
+            
+        }
+
+        footer h4{
+            padding-left:17% ;
+        }
+
+        .second-footer{
+            display: flex;
+            justify-content: center;
+            
+        }
+        
+        .main-navbar-footer{
+            display: flex;
+            align-items: flex-start;
+            justify-content:center;
+            padding-top: 3%;
+            padding-bottom: 0;
+        }
+        
+        .first-navbar-footer{
+            width: 100%;
+            padding: 10%;
+            padding-top: 0;
+        }
+        
+        .second-navbar-footer{
+            width: 100%;
+            padding: 10%;
+            padding-top:0;
+        }
+        
+        
+        .third-navbar-footer{
+            width: 100%;
+            padding: 10%;
+            padding-top: 0;
+        }
+        
+        .fourth-navbar-footer{
+            width: 100%;
+            padding: 10%;
+            padding-top: 0;
+        }
+        
+        footer i{
+            width: 8px;
+            margin:5%;
+        }
+        
+        footer a{
+            text-decoration: none;
         }
     }
  
