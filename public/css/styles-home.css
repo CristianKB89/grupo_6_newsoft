@@ -22,6 +22,7 @@ img{
 
 body{
     width: 100%;
+    background-color: black;
 }
 
 h1{
@@ -220,8 +221,104 @@ ul{
     padding: 10px 0;
 }
 
-.a{
+a{
     text-decoration: none;
+}
+
+.content-g1{
+    margin: 1rem 0;
+    background-image: url(/img/bgn-group1.png);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    padding: 1rem 1rem 20% 1rem;
+    font-weight: 200;
+}
+
+.content-g1 h2{
+    color: #FFF;
+}
+
+.content-g1 button{
+    background: #E9E600;
+    padding: 1vw 4vw;
+    border: 0px;
+    margin: 5vw 0 7vw 0;
+    color: black;
+}
+
+.content-g1 p{
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content-g1 a{
+    color: black;
+    text-decoration: none;
+    font-weight:normal;
+    
+}
+
+.content-g2{
+    margin: 1rem 0;
+    background-image: url(/img/gamersensei-tier3.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    padding: 1rem 1rem 20% 1rem;
+    font-weight: 200;
+}
+
+.content-g2 h2{
+    color: #FFF;
+}
+
+.content-g2 button{
+    background: #E9E600;
+    padding: 1vw 4vw;
+    border: 0px;
+    margin: 5vw 0 7vw 0;
+    color: black;
+}
+
+.content-g2 p{
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content-g2 a{
+    color: black;
+    text-decoration: none;
+    font-weight:normal;  
+}
+
+.content-g3{
+    background-image: url(/img/bgn-g3.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    padding: 1rem 1rem 20% 1rem;
+    font-weight: 200;
+}
+
+.content-icue{
+    background-color: #2F2240;
+    width: 100%;
+    text-align: center;
+    padding: 10vw 0;
+    font-size: 3vw;
+}
+
+.content-icue h2{
+    color: #E9E600;
+}
+
+.content-icue p{
+    color: #fff;
+}
+
+.content-icue img{
+    width: 30%;  
 }
 
 @media (min-width: 361px) {
@@ -276,6 +373,26 @@ ul{
 
     .search-cart button{
         font-size: 40px;
+    }
+
+    .g1-content{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .content-g1{
+        margin: 1rem;
+    }
+
+    .content-icue{
+        display: flex;
+        flex-wrap: nowrap;
+        width: 40%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .content-g3{
+        width: 60%;
     }
 }
 
