@@ -388,6 +388,7 @@ footer .footer-v2{
 .info{
     display: flex;
     flex-wrap: wrap;
+    font-size: 2vw;
 }
 
 .info a{
@@ -490,9 +491,6 @@ footer .footer-v2{
     }
     .email{
         font-size: 30px;
-    }
-    .info{
-        font-size: 4vw;
     }
 }
 
