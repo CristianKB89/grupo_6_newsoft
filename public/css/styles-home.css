@@ -117,6 +117,10 @@ ul{
     font-size: 7vw;
 }
 
+.main-header i:hover{
+    color: #E9E600;
+}
+
 .xbox{
     padding-left: 80px;
     font-size: 1vw;
