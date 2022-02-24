@@ -331,7 +331,7 @@ footer{
     width: 100%;
     margin-top: 0px;
     padding: 0 2rem;
-    padding-bottom: 2rem;
+
     /* position: absolute; */
     z-index: 1;
     letter-spacing: 0.2em;
@@ -415,6 +415,20 @@ footer .footer-v2{
 
 .social i:hover{
     color: #E9E600;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pagos{
+    width: 40%;
+}
+
+.copy a{
+    color: #FFF;
 }
 
 @media (min-width: 361px) {
