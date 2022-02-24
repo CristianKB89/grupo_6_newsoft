@@ -333,6 +333,7 @@ footer{
     padding-bottom: 2rem;
     /* position: absolute; */
     z-index: 1;
+    letter-spacing: 0.1em;
 }
 
 footer .footer-v2{
@@ -491,6 +492,9 @@ footer .footer-v2{
     }
     .email{
         font-size: 30px;
+    }
+    .info{
+        font-size: 2vw;
     }
 }
 
