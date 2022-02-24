@@ -16,6 +16,6 @@ app.post('/register-confirmation',(req,res) => {
     res.sendFile(path.join(__dirname, './views/register-confirmation.html'));
 }); 
 
-app.listen(process.env.PORT || 3000,() => {
-    console.log('Servidor corriendo en el puerto 3000');
+app.listen(process.env.PORT || 3030,() => {
+    console.log('Servidor corriendo en el puerto 3030');
 });
