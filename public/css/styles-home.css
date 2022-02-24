@@ -177,6 +177,10 @@ ul{
     margin: 5vw 0 7vw 0;
 }
 
+.des-slide button:hover{
+    background: #e9e500a2;
+}
+
 .video-slide{
     -moz-transform:scale(1.5);
     -webkit-transform:scale(1.5);
@@ -215,6 +219,7 @@ ul{
 .product:hover{
     border: #E9E600 1px solid;
 }
+
 .product-name{
     border: 4px;
     font-size: 2vw;
