@@ -383,7 +383,6 @@ footer .footer-v2{
 
 .column{
     width: 32%;
-    font-size: 2rem;
 }
 
 .info{
@@ -416,6 +415,9 @@ footer .footer-v2{
 @media (min-width: 361px) {
     .email{
         font-size: 5vw;
+    }
+    .info{
+        font-size: 4vw;
     }
 }
 
@@ -488,6 +490,9 @@ footer .footer-v2{
     }
     .email{
         font-size: 30px;
+    }
+    .info{
+        font-size: 4vw;
     }
 }
 
