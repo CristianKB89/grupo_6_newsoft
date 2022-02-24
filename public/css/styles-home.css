@@ -321,6 +321,21 @@ a{
     width: 30%;  
 }
 
+footer{
+    background: #000;
+    color: #ffffff;
+    display: flex;
+    font-size: 14px;
+    font-family: 'Helvetica Neue LT Pro R';
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0px !important;
+    padding: 0 2rem;
+    padding-bottom: 2rem;
+    /* position: absolute; */
+    z-index: 1;
+}
+
 @media (min-width: 361px) {
 
 }
