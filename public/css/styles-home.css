@@ -11,6 +11,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    letter-spacing: 0.02em;
 }
 img{
     width: 100%;
@@ -344,7 +345,7 @@ footer .footer-v2{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin-bottom: 15px;
     font-size: 2vw;
 }
@@ -362,6 +363,7 @@ footer .footer-v2{
     border-radius: 2px;
     font-weight: 600;
     letter-spacing: 1px;
+    font-size: 1vw;
 }
 
 .botonenviar:hover{
@@ -374,6 +376,7 @@ footer .footer-v2{
     background: #1E1E1E;
     border: 1px solid #555555;
     border-radius: 2px;
+    margin: 0 20px;
 }
 
 .formulario-footer{
