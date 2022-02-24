@@ -331,8 +331,6 @@ footer{
     width: 100%;
     margin-top: 0px;
     padding: 0 2rem;
-
-    /* position: absolute; */
     z-index: 1;
     letter-spacing: 0.2em;
 }
@@ -345,7 +343,7 @@ footer .footer-v2{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-bottom: 15px;
     font-size: 2vw;
 }
@@ -356,7 +354,7 @@ footer .footer-v2{
 }
 
 .botonenviar{
-    padding: 0.75rem 1.25rem 0.55rem 1.25rem;
+    padding: 1vw 2vw;
     color: black;
     background: #E9E600;
     border: none;
@@ -433,7 +431,7 @@ footer .footer-v2{
 
 @media (min-width: 361px) {
     .email{
-        font-size: 5vw;
+        font-size: 3vw;
     }
     .info{
         font-size: 4vw;
@@ -508,7 +506,7 @@ footer .footer-v2{
         width: 60%;
     }
     .email{
-        font-size: 30px;
+        font-size: 2vw;
     }
     .info{
         font-size: 2vw;
