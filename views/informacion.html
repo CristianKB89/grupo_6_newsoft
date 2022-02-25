@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/styles-register.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+    rel="stylesheet"
+  />
+
+    <title>Register confirmation</title>
+</head>
+<body>
+
+    <header>
+        <div class="top-header">
+          <img
+            class="flag"
+            src="https://img.icons8.com/fluency/48/000000/colombia-circular.png"
+          />
+        </div>
+        <div class="main-header">
+          <a class="burger-menu" href="#">
+            <div>
+              <i class="fas fa-bars"></i>
+            </div>
+          </a>
+          <img src="img/logo-one.png" class="logo" />
+          <nav class="main-nav">
+            <div>
+              <a href="#">
+                <button><i class="fa-solid fa-square-1"></i></button>
+                <span class="nav-btn-text">Información de contacto</span>
+              </a>
+              <a href="#">
+                <i class="fa-solid fa-square-2"></i>
+                <span class="nav-btn-text">Método de pago</span>
+              </a>
+              <a href="#">
+                <i class="fa-solid fa-square-3"></i>
+                <span class="nav-btn-text">Metodo de envio</span>
+              </a>
+            </div>
+          </nav>
+          <div class="search-cart">
+            <button><i class="fas fa-search"></i></button>
+            <button><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </header>
+<br>
+<br>
+<br>
+<br>
+
+<video autoplay="autoplay" loop="loop" id="video_background" preload="auto" volume="50">
+  <source src="img/Corsair_iCue_Room_Explore.webm" type="video/mp4" />
+</video>
+
+<!----información-->
+<section class="checkout">
+
+  <h2 class="section-heading">Sesión iniciada como</h2>
+  <form>
+    <div class="form-group col-md-6">
+      <label class="font-weight-bold">Dirección de entrega <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="Agrega tu dirección">
+  </div>
+    <div class="form-row mb-2">
+        <div class="form-group col-md-6">
+            <label class="font-weight-bold">Apellido <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Tu apellido">
+        </div>
+        <div class="form-group col-md-6">
+            <label class="font-weight-bold">Nombre <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Tu nombre">
+        </div>
+        <div class="form-row mb-2">
+          <div class="form-group col-md-6">
+              <label class="font-weight-bold">Celular <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" placeholder="Celular">
+          </div>
+          <div class="form-group col-md-6">
+              <label class="font-weight-bold">Teléfono (opcional)<span class="text-danger">*</span></label>
+              <input type="text" class="form-control" placeholder="telefono">
+          </div>
+    </div>
+    <div class="form-group mb-3">
+        <label class="font-weight-bold">Departamento, ciudad, región <span class="text-danger">*</span></label>
+        <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+    </div>
+    <div class="form-group mb-3">
+        <label class="font-weight-bold">Código postal <span class="text-danger">*</span></label>
+        <input type="password" class="form-control" placeholder="Codigo">
+    </div>
+    
+    <button class="btn btn-primary width-100">Continuar con método de envió</button>
+</form>
+
+
+
+  <section class="cart">
+
+  <div class="cart-item-box">
+
+    <h2 class="section-heading">Revise su carro</h2>
+
+    <div class="product-card">
+
+      <div class="card">
+
+        <div class="img-box">
+          <img src="images/teclado.png" alt="teclado" width="80px" class="product-img">
+        </div>
+
+        <div class="detail">
+
+          <h4 class="product-name">TECLADOS ESTÁNDAR PARA JUEGOS</h4>
+
+          <div class="compra">
+
+            <div class="product-qty">
+              <button id="decrement">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+
+              <span id="quantity">1</span>
+
+              <button id="increment">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+
+            <div class="price">
+              $ <span id="price">450.000 COP</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <button class="product-close-btn">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="product-card">
+
+      <div class="card">
+
+        <div class="img-box">
+          <img src="images/chasis.png" alt="chasis" width="80px" class="product">
+        </div>
+
+        <div class="detail">
+
+          <h4 class="product-name">
+            Chasis ATX semitorre iCUE 4000D RGB AIRFLOW QL Edition — True White</h4>
+
+          <div class="Compra">
+
+            <div class="product-qty">
+              <button id="decrement">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+
+              <span id="quantity">1</span>
+
+              <button id="increment">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+
+            <div class="price">
+              $ <span id="price">600.000 COP</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <button class="product-close-btn">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="discount-token">
+
+    <label for="discount-token" class="label-default">Código de descuento o tarjeta regalo</label>
+  
+    </div>
+    </div>
+
+    <div class="amount">
+
+      <div class="subtotal">
+        <span>Subtotal</span> <span>$ <span id="subtotal">0.00</span></span>
+      </div>
+
+      <div class="descuento">
+        <span>Descuento estimado</span> <span>$ <span id="tax">0.00</span></span>
+      </div>
+
+      <div class="envio">
+        <span>Envio</span> <span>$ <span id="shipping">0.00</span></span>
+      </div>
+
+      <div class="impuesto">
+        <span>Impuesto</span> <span>$ <span id="total">0.00</span></span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+
+</main>
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+</main>
+<footer>
+  <input class="botonenviar" type="submit" name="enviar" value="Tramitar su pedido"></input></p>
+</footer>   
+</body>
+</html>
+
+
+    <main class="register-confirmation">
+        
+    </main>   
+ </body>
+</html>

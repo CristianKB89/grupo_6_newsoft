@@ -1,11 +1,11 @@
 {
   "name": "grupo_6_newsoft",
   "version": "1.0.0",
-  "description": "<strong>Descripción de los integrantes:</strong>",
+  "description": "¡",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js" 
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/CristianKB89/grupo_6_newsoft#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.3"
   }
 }
