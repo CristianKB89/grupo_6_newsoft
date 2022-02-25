@@ -1,0 +1,24 @@
+{
+  "name": "grupo_6_newsoft",
+  "version": "1.0.0",
+  "description": "¡",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CristianKB89/grupo_6_newsoft.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CristianKB89/grupo_6_newsoft/issues"
+  },
+  "homepage": "https://github.com/CristianKB89/grupo_6_newsoft#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
