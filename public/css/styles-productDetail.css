@@ -1,0 +1,32 @@
+:root{
+    /* Colores */
+    --blanco: #FFF;;
+    --amarillo:#E9E600;;
+    --gris: #A8A8A8;;
+    /* Familias de Fuentes */
+    font-family: 'Bebas Neue', cursive;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.02em;
+}
+img{
+    width: 100%;
+}
+
+*:before,*:after{
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    background-color: black;
+}
+
+h1{
+    margin: 0 auto;
+}
+

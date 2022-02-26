@@ -33,7 +33,7 @@ app.get('/recover', (req,res)=>{
     res.sendFile(__dirname + '/views/recover.html');
 });
 app.get('/productdetail', (req,res)=>{
-    res.sendFile(__dirname + '/views/producto.html');
+    res.sendFile(__dirname + '/views/productDetail.html');
 });
 
 app.listen(process.env.PORT || 3030,() => {
