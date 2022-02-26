@@ -331,72 +331,139 @@ ul{
     font-size: 1vw;
 }
 
-/*footer*/
-/*caja1*/
-.mensaje-suscripcion{
-display: none;
-}
-
-footer div .form{
-    display: none;
-}
-
-footer h1{
-    display: none;
-}
-
-footer h4{
-    display: none;
-}
-
-.barra-suscripcion{
-    display: none;
-}
-
-.boton-formulario-suscripcion{
-    display: none;
-}
-
-footer h1{
-    font-size: 15px;
-}
-
-footer h4{
-    font-weight: lighter;  
-}
-/*caja1*/
-
-/*caja2*/
-
-.second-footer{
-    display: none;
-}
-
-/*caja2*/
-
-/*caja3*/
-.third-footer{
+/**FOOTER START**/
+footer{
+    background: #000;
+    color: #ffffff;
     display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0px;
+    padding: 0 2rem;
+    z-index: 1;
+    letter-spacing: 0.2em;
+    left:0px;
+    bottom:0px;
+    
+}
+
+.segundo-footer{
+    background-color: transparent;
+    left:0px;
+    bottom:0px;
+    position: fixed;
+}
+
+footer .footer-v2{
+    padding: 4em 0;
+}
+
+.footer-lefth{
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 2vw;
+}
+
+.footer-lefth p{
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.botonenviar{
+    padding: 1vw 2vw;
+    color: black;
+    background: #E9E600;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1vw;
+}
+
+.botonenviar:hover{
+    background: #e9e500a2;
+}
+
+.email{
+    display: flex;
+    font-family:'Helvetica Neue', sans-serif;
+    background: #1E1E1E;
+    border: 1px solid #555555;
+    border-radius: 2px;
+    margin: 0 20px;
+}
+
+.formulario-footer{
+    display: flex;
+    align-items: center;
+
+}
+
+.column{
+    width: 32%;
+}
+
+.info{
+    display: none;
+    flex-wrap: wrap;
+    font-size: 2vw;
+}
+
+.info a{
+    color: #555555;
+}
+
+.info a:hover{
+    color: #E9E600;
+}
+
+.social{
+    display: none;
+    flex-direction: row;
     justify-content: space-around;
 }
 
+.social i{
+    color: white;
+}
+
+.social i:hover{
+    color: #E9E600;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 footer img{
-    width: 30%;
+    width:500px;
+}
+
+.copy a{
+    color: #FFF;
 }
 
 .third-footer h2{
-    font-size: 11px;
-    font-weight: lighter;
+    font-size: 10px;
 }
 
-
-/*caja3*/
-/*footer*/
+.footer-pago{
+    width: 80%;
+}
+/**FOOTER END**/
 
 
 
  @media(min-width:361px){
-
+    .pagos{
+        display: none;
+    }
  }
 
 
@@ -497,77 +564,24 @@ footer img{
     font-size: 40px;
 }
 
-.mensaje-suscripcion{
-    padding:3%;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: left;
+.footer-lefth{
     display: flex;
-    font-size: 8px;
-    margin-bottom: 0%;
-    padding-bottom: 0;
-    }
-    
-    .top-footer{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;  
-    }
-    
-    footer div .form{
-        display: flex;
-    }
-    
-    footer h1{
-        display: flex;
-    }
-    
-    footer h4{
-        display: flex;
-        font-size: smaller;
-        width: 100%;
-       
-    }
-    
-    .barra-suscripcion{
-        width: 45%;
-        height: 30%;
-        padding: 6px;
-        color: black;
-        background-color: white;
-        margin-bottom: 5% white solid;
-        border:0;
-        display: flex;
-    }
-    
-    .boton-formulario-suscripcion{
-        background-color: #E9E600;
-        padding: 6px;
-        height: 10%;
-        display: flex;
-    }
-    
-    footer h1{
-        font-size: 15px;
-    }
-    
-    footer h4{
-        font-weight: lighter;  
-        padding-left: 12%;
-    }
-
-
-.third-footer{
-    padding: 3%;
-    align-items: center;
-}
-.third-footer h2{
-    font-size: 13px;
-    font-weight: lighter;
 }
 
-.third-footer img{
-   width: 50%;
+.social{
+    display:flex;
+}
+
+.email{
+    font-size: 2vw;
+}
+.info{
+    display:flex;
+    font-size: 2vw;
+}
+
+.pagos{
+    display: flex;
 }
 
 }
@@ -583,62 +597,23 @@ footer img{
             height: 100%;
         }
 
-        .third-footer h2{
-            font-size: 16px;
-            font-weight: lighter;
-            
+        footer h2{
+            font-size: 1.5vw;
         }
 
-        footer h4{
-            padding-left:17% ;
+        .email{
+            font-size: 1.5vw;
         }
 
-        .second-footer{
-            display: flex;
-            justify-content: center;
-            
+        .botonenviar{
+            font-size: 15px;
+            height: 10px;
+            text-align: center;
+            padding: 14px 1vw;
         }
-        
-        .main-navbar-footer{
-            display: flex;
-            align-items: flex-start;
-            justify-content:center;
-            padding-top: 3%;
-            padding-bottom: 0;
-        }
-        
-        .first-navbar-footer{
-            width: 100%;
-            padding: 10%;
-            padding-top: 0;
-        }
-        
-        .second-navbar-footer{
-            width: 100%;
-            padding: 10%;
-            padding-top:0;
-        }
-        
-        
-        .third-navbar-footer{
-            width: 100%;
-            padding: 10%;
-            padding-top: 0;
-        }
-        
-        .fourth-navbar-footer{
-            width: 100%;
-            padding: 10%;
-            padding-top: 0;
-        }
-        
-        footer i{
-            width: 8px;
-            margin:5%;
-        }
-        
-        footer a{
-            text-decoration: none;
+
+        .footer-pago{
+            width: 50%;
         }
     }
  
