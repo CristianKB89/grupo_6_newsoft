@@ -31,7 +31,12 @@ app.get('/pago',(req,res) => {
 app.get('/envio',(req,res) => {
     res.sendFile(path.join(__dirname, './views/envio.html'));
 });
-
+app.get('/login', (req,res)=>{
+    res.sendFile(__dirname + '/views/login.html');
+});
+app.get('/recover', (req,res)=>{
+    res.sendFile(__dirname + '/views/recover.html');
+});
 app.listen(process.env.PORT || 3030,() => {
     console.log('Servidor corriendo en el puerto 3030');
 });
