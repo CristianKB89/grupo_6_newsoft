@@ -8,20 +8,15 @@ app.use(express.static(__dirname + '/public'));
 app.get('/',(req,res) => {
     res.sendFile(path.join(__dirname, './views/index.html'));
 }); 
-
 app.get('/register',(req,res) => {
     res.sendFile(path.join(__dirname, './views/register.html'));
 }); 
-
 app.post('/register-confirmation',(req,res) => {
     res.sendFile(path.join(__dirname, './views/register-confirmation.html'));
 }); 
-
-
 app.get('/productCart',(req,res) => {
     res.sendFile(path.join(__dirname, './views/productCart.html'));
 }); 
-
 app.get('/informacion',(req,res) => {
     res.sendFile(path.join(__dirname, './views/informacion.html'));
 }); 
@@ -37,6 +32,10 @@ app.get('/login', (req,res)=>{
 app.get('/recover', (req,res)=>{
     res.sendFile(__dirname + '/views/recover.html');
 });
+app.get('/productdetail', (req,res)=>{
+    res.sendFile(__dirname + '/views/producto.html');
+});
+
 app.listen(process.env.PORT || 3030,() => {
     console.log('Servidor corriendo en el puerto 3030');
 });
