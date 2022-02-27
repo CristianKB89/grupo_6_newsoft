@@ -38,7 +38,7 @@ h1{
 }
 
 .panel-izq{
-    width: 40%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -47,7 +47,7 @@ h1{
 .panel-der{
     width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .panel-1 h1{
@@ -107,13 +107,9 @@ h1{
  /*Estrellas-End*/
 
  .img-product{
-
      width: 90%;
 }
 
-.img-products{
-    
-}
 
 .max{
     color:#FFF;
@@ -122,11 +118,8 @@ h1{
     padding: 10px;
 }
 
-
 .gallery{
-    display: flex;
-    flex-direction: column;
-    width: 10%;
+    display: none;
 }
 
 .content-product-color{
@@ -211,4 +204,37 @@ h1{
 
 .video-rese:hover a{
     color: #E9E600;
+}
+
+@media (min-width: 361px) {
+    .panel-1{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
+@media (min-width: 769px) {
+    .gallery{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 10%;
+        height: 100%;
+    }
+    .panel-1{
+        display: flex;
+        flex-direction: row;
+    }
+    .panel-izq{
+        width: 40%
+    }
+    
+}
+
+@media (min-width: 1200px) {
+    .img-product{
+        width: 40vw;
+        margin: auto;
+    }
 }
