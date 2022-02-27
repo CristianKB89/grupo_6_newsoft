@@ -53,8 +53,12 @@ h1{
 .panel-1 h1{
     color: #E9E600;
     font-family: 'Open Sans', sans-serif;
-    font-size: 3vw;
+    font-size: 4vw;
     margin-bottom: 10px;
+}
+
+.product-des{
+    font-size: 4vw;
 }
 
 .precio{
@@ -110,7 +114,6 @@ h1{
      width: 90%;
 }
 
-
 .max{
     color:#FFF;
     font-size: 2vw;
@@ -136,7 +139,7 @@ h1{
     border: #A8A8A8 1px solid;
     padding: 5px 0;
     margin: 20px 0;
-    font-size: 2vw;
+    font-size: 4vw;
 }
 
 .img-color{
@@ -229,7 +232,15 @@ h1{
     .panel-izq{
         width: 40%
     }
-    
+    .product-color{
+        font-size: 2vw;
+    }
+    .product-des{
+        font-size: 2vw;
+    }
+    .panel-1 h1{
+        font-size: 3vw;
+    }
 }
 
 @media (min-width: 1200px) {
