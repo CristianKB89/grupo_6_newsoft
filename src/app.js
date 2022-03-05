@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
-const port = 3030;
+const rutas = require('./routes/main.js');
 const path = require('path');
 
 app.use(express.static('public'));
+app.set("views engine", "ejs");
+app.use('/', rutas);
 
-app.get('/',(req,res) => {
-    res.sendFile(path.join(__dirname, './views/index.ejs'));
-}); 
-app.get('/register',(req,res) => {
+
+/* app.get('/register',(req,res) => {
     res.sendFile(path.join(__dirname, './views/register.html'));
 }); 
 app.post('/register-confirmation',(req,res) => {
@@ -34,7 +34,7 @@ app.get('/recover', (req,res)=>{
 });
 app.get('/productdetail', (req,res)=>{
     res.sendFile(__dirname + '/views/productDetail.html');
-});
+}); */
 
 app.listen(process.env.PORT || 3030,() => {
     console.log('Servidor corriendo en el puerto 3030');
