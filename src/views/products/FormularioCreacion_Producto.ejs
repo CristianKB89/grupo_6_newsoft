@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/styles-FormulariosProductos.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+    rel="stylesheet"
+  />
+
+    <title>Registro de productos</title>
+</head>
+
+<body class="body-register-confirmation">
+    <header>
+        <div class="top-header">
+          <img
+            class="flag"
+            src="https://img.icons8.com/fluency/48/000000/colombia-circular.png"
+          />
+          <p class="envios">
+            Envío gratis a partir de $500.000 | Debido a COVID-19, algunos pedidos
+            pueden sufrir retrasos.
+          </p>
+          <p class="xbox">XBOX</p>
+          <p class="nintendo">NINTENDO</p>
+          <p class="playstation">PLAYSTATION</p>
+        </div>
+        <div class="main-header">
+          <a class="burger-menu" href="#">
+            <div>
+              <i class="fas fa-bars"></i>
+            </div>
+          </a>
+          <img src="img/logo-one.png" class="logo" />
+          <nav class="main-nav">
+            <div>
+              <a href="#">
+                <span class="nav-btn-text">GAMING GEAR</span>
+              </a>
+              <a href="#">
+                <span class="nav-btn-text">TIENDA</span>
+              </a>
+              <a href="#">
+                <span class="nav-btn-text">SOFTWARE</span>
+              </a>
+              <a href="#">
+                <span class="nav-btn-text">STREAMING</span>
+              </a>
+              <a href="#">
+                <span class="nav-btn-text">DIADEMAS</span>
+              </a>
+            </div>
+          </nav>
+          <div class="search-cart">
+            <button><i class="fas fa-search"></i></button>
+            <button><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+    </header>
+
+    <main>
+        <form action="/producto-create" method="post" class="formulario-forma">
+         <div class="mensaje-logo"><h1>FORMULARIO DE CREACION DE PRODUCTO</h1></div>
+         <P>Complete todos los campos para ingresar un nuevo producto</P><br>
+         <div class="formulado-interno">
+          <div class="control-formulario">
+            <label for="nombre_producto">Escriba el nombre del producto:</label>
+               <input type="text" name="nombre_producto" id="nombre_producto" placeholder="NOMBRE DEL PRODUCTO" class="control-input" required>
+          </div>
+          <div class="control-formulario">
+            <label for="marca_producto">Seleccione la marca del producto:</label>
+               <select  name="marca_producto" id="marca_producto" class="control-input" required> 
+                <option>Logitech</option>
+                <option>Corsair</option>
+                <option>Razer</option>
+                <option>Ozone</option>
+               </select>
+          </div>
+          <div class="control-formulario">
+            <label for="precio_producto">Indique el precio del producto:</label>
+                <input type="number" name="precio_producto" id="precio_producto" placeholder="$ 000.000" class="control-input" required>
+          </div>
+          <div class="control-formulario">
+            <label for="categoria_producto">Seleccione la categoria del producto:</label>
+               <select  name="categoria_producto" id="categoria_producto" class="control-input" required> 
+                <option>Perifericos</option>
+                <option>Tarjetas graficas</option>
+                <option>Monitores</option>
+                <option>Audio</option>
+               </select>
+          </div>
+          <div class="control-formulario">
+            <label for="color_producto">Seleccione el color del producto:</label>
+               <select  name="color_producto" id="color_producto" class="control-input" required> 
+                <option value="#ff0000">Rojo</option>
+                <option value="#00ff00">Verde</option>
+                <option value="#0000ff">Azul</option>
+                <option value="#770077">Morado</option>
+               </select>
+          </div>
+          <div class="control-formulario">
+            <label for="accesorios">Indique los accesorios del producto:</label>
+               <input type="texT" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input" required>
+          </div>
+          <div class="control-formulario">
+            <label for="imagen_producto">Ingrese una imagen del producto:<br><br></label>
+            <input type="file" name="imagen_producto" id="imagen_producto" class="control-input" accept=".jpg" multiple>
+          </div>
+          <div class="control-formulario">
+            <label for="descripcion_producto">Realize una breve descripcion del producto:</label>
+            <textarea name="descripcion_producto" id="descripcion_producto" placeholder="DESCRIPCION DEL PRODUCTO" class="control-input"></textarea>
+       </div>
+            
+
+          <br>
+          <br>
+          <div class="control-envio"><button type="submit" class="boton-formulario">GUARDAR PRODUCTO</button>
+            <a href="/productoEdicion" class="control-final">EDITAR PRODUCTO EXISTENTE</a> 
+          </div>
+          <br>
+          <div class="iconos-finales"><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-instagram"></i></div>
+
+        </form>
+    </main> 
+ 
+    <footer class="confirmacion-v1">
+      <div class="footer-v2">
+        <div class="footer-lefth">
+          <h2>Suscríbete y recibe las mejores ofertas</h2>
+          <form class="formulario-footer" action="/" method="post">
+            <input class="email" type="email" name="email" placeholder="Ingresa tu email" required />
+            <input class="botonenviar" type="submit" name="enviar" value="Suscribete"></input></p>
+          </form>
+        </div>
+        <div class="footer-info">
+          <div class="info">
+            <div class="column">
+              <h3>SHOP</h3>
+              <p><a href="#">Nuevos Productos</a></p>
+              <p><a href="#">Ofertas especiales</a></p>
+              <p><a href="#">Exclusivas newsof.com</a></p>
+              <p><a href="#">Best Sellers</a></p>
+              <p><a href="#">Dónde comprar</a></p>
+              <p><a href="#">Certificados</a></p>
+            </div>
+            <div class="column">
+              <h3>SHOP</h3>
+              <p><a href="#">Nuevos Productos</a></p>
+              <p><a href="#">Ofertas especiales</a></p>
+              <p><a href="#">Exclusivas newsof.com</a></p>
+              <p><a href="#">Best Sellers</a></p>
+              <p><a href="#">Dónde comprar</a></p>
+              <p><a href="#">Certificados</a></p>
+            </div>
+            <div class="column">
+              <h3>Siguenos en:</h3>
+              <div class="social">
+                <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.twitch.tv/" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="links">
+        <div class="copy">Copyright &copy; 2022 NEWSOFT. Todos los derechos reservados</div>
+        <div class="pagos"><img src="/img/pagos.png" alt=""></div>
+      </div>
+    </footer>
+
+ </body>
+</html>
