@@ -344,6 +344,16 @@ footer .footer-v2{
     }
 }
 
+@media (max-width: 500px) {
+    .banner{
+        height: 70vw;
+    }
+    
+    .slide-1{
+        height: 70vw;
+    }
+}
+
 @media (min-width: 769px) {
     .g1-content{
         display: flex;
@@ -352,7 +362,6 @@ footer .footer-v2{
     .content-g1{
         margin: 1rem;
     }
-
     .content-icue{
         display: flex;
         flex-wrap: nowrap;
