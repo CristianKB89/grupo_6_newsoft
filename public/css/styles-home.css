@@ -225,116 +225,6 @@ a{
 
 /**BODY END**/
 
-/**FOOTER START**/
-footer{
-    background: #000;
-    color: #ffffff;
-    display: flex;
-    font-size: 14px;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 0px;
-    padding: 0 2rem;
-    z-index: 1;
-    letter-spacing: 0.2em;
-}
-
-footer .footer-v2{
-    padding: 4em 0;
-}
-
-.footer-lefth{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 2vw;
-}
-
-.footer-lefth p{
-    color: #FFF;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.botonenviar{
-    padding: 1vw 2vw;
-    color: black;
-    background: #E9E600;
-    border: none;
-    border-radius: 2px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    font-size: 1vw;
-}
-
-.botonenviar:hover{
-    background: #e9e500a2;
-}
-
-.email{
-    display: flex;
-    font-family:'Helvetica Neue', sans-serif;
-    background: #1E1E1E;
-    border: 1px solid #555555;
-    border-radius: 2px;
-    margin: 0 20px;
-}
-
-.formulario-footer{
-    display: flex;
-    align-items: center;
-
-}
-
-.column{
-    width: 32%;
-}
-
-.info{
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 2vw;
-}
-
-.info a{
-    color: #555555;
-}
-
-.info a:hover{
-    color: #E9E600;
-}
-
-.social{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.social i{
-    color: white;
-}
-
-.social i:hover{
-    color: #E9E600;
-}
-
-.links{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.pagos{
-    width: 40%;
-}
-
-.copy a{
-    color: #FFF;
-}
-
-/**FOOTER END**/
-
 @media (min-width: 361px) {
     .email{
         font-size: 3vw;
@@ -371,12 +261,6 @@ footer .footer-v2{
     }
     .content-g3{
         width: 60%;
-    }
-    .email{
-        font-size: 2vw;
-    }
-    .info{
-        font-size: 2vw;
     }
 }
 
