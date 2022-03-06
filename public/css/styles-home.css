@@ -199,7 +199,7 @@ a{
     background-position: center;
     background-size: cover;
     width: 100%;
-    padding: 1rem 1rem 20% 1rem;
+    padding: 10rem 1rem 20% 1rem;
     font-weight: 200;
 }
 
@@ -238,7 +238,6 @@ a{
     .banner{
         height: 70vw;
     }
-    
     .slide-1{
         height: 70vw;
     }
@@ -261,6 +260,7 @@ a{
     }
     .content-g3{
         width: 60%;
+        padding: 1rem 1rem 20% 1rem;
     }
 }
 
