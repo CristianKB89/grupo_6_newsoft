@@ -8,8 +8,8 @@ const path = require('path');
 app.use(express.static('public'));
 app.set("views engine", "ejs");
 app.use('/', rutas);
-app.use('/', rutas_usuarios);
-app.use('/', rutas_productos);
+app.use('/users', rutas_usuarios);
+app.use('/product', rutas_productos);
 
 /*
 app.get('/productCart',(req,res) => {
