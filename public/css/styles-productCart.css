@@ -72,7 +72,7 @@ header a{
 .img-car{
   background: #e4e5e7;
   margin-right: 10px;
-  width: 25%;
+  width: 25vw;
   padding: 10px;
 }
 
@@ -149,6 +149,7 @@ justify-content: space-between;
 ul li{
   margin-left: 15px auto;
   transition: 150ms opacity, 200ms transform;
+  list-style: none;
 }
 
 .add {
@@ -190,4 +191,14 @@ ul li{
 .info{
   width: 100%;
 
+}
+
+@media (min-width: 1200px) {
+  body {
+    padding: 30px 80px;
+  }
+  header a{
+    right: 80px;
+    top: 30px;
+}
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles-FormulariosProductos.css">
+  <link rel="stylesheet" href="css/normalize.css" />
+  <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles-header.css" />
+  <link rel="stylesheet" href="css/styles-footer.css" />
+  <title>Registro de productos</title>
+</head>
+
+<body class="body-register-confirmation">
+    <!-- HEADER -->
+    <header>
+      <%- include('./partials/header') %>
+    </header>
+
+  <main>
+    <form action="/producto-create" method="post" class="formulario-forma">
+      <div class="mensaje-logo">
+        <h1>FORMULARIO DE CREACION DE PRODUCTO</h1>
+      </div>
+      <P>Complete todos los campos para ingresar un nuevo producto</P><br>
+      <div class="formulado-interno">
+        <div class="control-formulario">
+          <label for="nombre_producto">Escriba el nombre del producto:</label>
+          <input type="text" name="nombre_producto" id="nombre_producto" placeholder="NOMBRE DEL PRODUCTO"
+            class="control-input" required>
+        </div>
+        <div class="control-formulario">
+          <label for="marca_producto">Seleccione la marca del producto:</label>
+          <select name="marca_producto" id="marca_producto" class="control-input" required>
+            <option>Logitech</option>
+            <option>Corsair</option>
+            <option>Razer</option>
+            <option>Ozone</option>
+          </select>
+        </div>
+        <div class="control-formulario">
+          <label for="precio_producto">Indique el precio del producto:</label>
+          <input type="number" name="precio_producto" id="precio_producto" placeholder="$ 000.000" class="control-input"
+            required>
+        </div>
+        <div class="control-formulario">
+          <label for="categoria_producto">Seleccione la categoria del producto:</label>
+          <select name="categoria_producto" id="categoria_producto" class="control-input" required>
+            <option>Perifericos</option>
+            <option>Tarjetas graficas</option>
+            <option>Monitores</option>
+            <option>Audio</option>
+          </select>
+        </div>
+        <div class="control-formulario">
+          <label for="color_producto">Seleccione el color del producto:</label>
+          <select name="color_producto" id="color_producto" class="control-input" required>
+            <option value="#ff0000">Rojo</option>
+            <option value="#00ff00">Verde</option>
+            <option value="#0000ff">Azul</option>
+            <option value="#770077">Morado</option>
+          </select>
+        </div>
+        <div class="control-formulario">
+          <label for="accesorios">Indique los accesorios del producto:</label>
+          <input type="texT" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input" required>
+        </div>
+        <div class="control-formulario">
+          <label for="imagen_producto">Ingrese una imagen del producto:<br><br></label>
+          <input type="file" name="imagen_producto" id="imagen_producto" class="control-input" accept=".jpg" multiple>
+        </div>
+        <div class="control-formulario">
+          <label for="descripcion_producto">Realize una breve descripcion del producto:</label>
+          <textarea name="descripcion_producto" id="descripcion_producto" placeholder="DESCRIPCION DEL PRODUCTO"
+            class="control-input"></textarea>
+        </div>
+        <br>
+        <br>
+        <div class="control-envio"><button type="submit" class="boton-formulario">GUARDAR PRODUCTO</button>
+          <a href="editar-producto" class="control-final">EDITAR PRODUCTO EXISTENTE</a>
+        </div>
+        <br>
+        <div class="iconos-finales"><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i
+            class="fab fa-facebook-f"></i> <i class="fab fa-instagram"></i></div>
+
+    </form>
+  </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <%- include('./partials/footer') %>
+    </footer>
+</body>
+</html>
