@@ -15,7 +15,6 @@ body{
     justify-content: center;
     background-color: black;
     border-radius: 50px;
-    padding: 20px;
 }
 .contenedor1{
     max-width: 100vw;
@@ -37,9 +36,10 @@ body{
     font-family: 'Bebas Neue', cursive;
     font-size: 1.5rem;
     font-weight: lighter;
+    padding: 10px;
 }
 .form{
-    width: 90vw;
+    width: 100vw;
     font-family: 'Open Sans', sans-serif;
     background-color: black; 
 }
