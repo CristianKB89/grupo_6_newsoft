@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="/css/styles-FormulariosProductos.css">
   <link rel="stylesheet" href="/css/normalize.css" />
   <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
@@ -14,28 +13,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
-
-  <title>Edicion de productos</title>
+  <title>Registro de productos</title>
 </head>
 
 <body class="body-register-confirmation">
-  <!-- HEADER -->
-  <header>
-    <%- include('../partials/header') %>
-  </header>
+    <!-- HEADER -->
+    <header>
+      <%- include('../partials/header') %>
+    </header>
 
   <main>
     <form action="/producto-create" method="post" class="formulario-forma">
       <div class="mensaje-logo">
-        <h1>EDICIÓN DE PRODUCTO</h1>
+        <h1>FORMULARIO DE CREACION DE PRODUCTO</h1>
       </div>
-      <P>Complete todos los campos para editar correctamente el producto</P><br>
+      <P>Complete todos los campos para ingresar un nuevo producto</P><br>
       <div class="formulado-interno">
         <div class="control-formulario">
-          <label for="nombre_producto">Seleccione el nombre del producto:</label>
-          <select name="nombre_producto" id="nombre_producto" class="control-input" required>
-            <option></option>
-          </select>
+          <label for="nombre_producto">Escriba el nombre del producto:</label>
+          <input type="text" name="nombre_producto" id="nombre_producto" placeholder="NOMBRE DEL PRODUCTO"
+            class="control-input" required>
         </div>
         <div class="control-formulario">
           <label for="marca_producto">Seleccione la marca del producto:</label>
@@ -82,12 +79,10 @@
           <textarea name="descripcion_producto" id="descripcion_producto" placeholder="DESCRIPCION DEL PRODUCTO"
             class="control-input"></textarea>
         </div>
-
-
         <br>
         <br>
-        <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR PRODUCTO</button>
-          <a href="ingresar-producto" class="control-final">INGRESAR UN NUEVO PRODUCTO</a>
+        <div class="control-envio"><button type="submit" class="boton-formulario">GUARDAR PRODUCTO</button>
+          <a href="editar-producto" class="control-final">EDITAR PRODUCTO EXISTENTE</a>
         </div>
         <br>
         <div class="iconos-finales"><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i
@@ -96,11 +91,9 @@
     </form>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <%- include('../partials/footer.ejs') %>
-  </footer>
-
+    <!-- FOOTER -->
+    <footer>
+      <%- include('../partials/footer') %>
+    </footer>
 </body>
-
 </html>
