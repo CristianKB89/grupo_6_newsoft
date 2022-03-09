@@ -15,5 +15,3 @@ app.use('/product', rutas_productos);
 app.listen(process.env.PORT || 3030,() => {
     console.log('Servidor corriendo en el puerto 3030');
 });
-
- 
