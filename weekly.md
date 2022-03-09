@@ -7,4 +7,4 @@
     - Hay un problema con la ruta de los formularios ya que al ingresar el formulario a la carpeta de views/products no linkea correctamente el logo del header.
     - 
 3. Qué va a hacer hoy.
-    - Poner donde se requiera el footer y el header modularizado con EJS. 
+    - Poner donde se requiera el footer y el header modularizado con EJS.
