@@ -20,14 +20,17 @@ Sprint # 2
     -Posponer las reuniones de los merge y en lo posible estar todos.
 
 Sprint # 3
-1. Comenzar a hacer: 
-    -Mejorar la comunicación para trabajo más grupal.
+1. Comenzar a hacer:
+
 2. Hacer más:
-    -Mejorar la gestión del tiempo y dedicarle diariamente o máximo cada dos días un par de horas al proyecto.
-    -Contribuir todos en el repositorio.
+
 3. Continuar haciendo:
-    -Reportar avance por el grupo de chat, y cominicar problemas encontrados y documentarlo en algún lado.
+
 4. Hacer menos:
-    - Bugs.
+
 5. Dejar de hacer:
-    - En este sprint no encontramos cosas para dejar de hacer.
+
+
+● Qué hizo ayer.
+● Si se encontró con algún impedimento.
+● Qué va a hacer hoy.
