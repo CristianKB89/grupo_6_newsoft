@@ -1,83 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link href="./css/styles-login.css" rel="stylesheet">
-    <link href="./css/normalize.css" rel="stylessheet">
-    <script src="https://kit.fontawesome.com/98fbc29962.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="./img/logo-one.png" rel="icon">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/fcf9db6539.js" crossorigin="anonymous"></script>
+    <!---->
+    <link href="/css/styles-login.css" rel="stylesheet">
+    <link href="/css/normalize.css" rel="stylessheet">
+    <link rel="stylesheet" href="/css/styles-header.css" />
+    <link rel="stylesheet" href="/css/styles-footer.css" />
 </head>
+
 <body>
-    
     <header>
+        <!---->
+        <%- include('../partials/header') %>
     </header>
-
-      <br>
-      <br>
-      <br>
-
-      <div class="contenedor">
-          
-        <div class="contenedor1">
-            <h2 class="titulo">INICIO DE SESIÓN</h2>
-            <form action="/login.html" method="POST" class="form">
-                
-                <div class="email">
-                    <label for="email" class="name">
-                        <span>DIRECCIÓN DE CORREO ELECTRÓNICO</span> 
-                    </label>
-                    <input type="email" name="email" id="email" required>
-                </div>
-                <div class="rectangulo"></div>
-                <br>
-                <div class="password">
-                    <label for="password" class="name">
-                        <span>CONTRASEÑA</span> 
-                    </label>
-                    <input type="password" name="password" id="password" required>
-                </div> 
-                <div class="rectangulo"></div>
-            </form>
-        </div>
-    
-        <div class="contenedor2">
-            <div>
-                <input type="checkbox" name="remember" value="Remember" checked class="check">
-                <label for="remember" class="remember">Mantener la sesión iniciada</label>  
+    <main>
+        <div class="contenedor">
+            <div class="contenedor1">
+                <h2 class="titulo">INICIO DE SESIÓN</h2>
+                <form action="/login.html" method="POST" class="form">
+                    <div class="email-login">
+                        <label for="email" class="name">
+                            <span>DIRECCIÓN DE CORREO ELECTRÓNICO</span>
+                        </label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="rectangulo"></div>
+                    <br>
+                    <div class="password">
+                        <label for="password" class="name">
+                            <span>CONTRASEÑA</span>
+                        </label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+                    <div class="rectangulo"></div>
+                </form>
             </div>
-            <a href="/recover">
-                Recuperar contraseña
-            </a>
+
+            <div class="contenedor2">
+                <div>
+                    <input type="checkbox" name="remember" value="Remember" checked class="check">
+                    <label for="remember" class="remember">Mantener la sesión iniciada</label>
+                </div>
+                <div>
+                    <a href="/recover" class="recup">Recuperar contraseña</a>
+                </div>
+            </div>
+
+            <div class="contenedor3">
+                <p class="recuperar">Este sitio está protegido por Captcha y se aplican su <a href="#">Política de
+                        privacidad</a> y sus <a id="linkpolitica" href="#">Términos de servicio</a></p>
+                <button type="submit" class="boton-inicio-sesion"><b>INICIAR SESIÓN</b></button>
+            </div>
+
+            <div class="contenedor4">
+                <p class="conten4"><i class="fa fa-gift" aria-hidden="true" id="icon"></i> Ganar bono</p>
+                <p class="cont4"><i class="far fa-star" id="icon"></i> Somos new soft</p>
+            </div>
+
+            <p>No tienes cuenta? Registrate <a href="/register">aquí</a></p>
+
         </div>
-        
-        <div class="contenedor3">
-            <p class="recuperar">Este sitio está protegido por Captcha y se aplican su <a href="#">Política de privacidad</a> y sus <a id="linkpolitica" href="#">Términos de servicio</a></p> 
-            <button type="submit" class="boton-inicio-sesion"><b>INICIAR SESIÓN</b></button>      
-        </div>
-    
-        <div class="contenedor4">
-            <p class="conten4"><i class="fa fa-gift" aria-hidden="true" id="icon"></i> Ganar bono</p>
-            <p class="cont4"><i class="far fa-star" id="icon"></i> Somos new soft</p>
-        </div>
-        
-        <div class="contenedor5">
-            <i class="fab fa-twitter" id="redes"></i>
-            <i class="fab fa-youtube" id="redes"></i>
-            <i class="fab fa-facebook-f" id="redes"></i>
-            <i class="fab fa-instagram" id="redes"></i>
-        </div>
-        
-        <p>No tienes cuenta? Registrate <a href="/users/register">aquí</a></p>
-     
-      </div>
-      
-    
+    </main>
+
     <footer>
+        <!-- <%- include('../partials/footer') %> -->
     </footer>
 
 </body>
+
 </html>
