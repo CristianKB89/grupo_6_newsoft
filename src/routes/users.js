@@ -6,7 +6,7 @@ router.get('/register', controlador.registro);
 router.post('/register-confirmation', controlador.confirmacion_registro);
 
 router.get('/login', controlador.login);
-router.post('/recover', controlador.recover);
+router.get('/recover', controlador.recover);
 
 module.exports = router;
 

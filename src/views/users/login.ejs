@@ -10,11 +10,13 @@
     <script src="https://kit.fontawesome.com/98fbc29962.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="./img/logo-one.png" rel="icon">
+    <!----><link rel="stylesheet" href="/css/styles-header.css" />
+    <link rel="stylesheet" href="/css/styles-footer.css" />
 </head>
 <body>
     
     <header>
-        <%- include('./partials/header') %>
+        <!----><%- include('../partials/header') %>
     </header>
 
       <br>
@@ -27,7 +29,7 @@
             <h2 class="titulo">INICIO DE SESIÓN</h2>
             <form action="/login.html" method="POST" class="form">
                 
-                <div class="email">
+                <div class="email-login">
                     <label for="email" class="name">
                         <span>DIRECCIÓN DE CORREO ELECTRÓNICO</span> 
                     </label>
@@ -50,9 +52,9 @@
                 <input type="checkbox" name="remember" value="Remember" checked class="check">
                 <label for="remember" class="remember">Mantener la sesión iniciada</label>  
             </div>
-            <a href="/recover">
-                Recuperar contraseña
-            </a>
+            <div>
+                <a href="/recover" class="recup">Recuperar contraseña</a>
+            </div>
         </div>
         
         <div class="contenedor3">
@@ -78,7 +80,7 @@
       
     
     <footer>
-        <%- include('./partials/footer') %>
+        <!----><%- include('../partials/footer') %>
     </footer>
 
 </body>

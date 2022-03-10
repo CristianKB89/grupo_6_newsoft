@@ -10,10 +10,14 @@
     <script src="https://kit.fontawesome.com/98fbc29962.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="./img/logo-one.png" rel="icon">
+    <link rel="stylesheet" href="/css/styles-header.css" />
+    <link rel="stylesheet" href="/css/styles-footer.css" />
 </head>
 <body>
     
-    <header></header>
+    <header>
+        <%- include('../partials/header') %>
+    </header>
     <br>
     <br>
     <br>
@@ -37,6 +41,8 @@
             </form>
             <a href="/login">Volver al inicio de sesion</a>
     </div>
-    
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
 </body>
 </html>
