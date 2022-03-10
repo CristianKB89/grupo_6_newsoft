@@ -4,6 +4,11 @@ header{
     width: 100%;
     z-index: 1;
 }
+
+img{
+    width: 100%;
+}
+
 .top-header{
     display: none;
     font-family: 'Open Sans', sans-serif;
