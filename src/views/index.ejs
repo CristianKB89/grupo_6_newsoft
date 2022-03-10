@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/fcf9db6539.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/styles-home.css" />
+  <link rel="stylesheet" href="css/styles-header.css" />
+  <link rel="stylesheet" href="css/styles-footer.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <%- include('./partials/header') %>
+  </header>
+  <main>
+    <div class="banner">
+      <div class="slide-1">
+        <video class="video-slide" autoplay loop preload muted src="videos/bgn-banner-k70-rgb-pro.mp4"></video>
+        <div class="des-slide">
+          <h1>K70 RGB PRO</h1>
+          <p>Timeless design meets peerless technology.</p>
+          <button><a href="/productdetail">COMPRAR AHORA</a></button>
+        </div>
+      </div>
+    </div>
+    <section class="explore-product">
+      <div class="product">
+        <a href="/productdetail">
+          <img src="img/explore-cases.png" alt="" />
+        </a>
+        <div class="product-name">CASES</div>
+      </div>
+      <div class="product">
+        <a href="/productdetail">
+          <img src="img/explore-keyboards.png" alt="" />
+        </a>
+        <div class="product-name">KEYBOARDS</div>
+      </div>
+
+      <div class="product">
+        <a href="/productdetail">
+          <img src="img/explore-headsets.png" alt="" />
+        </a>
+        <div class="product-name">HEADSETS</div>
+      </div>
+      <div class="product">
+        <a href="/productdetail">
+          <img src="img/explore-monitors.png" alt="" />
+        </a>
+        <div class="product-name">MONITORS</div>
+      </div>
+    </section>
+    <div class="g1-content">
+      <section class="content-g1">
+        <a href="#">
+          <h2>BEST SELLERS</h2>
+          <p>There's a reason this gear's so popular.</p>
+          <button><a href="#">COMPRAR AHORA</a></button>
+        </a>
+      </section>
+      <section class="content-g2">
+        <a href="#">
+          <h2>BEST SELLERS</h2>
+          <p>There's a reason this gear's so popular.</p>
+          <button><a href="#">COMPRAR AHORA</a></button>
+        </a>
+      </section>
+    </div>
+    <div class="g1-content">
+      <section class="content-icue">
+        <a href="#">
+          <img src="img/logo-one.png" alt="">
+          <h2>BEST SELLERS</h2>
+          <p>There's a reason this gear's so popular.</p>
+        </a>
+      </section>
+      <section class="content-g3">
+        <a href="#">
+
+        </a>
+      </section>
+    </div>
+  </main>
+  <!-- FOOTER -->
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
+</body>
+
+</html>
