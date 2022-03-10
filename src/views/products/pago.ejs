@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles-register.css">
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <script src="/https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+  <title>Carrito</title>
+</head>
+
+<body>
+  <header>
+    <div class="main-header">
+      <a class="burger-menu" href="#">
+        <div>
+          <i class="fas fa-bars"></i>
+        </div>
+      </a>
+      <img src="/images/logo-one.png" class="logo" />
+      <nav class="main-nav">
+        <div>
+          <a href="#">
+            <i class="fa-solid fa-square-1"></i>
+            <span class="nav-btn-text">Información de contacto</span>
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-square-2"></i>
+            <span class="nav-btn-text">Método de pago</span>
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-square-3"></i>
+            <span class="nav-btn-text">Método de envío</span>
+          </a>
+        </div>
+      </nav>
+      <div class="search-cart">
+        <button><i class="fas fa-search"></i></button>
+        <button><i class="fas fa-shopping-cart"></i></button>
+      </div>
+    </div>
+  </header>
+  <!----Pago-->
+  <section class="checkout">
+
+    <h2 class="section-heading">Resumen de envio </h2>
+    <form>
+      <div class="form-group col-md-6">
+        <label class="font-weight-bold">Contacto <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" placeholder="Confirma tu contacto">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="font-weight-bold">Dirección <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" placeholder="confirma dirección">
+      </div>
+      <h2 class="section-heading">Método de envío</h2>
+
+      <div class="payment-form">
+
+        <div class="payment-method">
+
+          <button class="method selected">
+            <ion-icon name="card"></ion-icon>
+
+            <span>Tarjeta débito7crédito</span>
+
+            <ion-icon class="checkmark fill" name="checkmark-circle"></ion-icon>
+          </button>
+          <div class="form-row mb-2">
+            <div class="form-group col-md-6">
+              <label class="font-weight-bold">Número de tarjeta <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" placeholder="Número de tarjeta">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="font-weight-bold">Nombre titular<span class="text-danger">*</span></label>
+              <input type="text" class="form-control" placeholder="Nombre títular">
+            </div>
+
+            <button class="method">
+              <ion-icon name="logo-paypal"></ion-icon>
+
+              <span>Pago PSE y cuentas bancarias</span>
+              <div class="form-group col-md-6">
+                <label class="font-weight-bold">Pago Paypal<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Pago Paypal">
+              </div>
+              <div class="form-group col-md-6">
+                <label class="font-weight-bold">Pago contraentrega<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Pago contraentrega">
+              </div>
+              <div class="form-group col-md-6">
+                <label class="font-weight-bold">Pago víaBaloto<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Pago víaBaloto">
+              </div>
+
+              <ion-icon class="checkmark" name="checkmark-circle-outline"></ion-icon>
+            </button>
+            <button class="btn btn-primary width-100">Continuar con método de envió</button>
+            <div class="input-flex">
+              <div class="expire-date">
+                <label for="expire-date" class="label-default">Fecha de vencimiento</label>
+                <div class="input-flex">
+
+                  <input type="number" name="day" id="expire-date" placeholder="31" min="1" max="31"
+                    class="input-default">
+                  /
+                  <input type="number" name="month" id="expire-date" placeholder="12" min="1" max="12"
+                    class="input-default">
+                </div>
+                <section class="cart">
+
+                  <div class="cart-item-box">
+
+                    <h2 class="section-heading">Revise su carro</h2>
+
+                    <div class="product-card">
+
+                      <div class="card">
+
+                        <div class="img-box">
+                          <img src="/images/teclado.png" alt="teclado" width="80px" class="product-img">
+                        </div>
+
+                        <div class="detail">
+
+                          <h4 class="product-name">TECLADOS ESTÁNDAR PARA JUEGOS</h4>
+
+                          <div class="compra">
+
+                            <div class="product-qty">
+                              <button id="decrement">
+                                <i class="fa-solid fa-minus"></i>
+                              </button>
+
+                              <span id="quantity">1</span>
+
+                              <button id="increment">
+                                <i class="fa-solid fa-plus"></i>
+                              </button>
+                            </div>
+
+                            <div class="price">
+                              $ <span id="price">450.000 COP</span>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <button class="product-close-btn">
+                          <ion-icon name="close-outline"></ion-icon>
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                    <div class="product-card">
+
+                      <div class="card">
+
+                        <div class="img-box">
+                          <img src="/images/chasis.png" alt="chasis" width="80px" class="product">
+                        </div>
+
+                        <div class="detail">
+
+                          <h4 class="product-name">
+                            Chasis ATX semitorre iCUE 4000D RGB AIRFLOW QL Edition — True White</h4>
+
+                          <div class="Compra">
+
+                            <div class="product-qty">
+                              <button id="decrement">
+                                <i class="fa-solid fa-minus"></i>
+                              </button>
+
+                              <span id="quantity">1</span>
+
+                              <button id="increment">
+                                <i class="fa-solid fa-plus"></i>
+                              </button>
+                            </div>
+
+                            <div class="price">
+                              $ <span id="price">600.000 COP</span>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <button class="product-close-btn">
+                          <ion-icon name="close-outline"></ion-icon>
+                        </button>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="discount-token">
+
+                    <label for="discount-token" class="label-default">Código de descuento o tarjeta regalo</label>
+
+                    <div class="amount">
+
+                      <div class="subtotal">
+                        <span>Subtotal</span> <span>$ <span id="subtotal">0.00</span></span>
+                      </div>
+
+                      <div class="descuento">
+                        <span>Descuento estimado</span> <span>$ <span id="tax">0.00</span></span>
+                      </div>
+
+                      <div class="envio">
+                        <span>Envio</span> <span>$ <span id="shipping">0.00</span></span>
+                      </div>
+
+                      <div class="impuesto">
+                        <span>Impuesto</span> <span>$ <span id="total">0.00</span></span>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </section>
+    </form>
+
+    <div class="discount-token">
+      <label for="discount-token" class="label-default">Código de descuento o tarjeta regalo</label>
+  </section>
+  </main>
+</body>
+
+</html>

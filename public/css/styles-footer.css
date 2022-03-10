@@ -12,6 +12,10 @@ footer{
     letter-spacing: 0.2em;
 }
 
+img{
+    width: 100%;
+}
+
 footer .footer-v2{
     padding: 4em 0;
 }
