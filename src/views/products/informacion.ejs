@@ -20,7 +20,34 @@
 <body>
 
   <header>
-
+    <div class="main-header">
+      <a class="burger-menu" href="#">
+        <div>
+          <i class="fas fa-bars"></i>
+        </div>
+      </a>
+      <img src="/images/logo-one.png" class="logo" />
+      <nav class="main-nav">
+        <div>
+          <a href="#">
+            <i class="fa-solid fa-square-1"></i>
+            <span class="nav-btn-text">Información de contacto</span>
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-square-2"></i>
+            <span class="nav-btn-text">Método de pago</span>
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-square-3"></i>
+            <span class="nav-btn-text">Método de envío</span>
+          </a>
+        </div>
+      </nav>
+      <div class="search-cart">
+        <button><i class="fas fa-search"></i></button>
+        <button><i class="fas fa-shopping-cart"></i></button>
+      </div>
+    </div>
   </header>
 
   <!----información-->
@@ -62,135 +89,6 @@
 
         <button class="btn btn-primary width-100">Continuar con método de envió</button>
     </form>
-
-
-
-    <section class="cart">
-
-      <div class="cart-item-box">
-
-        <h2 class="section-heading">Revise su carro</h2>
-
-        <div class="product-card">
-
-          <div class="card">
-
-            <div class="img-box">
-              <img src="/images/teclado.png" alt="teclado" width="80px" class="product-img">
-            </div>
-
-            <div class="detail">
-
-              <h4 class="product-name">TECLADOS ESTÁNDAR PARA JUEGOS</h4>
-
-              <div class="compra">
-
-                <div class="product-qty">
-                  <button id="decrement">
-                    <i class="fa-solid fa-minus"></i>
-                  </button>
-
-                  <span id="quantity">1</span>
-
-                  <button id="increment">
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
-                </div>
-
-                <div class="price">
-                  $ <span id="price">450.000 COP</span>
-                </div>
-
-              </div>
-
-            </div>
-
-            <button class="product-close-btn">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-          </div>
-
-        </div>
-
-        <div class="product-card">
-
-          <div class="card">
-
-            <div class="img-box">
-              <img src="/images/chasis.png" alt="chasis" width="80px" class="product">
-            </div>
-
-            <div class="detail">
-
-              <h4 class="product-name">
-                Chasis ATX semitorre iCUE 4000D RGB AIRFLOW QL Edition — True White</h4>
-
-              <div class="Compra">
-
-                <div class="product-qty">
-                  <button id="decrement">
-                    <i class="fa-solid fa-minus"></i>
-                  </button>
-
-                  <span id="quantity">1</span>
-
-                  <button id="increment">
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
-                </div>
-
-                <div class="price">
-                  $ <span id="price">600.000 COP</span>
-                </div>
-
-              </div>
-
-            </div>
-
-            <button class="product-close-btn">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="discount-token">
-
-        <label for="discount-token" class="label-default">Código de descuento o tarjeta regalo</label>
-
-      </div>
-      </div>
-
-      <div class="amount">
-
-        <div class="subtotal">
-          <span>Subtotal</span> <span>$ <span id="subtotal">0.00</span></span>
-        </div>
-
-        <div class="descuento">
-          <span>Descuento estimado</span> <span>$ <span id="tax">0.00</span></span>
-        </div>
-
-        <div class="envio">
-          <span>Envio</span> <span>$ <span id="shipping">0.00</span></span>
-        </div>
-
-        <div class="impuesto">
-          <span>Impuesto</span> <span>$ <span id="total">0.00</span></span>
-        </div>
-
-      </div>
-
-      </div>
-
-    </section>
-    <section>
-      <input class="botonenviar" type="submit" name="enviar" value="Tramitar su pedido"></input></p>
-    </section>
     </main>
     <footer>
       
