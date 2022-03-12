@@ -14,16 +14,16 @@
   <link rel="stylesheet" href="/css/styles-FormulariosProductos.css">
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
-  
+
 
   <title>Registro de productos</title>
 </head>
 
 <body class="body-register-confirmation">
-    <!-- HEADER -->
-    <header style="position: relative;">
-      <%- include('../partials/header') %>
-    </header>
+  <!-- HEADER -->
+  <header style="position: relative;">
+    <%- include('../partials/header') %>
+  </header>
 
   <main>
     <form action="ingresar-producto" method="post" class="formulario-forma">
@@ -48,8 +48,8 @@
         </div>
         <div class="control-formulario">
           <label for="precio_producto">Indique el precio del producto:</label>
-          <input type="number" name="precio_producto" id="precio_producto" placeholder="$ 000.000" class="control-input"
-            required>
+          <input class="precio" type="number" name="precio_producto" id="precio_producto" placeholder="$ 000.000"
+            class="control-input" required>
         </div>
         <div class="control-formulario">
           <label for="categoria_producto">Seleccione la categoria del producto:</label>
@@ -88,15 +88,14 @@
           <a href="editar-producto" class="control-final">EDITAR PRODUCTO EXISTENTE</a>
         </div>
         <br>
-        <div class="iconos-finales"><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i
-            class="fab fa-facebook-f"></i> <i class="fab fa-instagram"></i></div>
 
     </form>
   </main>
 
-    <!-- FOOTER -->
-    <footer>
-      <%- include('../partials/footer') %>
-    </footer>
+  <!-- FOOTER -->
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
 </body>
+
 </html>

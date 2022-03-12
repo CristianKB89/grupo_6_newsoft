@@ -22,39 +22,16 @@ body{
     color:#fff;
     background-color:black;
     margin: auto;
-    text-align: center;
+
 }
 
 img{
     width: 100%;
 }
 
-p{
-    font-size:12px ;
-}
-
-a{
-    font-size:8px ;
-}
 
 form a{
     font-size:12px ;   
-}
-
-h1{
-    font-size:16px ;
-}
-
-h2{
-    font-size:24px ;
-}
-
-h3{
-    font-size:18px ;
-}
-
-h4{
-    font-size:16px ;
 }
 
 .formulario-forma{
@@ -75,6 +52,7 @@ h4{
     background-color: black;
     margin-bottom: 5%;
     border:0;
+    border-radius: 5px;
 }
 
 /*Barra de codigo register-confirmation*/
@@ -128,6 +106,14 @@ form div i{
     font-size: 8px;
 }
 
+.control-envio{
+    width: 30%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 8px 0;
+    font-size: 2vw;
+}
+
 /*video*/
 #video_background {
 
@@ -175,11 +161,12 @@ form div i{
 
 /*Transiciones*/
 
-.formulado-interno:hover{
+.formulado-interno{
 margin: 10px solid white;
 background-color: rgba(150, 152, 154, 0.2);
 padding: 10px;
-border-radius: 3%;
+border-radius: 5px;
+padding-bottom: 20px;
 }
 .formulado-interno{
     transition: all 0.5s;
@@ -197,7 +184,6 @@ border-radius: 3%;
 .control-input{
     transition: all 0.5s;
 }
-
 
 
 /*Animacion*/
@@ -244,33 +230,10 @@ border-radius: 3%;
         padding: 10px 90px;
     }
 
-    p{
-        font-size:14px ;
-    }
-    
-    a{
-        font-size:16px ;
-    }
-    
     form a{
         font-size:14px ;   
     }
     
-    h1{
-        font-size:20px ;
-    }
-    
-    h2{
-        font-size:24px ;
-    }
-    
-    h3{
-        font-size:18px ;
-    }
-    
-    h4{
-        font-size:16px ;
-    }
 }
 
 
