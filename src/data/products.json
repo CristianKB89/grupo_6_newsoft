@@ -31,5 +31,16 @@
     "accesorios": "nada",
     "imagen": "",
     "descripcion": "nada"
+  },
+  {
+    "id": 4,
+    "nombre": "Jinson Stevenson",
+    "marca": "Logitech",
+    "precio": "9303904934994",
+    "categoria": "Mouse",
+    "color": "#0000ff",
+    "accesorios": "mlsdmldmlalmda",
+    "imagen": "download.jpg",
+    "descripcion": "sdjmldlmkadmlaldm"
   }
 ]
