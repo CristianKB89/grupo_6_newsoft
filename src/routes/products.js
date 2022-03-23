@@ -3,9 +3,10 @@ const router = express.Router();
 const controlador = require('../controllers/productController.js');
 
 router.get('/ingresar-producto', controlador.creacion);
-router.post('/ingresar-producto', controlador.creacion);
-router.get('/editar-producto', controlador.edicion);
-router.post('/editar-producto', controlador.edicion);
+router.post('/ingresar-producto', controlador.crearProducto);
+
+router.get('/edit/:id', controlador.edicion);
+router.put('/edit/:id', controlador.editarProducto);
 
 
 module.exports = router;

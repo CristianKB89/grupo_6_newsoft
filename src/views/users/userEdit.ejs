@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/normalize.css"/>
+  <link rel="stylesheet" href="/css/styles-register.css">
+  <link rel="stylesheet" href="/css/styles-header.css" />
+  <link rel="stylesheet" href="/css/styles-footer.css" />
+
+  <title>Edición Usuario</title>
+</head>
+
+<body class="body-register-confirmation">
+  <header style="position: relative;">
+    <%- include('../partials/header') %>
+  </header>
+
+    <main>
+        <form action="/users/edit/<%= usuarioEditar.id %>?_method=PUT" method="POST" class="formulario-forma" >
+         <div class="mensaje-logo"><h1>EDICIÓN DE USUARIO <%= usuarioEditar.nombre %></h1></div>
+         <P>Completa todos los campos para editar tu ID <%= usuarioEditar.nombre %></P>  
+         <div class="formulado-interno">
+          <div class="control-formulario">
+               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input"  value="<%= usuarioEditar.nombre %>" required>
+          </div>
+          <div class="control-formulario">
+                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input" value="<%= usuarioEditar.apellido %>" required>
+          </div>
+          <div class="control-formulario">
+               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" value="<%= usuarioEditar.email %>"" required>
+          </div>
+          <div class="control-formulario">
+               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input" value="<%= usuarioEditar.password %>" required minlength="8">
+          </div>
+          <div class="control-formulario">
+            <label for="imagen" class="form-label">Cargue una nueva imagen para su perfil</label>
+						<input type="file" id="imagen" name="imagen" class="control-input" value="<%= usuarioEditar.imagen %>" multiple>
+					</div>
+    
+
+          <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR USUARIO</button></div>
+          <br>
+        </div>
+        </form>
+    </main> 
+ 
+    <footer>
+      <%- include('../partials/footer.ejs') %>
+    </footer>
+
+ </body>
+</html>

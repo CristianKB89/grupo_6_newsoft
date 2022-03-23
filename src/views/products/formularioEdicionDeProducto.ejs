@@ -25,20 +25,20 @@
   </header>
 
   <main>
-    <form action="editar-producto" method="post" class="formulario-forma">
+    <form action="/product/edit/<%= productoEditar.id %>?_method=PUT"  method="POST" class="formulario-forma">
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
       </div>
-      <P>Complete todos los campos para editar correctamente el producto</P><br>
+      <P>Complete todos los campos para editar correctamente el producto: <%= productoEditar.nombre %></P><br>
       <div class="formulado-interno">
         <div class="control-formulario">
           <label for="nombre">Nombre del producto:</label>
           <input type="text" name="nombre" id="nombre" placeholder="NOMBRE DEL PRODUCTO"
-            class="control-input" required>
+            class="control-input" value="<%= productoEditar.nombre %>" required>
         </div>
         <div class="control-formulario">
           <label for="marca">Seleccione la marca del producto:</label>
-          <select name="marca" id="marca" class="control-input" required>
+          <select name="marca" id="marca" class="control-input" value="<%= productoEditar.marca %>" required>
             <option>Logitech</option>
             <option>Corsair</option>
             <option>Razer</option>
@@ -47,12 +47,12 @@
         </div>
         <div class="control-formulario">
           <label for="precio">Indique el precio del producto:</label>
-          <input type="number" name="precio" id="precio" placeholder="$ 000.000" class="control-input"
+          <input type="number" name="precio" id="precio" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.precio %>"
             required>
         </div>
         <div class="control-formulario">
           <label for="categoria">Seleccione la categoria del producto:</label>
-          <select name="categoria" id="categoria" class="control-input" required>
+          <select name="categoria" id="categoria" class="control-input" value="<%= productoEditar.categoria %>" required>
             <option>Cases</option>
             <option>Teclados</option>
             <option>Audifonos</option>
@@ -63,7 +63,7 @@
         </div>
         <div class="control-formulario">
           <label for="color">Seleccione el color del producto:</label>
-          <select name="color" id="color" class="control-input" required>
+          <select name="color" id="color" class="control-input" value="<%= productoEditar.color %>" required>
             <option value="#ff0000">Rojo</option>
             <option value="#00ff00">Verde</option>
             <option value="#0000ff">Azul</option>
@@ -72,23 +72,23 @@
         </div>
         <div class="control-formulario">
           <label for="accesorios">Indique los accesorios del producto:</label>
-          <input type="texT" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input" required>
+          <input type="texT" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input" value="<%= productoEditar.accesorios %>" required>
         </div>
         <div class="control-formulario">
           <label for="imagen">Ingrese una imagen del producto:<br><br></label>
-          <input type="file" name="imagen" id="imagen" class="control-input" accept=".jpg" multiple>
+          <input type="file" name="imagen" id="imagen" class="control-input" accept=".jpg" value="<%= productoEditar.imagen %>" multiple>
         </div>
         <div class="control-formulario">
-          <label for="descripcion">Realize una breve descripcion del producto:</label>
+          <label for="descripcion">Realice una breve descripcion del producto:</label>
           <textarea name="descripcion" id="descripcion" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input"></textarea>
+            class="control-input" ><%= productoEditar.descripcion %></textarea>
         </div>
 
 
         <br>
         <br>
         <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR PRODUCTO</button>
-          <a href="ingresar-producto" class="control-final">INGRESAR UN NUEVO PRODUCTO</a>
+          <a href="/product/ingresar-producto" class="control-final">INGRESAR UN NUEVO PRODUCTO</a>
         </div>
         <br>
     </form>

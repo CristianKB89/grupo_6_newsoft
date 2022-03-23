@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "nombre": "PC",
+    "marca": "Logitech",
+    "precio": "30000",
+    "categoria": "Audifonos",
+    "color": "#0000ff",
+    "accesorios": "Ninguno TOODS",
+    "imagen": "",
+    "descripcion": "TODOOOSSSSS"
+  },
+  {
+    "id": 2,
+    "nombre": "pc",
+    "marca": "Logitech",
+    "precio": "3000000",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Mouse",
+    "imagen": "",
+    "descripcion": "vacio"
+  },
+  {
+    "id": 3,
+    "nombre": "pc",
+    "marca": "Ozone",
+    "precio": "20000000",
+    "categoria": "Mouse",
+    "color": "#0000ff",
+    "accesorios": "nada",
+    "imagen": "",
+    "descripcion": "nada"
+  }
+]

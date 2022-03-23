@@ -24,22 +24,26 @@
   </header>
 
     <main>
-        <form action="register-confirmation" method="post" class="formulario-forma" >
+        <form action="register" method="post" class="formulario-forma" enctype="multipart/form-data">
          <div class="mensaje-logo"><h1>FORMULARIO DE REGISTRO</h1></div>
          <P>Complete todos los campos para crear su ID</P>  
          <div class="formulado-interno">
           <div class="control-formulario">
-               <input type="text" name="nombre_usuario" placeholder="NOMBRE" class="control-input" required>
+               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input" required>
           </div>
           <div class="control-formulario">
-                <input type="text" name="apellido_usuario" placeholder="APELLIDOS" class="control-input" required>
+                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input" required>
           </div>
           <div class="control-formulario">
-               <input type="email" name="email_usuario" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" required>
+               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" required>
           </div>
           <div class="control-formulario">
-               <input type="password" name="clave" placeholder="CONTRASEÑA" class="control-input" required minlength="8">
+               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input" required minlength="8">
           </div>
+          <div class="control-formulario">
+            <label for="imagen" class="form-label">Cargue una imagen para su perfil</label>
+						<input type="file" id="imagen" name="imagen" class="control-input" multiple>
+					</div>
             
           <div>
             <input type="checkbox" name="newsletter" id="newsletter">

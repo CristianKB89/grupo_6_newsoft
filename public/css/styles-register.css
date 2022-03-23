@@ -42,7 +42,7 @@ form a{
     margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
 }
 
 .control-input{

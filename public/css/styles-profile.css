@@ -1,0 +1,132 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+.linkfinal{
+    color: black;
+           background-color: yellow;
+           border-radius: 3%;
+           padding: 0.5%;
+           margin: 1%;
+           text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+
+a {
+    text-decoration: none;
+    padding: 0.5%;
+    margin: 1%;
+}
+
+a.button { color: black;
+           background-color: white;
+           border-radius: 3%;
+
+}
+
+.titulo{
+    font-size: 200%;
+}
+
+.linkfinal{
+    justify-content: center;
+    text-align: center;
+    align-self:center;
+    align-items: center;
+}
+
+form .button{
+    margin-top: 30%;
+    padding: auto;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.profileh3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.profilep {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+
+/* Contenedores */
+
+.container { padding: 0 2rem; }
+
+/* Cards */
+
+.card {
+    display: flex;
+    margin-bottom: 1rem;
+    border-radius: var(--default-radius);
+
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.15);
+}
+    .card-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        width: 30%;
+        padding: 1rem;
+        
+        background-color:rgba(236, 222, 14, 0.8);
+        color: black;
+        text-align: center;
+        
+        border-radius: var(--default-radius) 0 0 var(--default-radius);
+    }
+
+    .card-left figure {
+        height: 120px;
+        width: 120px;
+        margin: 0;
+
+        overflow: hidden;
+    
+        border-radius: 50%;
+        background-color: white;
+    }
+
+    .card-left figure img {
+        width: 100%;
+    }
+
+    .card-content {
+        width: 70%;
+        padding: 1rem;
+
+        background-color:  rgba(150, 152, 154, 0.2);
+        
+        border-radius: 0 var(--default-radius) var(--default-radius) 0;
+    }
+
+
+
