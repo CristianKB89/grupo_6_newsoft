@@ -4,7 +4,6 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-
 const controlador = {
     users: (req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -66,6 +65,7 @@ const controlador = {
     editarUsuario:(req, res) => {
        
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+        const filename = req.file.filename ;
 
         let id = req.params.id;
         
@@ -76,6 +76,7 @@ const controlador = {
                 user.apellido = req.body.apellido;
                 user.email = req.body.email;
                 user.password = req.body.password;
+                user.image =  filename;
                 
             }
             return user;

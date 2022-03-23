@@ -32,7 +32,7 @@
           <article class="card">
             <div class="card-left">
                <figure>
-                 <img src="/images/users/<%= usuarioBuscado.image ? usuarioBuscado.image : 'default.png' %>" alt="">
+                 <img src="/img/users/<%= usuarioBuscado.image ? usuarioBuscado.image : 'default.png' %>" alt="">
                </figure>
                <h3 class="profileh3">#<%= usuarioBuscado.id %></h3>
               </div>
@@ -41,8 +41,8 @@
                     <p class="profilep">Email:<%= usuarioBuscado.email %> </p>
                     <p class="profilep">Contraseña:<%= usuarioBuscado.password %> </p>
                 <div>     
-						         <a class="button" href="/users/edit/<%= usuarioBuscado.id %>" >EDITAR USUARIO</a>
-					           	<form action="/users/delete/<%=usuarioBuscado.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+						         <a class="button" href="/users/<%= usuarioBuscado.id %>/edit" >EDITAR USUARIO</a>
+					           	<form action="/users/<%=usuarioBuscado.id%>?_method=DELETE" method="POST" style="display: inline-flex">
 							       <button type="submit" class="button">ELIMINAR</button>
 					          	</form>
                     </div>

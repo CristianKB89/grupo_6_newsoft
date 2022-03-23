@@ -34,7 +34,7 @@
              <article class="card">
               <div class="card-left">
                  <figure>
-                   <img src="/images/users/<%= usuarios[i].image ? usuarios[i].image : 'default.png' %>"  alt="">
+                   <img src="/img/users/<%= usuarios[i].image ? usuarios[i].image : 'default.png' %>"  alt="">
                  </figure>
                   <h3 class="profileh3">#<%= usuarios[i].id %></h3>
               </div>
@@ -42,10 +42,10 @@
                     <h3 class="profileh3">Nombre usuario:<%= usuarios[i].nombre %> <%= usuarios[i].apellido %></h3>
                     <p class="profilep">Email:<%= usuarios[i].email %> </p>
                     <div>
-                     <a class="button" href="/users/userDetail/<%= usuarios[i].id %>" >VER DETALLE</a>
-						         <a class="button" href="/users/edit/<%= usuarios[i].id %>" >EDITAR USUARIO</a>
+                     <a class="button" href="/users/<%= usuarios[i].id %>" >VER DETALLE</a>
+						         <a class="button" href="/users/<%= usuarios[i].id %>/edit" >EDITAR USUARIO</a>
                     </div>
-					           	<form action="/users/delete/<%=usuarios[i].id%>?_method=DELETE" method="POST" style="display: inline-flex">
+					           	<form action="/users/<%=usuarios[i].id%>?_method=DELETE" method="POST" style="display: inline-flex">
 							       <button type="submit" class="button" >ELIMINAR USUARIO</button>
 					          	</form>
                        
@@ -54,7 +54,7 @@
             <br>
           <% } %>
           <br>
-          <h2 ><a class="linkfinal" href="/users/register" >REGRiSTRAR UN NUEVO USUARIO</a></h2>
+          <h2 ><a class="linkfinal" href="/users/create" >REGRiSTRAR UN NUEVO USUARIO</a></h2>
     
         
       </div>

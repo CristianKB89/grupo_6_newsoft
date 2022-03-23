@@ -25,7 +25,7 @@
   </header>
 
   <main>
-    <form action="/product/edit/<%= productoEditar.id %>?_method=PUT"  method="POST" class="formulario-forma">
+    <form action="/product/<%= productoEditar.id %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
       </div>
@@ -76,19 +76,19 @@
         </div>
         <div class="control-formulario">
           <label for="imagen">Ingrese una imagen del producto:<br><br></label>
-          <input type="file" name="imagen" id="imagen" class="control-input" accept=".jpg" value="<%= productoEditar.imagen %>" multiple>
+          <input type="file" name="imagen" id="imagen" class="control-input" accept=".jpg" value="<%= productoEditar.imagen %>" multiple required>
         </div>
         <div class="control-formulario">
           <label for="descripcion">Realice una breve descripcion del producto:</label>
           <textarea name="descripcion" id="descripcion" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input" ><%= productoEditar.descripcion %></textarea>
+            class="control-input" required><%= productoEditar.descripcion %></textarea>
         </div>
 
 
         <br>
         <br>
         <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR PRODUCTO</button>
-          <a href="/product/ingresar-producto" class="control-final">INGRESAR UN NUEVO PRODUCTO</a>
+          <a href="/product/create" class="control-final">INGRESAR UN NUEVO PRODUCTO</a>
         </div>
         <br>
     </form>

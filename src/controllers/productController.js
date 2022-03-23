@@ -12,6 +12,8 @@ const controlador = {
     crearProducto: (req, res) => {
      
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        const filename = req.file.filename ;
+
 		// capturar los datos del usuario
 		const nuevoProducto = {
 			id: productos.length == 0 ? 1 : productos[productos.length -1].id +1,
@@ -21,7 +23,7 @@ const controlador = {
 			categoria: req.body.categoria,
             color:req.body.color,	
             accesorios:req.body.accesorios,	
-            imagen:req.body.imagen,	
+            imagen:filename,	
             descripcion:req.body.descripcion
 		};
 		// guardarlo BD
@@ -37,7 +39,7 @@ const controlador = {
     edicion: (req, res) => {
         let idProducto = req.params.id;
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let productoEditar = productos.find( producto => producto.id == idProducto)
+        let productoEditar = productos.find( products => products.id == idProducto)
 
         res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {productoEditar:productoEditar});
        
@@ -46,6 +48,7 @@ const controlador = {
     editarProducto:(req, res) => {
        
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        const filename = req.file.filename ;
 
         let id = req.params.id;
         
@@ -58,7 +61,7 @@ const controlador = {
                 producto.categoria = req.body.categoria;
 				producto.color = req.body.color;
 				producto.accesorios = req.body.accesorios;
-				producto.imagen = req.body.imagen;
+				producto.imagen = filename;
 				producto.descripcion = req.body.descripcion;
                 
             }
@@ -70,6 +73,17 @@ const controlador = {
             res.redirect('/productdetail')
         
     },
+
+    eliminar : (req, res) => {
+        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let idProducto = req.params.id
+		
+		let productoFiltrado = productos.filter( producto => producto.id != idProducto)
+
+		fs.writeFileSync( productsFilePath , JSON.stringify(productoFiltrado, null, 2))
+
+        res.redirect('/product')
+	},
 
 
 }

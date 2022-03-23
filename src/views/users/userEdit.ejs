@@ -24,7 +24,7 @@
   </header>
 
     <main>
-        <form action="/users/edit/<%= usuarioEditar.id %>?_method=PUT" method="POST" class="formulario-forma" >
+        <form action="/users/<%= usuarioEditar.id %>?_method=PUT" method="POST" class="formulario-forma" enctype="multipart/form-data">
          <div class="mensaje-logo"><h1>EDICIÓN DE USUARIO <%= usuarioEditar.nombre %></h1></div>
          <P>Completa todos los campos para editar tu ID <%= usuarioEditar.nombre %></P>  
          <div class="formulado-interno">
@@ -42,7 +42,7 @@
           </div>
           <div class="control-formulario">
             <label for="imagen" class="form-label">Cargue una nueva imagen para su perfil</label>
-						<input type="file" id="imagen" name="imagen" class="control-input" value="<%= usuarioEditar.imagen %>" multiple>
+						<input type="file" id="imagen" name="imagen" class="control-input" value="<%= usuarioEditar.imagen %>" multiple required>
 					</div>
     
 

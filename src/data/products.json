@@ -1,25 +1,25 @@
 [
   {
     "id": 1,
-    "nombre": "PC",
+    "nombre": "portatil",
     "marca": "Logitech",
     "precio": "30000",
-    "categoria": "Audifonos",
-    "color": "#0000ff",
+    "categoria": "Cases",
+    "color": "#ff0000",
     "accesorios": "Ninguno TOODS",
-    "imagen": "",
+    "imagen": "1648053325485_img_.jpg",
     "descripcion": "TODOOOSSSSS"
   },
   {
     "id": 2,
-    "nombre": "pc",
+    "nombre": "pcccc",
     "marca": "Logitech",
-    "precio": "3000000",
+    "precio": "322222222222222",
     "categoria": "Cases",
     "color": "#ff0000",
-    "accesorios": "Mouse",
+    "accesorios": "eddddadadsads",
     "imagen": "",
-    "descripcion": "vacio"
+    "descripcion": "dsdsdsdasddssddsds"
   },
   {
     "id": 3,
@@ -34,7 +34,7 @@
   },
   {
     "id": 4,
-    "nombre": "Jinson Stevenson",
+    "nombre": "Laptop",
     "marca": "Logitech",
     "precio": "9303904934994",
     "categoria": "Mouse",
@@ -42,5 +42,16 @@
     "accesorios": "mlsdmldmlalmda",
     "imagen": "download.jpg",
     "descripcion": "sdjmldlmkadmlaldm"
+  },
+  {
+    "id": 5,
+    "nombre": "portatil",
+    "marca": "Ozone",
+    "precio": "300000000000",
+    "categoria": "Camaras",
+    "color": "#00ff00",
+    "accesorios": "Mouse",
+    "imagen": "1648052008598_img_.jpg",
+    "descripcion": "Caja"
   }
 ]

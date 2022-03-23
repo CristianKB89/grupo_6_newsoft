@@ -26,7 +26,7 @@
   </header>
 
   <main>
-    <form action="ingresar-producto" method="post" class="formulario-forma">
+    <form action="/product/" method="post" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>FORMULARIO DE CREACION DE PRODUCTO</h1>
       </div>
@@ -77,17 +77,17 @@
         </div>
         <div class="control-formulario">
           <label for="imagen">Ingrese una imagen del producto:<br><br></label>
-          <input type="file" name="imagen" id="imagen" class="control-input" accept=".jpg" multiple>
+          <input type="file" name="imagen" id="imagen" class="control-input" accept=".jpg" multiple required>
         </div>
         <div class="control-formulario">
           <label for="descripcion">Realice una breve descripcion del producto:</label>
           <textarea name="descripcion" id="descripcion" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input"></textarea>
+            class="control-input" required></textarea>
         </div>
         <br>
         <br>
         <div class="control-envio"><button type="submit" class="boton-formulario">GUARDAR PRODUCTO</button>
-          <a href="editar-producto" class="control-final">EDITAR PRODUCTO EXISTENTE</a>
+          <a href="/product" class="control-final">EDITAR PRODUCTO EXISTENTE</a>
         </div>
         <br>
 
