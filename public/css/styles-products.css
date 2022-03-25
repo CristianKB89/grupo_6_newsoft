@@ -50,7 +50,6 @@ body{
 }
 
 .banner-image{
-
 /*     width:auto; */
     position: absolute;
     z-index: -10;
@@ -93,7 +92,12 @@ a{
     max-width: 310px;
     /* max-height: 38px; */
     height: auto;
+    filter: grayscale(80%);
 }
+
+
+.imagen-producto img:hover {filter:none;}
+
 
 .datos{
     font-family: sans-serif;
