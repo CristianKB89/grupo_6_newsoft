@@ -98,8 +98,9 @@ a{
     filter: grayscale(80%);
 }
 
-.imagen-producto img:hover {filter:none;}
-
+.imagen-producto img:hover {
+    filter:none;
+}
 
 .datos{
     font-family: sans-serif;
@@ -111,8 +112,8 @@ a{
     color:#8f9c9c
 }
 
-.nombre:hover{
-    color:#bbb819
+.product-item:hover .nombre{
+    color:#d4d110
 }
 
 .descripcion{
@@ -125,10 +126,6 @@ a{
     color: #cae005;
     font-size: 20px;
     padding: 10px 0;
-}
-
-h1{
-    color: #E9E600;
 }
 
 .categoria{
