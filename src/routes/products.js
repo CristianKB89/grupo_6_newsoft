@@ -16,8 +16,7 @@ var upload = multer({ storage: storage })
 const controlador = require('../controllers/productController.js');
 
 
-//Listado de productos
-//router.get('/', controlador.xx);
+//Listado de productos: ESTA RUTA ESTA EN MAIN
 
 //Formulario de creación de productos
 router.get('/create', controlador.creacion);
@@ -35,7 +34,7 @@ router.get('/:id/edit', controlador.edicion);
 router.put('/:id',upload.single('imagen'), controlador.editarProducto);
 
 //Acción de borrado
-//router.delete('/:id',controlador.eliminar);
+router.delete('/:id',controlador.eliminar);
 
 
 

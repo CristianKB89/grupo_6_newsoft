@@ -130,5 +130,148 @@
     "accesorios": "Ninguno",
     "imagen": "1648229912638_img_.png",
     "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB"
+  },
+  {
+    "id": 13,
+    "nombre": "iCUE 5000T RGB",
+    "marca": "Razer",
+    "precio": "399",
+    "categoria": "Cases",
+    "color": "#0000ff",
+    "accesorios": "Ninguno",
+    "imagen": "1648243423959_img_.JPG",
+    "descripcion": "Tempered Glass Mid-Tower ATX PC Case "
+  },
+  {
+    "id": 14,
+    "nombre": "iCUE 4000X RGB",
+    "marca": "Corsair",
+    "precio": "129",
+    "categoria": "Cases",
+    "color": "#00ff00",
+    "accesorios": "Ninguno",
+    "imagen": "1648243553606_img_.JPG",
+    "descripcion": "Tempered Glass Mid-Tower ATX Case"
+  },
+  {
+    "id": 15,
+    "nombre": "7000D AIRFLOW",
+    "marca": "Corsair",
+    "precio": "269",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648243654060_img_.JPG",
+    "descripcion": "Full-Tower ATX PC Case "
+  },
+  {
+    "id": 16,
+    "nombre": "4000D AIRFLOW",
+    "marca": "Logitech",
+    "precio": "94",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648243737847_img_.JPG",
+    "descripcion": "Tempered Glass Mid-Tower ATX Case"
+  },
+  {
+    "id": 17,
+    "nombre": "iCUE 220T",
+    "marca": "Razer",
+    "precio": "109",
+    "categoria": "Cases",
+    "color": "#00ff00",
+    "accesorios": "Ninguno",
+    "imagen": "1648243966796_img_.JPG",
+    "descripcion": "RGB Airflow Tempered Glass Mid-Tower Smart Case"
+  },
+  {
+    "id": 18,
+    "nombre": "iCUE 5000X",
+    "marca": "Razer",
+    "precio": "349",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648244070511_img_.JPG",
+    "descripcion": "RGB QL Edition Mid-Tower ATX Case — True "
+  },
+  {
+    "id": 19,
+    "nombre": "Crystal Series 680X",
+    "marca": "Ozone",
+    "precio": "274",
+    "categoria": "Cases",
+    "color": "#770077",
+    "accesorios": "Ninguno",
+    "imagen": "1648244176570_img_.JPG",
+    "descripcion": "RGB ATX High Airflow Tempered Glass Smart Case "
+  },
+  {
+    "id": 20,
+    "nombre": "iCUE 220T ",
+    "marca": "Logitech",
+    "precio": "124",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648244257950_img_.JPG",
+    "descripcion": "RGB Tempered Glass Mid-Tower Smart Case — Black"
+  },
+  {
+    "id": 21,
+    "nombre": "Carbide Series SPEC-DELTA",
+    "marca": "Corsair",
+    "precio": "104",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648244398405_img_.JPG",
+    "descripcion": "RGB Tempered Glass Mid-Tower ATX Gaming Case — Black"
+  },
+  {
+    "id": 22,
+    "nombre": "4000D Tempered ",
+    "marca": "Razer",
+    "precio": "94",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648244500519_img_.JPG",
+    "descripcion": "Glass Mid-Tower ATX Case — Black"
+  },
+  {
+    "id": 23,
+    "nombre": "Carbide Series",
+    "marca": "Logitech",
+    "precio": "64",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648244650418_img_.JPG",
+    "descripcion": "SPEC-04 Tempered Glass Mid-Tower Gaming Case — Black/Red"
+  },
+  {
+    "id": 24,
+    "nombre": "iCUE 5000X ",
+    "marca": "Razer",
+    "precio": "249",
+    "categoria": "Cases",
+    "color": "#0000ff",
+    "accesorios": "Ninguno",
+    "imagen": "1648244761798_img_.JPG",
+    "descripcion": "RGB SIGNATURE SERIES Mid-Tower Smart Case — Glitch"
+  },
+  {
+    "id": 25,
+    "nombre": "PRUEBA BORRADO",
+    "marca": "Razer",
+    "precio": "100",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648244861801_img_.jpg",
+    "descripcion": "PRUEBA DE OPCION DE BORRADO"
   }
 ]

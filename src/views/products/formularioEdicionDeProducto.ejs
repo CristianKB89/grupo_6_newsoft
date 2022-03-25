@@ -25,7 +25,7 @@
   </header>
 
   <main>
-    <form action="/products/<%= productoEditar.id %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
+    <form action="products/<%= productoEditar.id %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
       </div>
@@ -89,9 +89,13 @@
         <br>
         <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR PRODUCTO</button>
           <a href="/products/create" class="control-final">INGRESAR UN NUEVO PRODUCTO</a>
-        </div>
+        
         <br>
     </form>
+    <form action="/products/<%=productoEditar.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+      <button type="submit" class="boton-formulario">ELIMINAR ESTE PRODUCTO</button>
+       </form>
+      </div>
   </main>
 
   <!-- FOOTER -->
