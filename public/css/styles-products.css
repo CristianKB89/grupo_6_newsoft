@@ -17,14 +17,14 @@ body{
 .slide-1{
     width: 100%;
     display: flex;
-    align-items: flex-end;
     align-items: center;
 }
 
 .des-slide{
     color: #FFF;
     font-size: 3vw;
-    padding-left: 6vw; 
+    padding-left: 6vw;
+    margin-top: 30px;
 }
 
 .des-slide p{
