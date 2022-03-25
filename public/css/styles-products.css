@@ -111,6 +111,10 @@ a{
     color:#8f9c9c
 }
 
+.nombre:hover{
+    color:#bbb819
+}
+
 .descripcion{
     text-align: justify;
 }
