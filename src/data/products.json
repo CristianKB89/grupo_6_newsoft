@@ -119,5 +119,16 @@
     "accesorios": "Ninguno",
     "imagen": "1648225911046_img_.png",
     "descripcion": "CORSAIR M65 RGB ELITE ajustable es el ratón para juegos"
+  },
+  {
+    "id": 12,
+    "nombre": "K100 RGB — CHERRY MX",
+    "marca": "Corsair",
+    "precio": "135",
+    "categoria": "Teclados",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648229912638_img_.png",
+    "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB"
   }
 ]
