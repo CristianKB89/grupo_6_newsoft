@@ -115,6 +115,8 @@ h1{
      padding: 30px;
 }
 
+.img-product:hover {filter:none;}
+
 .max{
     color:#FFF;
     font-size: 2vw;
@@ -216,6 +218,7 @@ h1{
         flex-direction: column-reverse;
         align-items: center;
     }
+    
 }
 
 @media (min-width: 769px) {
@@ -242,6 +245,9 @@ h1{
     .panel-1 h1{
         font-size: 2.5vw;
     }
+    .img-product{
+        filter: grayscale(80%);
+   }
 }
 
 @media (min-width: 1200px) {
