@@ -1,57 +1,46 @@
 [
   {
     "id": 1,
-    "nombre": "portatil",
-    "marca": "Logitech",
-    "precio": "30000",
-    "categoria": "Cases",
+    "nombre": "K63 Wireless",
+    "marca": "Corsair",
+    "precio": "87",
+    "categoria": "Teclados",
     "color": "#ff0000",
-    "accesorios": "Ninguno TOODS",
-    "imagen": "1648053325485_img_.jpg",
-    "descripcion": "TODOOOSSSSS"
+    "accesorios": "Ninguno",
+    "imagen": "1648198282620_img_.png",
+    "descripcion": " Mechanical Gaming Keyboard"
   },
   {
     "id": 2,
-    "nombre": "pcccc",
-    "marca": "Logitech",
-    "precio": "322222222222222",
-    "categoria": "Cases",
+    "nombre": "K70 RGB PRO",
+    "marca": "Corsair",
+    "precio": "169",
+    "categoria": "Teclados",
     "color": "#ff0000",
-    "accesorios": "eddddadadsads",
-    "imagen": "",
-    "descripcion": "dsdsdsdasddssddsds"
+    "accesorios": "Ninguno",
+    "imagen": "1648197753802_img_.png",
+    "descripcion": "Mechanical Gaming Keyboard with PBT"
   },
   {
     "id": 3,
-    "nombre": "pc",
-    "marca": "Ozone",
-    "precio": "20000000",
-    "categoria": "Mouse",
-    "color": "#0000ff",
-    "accesorios": "nada",
-    "imagen": "",
-    "descripcion": "nada"
+    "nombre": "K65 RGB MINI 60%",
+    "marca": "Corsair",
+    "precio": "109",
+    "categoria": "Teclados",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648197999024_img_.png",
+    "descripcion": "Mechanical Gaming Keyboard — CHERRY"
   },
   {
     "id": 4,
-    "nombre": "Laptop",
-    "marca": "Logitech",
-    "precio": "9303904934994",
-    "categoria": "Mouse",
-    "color": "#0000ff",
-    "accesorios": "mlsdmldmlalmda",
-    "imagen": "download.jpg",
-    "descripcion": "sdjmldlmkadmlaldm"
-  },
-  {
-    "id": 5,
-    "nombre": "portatil",
-    "marca": "Ozone",
-    "precio": "300000000000",
-    "categoria": "Camaras",
-    "color": "#00ff00",
-    "accesorios": "Mouse",
-    "imagen": "1648052008598_img_.jpg",
-    "descripcion": "Caja"
+    "nombre": "K60 RGB PRO",
+    "marca": "Corsair",
+    "precio": "89",
+    "categoria": "Teclados",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648198117887_img_.png",
+    "descripcion": "Mechanical Gaming Keyboard — 100%"
   }
 ]

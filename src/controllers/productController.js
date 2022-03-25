@@ -32,7 +32,7 @@ const controlador = {
 		fs.writeFileSync( productsFilePath , JSON.stringify(productos, null, 2))
 
 		// redireccionar al usuairo /products
-		res.redirect('/productdetail')
+		res.redirect('/products/productdetail/'+ req.params.id)
     },
 
  
@@ -70,7 +70,7 @@ const controlador = {
 
             fs.writeFileSync( productsFilePath , JSON.stringify(productoEditado, null, 2))
 
-            res.redirect('/productdetail')
+            res.redirect('/products/productdetail/'+ req.params.id)
         
     },
 
@@ -82,8 +82,23 @@ const controlador = {
 
 		fs.writeFileSync( productsFilePath , JSON.stringify(productoFiltrado, null, 2))
 
-        res.redirect('/product')
+        res.redirect('/products')
 	},
+
+    productDetail: (req, res) => {
+        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+        let idProducto = req.params.id;
+        
+        const productoDetalle = productos.find( producto => producto.id == idProducto)
+
+        if (!productoDetalle) {
+			res.redirect('/products')
+		}
+
+        // Renderiza el detalle del producto
+        res.render(path.resolve(__dirname, '../views/products/productDetail.ejs'), { productoDetalle });
+    },
 
 
 }

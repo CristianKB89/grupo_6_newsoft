@@ -25,18 +25,15 @@
     <section class="panel-1">
       <div class="panel-izq">
         <div>
-          <h1>Ratón para juegos FPS/MOBA HARPOON RGB PRO</h1>
+          <h1><%=productoDetalle.nombre %> </h1>
         </div>
         <div class="product-des">
           <p>
-            El ratón de juego CORSAIR HARPOON RGB PRO presenta una cómoda
-            forma contorneada, un sensor de 12 000 dpi y un peso
-            increíblemente ligero (85 g) para jugar infinidad de horas sin
-            esfuerzo.
+            <%=productoDetalle.descripcion%>
           </p>
         </div>
         <div>
-          <h2 class="precio">$350</h2>
+          <h2 class="precio">$<%=productoDetalle.precio%></h2>
         </div>
         <div class="estrellas">
           <form>
@@ -58,7 +55,7 @@
         <div class="content-product-color">
           <div class="product-color">
             <div class="img-color">
-              <img src="/img/product-headsets-1.png" alt="" />
+              <img src="/img/products/<%=productoDetalle.imagen%>" alt="">
             </div>
             <div class="color">
               Color blanco
@@ -79,7 +76,7 @@
       </div>
       <div class="panel-der">
         <div class="img-product">
-          <img src="/img/product-headsets-1.png" alt="" />
+          <img src="/img/products/<%=productoDetalle.imagen%>" alt="">
         </div>
         <div class="gallery">
           <div class="img-products">

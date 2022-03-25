@@ -23,6 +23,7 @@ const controlador = require('../controllers/productController.js');
 router.get('/create', controlador.creacion);
 
 //Detalle de un producto particular
+router.get('/productdetail/:id', controlador.productDetail);
 
 //Acción de creación (a donde se envía el formulario)
 router.post('/',upload.single('imagen'), controlador.crearProducto);
