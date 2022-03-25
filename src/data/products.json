@@ -8,7 +8,7 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648198282620_img_.png",
-    "descripcion": " Mechanical Gaming Keyboard"
+    "descripcion": "Mechanical Gaming Keyboard"
   },
   {
     "id": 2,
@@ -42,5 +42,82 @@
     "accesorios": "Ninguno",
     "imagen": "1648198117887_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — 100%"
+  },
+  {
+    "id": 5,
+    "nombre": "Chasis inteligente para PC",
+    "marca": "Corsair",
+    "precio": "89",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648219952498_img_.png",
+    "descripcion": "ATX semitorre con cristal templado iCUE RGB"
+  },
+  {
+    "id": 6,
+    "nombre": "Chasis inteligente ATX",
+    "marca": "Corsair",
+    "precio": "102",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648224034791_img_.png",
+    "descripcion": "ATX semitorre con cristal templado iCUE"
+  },
+  {
+    "id": 7,
+    "nombre": "Chasis ATX 4000D",
+    "marca": "Corsair",
+    "precio": "120",
+    "categoria": "Cases",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648224169146_img_.png",
+    "descripcion": "Chasis ATX semitorre con cristal templado"
+  },
+  {
+    "id": 8,
+    "nombre": "VOID RGB ELITE",
+    "marca": "Corsair",
+    "precio": "110",
+    "categoria": "Audifonos",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648225089256_img_.png",
+    "descripcion": "VOID RGB ELITE Wireless"
+  },
+  {
+    "id": 9,
+    "nombre": "Wave 1",
+    "marca": "Corsair",
+    "precio": "200",
+    "categoria": "Audio (Microfonos)",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648225253692_img_.png",
+    "descripcion": "Combina la comodidad plug and play."
+  },
+  {
+    "id": 10,
+    "nombre": "Facecam",
+    "marca": "Corsair",
+    "precio": "80",
+    "categoria": "Camaras",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648225762998_img_.png",
+    "descripcion": "Professional optics in a webcam form factor"
+  },
+  {
+    "id": 11,
+    "nombre": "FPS M65 RGB ELITE",
+    "marca": "Corsair",
+    "precio": "85",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648225911046_img_.png",
+    "descripcion": "CORSAIR M65 RGB ELITE ajustable es el ratón para juegos"
   }
 ]
