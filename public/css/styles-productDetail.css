@@ -199,18 +199,30 @@ h1{
     text-decoration: none;
 }
 
-.video-rese .fa-cube{
+.video-rese i{
     color: #A8A8A8;
     padding-right: 10px;
 }
 
-.video-rese:hover .fa-cube{
+.video-rese:hover i{
     color: #E9E600;
 }
 
 .video-rese:hover a{
     color: #E9E600;
 }
+
+.video-rese .button{
+    background: none;
+    border: none;
+    margin-left: 3px;
+}
+
+.video-rese:hover button{
+    color: #E9E600;
+}
+
+
 
 @media (min-width: 361px) {
     .panel-1{

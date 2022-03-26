@@ -4,12 +4,12 @@ const path = require('path')
 const multer = require('multer')
 
 var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/img/products')
-    },
-    filename: function (req, file, cb) {
-      cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`)
-    }
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '../../public/img/products'))
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`)
+  }
 }) 
 var upload = multer({ storage: storage })
 
@@ -35,7 +35,7 @@ router.get('/:id/edit', controlador.edicion);
 router.put('/:id',upload.single('imagen'), controlador.editarProducto);
 
 //Acción de borrado
-//router.delete('/:id',controlador.eliminar);
+router.delete('/:id',controlador.eliminar);
 
 
 

@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>
+    <%=productoDetalle.nombre %>
+  </title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
@@ -25,7 +27,9 @@
     <section class="panel-1">
       <div class="panel-izq">
         <div>
-          <h1><%=productoDetalle.nombre %> </h1>
+          <h1>
+            <%=productoDetalle.nombre %>
+          </h1>
         </div>
         <div class="product-des">
           <p>
@@ -33,7 +37,8 @@
           </p>
         </div>
         <div>
-          <h2 class="precio">$<%=productoDetalle.precio%></h2>
+          <h2 class="precio">$<%=productoDetalle.precio%>
+          </h2>
         </div>
         <div class="estrellas">
           <form>
@@ -72,7 +77,21 @@
               <i class="fa-solid fa-cube"></i>Video
             </a>
           </div>
+          <div class="video-rese">
+            <a href="/products/<%=productoDetalle.id%>/edit" target="_blank" class="video">
+              <i class="fas fa-edit"></i>Editar Producto
+            </a>
+          </div>
+
+          <div class="video-rese">
+            <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+              <i class="far fa-trash-alt"></i>
+              <button type="submit" class="button">ELIMINAR</button>
+            </form>
+          </div>
         </div>
+
+      </div>
       </div>
       <div class="panel-der">
         <div class="img-product">

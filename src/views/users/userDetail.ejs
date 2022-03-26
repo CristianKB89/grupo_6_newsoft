@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/normalize.css"/>
+  <link rel="stylesheet" href="/css/normalize.css" />
   <link rel="stylesheet" href="/css/styles-register.css">
   <link rel="stylesheet" href="/css/styles-profile.css">
   <link rel="stylesheet" href="/css/styles-header.css" />
@@ -22,44 +22,52 @@
 
 <body>
   <header style="position: relative;">
-    <%- include('../partials/header') %>  
+    <%- include('../partials/header') %>
   </header>
 
-    <main class="profile">
-          <div >
-            <h2 class="titulo">Informacion del usuario <%= usuarioBuscado.nombre %> <%= usuarioBuscado.apellido %></h2><br>
-          </div>
-          <article class="card">
-            <div class="card-left">
-               <figure>
-                 <img src="/img/users/<%= usuarioBuscado.image ? usuarioBuscado.image : 'default.png' %>" alt="">
-               </figure>
-               <h3 class="profileh3">#<%= usuarioBuscado.id %></h3>
-              </div>
-              <div class="card-content">
-                    <h3 class="profileh3"> Nombre:<%= usuarioBuscado.nombre %> <%= usuarioBuscado.apellido %></h3>
-                    <p class="profilep">Email:<%= usuarioBuscado.email %> </p>
-                    <p class="profilep">Contraseña:<%= usuarioBuscado.password %> </p>
-                <div>     
-						         <a class="button" href="/users/<%= usuarioBuscado.id %>/edit" >EDITAR USUARIO</a>
-					           	<form action="/users/<%=usuarioBuscado.id%>?_method=DELETE" method="POST" style="display: inline-flex">
-							       <button type="submit" class="button">ELIMINAR</button>
-					          	</form>
-                    </div>
-                  </article> 
-                  <br>       
-              
-      
-              <h2><a class="linkfinal" href="/users" >REGRESAR A GESTION DE TODOS LOS USUARIOS</a></h2>
-            </div>
-        
-      
+  <main class="profile">
+    <div>
+      <h2 class="titulo">Informacion del usuario <%= usuarioBuscado.nombre %>
+          <%= usuarioBuscado.apellido %>
+      </h2><br>
+    </div>
+    <article class="card">
+      <div class="card-left">
+        <figure>
+          <img src="/img/users/<%= usuarioBuscado.image ? usuarioBuscado.image : 'default.png' %>" alt="">
+        </figure>
+        <h3 class="profileh3">#<%= usuarioBuscado.id %>
+        </h3>
+      </div>
+      <div class="card-content">
+        <h3 class="profileh3"> Nombre:<%= usuarioBuscado.nombre %>
+            <%= usuarioBuscado.apellido %>
+        </h3>
+        <p class="profilep">Email:<%= usuarioBuscado.email %>
+        </p>
+        <p class="profilep">Contraseña:<%= usuarioBuscado.password %>
+        </p>
+        <div>
+          <a class="button" href="/users/<%= usuarioBuscado.id %>/edit">EDITAR USUARIO</a>
+          <form action="/users/<%=usuarioBuscado.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+            <button type="submit" class="button">ELIMINAR</button>
+          </form>
+        </div>
+    </article>
+    <br>
 
-    </main> 
- 
-    <footer>
-      <%- include('../partials/footer.ejs') %> 
-    </footer>
 
- </body>
+    <h2><a class="linkfinal" href="/users">REGRESAR A GESTION DE TODOS LOS USUARIOS</a></h2>
+    </div>
+
+
+
+  </main>
+
+  <footer>
+    <%- include('../partials/footer.ejs') %>
+  </footer>
+
+</body>
+
 </html>

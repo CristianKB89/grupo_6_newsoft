@@ -11,17 +11,6 @@
     "descripcion": "Mechanical Gaming Keyboard"
   },
   {
-    "id": 2,
-    "nombre": "K70 RGB PRO",
-    "marca": "Corsair",
-    "precio": "169",
-    "categoria": "Teclados",
-    "color": "#ff0000",
-    "accesorios": "Ninguno",
-    "imagen": "1648197753802_img_.png",
-    "descripcion": "Mechanical Gaming Keyboard with PBT"
-  },
-  {
     "id": 3,
     "nombre": "K65 RGB MINI 60%",
     "marca": "Corsair",
@@ -130,5 +119,16 @@
     "accesorios": "Ninguno",
     "imagen": "1648229912638_img_.png",
     "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB"
+  },
+  {
+    "id": 13,
+    "nombre": "HARPOON RGB",
+    "marca": "Corsair",
+    "precio": "89",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648258146347_img_.png",
+    "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse"
   }
 ]
