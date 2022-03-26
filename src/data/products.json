@@ -11,6 +11,17 @@
     "descripcion": "Mechanical Gaming Keyboard"
   },
   {
+    "id": 2,
+    "nombre": "HARPOON RGB",
+    "marca": "Corsair",
+    "precio": "89",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648258146347_img_.png",
+    "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse"
+  },
+  {
     "id": 3,
     "nombre": "K65 RGB MINI 60%",
     "marca": "Corsair",
