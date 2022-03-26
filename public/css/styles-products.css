@@ -10,6 +10,10 @@
     color: #FFF;
 }
 
+h1{
+    font-size: 4.5vw;
+}
+
 body{
     background-color: rgb(37, 37, 37);
 }
@@ -17,15 +21,15 @@ body{
 .slide-1{
     width: 100%;
     display: flex;
-    align-items: flex-start;
-    padding-top: 8vw;
+    align-items: center;
+
 }
 
 .des-slide{
     color: #FFF;
     font-size: 3vw;
     padding-left: 6vw;
-    margin-top: 30px;
+    margin-top: 7vw;
 }
 
 .des-slide p{
@@ -196,4 +200,10 @@ a{
 
 .button-delete:hover{
     color:#e91000;
+}
+
+.slide-1-oculto{
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
