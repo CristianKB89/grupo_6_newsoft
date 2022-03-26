@@ -84,13 +84,27 @@
           </div>
 
           <div class="video-rese">
+            <%if (productoDetalle.visible==true) { %>
+              <form action="/products/<%=productoDetalle.id%>/ocultar?_method=PUT" method="POST" style="display: inline-flex">
+                <i class="fa-regular fa-eye-slash"></i>
+                <button type="submit" class="ocultar">OCULTAR PRODUCTO</button>
+              </form>
+            <% } %>
+            <%if (productoDetalle.visible==false) { %>
+              <form action="/products/<%=productoDetalle.id%>/mostrar?_method=PUT" method="POST" style="display: inline-flex">
+                <i class="fa-regular fa-eye"></i>
+                <button type="submit" class="ocultar">MOSTRAR PRODUCTO</button>
+              </form>
+            <% } %>
+          </div>
+
+          <div class="video-rese">
             <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" style="display: inline-flex">
               <i class="far fa-trash-alt"></i>
               <button type="submit" class="button">ELIMINAR</button>
             </form>
           </div>
         </div>
-
       </div>
       </div>
       <div class="panel-der">

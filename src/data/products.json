@@ -8,7 +8,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648198282620_img_.png",
-    "descripcion": "Mechanical Gaming Keyboard"
+    "descripcion": "Mechanical Gaming Keyboard",
+    "visible": true
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648258146347_img_.png",
-    "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse"
+    "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse",
+    "visible": true
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648197999024_img_.png",
-    "descripcion": "Mechanical Gaming Keyboard — CHERRY"
+    "descripcion": "Mechanical Gaming Keyboard — CHERRY",
+    "visible": true
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648198117887_img_.png",
-    "descripcion": "Mechanical Gaming Keyboard — 100%"
+    "descripcion": "Mechanical Gaming Keyboard — 100%",
+    "visible": true
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648219952498_img_.png",
-    "descripcion": "ATX semitorre con cristal templado iCUE RGB"
+    "descripcion": "ATX semitorre con cristal templado iCUE RGB",
+    "visible": true
   },
   {
     "id": 6,
@@ -63,7 +68,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648224034791_img_.png",
-    "descripcion": "ATX semitorre con cristal templado iCUE"
+    "descripcion": "ATX semitorre con cristal templado iCUE",
+    "visible": true
   },
   {
     "id": 7,
@@ -74,7 +80,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648224169146_img_.png",
-    "descripcion": "Chasis ATX semitorre con cristal templado"
+    "descripcion": "Chasis ATX semitorre con cristal templado",
+    "visible": true
   },
   {
     "id": 8,
@@ -85,7 +92,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648225089256_img_.png",
-    "descripcion": "VOID RGB ELITE Wireless"
+    "descripcion": "VOID RGB ELITE Wireless",
+    "visible": true
   },
   {
     "id": 9,
@@ -96,7 +104,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648225253692_img_.png",
-    "descripcion": "Combina la comodidad plug and play."
+    "descripcion": "Combina la comodidad plug and play.",
+    "visible": true
   },
   {
     "id": 10,
@@ -107,7 +116,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648225762998_img_.png",
-    "descripcion": "Professional optics in a webcam form factor"
+    "descripcion": "Professional optics in a webcam form factor",
+    "visible": true
   },
   {
     "id": 11,
@@ -118,7 +128,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648225911046_img_.png",
-    "descripcion": "CORSAIR M65 RGB ELITE ajustable es el ratón para juegos"
+    "descripcion": "CORSAIR M65 RGB ELITE ajustable es el ratón para juegos",
+    "visible": true
   },
   {
     "id": 12,
@@ -129,7 +140,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648229912638_img_.png",
-    "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB"
+    "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB",
+    "visible": true
   },
   {
     "id": 13,
@@ -140,7 +152,8 @@
     "color": "#0000ff",
     "accesorios": "Ninguno",
     "imagen": "1648243423959_img_.JPG",
-    "descripcion": "Tempered Glass Mid-Tower ATX PC Case "
+    "descripcion": "Tempered Glass Mid-Tower ATX PC Case ",
+    "visible": true
   },
   {
     "id": 14,
@@ -151,7 +164,8 @@
     "color": "#00ff00",
     "accesorios": "Ninguno",
     "imagen": "1648243553606_img_.JPG",
-    "descripcion": "Tempered Glass Mid-Tower ATX Case"
+    "descripcion": "Tempered Glass Mid-Tower ATX Case",
+    "visible": true
   },
   {
     "id": 15,
@@ -162,7 +176,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648243654060_img_.JPG",
-    "descripcion": "Full-Tower ATX PC Case "
+    "descripcion": "Full-Tower ATX PC Case ",
+    "visible": true
   },
   {
     "id": 16,
@@ -173,7 +188,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648243737847_img_.JPG",
-    "descripcion": "Tempered Glass Mid-Tower ATX Case"
+    "descripcion": "Tempered Glass Mid-Tower ATX Case",
+    "visible": true
   },
   {
     "id": 17,
@@ -184,7 +200,8 @@
     "color": "#00ff00",
     "accesorios": "Ninguno",
     "imagen": "1648243966796_img_.JPG",
-    "descripcion": "RGB Airflow Tempered Glass Mid-Tower Smart Case"
+    "descripcion": "RGB Airflow Tempered Glass Mid-Tower Smart Case",
+    "visible": true
   },
   {
     "id": 18,
@@ -195,7 +212,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648244070511_img_.JPG",
-    "descripcion": "RGB QL Edition Mid-Tower ATX Case — True "
+    "descripcion": "RGB QL Edition Mid-Tower ATX Case — True ",
+    "visible": true
   },
   {
     "id": 19,
@@ -206,7 +224,8 @@
     "color": "#770077",
     "accesorios": "Ninguno",
     "imagen": "1648244176570_img_.JPG",
-    "descripcion": "RGB ATX High Airflow Tempered Glass Smart Case "
+    "descripcion": "RGB ATX High Airflow Tempered Glass Smart Case ",
+    "visible": true
   },
   {
     "id": 20,
@@ -217,7 +236,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648244257950_img_.JPG",
-    "descripcion": "RGB Tempered Glass Mid-Tower Smart Case — Black"
+    "descripcion": "RGB Tempered Glass Mid-Tower Smart Case — Black",
+    "visible": false
   },
   {
     "id": 21,
@@ -228,7 +248,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648244398405_img_.JPG",
-    "descripcion": "RGB Tempered Glass Mid-Tower ATX Gaming Case — Black"
+    "descripcion": "RGB Tempered Glass Mid-Tower ATX Gaming Case — Black",
+    "visible": true
   },
   {
     "id": 22,
@@ -239,7 +260,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648244500519_img_.JPG",
-    "descripcion": "Glass Mid-Tower ATX Case — Black"
+    "descripcion": "Glass Mid-Tower ATX Case — Black",
+    "visible": false
   },
   {
     "id": 23,
@@ -250,7 +272,8 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648244650418_img_.JPG",
-    "descripcion": "SPEC-04 Tempered Glass Mid-Tower Gaming Case — Black/Red"
+    "descripcion": "SPEC-04 Tempered Glass Mid-Tower Gaming Case — Black/Red",
+    "visible": true
   },
   {
     "id": 24,
@@ -261,7 +284,8 @@
     "color": "#0000ff",
     "accesorios": "Ninguno",
     "imagen": "1648244761798_img_.JPG",
-    "descripcion": "RGB SIGNATURE SERIES Mid-Tower Smart Case — Glitch"
+    "descripcion": "RGB SIGNATURE SERIES Mid-Tower Smart Case — Glitch",
+    "visible": true
   },
   {
     "id": 25,
@@ -272,6 +296,7 @@
     "color": "#ff0000",
     "accesorios": "Ninguno",
     "imagen": "1648259900500_img_.jpg",
-    "descripcion": "PRUEBA DE OPCION DE BORRAD000"
+    "descripcion": "PRUEBA DE OPCION DE BORRAD000",
+    "visible": true
   }
 ]

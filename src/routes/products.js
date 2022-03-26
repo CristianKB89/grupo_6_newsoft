@@ -36,6 +36,15 @@ router.put('/:id',upload.single('imagen'), controlador.editarProducto);
 //Acción de borrado
 router.delete('/:id',controlador.eliminar);
 
+//Acción de ocultar producto
+router.put('/:id/ocultar',controlador.ocultarProducto);
+
+//Acción de mostrar producto
+router.put('/:id/mostrar',controlador.mostrarProducto);
+
+//Vista de productos ocultos
+router.get('/ocultos', controlador.productosOcultos);
+
 
 
 module.exports = router;

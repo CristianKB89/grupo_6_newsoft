@@ -28,7 +28,7 @@ body{
 }
 
 h1{
-    margin: 0 auto;
+    color: #E9E600;
 }
 
 .panel-1{
@@ -193,6 +193,7 @@ h1{
     justify-content: space-around;
     padding: 15px 0;
     margin: 15px 0;
+    cursor: pointer;
 }
 
 .video-rese a{
@@ -217,16 +218,23 @@ h1{
     color: #E9E600;
 }
 
-.video-rese .button{
+.video-rese button{
     background: none;
     border: none;
     margin-left: 3px;
+    cursor: pointer;
 }
 
-.video-rese:hover button{
+.video-rese:hover .button{
     color: #e90000;
 }
 
+.video-rese:hover .ocultar{
+    background: none;
+    border: none;
+    margin-left: 3px;
+    color: #E9E600;
+}
 
 
 @media (min-width: 361px) {
@@ -235,7 +243,6 @@ h1{
         flex-direction: column-reverse;
         align-items: center;
     }
-    
 }
 
 @media (min-width: 769px) {
@@ -260,7 +267,7 @@ h1{
         font-size: 2vw;
     }
     .panel-1 h1{
-        font-size: 2.5vw;
+        font-size: 3vw;
     }
     .img-product{
         filter: grayscale(80%);

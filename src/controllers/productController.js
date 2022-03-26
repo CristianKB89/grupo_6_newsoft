@@ -24,7 +24,8 @@ const controlador = {
             color:req.body.color,	
             accesorios:req.body.accesorios,	
             imagen:filename,	
-            descripcion:req.body.descripcion
+            descripcion:req.body.descripcion,
+            visible: true
 		};
 		// guardarlo BD
 		productos.push(nuevoProducto)
@@ -52,7 +53,7 @@ const controlador = {
 
         let id = req.params.id;
         
-        const productoEditado = productos.map(producto =>{
+        const productoOculto = productos.map(producto =>{
             
             if (producto.id == id){
                 producto.nombre = req.body.nombre;
@@ -63,12 +64,12 @@ const controlador = {
 				producto.accesorios = req.body.accesorios;
 				producto.imagen = filename;
 				producto.descripcion = req.body.descripcion;
-                
+                producto.visible = req.body.visible;
             }
             return producto;
             })
 
-            fs.writeFileSync( productsFilePath , JSON.stringify(productoEditado, null, 2))
+            fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
 
             res.redirect('/products/productdetail/'+ req.params.id)
         
@@ -100,7 +101,39 @@ const controlador = {
         res.render(path.resolve(__dirname, '../views/products/productDetail.ejs'), { productoDetalle });
     },
 
+    ocultarProducto: (req, res) => {
+        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let id = req.params.id;
+        const productoOculto = productos.map(producto =>{
+            
+            if (producto.id == id){
+                producto.visible = false;
+            }
+            return producto;
+            })
 
+            fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
+
+            res.redirect('/products');
+    },
+    mostrarProducto: (req, res) => {
+        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let id = req.params.id;
+        const productoOculto = productos.map(producto =>{
+            if (producto.id == id){
+                producto.visible = true;
+            }
+            return producto;
+            })
+            fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
+            res.redirect('/products');
+    },
+    productosOcultos: (req, res) => {
+        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+        const ocultos = productos.filter( product => product.visible === false );
+        res.render(path.resolve(__dirname, '../views/products/productsOcultos.ejs'), { ocultos });
+    }
 }
 
 module.exports = controlador;

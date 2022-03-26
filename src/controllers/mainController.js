@@ -18,7 +18,6 @@ const controlador = {
         const ratones = productos.filter( product => product.categoria === 'Mouse');
         const camaras = productos.filter( product => product.categoria === 'Camaras');
         const audio = productos.filter( product => product.categoria === 'Audio (Microfonos)');
-        
         res.render(path.resolve(__dirname, '../views/products/products.ejs'), { cases , teclado , audifonos , ratones , camaras , audio });
     }
 }

@@ -1,155 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet">
-    <script src="https://kit.fontawesome.com/fcf9db6539.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/styles-header.css" />
-    <link rel="stylesheet" href="css/styles-footer.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/styles-products.css" />
-</head>
-
-<body>
-    <!-- HEADER -->
-    <header>
-        <%- include('../partials/header') %>
-    </header>
-    <main>
-        <div class="banner">
-            <div class="slide-1">
-                <img class="banner-image" src="/img/bgn-banner-products-1.png" />
-                <div class="des-slide">
-                    <h1>K70 RGB PRO</h1>
-                    <p>Timeless design meets peerless technology.</p>
-                    <button><a href="/products">COMPRAR AHORA</a></button>
-                  </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Products</title>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/fcf9db6539.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/normalize.css" />
+        <link rel="stylesheet" href="/css/styles-header.css" />
+        <link rel="stylesheet" href="/css/styles-footer.css" />
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="stylesheet" href="/css/styles-products.css" />
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header>
+            <%- include('../partials/header') %>
+        </header>
+        <main>
+            <div class="banner">
+                <div class="slide-1">
+                    <img class="banner-image" src="/img/bgn-banner-products-1.png" />
+                    <div class="des-slide">
+                        <h1>K70 RGB PRO</h1>
+                        <p>Timeless design meets peerless technology.</p>
+                        <button><a href="/products">COMPRAR AHORA</a></button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="container-products">
-            <div class="categoria"><h1>CHASIS</h1></div>
-            <% for(let i=0; i<cases.length; i++){ %>
+            <div class="container-products">
+                <!-- CASES -->
+                <div class="categoria">
+                    <h1>CHASIS</h1>
+                </div>
+                <% for(let i=0; i<cases.length; i++){ %>
+                <% if (cases[i].visible==true) { %>
                 <a href="/products/productdetail/<%= cases[i].id %>">
                     <section class="product-item">
                         <div class="imagen-producto">
                             <img src="/img/products/<%= cases[i].imagen %>" alt="imagen de producto">
                         </div>
                         <div class="datos">
-                            <p class="nombre"><%= cases[i].nombre %></p>
-                            <p class="descipcion"><%= cases[i].descripcion %></p>
+                            <p class="nombre">
+                                <%= cases[i].nombre %>
+                            </p>
+                            <p class="descipcion">
+                                <%= cases[i].descripcion %>
+                            </p>
                         </div>
                         <div class="precio">
-                            <p>$<%= cases[i].precio %></p>
+                            <p>$<%= cases[i].precio %>
+                            </p>
                         </div>
                     </section>
                 </a>
-            <% } %>
-            <div class="categoria"><h1>TECLADOS</h1></div>
-            <% for(let i=0; i<teclado.length; i++){ %>
+                <% } %>
+                <% } %>
+                <!-- TECLADOS -->
+                <div class="categoria">
+                    <h1>TECLADOS</h1>
+                </div>
+                <% for(let i=0; i<teclado.length; i++){ %>
+                <% if (teclado[i].visible==true) { %>
                 <a href="/products/productdetail/<%= teclado[i].id %>">
                     <section class="product-item">
                         <div class="imagen-producto">
-                            <img src="/img/products/<%= teclado[i].imagen %>" alt="imagen de producto">
+                            <img src="/img/products/<%= teclado[i].imagen %>"
+                                alt="imagen de producto">
                         </div>
                         <div class="datos">
-                            <p class="nombre"><%= teclado[i].nombre %></p>
-                            <p class="descipcion"><%= teclado[i].descripcion %></p>
+                            <p class="nombre">
+                                <%= teclado[i].nombre %>
+                            </p>
+                            <p class="descipcion">
+                                <%= teclado[i].descripcion %>
+                            </p>
                         </div>
                         <div class="precio">
-                            <p>$<%= teclado[i].precio %></p>
+                            <p>$<%= teclado[i].precio %>
+                            </p>
                         </div>
                     </section>
                 </a>
-            <% } %>
-            <div class="categoria"><h1>AUDIFONOS</h1></div>
-            <% for(let i=0; i<audifonos.length; i++){ %>
+                <% } %>
+                <%}%>
+                <div class="categoria">
+                    <h1>AUDIFONOS</h1>
+                </div>
+                <% for(let i=0; i<audifonos.length; i++){ %>
+                <% if (audifonos[i].visible==true) { %>
                 <a href="/products/productdetail/<%= audifonos[i].id %>">
                     <section class="product-item">
                         <div class="imagen-producto">
-                            <img src="/img/products/<%= audifonos[i].imagen %>" alt="imagen de producto">
+                            <img src="/img/products/<%= audifonos[i].imagen %>"
+                                alt="imagen de producto">
                         </div>
                         <div class="datos">
-                            <p class="nombre"><%= audifonos[i].nombre %></p>
-                            <p class="descipcion"><%= audifonos[i].descripcion %></p>
+                            <p class="nombre">
+                                <%= audifonos[i].nombre %>
+                            </p>
+                            <p class="descipcion">
+                                <%= audifonos[i].descripcion %>
+                            </p>
                         </div>
                         <div class="precio">
-                            <p>$<%= audifonos[i].precio %></p>
+                            <p>$<%= audifonos[i].precio %>
+                            </p>
                         </div>
                     </section>
                 </a>
-            <% } %>
-            <div class="categoria"><h1>RATONES</h1></div>
-            <% for(let i=0; i<ratones.length; i++){ %>
+                <% } %>
+                <% } %>
+                <div class="categoria">
+                    <h1>RATONES</h1>
+                </div>
+                <% for(let i=0; i<ratones.length; i++){ %>
+                <% if (ratones[i].visible==true) { %>
                 <a href="/products/productdetail/<%= ratones[i].id %>">
                     <section class="product-item">
                         <div class="imagen-producto">
-                            <img src="/img/products/<%= ratones[i].imagen %>" alt="imagen de producto">
+                            <img src="/img/products/<%= ratones[i].imagen %>"
+                                alt="imagen de producto">
                         </div>
                         <div class="datos">
-                            <p class="nombre"><%= ratones[i].nombre %></p>
-                            <p class="descipcion"><%= ratones[i].descripcion %></p>
+                            <p class="nombre">
+                                <%= ratones[i].nombre %>
+                            </p>
+                            <p class="descipcion">
+                                <%= ratones[i].descripcion %>
+                            </p>
                         </div>
                         <div class="precio">
-                            <p>$<%= ratones[i].precio %></p>
+                            <p>$<%= ratones[i].precio %>
+                            </p>
                         </div>
                     </section>
                 </a>
-            <% } %>
-            <div class="categoria"><h1>CÁMARAS</h1></div>
-            <% for(let i=0; i<camaras.length; i++){ %>
+                <% } %>
+                <% } %>
+                <div class="categoria">
+                    <h1>CÁMARAS</h1>
+                </div>
+                <% for(let i=0; i<camaras.length; i++){ %>
+                <% if (camaras[i].visible==true) { %>
                 <a href="/products/productdetail/<%= camaras[i].id %>">
                     <section class="product-item">
                         <div class="imagen-producto">
-                            <img src="/img/products/<%= camaras[i].imagen %>" alt="imagen de producto">
+                            <img src="/img/products/<%= camaras[i].imagen %>"
+                                alt="imagen de producto">
                         </div>
                         <div class="datos">
-                            <p class="nombre"><%= camaras[i].nombre %></p>
-                            <p class="descipcion"><%= camaras[i].descripcion %></p>
+                            <p class="nombre">
+                                <%= camaras[i].nombre %>
+                            </p>
+                            <p class="descipcion">
+                                <%= camaras[i].descripcion %>
+                            </p>
                         </div>
                         <div class="precio">
-                            <p>$<%= camaras[i].precio %></p>
+                            <p>$<%= camaras[i].precio %>
+                            </p>
                         </div>
                     </section>
                 </a>
-            <% } %>
-            <div class="categoria"><h1>AUDIO</h1></div>
-            <% for(let i=0; i<audio.length; i++){ %>
+                <% } %>
+                <% } %>
+                <div class="categoria">
+                    <h1>AUDIO</h1>
+                </div>
+                <% for(let i=0; i<audio.length; i++){ %>
+                <% if (audio[i].visible==true) { %>
                 <a href="/products/productdetail/<%= audio[i].id %>">
                     <section class="product-item">
                         <div class="imagen-producto">
-                            <img src="/img/products/<%= audio[i].imagen %>" alt="imagen de producto">
+                            <img src="/img/products/<%= audio[i].imagen %>"
+                                alt="imagen de producto">
                         </div>
                         <div class="datos">
-                            <p class="nombre"><%= audio[i].nombre %></p>
-                            <p class="descipcion"><%= audio[i].descripcion %></p>
+                            <p class="nombre">
+                                <%= audio[i].nombre %>
+                            </p>
+                            <p class="descipcion">
+                                <%= audio[i].descripcion %>
+                            </p>
                         </div>
                         <div class="precio">
-                            <p>$<%= audio[i].precio %></p>
+                            <p>$<%= audio[i].precio %>
+                            </p>
                         </div>
                     </section>
                 </a>
-            <% } %>
-        </div>
-
-    </main>
-    <!-- FOOTER -->
-    <footer>
-        <%- include('../partials/footer') %>
-    </footer>
-
-</body>
-
+                <% } %>
+                <% } %>
+            </div>
+        </main>
+        <!-- FOOTER -->
+        <footer>
+            <%- include('../partials/footer') %>
+        </footer>
+    </body>
 </html>
