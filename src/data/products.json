@@ -266,12 +266,12 @@
   {
     "id": 25,
     "nombre": "PRUEBA BORRADO",
-    "marca": "Razer",
+    "marca": "Logitech",
     "precio": "100",
     "categoria": "Cases",
     "color": "#ff0000",
     "accesorios": "Ninguno",
-    "imagen": "1648244861801_img_.jpg",
-    "descripcion": "PRUEBA DE OPCION DE BORRADO"
+    "imagen": "1648259900500_img_.jpg",
+    "descripcion": "PRUEBA DE OPCION DE BORRAD000"
   }
 ]
