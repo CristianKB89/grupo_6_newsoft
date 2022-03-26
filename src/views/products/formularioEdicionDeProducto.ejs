@@ -89,9 +89,13 @@
         <br>
         <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR PRODUCTO</button>
           <a href="/products/create" class="control-final">INGRESAR UN NUEVO PRODUCTO</a>
-        </div>
+        
         <br>
     </form>
+    <form action="/products/<%=productoEditar.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+      <button type="submit" class="boton-formulario">ELIMINAR ESTE PRODUCTO</button>
+       </form>
+      </div>
   </main>
 
   <!-- FOOTER -->
