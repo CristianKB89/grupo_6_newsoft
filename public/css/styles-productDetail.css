@@ -208,6 +208,11 @@ h1{
     color: #E9E600;
 }
 
+.video-rese:hover .fa-trash-alt{
+    color: #e90000;
+}
+
+
 .video-rese:hover a{
     color: #E9E600;
 }
@@ -219,7 +224,7 @@ h1{
 }
 
 .video-rese:hover button{
-    color: #E9E600;
+    color: #e90000;
 }
 
 
