@@ -1,0 +1,23 @@
+<% for(let i=0; i<producto.length; i++){ %>
+    <% if (producto[i].visible==true) { %>
+    <a href="/products/productdetail/<%= producto[i].id %>">
+        <section class="product-item">
+            <div class="imagen-producto">
+                <img src="/img/products/<%= producto[i].imagen %>" alt="imagen de producto">
+            </div>
+            <div class="datos">
+                <p class="nombre">
+                    <%= producto[i].nombre %>
+                </p>
+                <p class="descipcion">
+                    <%= producto[i].descripcion %>
+                </p>
+            </div>
+            <div class="precio">
+                <p>$<%= producto[i].precio %>
+                </p>
+            </div>
+        </section>
+    </a>
+    <% } %>
+<% } %>

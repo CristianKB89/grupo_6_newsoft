@@ -83,7 +83,7 @@ const controlador = {
 
 		fs.writeFileSync( productsFilePath , JSON.stringify(productoFiltrado, null, 2))
 
-        res.redirect('/products')
+        res.redirect('/products?categoria=catalogo')
 	},
 
     productDetail: (req, res) => {
@@ -94,7 +94,7 @@ const controlador = {
         const productoDetalle = productos.find( producto => producto.id == idProducto)
 
         if (!productoDetalle) {
-			res.redirect('/products')
+			res.redirect('/products?categoria=catalogo')
 		}
 
         // Renderiza el detalle del producto
@@ -114,7 +114,7 @@ const controlador = {
 
             fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
 
-            res.redirect('/products');
+            res.redirect('/products?categoria=catalogo');
     },
     mostrarProducto: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -126,7 +126,7 @@ const controlador = {
             return producto;
             })
             fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
-            res.redirect('/products');
+            res.redirect('/products?categoria=catalogo');
     },
     productosOcultos: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));

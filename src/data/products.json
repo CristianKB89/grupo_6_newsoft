@@ -69,7 +69,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648224034791_img_.png",
     "descripcion": "ATX semitorre con cristal templado iCUE",
-    "visible": true
+    "visible": false
   },
   {
     "id": 7,
@@ -165,7 +165,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648243553606_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX Case",
-    "visible": true
+    "visible": false
   },
   {
     "id": 15,
@@ -177,7 +177,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648243654060_img_.JPG",
     "descripcion": "Full-Tower ATX PC Case ",
-    "visible": true
+    "visible": false
   },
   {
     "id": 16,
@@ -237,7 +237,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648244257950_img_.JPG",
     "descripcion": "RGB Tempered Glass Mid-Tower Smart Case — Black",
-    "visible": false
+    "visible": true
   },
   {
     "id": 21,
@@ -261,7 +261,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648244500519_img_.JPG",
     "descripcion": "Glass Mid-Tower ATX Case — Black",
-    "visible": false
+    "visible": true
   },
   {
     "id": 23,
