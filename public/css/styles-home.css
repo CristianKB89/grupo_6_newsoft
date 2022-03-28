@@ -47,8 +47,7 @@ h1{
     height: 50vw;
     display: flex;
     align-items: flex-end;
-    padding-left: 6vw;
-    
+    padding-left: 6vw; 
 }
 
 .des-slide{

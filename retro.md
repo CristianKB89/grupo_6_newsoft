@@ -1,4 +1,4 @@
-Sprint # 2
+Sprint # 3
 1. Comenzar a hacer: 
     -Gestionar las tarjetas de trello y que todas tengan roles.
     -Trabajar en las ramas definias con las pantallas de cada uno.
@@ -18,19 +18,3 @@ Sprint # 2
 5. Dejar de hacer:
     -Posponer tareas
     -Posponer las reuniones de los merge y en lo posible estar todos.
-
-Sprint # 3
-1. Comenzar a hacer:
-
-2. Hacer más:
-
-3. Continuar haciendo:
-
-4. Hacer menos:
-
-5. Dejar de hacer:
-
-
-● Qué hizo ayer.
-● Si se encontró con algún impedimento.
-● Qué va a hacer hoy.

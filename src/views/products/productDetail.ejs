@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>
+    <%=productoDetalle.nombre %>
+  </title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
@@ -25,18 +27,18 @@
     <section class="panel-1">
       <div class="panel-izq">
         <div>
-          <h1>Ratón para juegos FPS/MOBA HARPOON RGB PRO</h1>
+          <h1>
+            <%=productoDetalle.nombre %>
+          </h1>
         </div>
         <div class="product-des">
           <p>
-            El ratón de juego CORSAIR HARPOON RGB PRO presenta una cómoda
-            forma contorneada, un sensor de 12 000 dpi y un peso
-            increíblemente ligero (85 g) para jugar infinidad de horas sin
-            esfuerzo.
+            <%=productoDetalle.descripcion%>
           </p>
         </div>
         <div>
-          <h2 class="precio">$350</h2>
+          <h2 class="precio">$<%=productoDetalle.precio%>
+          </h2>
         </div>
         <div class="estrellas">
           <form>
@@ -58,7 +60,7 @@
         <div class="content-product-color">
           <div class="product-color">
             <div class="img-color">
-              <img src="/img/product-headsets-1.png" alt="" />
+              <img src="/img/products/<%=productoDetalle.imagen%>" alt="">
             </div>
             <div class="color">
               Color blanco
@@ -68,18 +70,46 @@
             </div>
           </div>
 
-          <a class="add-carrito" href="/productCart"> Agregar al Carrito </a>
+          <a class="add-carrito" href="/productCart/product-Cart"> Agregar al Carrito </a>
 
           <div class="video-rese">
             <a href="https://www.youtube.com/watch?v=NU1m_dLzEh4" target="_blank" class="video">
               <i class="fa-solid fa-cube"></i>Video
             </a>
           </div>
+          <div class="video-rese">
+            <a href="/products/<%=productoDetalle.id%>/edit" target="_blank" class="video">
+              <i class="fas fa-edit"></i>Editar Producto
+            </a>
+          </div>
+
+          <div class="video-rese">
+            <%if (productoDetalle.visible==true) { %>
+              <form action="/products/<%=productoDetalle.id%>/ocultar?_method=PUT" method="POST" style="display: inline-flex">
+                <i class="fa-regular fa-eye-slash"></i>
+                <button type="submit" class="ocultar">OCULTAR PRODUCTO</button>
+              </form>
+            <% } %>
+            <%if (productoDetalle.visible==false) { %>
+              <form action="/products/<%=productoDetalle.id%>/mostrar?_method=PUT" method="POST" style="display: inline-flex">
+                <i class="fa-regular fa-eye"></i>
+                <button type="submit" class="ocultar">MOSTRAR PRODUCTO</button>
+              </form>
+            <% } %>
+          </div>
+
+          <div class="video-rese">
+            <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+              <i class="far fa-trash-alt"></i>
+              <button type="submit" class="button">ELIMINAR</button>
+            </form>
+          </div>
         </div>
+      </div>
       </div>
       <div class="panel-der">
         <div class="img-product">
-          <img src="/img/product-headsets-1.png" alt="" />
+          <img src="/img/products/<%=productoDetalle.imagen%>" alt="">
         </div>
         <div class="gallery">
           <div class="img-products">
