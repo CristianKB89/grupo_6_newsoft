@@ -18,7 +18,6 @@
 
 <body>
     <header>
-        <%- include('../partials/header') %>
     </header>
     <main>
         <div class="contenedor">
@@ -49,7 +48,9 @@
                     <input type="checkbox" name="remember" value="Remember" checked class="check">
                     <label for="remember" class="remember">Mantener la sesión iniciada</label>
                 </div>
-                    <a style="color:white" href="users/recover">Recuperar contraseña</a>
+                <div>
+                    <a href="/users/recover" class="recup">Recuperar contraseña</a>
+                </div>
             </div>
 
             <div class="contenedor3">
@@ -69,7 +70,6 @@
     </main>
 
     <footer>
-        <%- include('../partials/footer') %> 
     </footer>
 
 </body>
