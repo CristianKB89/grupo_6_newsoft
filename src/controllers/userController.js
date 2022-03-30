@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { off } = require('process');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -44,6 +45,14 @@ const controlador = {
             image: filename,
             newsletter:req.body.newsletter	
 		};
+
+        if(req.body.newsletter!=null){
+            nuevoUsuario.newsletter = req.body.newsletter	
+            
+        }else{
+            nuevoUsuario.newsletter = "off";
+        }
+
 		// guardarlo BD
 		usuarios.push(nuevoUsuario)
 		// guardar los productos en archivo.json
