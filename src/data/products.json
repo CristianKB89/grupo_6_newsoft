@@ -298,5 +298,17 @@
     "imagen": "1648259900500_img_.jpg",
     "descripcion": "PRUEBA DE OPCION DE BORRAD000",
     "visible": true
+  },
+  {
+    "id": 26,
+    "nombre": "M65 PRO RGB FPS",
+    "marca": "Corsair",
+    "precio": "80",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "Ninguno",
+    "imagen": "1648601987667_img_.png",
+    "descripcion": "The M65 PRO RGB is a competition-grade FPS gaming",
+    "visible": true
   }
 ]
