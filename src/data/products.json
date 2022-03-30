@@ -322,5 +322,77 @@
     "imagen": "1648615794337_img_.png",
     "descripcion": "IRONCLAW RGB WIRELESS",
     "visible": true
+  },
+  {
+    "id": 28,
+    "nombre": "Ratón para juegos FPS",
+    "marca": "Corsair",
+    "precio": "90",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "ninguno",
+    "imagen": "1648616418716_img_.png",
+    "descripcion": "M65 RGB ELITE ajustable — Blanco (EU)",
+    "visible": true
+  },
+  {
+    "id": 29,
+    "nombre": "Ratón para juegos",
+    "marca": "Corsair",
+    "precio": "68",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "ninguno",
+    "imagen": "1648616764663_img_.png",
+    "descripcion": "KATAR PRO Wireless (EU)",
+    "visible": true
+  },
+  {
+    "id": 30,
+    "nombre": "Ratón para juegos",
+    "marca": "Corsair",
+    "precio": "83",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "ninguno",
+    "imagen": "1648616938700_img_.png",
+    "descripcion": "FPS/MOBA HARPOON RGB PRO (EU)",
+    "visible": true
+  },
+  {
+    "id": 31,
+    "nombre": "Ratón para juegos FPS",
+    "marca": "Corsair",
+    "precio": "65",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "ninguno",
+    "imagen": "1648617164281_img_.png",
+    "descripcion": "M65 RGB ELITE ajustable — Negro",
+    "visible": true
+  },
+  {
+    "id": 32,
+    "nombre": "Ratón para juegos",
+    "marca": "Corsair",
+    "precio": "102",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "ninguno",
+    "imagen": "1648617470851_img_.png",
+    "descripcion": "inalámbrico DARK CORE RGB PRO SE",
+    "visible": true
+  },
+  {
+    "id": 33,
+    "nombre": "Ratón óptico para juegos SABRE",
+    "marca": "Corsair",
+    "precio": "88",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "ninguno",
+    "imagen": "1648617710975_img_.png",
+    "descripcion": "PRO CHAMPION SERIES (EU)",
+    "visible": true
   }
 ]
