@@ -310,5 +310,17 @@
     "imagen": "1648601987667_img_.png",
     "descripcion": "The M65 PRO RGB is a competition-grade FPS gaming",
     "visible": true
+  },
+  {
+    "id": 27,
+    "nombre": "Ratón para juegos",
+    "marca": "Corsair",
+    "precio": "70",
+    "categoria": "Mouse",
+    "color": "#ff0000",
+    "accesorios": "ninguno",
+    "imagen": "1648615794337_img_.png",
+    "descripcion": "IRONCLAW RGB WIRELESS",
+    "visible": true
   }
 ]
