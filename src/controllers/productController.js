@@ -52,6 +52,8 @@ const controlador = {
         const filename = req.file.filename ;
 
         let id = req.params.id;
+
+        //que exista req.file poner filtro req.file.filename poner una imagen default en el caso de que no exista
         
         const productoOculto = productos.map(producto =>{
             

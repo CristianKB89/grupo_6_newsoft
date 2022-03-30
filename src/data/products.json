@@ -165,7 +165,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648243553606_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX Case",
-    "visible": false
+    "visible": true
   },
   {
     "id": 15,
@@ -285,18 +285,6 @@
     "accesorios": "Ninguno",
     "imagen": "1648244761798_img_.JPG",
     "descripcion": "RGB SIGNATURE SERIES Mid-Tower Smart Case — Glitch",
-    "visible": true
-  },
-  {
-    "id": 25,
-    "nombre": "PRUEBA BORRADO",
-    "marca": "Logitech",
-    "precio": "100",
-    "categoria": "Cases",
-    "color": "#ff0000",
-    "accesorios": "Ninguno",
-    "imagen": "1648259900500_img_.jpg",
-    "descripcion": "PRUEBA DE OPCION DE BORRAD000",
     "visible": true
   },
   {
