@@ -71,7 +71,7 @@ const controlador = {
 		fs.writeFileSync( usersFilePath , JSON.stringify(usuarios, null, 2))
 
 		// redireccionar al usuairo /products
-		res.redirect('/users')
+		res.redirect('/users/'+ req.params.id)
     },
     
     editar: (req, res) => {
@@ -118,7 +118,7 @@ const controlador = {
 
             fs.writeFileSync( usersFilePath , JSON.stringify(usuarioEditado, null, 2))
 
-            res.redirect('/users')
+            res.redirect('/users/'+ req.params.id)
         
     },
 

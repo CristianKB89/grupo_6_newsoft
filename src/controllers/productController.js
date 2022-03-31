@@ -12,9 +12,15 @@ const controlador = {
     crearProducto: (req, res) => {
      
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        const filename = req.file.filename ;
+        let image
 
-		// capturar los datos del usuario
+        if(req.file != undefined){
+			image = req.file.filename
+		} else {
+			image = 'default.jpg'
+		}
+
+		// capturar los datos del producto
 		const nuevoProducto = {
 			id: productos.length == 0 ? 1 : productos[productos.length -1].id +1,
 			nombre: req.body.nombre,
@@ -23,7 +29,7 @@ const controlador = {
 			categoria: req.body.categoria,
             color:req.body.color,	
             accesorios:req.body.accesorios,	
-            imagen:filename,	
+            imagen:image,	
             descripcion:req.body.descripcion,
             visible: true
 		};
@@ -49,11 +55,18 @@ const controlador = {
     editarProducto:(req, res) => {
        
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        const filename = req.file.filename ;
-
         let id = req.params.id;
+        let productoEditar = productos.find( products => products.id == id);
 
-        //que exista req.file poner filtro req.file.filename poner una imagen default en el caso de que no exista
+       (path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {productoEditar:productoEditar};
+
+        let image
+	
+		if(req.file != undefined){
+			image = req.file.filename
+		} else {
+			image = productoEditar.imagen
+		}
         
         const productoOculto = productos.map(producto =>{
             
@@ -64,9 +77,9 @@ const controlador = {
                 producto.categoria = req.body.categoria;
 				producto.color = req.body.color;
 				producto.accesorios = req.body.accesorios;
-				producto.imagen = filename;
+				producto.imagen = image;
 				producto.descripcion = req.body.descripcion;
-                producto.visible = req.body.visible;
+                producto.visible = true;
             }
             return producto;
             })

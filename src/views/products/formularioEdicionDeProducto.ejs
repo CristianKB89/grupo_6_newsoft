@@ -53,6 +53,7 @@
         <div class="control-formulario">
           <label for="categoria">Seleccione la categoria del producto:</label>
           <select name="categoria" id="categoria" class="control-input" value="<%= productoEditar.categoria %>" required>
+            <option value="">Seleccione una categoria</option>
             <option>Cases</option>
             <option>Teclados</option>
             <option>Audifonos</option>
@@ -64,10 +65,15 @@
         <div class="control-formulario">
           <label for="color">Seleccione el color del producto:</label>
           <select name="color" id="color" class="control-input" value="<%= productoEditar.color %>" required>
-            <option value="#ff0000">Rojo</option>
-            <option value="#00ff00">Verde</option>
-            <option value="#0000ff">Azul</option>
-            <option value="#770077">Morado</option>
+            <option value="">Seleccione un color</option>
+            <option value="Blanco">Blanco</option>
+            <option value="Negro">Negro</option>
+            <option value="Amarillo">Amarillo</option>
+            <option value="Azul">Azul</option>
+            <option value="Rojo">Rojo</option>
+            <option value="Violeta">Violeta</option>
+            <option value="Verde">Verde</option>
+            <option value="Cafe">Cafe</option>
           </select>
         </div>
         <div class="control-formulario">
@@ -76,7 +82,7 @@
         </div>
         <div class="control-formulario">
           <label for="imagen">Ingrese una imagen del producto:<br><br></label>
-          <input type="file" name="imagen" id="imagen" class="control-input"  value="<%= productoEditar.imagen %>" multiple required>
+          <input type="file" name="imagen" id="imagen" class="control-input"  value="<%= productoEditar.imagen %>" multiple >
         </div>
         <div class="control-formulario">
           <label for="descripcion">Realice una breve descripcion del producto:</label>
