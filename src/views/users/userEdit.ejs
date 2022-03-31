@@ -27,18 +27,27 @@
         <form action="/users/<%= usuarioEditar.id %>?_method=PUT" method="POST" class="formulario-forma" enctype="multipart/form-data">
          <div class="mensaje-logo"><h1>EDICIÓN DE USUARIO <%= usuarioEditar.nombre %></h1></div>
          <P>Completa todos los campos para editar tu ID <%= usuarioEditar.nombre %></P>  
+
+         <% if (typeof errors != "undefined") { %>
+          <ul style="text-align: center;">
+          <% errors.forEach(specificError => { %>
+            <li style="text-align: center;"><%= specificError.msg %> </li>
+          <% }) %> 
+        </ul>
+        <% } %>
+
          <div class="formulado-interno">
           <div class="control-formulario">
-               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input"  value="<%= usuarioEditar.nombre %>" required>
+               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input"  value="<%= usuarioEditar.nombre %>" >
           </div>
           <div class="control-formulario">
-                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input" value="<%= usuarioEditar.apellido %>" required>
+                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input" value="<%= usuarioEditar.apellido %>" >
           </div>
           <div class="control-formulario">
-               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" value="<%= usuarioEditar.email %>" required>
+               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" value="<%= usuarioEditar.email %>" >
           </div>
           <div class="control-formulario">
-               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input" value="<%= usuarioEditar.password %>" required minlength="8">
+               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input" value="<%= usuarioEditar.password %>" >
           </div>
           <div class="control-formulario">
             <label for="imagen" class="form-label">Cargue una nueva imagen para su perfil</label>

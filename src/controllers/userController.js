@@ -84,10 +84,17 @@ const controlador = {
     },
 
     editarUsuario:(req, res) => {
-       
+
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
         let id = req.params.id;
         let usuarioEditar = usuarios.find( users => users.id == id);
+
+        let errorsValidation = validationResult(req);
+        if(errorsValidation.errors.length > 0){
+            return res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')),{errors:errorsValidation.errors,usuarioEditar:usuarioEditar})
+        }
+       
+
         let image
 	
 		if(req.file != undefined){

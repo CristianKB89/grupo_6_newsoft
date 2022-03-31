@@ -32,7 +32,7 @@ router.post('/',upload.single('imagen'),arrayvValidations,controlador.crearUsuar
 router.get('/:id/edit', controlador.editar);
 
 //Acción de edición (a donde se envía el formulario):
-router.put('/:id',upload.single('imagen'), controlador.editarUsuario);
+router.put('/:id',upload.single('imagen'),arrayvValidations, controlador.editarUsuario);
 
 //Acción de borrado
 router.delete('/:id', controlador.borrar); 
