@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { off } = require('process');
+const {validationResult} = require('express-validator');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -31,9 +31,20 @@ const controlador = {
     },
 
     crearUsuario: (req, res) => {
+
+        let errorsValidation = validationResult(req);
+        if(errorsValidation.errors.length > 0){
+            return res.render((path.resolve(__dirname, '../views/users/register.ejs')),{errors:errorsValidation.errors, old:req.body})
+        }
      
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-        const filename = req.file.filename ;
+        let image
+
+		if(req.file != undefined){
+			image = req.file.filename
+		} else {
+			image = 'default.png'
+		}
 
 		// capturar los datos del usuario
 		const nuevoUsuario = {
@@ -42,7 +53,7 @@ const controlador = {
 			apellido: req.body.apellido,
 			email: req.body.email,
 			password: req.body.password,
-            image: filename,
+            image: image,
             newsletter:req.body.newsletter	
 		};
 
@@ -65,7 +76,7 @@ const controlador = {
     editar: (req, res) => {
         let idUsuario = req.params.id;
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-        let usuarioEditar = usuarios.find( users => users.id == idUsuario)
+        let usuarioEditar = usuarios.find( users => users.id == idUsuario);
 
         res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')), {usuarioEditar:usuarioEditar});
        
@@ -74,9 +85,15 @@ const controlador = {
     editarUsuario:(req, res) => {
        
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-        const filename = req.file.filename ;
-
         let id = req.params.id;
+        let usuarioEditar = usuarios.find( users => users.id == id);
+        let image
+	
+		if(req.file != undefined){
+			image = req.file.filename
+		} else {
+			image = usuarioEditar.image
+		}
         
         const usuarioEditado = usuarios.map(user =>{
             
@@ -85,7 +102,7 @@ const controlador = {
                 user.apellido = req.body.apellido;
                 user.email = req.body.email;
                 user.password = req.body.password;
-                user.image =  filename;
+                user.image =  image;
                 
             }
             return user;
