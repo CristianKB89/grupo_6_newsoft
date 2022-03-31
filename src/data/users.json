@@ -70,5 +70,14 @@
     "password": "1234562222",
     "image": "1648600976436_img_.png",
     "newsletter": "on"
+  },
+  {
+    "id": 9,
+    "nombre": "Jinson Stevenson",
+    "apellido": "Aguilar",
+    "email": "jinson.moreno@gmail.com",
+    "password": "$2a$10$P8IJxIH5I2uku4c6a6D/kOgKUUf3Ftb3MgAD10vJZeF8pO0WijFrO",
+    "image": "default.png",
+    "newsletter": "off"
   }
 ]

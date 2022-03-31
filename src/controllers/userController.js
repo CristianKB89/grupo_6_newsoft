@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const {validationResult} = require('express-validator');
+const bcryptjs = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -52,7 +53,7 @@ const controlador = {
 			nombre: req.body.nombre,
 			apellido: req.body.apellido,
 			email: req.body.email,
-			password: req.body.password,
+			password: bcryptjs.hashSync(req.body.password, 10),
             image: image,
             newsletter:req.body.newsletter	
 		};
@@ -101,7 +102,7 @@ const controlador = {
                 user.nombre = req.body.nombre;
                 user.apellido = req.body.apellido;
                 user.email = req.body.email;
-                user.password = req.body.password;
+                user.password = bcryptjs.hashSync(req.body.password, 10),
                 user.image =  image;
                 
             }
