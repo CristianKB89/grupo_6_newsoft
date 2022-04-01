@@ -60,10 +60,10 @@
         <div class="content-product-color">
           <div class="product-color">
             <div class="img-color">
-              <img src="/img/products/<%=productoDetalle.imagen%>" alt="">
+              <img src="/img/products/<%=productoDetalle.imagen ? productoDetalle.imagen : 'default.jpg'%>" alt="">
             </div>
             <div class="color">
-              Color blanco
+              <%=productoDetalle.color%>
             </div>
             <div class="fav">
               <i class="fa-solid fa-caret-down"></i>
@@ -109,7 +109,7 @@
       </div>
       <div class="panel-der">
         <div class="img-product">
-          <img src="/img/products/<%=productoDetalle.imagen%>" alt="">
+          <img src="/img/products/<%=productoDetalle.imagen ? productoDetalle.imagen : 'default.jpg'%>" alt="">
         </div>
         <div class="gallery">
           <div class="img-products">

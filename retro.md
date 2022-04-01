@@ -1,4 +1,4 @@
-Sprint # 3
+Sprint # 4
 1. Comenzar a hacer: 
     -Gestionar las tarjetas de trello y que todas tengan roles.
     -Trabajar en las ramas definias con las pantallas de cada uno.
