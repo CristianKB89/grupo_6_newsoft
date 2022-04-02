@@ -42,8 +42,8 @@
                     <h3 class="profileh3">Nombre usuario:<%= usuarios[i].nombre %> <%= usuarios[i].apellido %></h3>
                     <p class="profilep">Email:<%= usuarios[i].email %> </p>
                     <div>
-                     <a class="button" href="/users/<%= usuarios[i].id %>" >VER DETALLE</a>
-						         <a class="button" href="/users/<%= usuarios[i].id %>/edit" >EDITAR USUARIO</a>
+                     <a class="boton-formulario" href="/users/<%= usuarios[i].id %>" >VER DETALLE</a>
+						         <a class="boton-formulario" href="/users/<%= usuarios[i].id %>/edit" >EDITAR USUARIO</a>
                     </div>
 					           	<form action="/users/<%=usuarios[i].id%>?_method=DELETE" method="POST" style="display: inline-flex">
 							       <button type="submit" class="button" >ELIMINAR USUARIO</button>
@@ -54,7 +54,7 @@
             <br>
           <% } %>
           <br>
-          <h2 ><a class="linkfinal" href="/users/create" >REGRiSTRAR UN NUEVO USUARIO</a></h2>
+          <h2 ><a class="boton-formulario" href="/users/create" >REGRiSTRAR UN NUEVO USUARIO</a></h2>
     
         
       </div>

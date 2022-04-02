@@ -40,22 +40,22 @@
         </h3>
       </div>
       <div class="card-content">
-        <h3 class="profileh3"> Nombre:<%= usuarioBuscado.nombre %>
+        <h3 class="profileh3"> Nombre: <%= usuarioBuscado.nombre %>
             <%= usuarioBuscado.apellido %>
         </h3>
         <p class="profilep">Email:<%= usuarioBuscado.email %>
         </p>
-        <div>
-          <a class="button" href="/users/<%= usuarioBuscado.id %>/edit">EDITAR USUARIO</a>
+        <div class="botones">
+          <a class="boton-formulario" href="/users/<%= usuarioBuscado.id %>/edit">EDITAR MI USUARIO</a>
           <form action="/users/<%=usuarioBuscado.id%>?_method=DELETE" method="POST" style="display: inline-flex">
-            <button type="submit" class="button">ELIMINAR</button>
+            <button type="submit" class="button-eliminar">ELIMINAR MI USUARIO</button>
           </form>
         </div>
     </article>
     <br>
 
 
-    <h2><a class="linkfinal" href="/users">REGRESAR A GESTION DE TODOS LOS USUARIOS</a></h2>
+    <h2><a class="boton-formulario" href="/users">REGRESAR A GESTION DE TODOS LOS USUARIOS</a></h2>
     </div>
 
 
