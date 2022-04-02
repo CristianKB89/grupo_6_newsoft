@@ -193,6 +193,15 @@ ul li{
 
 }
 
+.add-carrito{
+  border: 0px;
+  background: none; 
+}
+
+.add-carrito:hover{
+  cursor: pointer;
+}
+
 @media (min-width: 1200px) {
   body {
     padding: 30px 80px;
