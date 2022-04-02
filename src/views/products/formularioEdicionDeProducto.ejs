@@ -28,6 +28,15 @@
     <form action="/products/<%= productoEditar.id %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
+
+        <% if (typeof errors != "undefined") { %>
+          <ul style="text-align: center;">
+          <% errors.forEach(specificError => { %>
+            <li style="text-align: center;"><%= specificError.msg %> </li>
+          <% }) %> 
+        </ul>
+        <% } %>
+
       </div>
       <P>Complete todos los campos para editar correctamente el producto: <%= productoEditar.nombre %></P><br>
       <div class="formulado-interno">
@@ -39,6 +48,7 @@
         <div class="control-formulario">
           <label for="marca">Seleccione la marca del producto:</label>
           <select name="marca" id="marca" class="control-input" value="<%= productoEditar.marca %>" required>
+            <option value="">Seleccione una marca</option>
             <option>Logitech</option>
             <option>Corsair</option>
             <option>Razer</option>

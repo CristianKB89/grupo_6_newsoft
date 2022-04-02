@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const {validationResult} = require('express-validator');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -10,6 +11,11 @@ const controlador = {
     },
 
     crearProducto: (req, res) => {
+
+        let errorsValidation = validationResult(req);
+        if(errorsValidation.errors.length > 0){
+            return res.render((path.resolve(__dirname, '../views/products/formularioCreacionDeProducto.ejs')),{errors:errorsValidation.errors, old:req.body})
+        }
      
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let image
