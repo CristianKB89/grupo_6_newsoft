@@ -163,26 +163,28 @@ h1{
 }
 
 .add-carrito{
-    border: #A8A8A8 1px solid;
+    border: 0px;
     padding: 20px 0;
     margin: 20px 0;
     text-align: center;
-}
-
-.add-carrito{
     text-decoration: none;
+    width: 100%;
+
+    background-color: #dad617;
+    color: #000;
 }
 
 .add-carrito:hover{
     background-color: #E9E600;
     color: black;
-    border: 0;
+    border: 0px;
+    cursor: pointer;
 }
 
 .add-carrito:hover a{
     background-color: #E9E600;
     color: black;
-    border: 0;
+    border: 0px;
 }
 
 .video-rese{

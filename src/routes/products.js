@@ -46,5 +46,4 @@ router.put('/:id/mostrar',controlador.mostrarProducto);
 router.get('/ocultos', controlador.productosOcultos);
 
 
-
 module.exports = router;
