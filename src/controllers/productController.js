@@ -37,7 +37,8 @@ const controlador = {
             accesorios:req.body.accesorios,	
             imagen:image,	
             descripcion:req.body.descripcion,
-            visible: true
+            visible: true,
+            car: false
 		};
 		// guardarlo BD
 		productos.push(nuevoProducto)
@@ -86,6 +87,7 @@ const controlador = {
 				producto.imagen = image;
 				producto.descripcion = req.body.descripcion;
                 producto.visible = true;
+                producto.car = false;
             }
             return producto;
             })
