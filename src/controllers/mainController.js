@@ -6,6 +6,9 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 
 const controlador = {
     index: (req, res) => {
+        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let producto = productos.filter(producto => producto.car == "true");
+
         res.render(path.resolve(__dirname, '../views/index.ejs'));
     },
     login: (req, res) => {

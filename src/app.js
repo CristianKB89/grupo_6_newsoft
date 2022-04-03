@@ -6,6 +6,7 @@ const rutas_productos = require('./routes/products.js');
 const rutas_productcart= require('./routes/productCart')
 const path = require('path');
 
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); 
 

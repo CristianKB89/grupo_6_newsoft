@@ -97,7 +97,6 @@ img{
     cursor: pointer;
 }
 
-
 .ul-menu-mobile{
     display: flex;
     flex-direction: column;
@@ -139,6 +138,7 @@ img{
 
 .main-header i:hover{
     color: #E9E600;
+    cursor: pointer;
 }
 .plataformas{
     color: #FFF;
@@ -159,6 +159,19 @@ ul{
     margin: 0 3px;
     font-size: 60%;
 }
+
+.num{
+    font-size: 2vw;
+    color: #fff;
+    position: absolute;
+    right: 48px;
+    bottom: 3.5vh;
+    width: 15px;
+    background-color: red;
+    text-align: center;
+    border-radius: 30%;
+}
+
 .search-cart button{
     background-color: transparent;
     color: #FFF;
@@ -215,5 +228,10 @@ ul{
     #mb{
         display: none;
     }
+
+    .num{
+        font-size: 20px;
+    }
+    
 }
 

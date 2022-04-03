@@ -9,7 +9,23 @@ const controlador = {
     productCart: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let producto = productos.filter(producto => producto.car == "true");
-        res.render(path.resolve(__dirname, '../views/products/productCart.ejs'), { producto });
+        
+        let total = 0;
+        if(producto.length > 0){
+            let preciosString = [];
+            for(let i = 0; i < producto.length; i++){
+                preciosString.push(producto[i].precio);
+                var preciosInt = preciosString.map(function(item) {
+                return parseInt(item, 10);
+                });
+            }
+
+            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
+        }else{ 
+            total = 0;
+        }
+
+        res.render(path.resolve(__dirname, '../views/products/productCart.ejs'), { producto , total });
     },
     informacion: (req, res) => {
         res.render(path.resolve(__dirname, '../views/products/informacion.ejs'));
@@ -32,10 +48,23 @@ const controlador = {
         })
 
         fs.writeFileSync( productsFilePath , JSON.stringify(productoCar, null, 2))
-
         let producto = productos.filter(producto => producto.car == "true");
-        
-        res.render(path.resolve(__dirname, '../views/products/productCart.ejs'), { producto });
+
+        let total = 0;
+        if(producto.length > 0){
+            let preciosString = [];
+            for(let i = 0; i < producto.length; i++){
+                preciosString.push(producto[i].precio);
+                var preciosInt = preciosString.map(function(item) {
+                return parseInt(item, 10);
+                });
+            }
+
+            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
+        }else{ 
+            total = 0;
+        }
+        res.render(path.resolve(__dirname, '../views/products/productCart.ejs'), { producto , total });
     },
     deleteProductCart: (req, res) => {
         id = req.body.id;
@@ -50,8 +79,23 @@ const controlador = {
 
         fs.writeFileSync( productsFilePath , JSON.stringify(productoCar, null, 2));
         let producto = productos.filter(producto => producto.car == "true");
-        
-        res.render(path.resolve(__dirname, '../views/products/productCart.ejs'), { producto });
+
+        var total = 0;
+        if(producto.length > 0){
+            let preciosString = [];
+            for(let i = 0; i < producto.length; i++){
+                preciosString.push(producto[i].precio);
+                var preciosInt = preciosString.map(function(item) {
+                return parseInt(item, 10);
+                });
+            }
+
+            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
+            }else{ 
+                total = 0;
+            }
+
+        res.render(path.resolve(__dirname, '../views/products/productCart.ejs'), { producto , total });
         }
 }
 module.exports= controlador
