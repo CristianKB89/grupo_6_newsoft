@@ -89,6 +89,10 @@ img{
     right: 600px;
 }
 
+.li-a{
+    color: #FFF;
+}
+
 .li-a:hover{
     cursor: pointer;
 }
@@ -97,13 +101,16 @@ img{
 .ul-menu-mobile{
     display: flex;
     flex-direction: column;
-    background-color: black;
     color: #FFF;
 }
 
 .ul-menu-mobile li{
     font-size: 30px;
-    border: #FFF solid 1px;
+    margin: 10px;
+}
+
+.ul-menu-mobile a:hover{
+    color: #E9E600;
 }
 
 .ul-menu-mobile a{
@@ -113,7 +120,21 @@ img{
 
 .nav-mobile{
     display:flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    background-color: black;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.fa-x{
+    font-size: 30px;
+    color: #FFF;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.fa-x:hover{
+    color: #E9E600;
 }
 
 .main-header i:hover{
