@@ -23,7 +23,7 @@
     "imagen": "1648258146347_img_.png",
     "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 3,
@@ -74,7 +74,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648224034791_img_.png",
     "descripcion": "ATX semitorre con cristal templado iCUE",
-    "visible": false,
+    "visible": true,
     "car": "false"
   },
   {
@@ -153,7 +153,7 @@
     "imagen": "1648229912638_img_.png",
     "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 13,
