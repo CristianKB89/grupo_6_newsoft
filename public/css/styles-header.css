@@ -98,14 +98,12 @@ img{
     display: flex;
     flex-direction: column;
     background-color: black;
-    padding: 10px 0;
     color: #FFF;
 }
 
 .ul-menu-mobile li{
     font-size: 30px;
     border: #FFF solid 1px;
-    padding: 10px;
 }
 
 .ul-menu-mobile a{
@@ -129,7 +127,7 @@ img{
 }
 ul{
     list-style-type: none;
-    padding-inline-start: 10px;
+    padding-inline-start: 0px;
 }
 
 .ul-menu{
@@ -191,6 +189,10 @@ ul{
     }
     .search-cart button{
         font-size: 40px;
+    }
+
+    #mb{
+        display: none;
     }
 }
 
