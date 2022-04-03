@@ -45,8 +45,6 @@
         </h3>
         <p class="profilep">Email:<%= usuarioBuscado.email %>
         </p>
-        <p class="profilep">Contraseña:<%= usuarioBuscado.password %>
-        </p>
         <div>
           <a class="button" href="/users/<%= usuarioBuscado.id %>/edit">EDITAR USUARIO</a>
           <form action="/users/<%=usuarioBuscado.id%>?_method=DELETE" method="POST" style="display: inline-flex">

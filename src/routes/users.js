@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path')
-const multer = require('multer')
+const path = require('path');
+const arrayvValidations = require('../middlewares/registerValidations');
+const multer = require('multer');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -25,13 +26,13 @@ router.get('/create', controlador.registro);
 router.get('/:id/', controlador.detalle); 
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/',upload.single('imagen'), controlador.crearUsuario);
+router.post('/',upload.single('imagen'),arrayvValidations,controlador.crearUsuario);
 
 //Formulario de edición de usuario
 router.get('/:id/edit', controlador.editar);
 
 //Acción de edición (a donde se envía el formulario):
-router.put('/:id',upload.single('imagen'), controlador.editarUsuario);
+router.put('/:id',upload.single('imagen'),arrayvValidations, controlador.editarUsuario);
 
 //Acción de borrado
 router.delete('/:id', controlador.borrar); 

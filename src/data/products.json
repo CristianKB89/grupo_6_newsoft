@@ -5,11 +5,12 @@
     "marca": "Corsair",
     "precio": "87",
     "categoria": "Teclados",
-    "color": "#ff0000",
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648198282620_img_.png",
     "descripcion": "Mechanical Gaming Keyboard",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 2,
@@ -17,11 +18,12 @@
     "marca": "Corsair",
     "precio": "89",
     "categoria": "Mouse",
-    "color": "#ff0000",
+    "color": "Blanco",
     "accesorios": "Ninguno",
     "imagen": "1648258146347_img_.png",
     "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 3,
@@ -29,11 +31,12 @@
     "marca": "Corsair",
     "precio": "109",
     "categoria": "Teclados",
-    "color": "#ff0000",
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648197999024_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — CHERRY",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 4,
@@ -41,11 +44,12 @@
     "marca": "Corsair",
     "precio": "89",
     "categoria": "Teclados",
-    "color": "#ff0000",
+    "color": "Azul",
     "accesorios": "Ninguno",
     "imagen": "1648198117887_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — 100%",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 5,
@@ -53,11 +57,12 @@
     "marca": "Corsair",
     "precio": "89",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648219952498_img_.png",
     "descripcion": "ATX semitorre con cristal templado iCUE RGB",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 6,
@@ -65,11 +70,12 @@
     "marca": "Corsair",
     "precio": "102",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Blanco",
     "accesorios": "Ninguno",
     "imagen": "1648224034791_img_.png",
     "descripcion": "ATX semitorre con cristal templado iCUE",
-    "visible": false
+    "visible": false,
+    "car": "false"
   },
   {
     "id": 7,
@@ -77,11 +83,12 @@
     "marca": "Corsair",
     "precio": "120",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648224169146_img_.png",
     "descripcion": "Chasis ATX semitorre con cristal templado",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 8,
@@ -89,11 +96,12 @@
     "marca": "Corsair",
     "precio": "110",
     "categoria": "Audifonos",
-    "color": "#ff0000",
+    "color": "Azul",
     "accesorios": "Ninguno",
     "imagen": "1648225089256_img_.png",
     "descripcion": "VOID RGB ELITE Wireless",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 9,
@@ -101,11 +109,12 @@
     "marca": "Corsair",
     "precio": "200",
     "categoria": "Audio (Microfonos)",
-    "color": "#ff0000",
+    "color": "Negro",
     "accesorios": "Ninguno",
     "imagen": "1648225253692_img_.png",
     "descripcion": "Combina la comodidad plug and play.",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 10,
@@ -113,11 +122,12 @@
     "marca": "Corsair",
     "precio": "80",
     "categoria": "Camaras",
-    "color": "#ff0000",
+    "color": "Blanco",
     "accesorios": "Ninguno",
     "imagen": "1648225762998_img_.png",
     "descripcion": "Professional optics in a webcam form factor",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 11,
@@ -125,11 +135,12 @@
     "marca": "Corsair",
     "precio": "85",
     "categoria": "Mouse",
-    "color": "#ff0000",
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648225911046_img_.png",
     "descripcion": "CORSAIR M65 RGB ELITE ajustable es el ratón para juegos",
-    "visible": true
+    "visible": true,
+    "car": "true"
   },
   {
     "id": 12,
@@ -137,11 +148,12 @@
     "marca": "Corsair",
     "precio": "135",
     "categoria": "Teclados",
-    "color": "#ff0000",
+    "color": "Negro",
     "accesorios": "Ninguno",
     "imagen": "1648229912638_img_.png",
     "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 13,
@@ -149,11 +161,12 @@
     "marca": "Razer",
     "precio": "399",
     "categoria": "Cases",
-    "color": "#0000ff",
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648243423959_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX PC Case ",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 14,
@@ -161,11 +174,12 @@
     "marca": "Corsair",
     "precio": "129",
     "categoria": "Cases",
-    "color": "#00ff00",
+    "color": "Azul",
     "accesorios": "Ninguno",
     "imagen": "1648243553606_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX Case",
-    "visible": false
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 15,
@@ -173,11 +187,12 @@
     "marca": "Corsair",
     "precio": "269",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648243654060_img_.JPG",
     "descripcion": "Full-Tower ATX PC Case ",
-    "visible": false
+    "visible": false,
+    "car": "false"
   },
   {
     "id": 16,
@@ -185,11 +200,12 @@
     "marca": "Logitech",
     "precio": "94",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Violeta",
     "accesorios": "Ninguno",
     "imagen": "1648243737847_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX Case",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 17,
@@ -197,11 +213,12 @@
     "marca": "Razer",
     "precio": "109",
     "categoria": "Cases",
-    "color": "#00ff00",
+    "color": "Verde",
     "accesorios": "Ninguno",
     "imagen": "1648243966796_img_.JPG",
     "descripcion": "RGB Airflow Tempered Glass Mid-Tower Smart Case",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 18,
@@ -209,11 +226,12 @@
     "marca": "Razer",
     "precio": "349",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Cafe",
     "accesorios": "Ninguno",
     "imagen": "1648244070511_img_.JPG",
     "descripcion": "RGB QL Edition Mid-Tower ATX Case — True ",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 19,
@@ -221,11 +239,12 @@
     "marca": "Ozone",
     "precio": "274",
     "categoria": "Cases",
-    "color": "#770077",
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648244176570_img_.JPG",
     "descripcion": "RGB ATX High Airflow Tempered Glass Smart Case ",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 20,
@@ -233,11 +252,12 @@
     "marca": "Logitech",
     "precio": "124",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Cafe",
     "accesorios": "Ninguno",
     "imagen": "1648244257950_img_.JPG",
     "descripcion": "RGB Tempered Glass Mid-Tower Smart Case — Black",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 21,
@@ -245,11 +265,12 @@
     "marca": "Corsair",
     "precio": "104",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Verde",
     "accesorios": "Ninguno",
     "imagen": "1648244398405_img_.JPG",
     "descripcion": "RGB Tempered Glass Mid-Tower ATX Gaming Case — Black",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 22,
@@ -257,11 +278,12 @@
     "marca": "Razer",
     "precio": "94",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648244500519_img_.JPG",
     "descripcion": "Glass Mid-Tower ATX Case — Black",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 23,
@@ -269,11 +291,12 @@
     "marca": "Logitech",
     "precio": "64",
     "categoria": "Cases",
-    "color": "#ff0000",
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648244650418_img_.JPG",
     "descripcion": "SPEC-04 Tempered Glass Mid-Tower Gaming Case — Black/Red",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
     "id": 24,
@@ -281,22 +304,154 @@
     "marca": "Razer",
     "precio": "249",
     "categoria": "Cases",
-    "color": "#0000ff",
+    "color": "Verde",
     "accesorios": "Ninguno",
     "imagen": "1648244761798_img_.JPG",
     "descripcion": "RGB SIGNATURE SERIES Mid-Tower Smart Case — Glitch",
-    "visible": true
+    "visible": true,
+    "car": "false"
   },
   {
-    "id": 25,
-    "nombre": "PRUEBA BORRADO",
-    "marca": "Logitech",
-    "precio": "100",
-    "categoria": "Cases",
-    "color": "#ff0000",
+    "id": 26,
+    "nombre": "M65 PRO RGB FPS",
+    "marca": "Corsair",
+    "precio": "80",
+    "categoria": "Mouse",
+    "color": "Azul",
     "accesorios": "Ninguno",
-    "imagen": "1648259900500_img_.jpg",
-    "descripcion": "PRUEBA DE OPCION DE BORRAD000",
-    "visible": true
+    "imagen": "1648601987667_img_.png",
+    "descripcion": "The M65 PRO RGB is a competition-grade FPS gaming",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 27,
+    "nombre": "IRONCLAW RGB WIRELESS",
+    "marca": "Corsair",
+    "precio": "70",
+    "categoria": "Mouse",
+    "color": "Rojo",
+    "accesorios": "ninguno",
+    "imagen": "1648615794337_img_.png",
+    "descripcion": "Ratón para juegos",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 28,
+    "nombre": "M65 RGB ELITE ajustable — Blanco (EU)",
+    "marca": "Corsair",
+    "precio": "90",
+    "categoria": "Mouse",
+    "color": "Azul",
+    "accesorios": "ninguno",
+    "imagen": "1648616418716_img_.png",
+    "descripcion": "Ratón para juegos FPS",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 29,
+    "nombre": "KATAR PRO Wireless (EU)",
+    "marca": "Corsair",
+    "precio": "68",
+    "categoria": "Mouse",
+    "color": "Verde",
+    "accesorios": "ninguno",
+    "imagen": "1648616764663_img_.png",
+    "descripcion": "Ratón para juegos",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 30,
+    "nombre": "HARPOON RGB PRO (EU)",
+    "marca": "Corsair",
+    "precio": "83",
+    "categoria": "Mouse",
+    "color": "Rojo",
+    "accesorios": "ninguno",
+    "imagen": "1648616938700_img_.png",
+    "descripcion": "FPS/MOBA Ratón para juegos",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 31,
+    "nombre": "M65 RGB ELITE ajustable — Negro",
+    "marca": "Corsair",
+    "precio": "65",
+    "categoria": "Mouse",
+    "color": "Azul",
+    "accesorios": "ninguno",
+    "imagen": "1648617164281_img_.png",
+    "descripcion": "Ratón para juegos FPS",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 32,
+    "nombre": "DARK CORE RGB PRO SE",
+    "marca": "Corsair",
+    "precio": "102",
+    "categoria": "Mouse",
+    "color": "Negro",
+    "accesorios": "ninguno",
+    "imagen": "1648617470851_img_.png",
+    "descripcion": "Ratón para juegos Inalámbrico ",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 33,
+    "nombre": "PRO CHAMPION SERIES (EU)",
+    "marca": "Corsair",
+    "precio": "88",
+    "categoria": "Mouse",
+    "color": "Amarillo",
+    "accesorios": "ninguno",
+    "imagen": "1648617710975_img_.png",
+    "descripcion": "Ratón óptico para juegos.",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 34,
+    "nombre": "GLAIVE RGB PRO, aluminio (EU)",
+    "marca": "Corsair",
+    "precio": "64",
+    "categoria": "Mouse",
+    "color": "Rojo",
+    "accesorios": "ninguno",
+    "imagen": "1648617963505_img_.png",
+    "descripcion": "Ratón para juegos",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 35,
+    "nombre": "HARPOON RGB",
+    "marca": "Corsair",
+    "precio": "95",
+    "categoria": "Mouse",
+    "color": "Azul",
+    "accesorios": "ninguno",
+    "imagen": "1648618215001_img_.png",
+    "descripcion": "Ratón para juegos",
+    "visible": true,
+    "car": "false"
+  },
+  {
+    "id": 36,
+    "nombre": "HARPOON RGB WIRELESS",
+    "marca": "Corsair",
+    "precio": "77",
+    "categoria": "Mouse",
+    "color": "Verde",
+    "accesorios": "ninguno",
+    "imagen": "1648618367768_img_.png",
+    "descripcion": "Ratón para juegos",
+    "visible": true,
+    "car": "false"
   }
 ]
