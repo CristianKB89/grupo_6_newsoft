@@ -80,6 +80,40 @@ img{
     transition: 250ms transform;
     width: 100%;
 }
+
+#mb{
+    display: flex;
+    width: 90%;
+    z-index: 10;
+    position: absolute;
+    right: 600px;
+}
+
+
+.ul-menu-mobile{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding: 10px 0;
+    color: #FFF;
+}
+
+.ul-menu-mobile li{
+    font-size: 30px;
+    border: #FFF solid 1px;
+    padding: 10px;
+}
+
+.ul-menu-mobile a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.nav-mobile{
+    display:flex;
+    flex-direction: column;
+}
+
 .main-header i:hover{
     color: #E9E600;
 }
@@ -93,6 +127,11 @@ ul{
     list-style-type: none;
     padding-inline-start: 10px;
 }
+
+.ul-menu{
+    display: flex;
+}
+
 .search-cart i{
     margin: 0 3px;
     font-size: 60%;
