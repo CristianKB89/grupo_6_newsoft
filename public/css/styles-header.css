@@ -89,6 +89,10 @@ img{
     right: 600px;
 }
 
+.li-a:hover{
+    cursor: pointer;
+}
+
 
 .ul-menu-mobile{
     display: flex;

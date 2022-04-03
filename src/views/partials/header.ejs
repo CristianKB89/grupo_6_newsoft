@@ -83,7 +83,7 @@
             </a>
           </li>
           <li>
-            <a href="">Clic para cerrar</a>
+            <a class="li-a" onclick="resStyle(mb)">Clic para cerrar</a>
           </li>
         </ul>
       </nav>
@@ -96,8 +96,7 @@
         mb.style.right = '9vw';
       }
 
-      function resetStyle(mb) {
-      mb = document.getElementById(mb);
-      mb.style.right = '600px';
-}
+      function resStyle(mb) {
+        mb.style.right = '600px';
+      }
     </script>
