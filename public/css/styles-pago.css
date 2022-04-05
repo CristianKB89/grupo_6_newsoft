@@ -11,35 +11,18 @@
     padding: 0;
 }
 body{
-    background-color: #FFF;
+    background-color: #fffff3;
 }
 
-header, .form{
-    background-color: #FFF;
-    width: 90%;
-    max-width: 1000%;
-    margin: 20px auto;
+header{
+   width: 100%;
+   overflow: hidden;
+   background-color: #dabdda;
+   margin-bottom: 20px;
 }
-header nav{
-    background-color: #A8A8A8;
-    overflow: hidden;
+.wrapper{
+    
 }
-header nav ul{
-    list-style: none;
-}
-header nav ul li{
-    float: left;
-}
-header nav ul li a {
-    padding: 10px 20px;
-    display: block;
-    color: #FFF;
-    text-decoration: none;
-}
-header nav ul li a:hover{
-    background-color: #E9E600;
-}
-
 form {
     width: 25%;
     border: 1px solid #FFF;
