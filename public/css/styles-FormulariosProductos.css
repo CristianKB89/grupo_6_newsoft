@@ -213,6 +213,12 @@ form div i {
   transition: all 0.5s;
 }
 
+.mensaje-error{
+  color: red;
+  font-size: 18px;
+
+}
+
 @media (min-width: 361px) {
 }
 

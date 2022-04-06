@@ -32,73 +32,121 @@
       </div>
       <P>Complete todos los campos para ingresar un nuevo producto</P><br>
 
-      <% if (typeof errors != "undefined") { %>
-        <ul style="text-align: center;">
-        <% errors.forEach(specificError => { %>
-          <li style="text-align: center;"><%= specificError.msg %> </li>
-        <% }) %> 
-      </ul>
-      <% } %>
-      <br>
-
       <div class="formulado-interno">
         <div class="control-formulario">
-          <label for="nombre">Escriba el nombre del producto:</label>
+
+          <label for="nombre">Escriba el nombre del producto:
+            <% if (locals.errors && errors.nombre) { %>
+              <div class="mensaje-error">
+                <%= errors.nombre.msg %> 
+              </div>
+            <% } %>
+
+          </label>
           <input type="text" name="nombre" id="nombre" placeholder="NOMBRE DEL PRODUCTO"
-            class="control-input" value=<%= locals.old && old.nombre ? old.nombre: null %>>
+            class="control-input <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.nombre : null %>">
         </div>
         <div class="control-formulario">
-          <label for="marca">Seleccione la marca del producto:</label>
-          <select name="marca" id="marca" class="control-input">
+          <label for="marca">Seleccione la marca del producto:
+            <% if (locals.errors && errors.marca) { %>
+              <div class="mensaje-error">
+                <%= errors.marca.msg %> 
+              </div>
+            <% } %>
+          </label>
+          <select name="marca" id="marca" class="control-input <%= locals.errors && errors.marca ? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.marca : null %>">
             <option value="">Seleccione una marca</option>
-            <option value="Logitech" <%=locals.old && old.marca === 'Logitech' ? 'selected' : ''%>>Logitech</option>
-            <option value="Corsair" <%=locals.old && old.marca === 'Corsair' ? 'selected' : ''%>>Corsair</option>
-            <option value="Razer" <%=locals.old && old.marca === 'Razer' ? 'selected' : ''%>>Razer</option>
-            <option value="Ozone" <%=locals.old && old.marca === 'Ozone' ? 'selected' : ''%>>Ozone</option>
+            <%  
+            let marcas = ['Logitech', 'Corsair', 'Razer', 'Ozone'];
+           %>
+           <% for (const unaMarca of marcas) { %>
+               <option 
+                value="<%= unaMarca %>"
+                <%= locals.oldData && (unaMarca === oldData.marca) ? 'selected' : null %>>
+                 <%= unaMarca %> </option>
+           <% } %> 
           </select>
         </div>
         <div class="control-formulario">
-          <label for="precio">Indique el precio del producto:</label>
-          <input type="number" name="precio" id="precio" placeholder="$ 000.000" class="control-input" value=<%= locals.old && old.precio ? old.precio: null %>>
+          <label for="precio">Indique el precio del producto:
+            <% if (locals.errors && errors.precio) { %>
+              <div class="mensaje-error">
+                <%= errors.precio.msg %> 
+              </div>
+            <% } %>
+          </label>
+          <input type="number" name="precio" id="precio" placeholder="$ 000.000" class="control-input <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
+          value="<%= locals.oldData ? oldData.precio : null %>">
         </div>
         <div class="control-formulario">
-          <label for="categoria">Seleccione la categoria del producto:</label>
+          <label for="categoria">Seleccione la categoria del producto:
+            <% if (locals.errors && errors.categoria) { %>
+              <div class="mensaje-error">
+                <%= errors.categoria.msg %> 
+              </div>
+            <% } %>
+          </label>
           <select name="categoria" id="categoria" class="control-input">
             <option value="">Seleccione una categoria</option>
-            <option value="Cases" <%=locals.old && old.categoria === 'Cases' ? 'selected' : ''%> >Cases</option>
-            <option value="Teclados" <%=locals.old && old.categoria === 'Teclados' ? 'selected' : ''%>>Teclados</option>
-            <option value="Audifonos" <%=locals.old && old.categoria === 'Audifonos' ? 'selected' : ''%>>Audifonos</option>
-            <option value="Mouse" <%=locals.old && old.categoria === 'Mouse' ? 'selected' : ''%>>Mouse</option>
-            <option value="Camaras" <%=locals.old && old.categoria === 'Camaras' ? 'selected' : ''%>>Camaras</option>
-            <option value="Audio (Microfonos)" <%=locals.old && old.categoria === 'Audio (Microfonos)' ? 'selected' : ''%>>Audio (Microfonos)</option>
+            <%  
+            let categorias= ['Cases', 'Teclados', 'Audifonos', 'Mouse','Camaras',"Audio (Microfonos)"];
+           %>
+           <% for (const unaCategoria of categorias) { %>
+               <option 
+                value="<%= unaCategoria %>"
+                <%= locals.oldData && (unaCategoria === oldData.categoria) ? 'selected' : null %>>
+                 <%= unaCategoria %> </option>
+           <% } %> 
           </select>
         </div>
         <div class="control-formulario">
-          <label for="color">Seleccione el color del producto:</label>
+          <label for="color">Seleccione el color del producto:
+            <% if (locals.errors && errors.color) { %>
+              <div class="mensaje-error">
+                <%= errors.color.msg %> 
+              </div>
+            <% } %>
+          </label>
           <select name="color" id="color" class="control-input">
             <option value="">Seleccione un color</option>
-            <option value="Blanco" <%=locals.old && old.color === 'Blanco' ? 'selected' : ''%>>Blanco</option>
-            <option value="Negro" <%=locals.old && old.color === 'Negro' ? 'selected' : ''%>>Negro</option>
-            <option value="Amarillo" <%=locals.old && old.color === 'Amarillo' ? 'selected' : ''%>>Amarillo</option>
-            <option value="Azul" <%=locals.old && old.color === 'Azul' ? 'selected' : ''%>>Azul</option>
-            <option value="Rojo" <%=locals.old && old.color === 'Rojo' ? 'selected' : ''%>>Rojo</option>
-            <option value="Violeta" <%=locals.old && old.color === 'Violeta' ? 'selected' : ''%>>Violeta</option>
-            <option value="Verde" <%=locals.old && old.color === 'Verde' ? 'selected' : ''%>>Verde</option>
-            <option value="Cafe" <%=locals.old && old.color === 'Cafe' ? 'selected' : ''%>>Cafe</option>
+            <%  
+            let colores= ['Blanco', 'Negro', 'Amarillo', 'Azul','Rojo',"Violeta","Verde","Cafe"];
+           %>
+           <% for (const unColor of colores) { %>
+               <option 
+                value="<%= unColor %>"
+                <%= locals.oldData && (unColor === oldData.color) ? 'selected' : null %>>
+                 <%= unColor %> </option>
+           <% } %> 
           </select>
         </div>
         <div class="control-formulario">
-          <label for="accesorios">Indique los accesorios del producto:</label>
-          <input type="text" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input" value=<%= locals.old && old.accesorios ? old.accesorios: null %>>
+          <label for="accesorios">Indique los accesorios del producto:
+            <% if (locals.errors && errors.accesorios) { %>
+              <div class="mensaje-error">
+                <%= errors.accesorios.msg %> 
+              </div>
+            <% } %>
+          </label>
+          <input type="text" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input <%= locals.errors && errors.accesorios ? 'is-invalid' : null %>"
+          value="<%= locals.oldData ? oldData.accesorios : null %>">
         </div>
         <div class="control-formulario">
           <label for="imagen">Ingrese una imagen del producto:<br><br></label>
           <input type="file" name="imagen" id="imagen" class="control-input"  multiple >
         </div>
         <div class="control-formulario">
-          <label for="descripcion">Realice una breve descripcion del producto:</label>
+          <label for="descripcion">Realice una breve descripcion del producto:
+            <% if (locals.errors && errors.descripcion) { %>
+              <div class="mensaje-error">
+                <%= errors.descripcion.msg %> 
+              </div>
+            <% } %>
+          </label>
           <textarea name="descripcion" id="descripcion" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input"><%= locals.old && old.descripcion ? old.descripcion: null %></textarea>
+            class="control-input"></textarea>
         </div>
         <br>
         <br>

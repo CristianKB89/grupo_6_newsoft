@@ -12,10 +12,14 @@ const controlador = {
 
     crearProducto: (req, res) => {
 
-        let errorsValidation = validationResult(req);
-        if(errorsValidation.errors.length > 0){
-            return res.render((path.resolve(__dirname, '../views/products/formularioCreacionDeProducto.ejs')),{errors:errorsValidation.errors, old:req.body})
-        }
+        const resultValidation = validationResult(req);
+
+		if (resultValidation.errors.length > 0) {
+			return res.render((path.resolve(__dirname, '../views/products/formularioCreacionDeProducto.ejs')), {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
      
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let image
@@ -60,12 +64,20 @@ const controlador = {
     },
 
     editarProducto:(req, res) => {
-       
+
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let id = req.params.id;
         let productoEditar = productos.find( products => products.id == id);
 
-       (path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {productoEditar:productoEditar};
+        const resultValidation = validationResult(req);
+
+		if (resultValidation.errors.length > 0) {
+			return res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {
+				errors: resultValidation.mapped(),
+				oldData: req.body,
+                productoEditar:productoEditar
+			});
+		}
 
         let image
 	

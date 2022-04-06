@@ -33,10 +33,14 @@ const controlador = {
 
     crearUsuario: (req, res) => {
 
-        let errorsValidation = validationResult(req);
-        if(errorsValidation.errors.length > 0){
-            return res.render((path.resolve(__dirname, '../views/users/register.ejs')),{errors:errorsValidation.errors, old:req.body})
-        }
+        const resultValidation = validationResult(req);
+
+		if (resultValidation.errors.length > 0) {
+			return res.render((path.resolve(__dirname, '../views/users/register.ejs')), {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
      
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
         let image
@@ -89,12 +93,16 @@ const controlador = {
         let id = req.params.id;
         let usuarioEditar = usuarios.find( users => users.id == id);
 
-        let errorsValidation = validationResult(req);
-        if(errorsValidation.errors.length > 0){
-            return res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')),{errors:errorsValidation.errors,usuarioEditar:usuarioEditar})
-        }
-       
+        const resultValidation = validationResult(req);
 
+		if (resultValidation.errors.length > 0) {
+			return res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')), {
+				errors: resultValidation.mapped(),
+				oldData: req.body,
+                usuarioEditar:usuarioEditar
+			});
+		}
+       
         let image
 	
 		if(req.file != undefined){

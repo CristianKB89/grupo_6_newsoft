@@ -28,22 +28,29 @@
          <div class="mensaje-logo"><h1>EDICIÓN DE USUARIO <%= usuarioEditar.nombre %></h1></div>
          <P>Completa todos los campos para editar tu ID <%= usuarioEditar.nombre %></P>  
 
-         <% if (typeof errors != "undefined") { %>
-          <ul style="text-align: center;">
-          <% errors.forEach(specificError => { %>
-            <li style="text-align: center;"><%= specificError.msg %> </li>
-          <% }) %> 
-        </ul>
-        <% } %>
-
          <div class="formulado-interno">
           <div class="control-formulario">
+            <% if (locals.errors && errors.nombre) { %>
+              <div class="mensaje-error">
+                <%= errors.nombre.msg %> 
+              </div>
+            <% } %>
                <input type="text" name="nombre" placeholder="NOMBRE" class="control-input"  value="<%= usuarioEditar.nombre %>" >
           </div>
           <div class="control-formulario">
+            <% if (locals.errors && errors.apellido) { %>
+              <div class="mensaje-error">
+                <%= errors.apellido.msg %> 
+              </div>
+            <% } %>
                 <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input" value="<%= usuarioEditar.apellido %>" >
           </div>
           <div class="control-formulario">
+            <% if (locals.errors && errors.email) { %>
+              <div class="mensaje-error">
+                <%= errors.email.msg %> 
+              </div>
+            <% } %>
                <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" value="<%= usuarioEditar.email %>" >
           </div>
           <div class="control-formulario">

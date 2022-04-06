@@ -29,24 +29,28 @@
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
 
-        <% if (typeof errors != "undefined") { %>
-          <ul style="text-align: center;">
-          <% errors.forEach(specificError => { %>
-            <li style="text-align: center;"><%= specificError.msg %> </li>
-          <% }) %> 
-        </ul>
-        <% } %>
-
       </div>
       <P>Complete todos los campos para editar correctamente el producto: <%= productoEditar.nombre %></P><br>
       <div class="formulado-interno">
         <div class="control-formulario">
-          <label for="nombre">Nombre del producto:</label>
+          <label for="nombre">Nombre del producto:
+            <% if (locals.errors && errors.nombre) { %>
+              <div class="mensaje-error">
+                <%= errors.nombre.msg %> 
+              </div>
+            <% } %>
+          </label>
           <input type="text" name="nombre" id="nombre" placeholder="NOMBRE DEL PRODUCTO"
             class="control-input" value="<%= productoEditar.nombre %>" required>
         </div>
         <div class="control-formulario">
-          <label for="marca">Seleccione la marca del producto:</label>
+          <label for="marca">Seleccione la marca del producto:
+            <% if (locals.errors && errors.marca) { %>
+              <div class="mensaje-error">
+                <%= errors.marca.msg %> 
+              </div>
+            <% } %>
+          </label>
           <select name="marca" id="marca" class="control-input" value="<%= productoEditar.marca %>" required>
             <option value="">Seleccione una marca</option>
             <option>Logitech</option>
@@ -56,12 +60,24 @@
           </select>
         </div>
         <div class="control-formulario">
-          <label for="precio">Indique el precio del producto:</label>
+          <label for="precio">Indique el precio del producto:
+            <% if (locals.errors && errors.precio) { %>
+              <div class="mensaje-error">
+                <%= errors.precio.msg %> 
+              </div>
+            <% } %>
+          </label>
           <input type="number" name="precio" id="precio" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.precio %>"
             required>
         </div>
         <div class="control-formulario">
-          <label for="categoria">Seleccione la categoria del producto:</label>
+          <label for="categoria">Seleccione la categoria del producto:
+            <% if (locals.errors && errors.categoria) { %>
+              <div class="mensaje-error">
+                <%= errors.categoria.msg %> 
+              </div>
+            <% } %>
+          </label>
           <select name="categoria" id="categoria" class="control-input" value="<%= productoEditar.categoria %>" required>
             <option value="">Seleccione una categoria</option>
             <option>Cases</option>
@@ -73,7 +89,13 @@
           </select>
         </div>
         <div class="control-formulario">
-          <label for="color">Seleccione el color del producto:</label>
+          <label for="color">Seleccione el color del producto:
+            <% if (locals.errors && errors.color) { %>
+              <div class="mensaje-error">
+                <%= errors.color.msg %> 
+              </div>
+            <% } %>
+          </label>
           <select name="color" id="color" class="control-input" value="<%= productoEditar.color %>" required>
             <option value="">Seleccione un color</option>
             <option value="Blanco">Blanco</option>
@@ -87,7 +109,13 @@
           </select>
         </div>
         <div class="control-formulario">
-          <label for="accesorios">Indique los accesorios del producto:</label>
+          <label for="accesorios">Indique los accesorios del producto:
+            <% if (locals.errors && errors.accesorios) { %>
+              <div class="mensaje-error">
+                <%= errors.accesorios.msg %> 
+              </div>
+            <% } %>
+          </label>
           <input type="texT" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input" value="<%= productoEditar.accesorios %>" required>
         </div>
         <div class="control-formulario">
@@ -95,7 +123,13 @@
           <input type="file" name="imagen" id="imagen" class="control-input"  value="<%= productoEditar.imagen %>" multiple >
         </div>
         <div class="control-formulario">
-          <label for="descripcion">Realice una breve descripcion del producto:</label>
+          <label for="descripcion">Realice una breve descripcion del producto:
+            <% if (locals.errors && errors.descripcion) { %>
+              <div class="mensaje-error">
+                <%= errors.descripcion.msg %> 
+              </div>
+            <% } %>
+          </label>
           <textarea name="descripcion" id="descripcion" placeholder="DESCRIPCION DEL PRODUCTO"
             class="control-input" required><%= productoEditar.descripcion %></textarea>
         </div>
