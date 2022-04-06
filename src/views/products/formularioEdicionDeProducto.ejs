@@ -53,10 +53,11 @@
           </label>
           <select name="marca" id="marca" class="control-input" value="<%= productoEditar.marca %>" required>
             <option value="">Seleccione una marca</option>
-            <option>Logitech</option>
-            <option>Corsair</option>
-            <option>Razer</option>
-            <option>Ozone</option>
+            <option value="Logitech" <%= productoEditar.marca == "Logitech" ? "selected" : null %>>Logitech</option>
+            <option value="Corsair" <%= productoEditar.marca == "Corsair" ? "selected" : null %>>Corsair</option>
+            <option value="Razer" <%= productoEditar.marca == "Razer" ? "selected" : null %>>Razer</option>
+            <option value="Ozone" <%= productoEditar.marca == "Ozone" ? "selected" : null %>>Ozone</option>
+
           </select>
         </div>
         <div class="control-formulario">
@@ -80,12 +81,12 @@
           </label>
           <select name="categoria" id="categoria" class="control-input" value="<%= productoEditar.categoria %>" required>
             <option value="">Seleccione una categoria</option>
-            <option>Cases</option>
-            <option>Teclados</option>
-            <option>Audifonos</option>
-            <option>Mouse</option>
-            <option>Camaras</option>
-            <option>Audio (Microfonos)</option>
+            <option value="Cases" <%= productoEditar.categoria == "Cases" ? "selected" : null %>>Cases</option>
+            <option value="Teclados" <%= productoEditar.categoria == "Teclados" ? "selected" : null %>>Teclados</option>
+            <option value="Audifonos" <%= productoEditar.categoria == "Audifonos" ? "selected" : null %>>Audifonos</option>
+            <option value="Mouse" <%= productoEditar.categoria == "Mouse" ? "selected" : null %>>Mouse</option>
+            <option value="Camaras" <%= productoEditar.categoria == "Camaras" ? "selected" : null %>>Camaras</option>
+            <option value="Audio (Microfonos)" <%= productoEditar.categoria == "Audio (Microfonos)" ? "selected" : null %>>Audio (Microfonos)</option>
           </select>
         </div>
         <div class="control-formulario">
@@ -98,14 +99,14 @@
           </label>
           <select name="color" id="color" class="control-input" value="<%= productoEditar.color %>" required>
             <option value="">Seleccione un color</option>
-            <option value="Blanco">Blanco</option>
-            <option value="Negro">Negro</option>
-            <option value="Amarillo">Amarillo</option>
-            <option value="Azul">Azul</option>
-            <option value="Rojo">Rojo</option>
-            <option value="Violeta">Violeta</option>
-            <option value="Verde">Verde</option>
-            <option value="Cafe">Cafe</option>
+            <option value="Blanco" <%= productoEditar.color == "Blanco" ? "selected" : null %>>Blanco</option>
+            <option value="Negro" <%= productoEditar.color == "Negro" ? "selected" : null %>>Negro</option>
+            <option value="Amarillo" <%= productoEditar.color == "Amarillo" ? "selected" : null %>>Amarillo</option>
+            <option value="Azul" <%= productoEditar.color == "Azul" ? "selected" : null %>>Azul</option>
+            <option value="Rojo" <%= productoEditar.color == "Rojo" ? "selected" : null %>>Rojo</option>
+            <option value="Violeta" <%= productoEditar.color == "Violeta" ? "selected" : null %>>Violeta</option>
+            <option value="Verde" <%= productoEditar.color == "Verde" ? "selected" : null %>>Verde</option>
+            <option value="Cafe" <%= productoEditar.color == "Cafe" ? "selected" : null %>>Cafe</option>
           </select>
         </div>
         <div class="control-formulario">
