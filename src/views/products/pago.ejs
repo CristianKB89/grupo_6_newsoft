@@ -16,34 +16,108 @@
 
 <body>
   <header>
-    <div class="logotipo"></div>
-    <nav>
+    <div class="logo">
       
-        <img src="/images/logo-one.png" width="300"/>
-      </div> 
-      <ul>
-        <li><a href="#">2.Método de pago</a></li>
-        <li><a href="#">3.Método de envió</a></li>
-      </ul>
-    </nav> 
-  </header>
-  
-  <h2>Resumen del envio</h2>
+      <img src="/img/logo-one.png" alt="logo" class="logo-one">
+    </div>
+<nav>
+  <button><i class="fa-solid fa-square-2"></i></button>
+  <a href="" class="nav-link">Método de pago</a>
+  <button><i class="fa-solid fa-square-3"></i></i></button>
+  <a href="" class="nav-link">Método de envío</a>
+</nav>    
+</header>
+
+
+<main>
+  <div class="container">
+<div class="left">
   <form>
-<section><label for="contacto">Contacto:ascatiso@gmail.com</label>
-</section>
+    <div class="inputbox">
+        <h3 class="title">Resumen de envió</h3>
 
-<input type="text" id="contacto" placeholder="contacto:">
-<label for="dirección">Dirección</label>
-<input type="text" id="direccion" placeholder="Dirección:">
+        <div class="inputbox">
+          <input type="email" placeholder="Email">
+      </div>
+      <div class="inputbox">
+        <input type="number" placeholder="Dirección">
+      </div>
+        <h3 class="title">Resumen de envió</h3>
+        <label>
+          <select>
+            <option>Tarjeta débito/crédito</option>
+            <option>Banco de Bogotá</option>
+            <option>Bancolombia</option>
+            <option>Banco Caja social</option>
+            <option>BBVA</option>
+            <option>Banco av villas</option>
+            <option>Colpatria</option>
+            <option>Davivienda</option>
+          </select>
+        </label>
+        <div class="inputbox">
+          <input type="text" placeholder="Número de la tarjeta">
+        </div>
+        <div class="inputbox">
+          <input type="text" placeholder="Nombre del titular">
+        </div>
+        <h3 class="title">Fecha de vencimiento</h3>
+  <div id="Zip">
+    <label>
+      <select>
+        <option>Mes</option>
+        <option>Enero</option>
+        <option>Febrero</option>
+        <option>Marzo</option>
+        <option>Abril</option>
+        <option>Mayo</option>
+        <option>Junio</option>
+        <option>Julio</option>
+        <option>Agosto</option>
+        <option>Septiembre</option>
+        <option>Octubre</option>
+        <option>Noviembre</option>
+        <option>Diciembre</option>
+      </select>
+    </label>
+    <label>
+      <select>
+        <option>Año</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+      </select>
+    </label>
+  </div>
+         
+</div>        
+    </form>
 
-<h2>Método de envió</h2>
+    <div class="right"></div>
+    <form action="right">
+      <label>
+        <select>
+          <option>Pago PSE y cuentas bancarias</option>
+          <option>2022</option>
+          <option>2023</option>
+          <option>2024</option>
+        </select>
+      </label>
+      <div class="inputbox">
+        <input type="text" placeholder="Pago PayPal">
+      </div>
+      <div class="inputbox">
+        <input type="text" placeholder="Pago contraentrega">
+      </div>
+      <div class="inputbox">
+        <input type="text" placeholder="Pago vía baloto">
+      </div>
+    </form>
+
+  </div>
+  
+</main>
 
 
-
-
-
-  </form>
 </body>
-
 </html>
