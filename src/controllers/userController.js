@@ -9,7 +9,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controlador = {
     users: (req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-		res.render((path.resolve(__dirname, '../views/users/profile.ejs')), { usuarios: usuarios})
+		res.render((path.resolve(__dirname, '../views/users/usersList.ejs')), { usuarios: usuarios})
 	},
 
     registro: (req, res) => {
@@ -28,7 +28,7 @@ const controlador = {
 		}
 
 		// renderizar la vista detail -> usuarioBuscado
-		res.render((path.resolve(__dirname, '../views/users/userDetail.ejs')), {usuarioBuscado})
+		res.render((path.resolve(__dirname, '../views/users/userProfile.ejs')), {usuarioBuscado})
     },
 
     crearUsuario: (req, res) => {
