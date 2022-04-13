@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const arrayvValidations = require('../middlewares/formproductValidator');
+const arrayvValidations = require('../middlewares/productFormValidator');
 const multer = require('multer');
 
 var storage = multer.diskStorage({

@@ -3,6 +3,7 @@ const path = require('path');
 const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../data/users.json');
+const User = require('../models/Usuario');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -16,7 +17,7 @@ const controlador = {
         res.render(path.resolve(__dirname, '../views/users/register.ejs'));
     },
 
-    detalle:(req, res) => {
+    /*detalle:(req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 		// capturar el id que el usuario quiere ver
 		let idUsuario = req.params.id
@@ -28,8 +29,8 @@ const controlador = {
 		}
 
 		// renderizar la vista detail -> usuarioBuscado
-		res.render((path.resolve(__dirname, '../views/users/userProfile.ejs')), {usuarioBuscado})
-    },
+		res.render((path.resolve(__dirname, '../views/users/userDetail.ejs')), {usuarioBuscado})
+    },*/
 
     crearUsuario: (req, res) => {
 
@@ -38,6 +39,19 @@ const controlador = {
 		if (resultValidation.errors.length > 0) {
 			return res.render((path.resolve(__dirname, '../views/users/register.ejs')), {
 				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
+
+        let usuarioEnBD = User.findByField('email', req.body.email);
+
+		if (usuarioEnBD) {
+			return res.render((path.resolve(__dirname, '../views/users/register.ejs')),{
+				errors: { //No se despliega el mensaje de error en formulario
+					email: {
+						msg: 'Este email ya está registrado'
+					}
+				},
 				oldData: req.body
 			});
 		}
@@ -149,6 +163,52 @@ const controlador = {
     login: (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/login.ejs'));
     },
+
+    ProcesoLogin: (req, res) => {
+		let usuarioParaLoguear = User.findByField('email', req.body.email);
+		
+		if(usuarioParaLoguear) {
+			let passwordCorrecto = bcryptjs.compareSync(req.body.password, usuarioParaLoguear.password);
+            delete usuarioParaLoguear.password;
+            req.session.usuarioLogueado = usuarioParaLoguear;
+
+            if(req.body.remember) {
+                res.cookie('EmailUsuario', req.body.email, { maxAge: (1000 * 60) * 60 })
+            }
+
+			if (passwordCorrecto) {
+				return res.redirect('/users/profile');
+			} 
+			return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+				errors: {
+					password: {
+						msg: 'Las credenciales son inválidas'
+					}
+				}
+			});
+		}
+
+		return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+			errors: {
+				email: {
+					msg: 'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
+	},
+
+    perfil: (req, res) => {
+		return res.render(path.resolve(__dirname, '../views/users/userProfile.ejs'),{
+        usuario: req.session.usuarioLogueado
+		});
+    },
+
+    desconexion: (req, res) => {
+		res.clearCookie('EmailUsuario');
+		req.session.destroy();
+		return res.redirect('/');
+	},
+
     recover: (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/recover.ejs'));
     },

@@ -1,5 +1,5 @@
 const {body} = require('express-validator');
-const controlador = require('../controllers/userController');
+
 
 const arrayvValidations = [
     body("nombre").notEmpty().withMessage("Debes completar el campo nombre"), 

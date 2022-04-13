@@ -25,12 +25,22 @@
         <div class="contenedor">
             <div class="contenedor1">
                 <h2 class="titulo">INICIO DE SESIÓN</h2>
-                <form action="/login.html" method="POST" class="form">
+                
+
+
+                <form action="/users/login/" method="POST" class="form">
                     <div class="email-login">
                         <label for="email" class="name">
                             <span>DIRECCIÓN DE CORREO ELECTRÓNICO</span>
                         </label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email" >
+
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                        <% } %>
+
                     </div>
                     <div class="rectangulo"></div>
                     <br>
@@ -38,10 +48,15 @@
                         <label for="password" class="name">
                             <span>CONTRASEÑA</span>
                         </label>
-                        <input type="password" name="password" id="password" required>
+                        <input type="password" name="password" id="password" >
+
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="text-danger">
+                                <%= errors.password.msg %>
+                            </div>
+                        <% } %>
                     </div>
                     <div class="rectangulo"></div>
-                </form>
             </div>
 
             <div class="contenedor2">
@@ -59,7 +74,7 @@
                         privacidad</a> y sus <a id="linkpolitica" href="#">Términos de servicio</a></p>
                 <button type="submit" class="boton-inicio-sesion"><b>INICIAR SESIÓN</b></button>
             </div>
-
+        </form>
             <div class="contenedor4">
                 <p class="conten4"><i class="fa fa-gift" aria-hidden="true" id="icon"></i> Ganar bono</p>
                 <p class="cont4"><i class="far fa-star" id="icon"></i> Somos new soft</p>

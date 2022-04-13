@@ -50,9 +50,13 @@
       <div class="search-cart">
         <a href="#"><button><i class="fas fa-search"></i></button></a>
         <a href="/productCart/productCart"><button><i class="fas fa-shopping-cart"></i></button></a>
-        <a href="/login"><button><i class="fa-regular fa-circle-user"></i></button></a>
-        
-        <div class="num"> 2   </div>
+        <% if (locals.estaLogueado) { %>
+          <a class="nav-btn-text" href="/users/profile"><%= locals.usuarioLogueado.nombre %> </a>
+          <a class="nav-btn-text" href="/users/logout">Logout</a>
+        <% } else { %>
+          <a class="nav-btn-text"href="/users/login">Login</a> 
+        <% } %>
+        <!--<div class="num"> 2   </div>-->
       </div>
     </div>
 
