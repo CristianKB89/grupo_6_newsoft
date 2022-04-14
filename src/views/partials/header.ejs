@@ -48,17 +48,19 @@
         </ul>
       </nav>
       <div class="search-cart">
-        <a href="#"><button><i class="fas fa-search"></i></button></a>
-        <a href="/productCart/productCart"><button><i class="fas fa-shopping-cart"></i></button></a>
+        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
+        <a href="/productCart/productCart"><button class="search-btn"><i class="fas fa-shopping-cart"></i></button></a>
         <% if (locals.estaLogueado) { %>
-          <a class="nav-btn-text" href="/users/profile"><%= locals.usuarioLogueado.nombre %> </a>
-          <a class="nav-btn-text" href="/users/logout">Logout</a>
+          <a class="name" href="/users/profile"><%= locals.usuarioLogueado.nombre %> </a>
+          <a class="log-out" href="/users/logout">Logout</a>
         <% } else { %>
-          <a class="nav-btn-text"href="/users/login">Login</a> 
+        <!-- Ventana modal del login -->
+        <%- include('./modal-login.ejs') %>
+        <!-- FIN Ventana modal del login -->
         <% } %>
-        <!--<div class="num"> 2   </div>-->
       </div>
     </div>
+
 
     <div id="mb">
       <nav class="nav-mobile">
@@ -96,9 +98,7 @@
               <span class="nav-btn-text">DIADEMAS</span>
             </a>
           </li>
-          <!-- <li>
-            <a class="li-a" onclick="resStyle(mb)">Clic para cerrar</a>
-          </li> -->
+
         </ul>
       </nav>
     </div>

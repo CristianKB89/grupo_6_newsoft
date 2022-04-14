@@ -179,7 +179,7 @@ const controlador = {
 			if (passwordCorrecto) {
 				return res.redirect('/users/profile');
 			} 
-			return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+			return res.render(path.resolve(__dirname, '../views/index.ejs'), {
 				errors: {
 					password: {
 						msg: 'Las credenciales son inválidas'
@@ -188,7 +188,7 @@ const controlador = {
 			});
 		}
 
-		return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+		return res.render(path.resolve(__dirname, '../views/index.ejs'), {
 			errors: {
 				email: {
 					msg: 'No se encuentra este email en nuestra base de datos'

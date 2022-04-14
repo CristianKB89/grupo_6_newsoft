@@ -2,6 +2,8 @@ const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
+const bcryptjs = require('bcryptjs');
+const User = require('../models/Usuario');
 
 
 const controlador = {
@@ -11,8 +13,43 @@ const controlador = {
 
         res.render(path.resolve(__dirname, '../views/index.ejs'));
     },
+
     login: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/users/login.ejs'));
+        res.render(path.resolve(__dirname, '../views/index.ejs'));
+    },
+
+    loginProcess: (req, res) => {
+        let usuarioParaLoguear = User.findByField('email', req.body.email);
+		
+		if(usuarioParaLoguear) {
+			let passwordCorrecto = bcryptjs.compareSync(req.body.password, usuarioParaLoguear.password);
+            delete usuarioParaLoguear.password;
+            req.session.usuarioLogueado = usuarioParaLoguear;
+
+            if(req.body.remember) {
+                res.cookie('EmailUsuario', req.body.email, { maxAge: (1000 * 60) * 60 });
+                res.render(path.resolve(__dirname, '../views/index.ejs'));
+            }
+
+			else if (passwordCorrecto) {
+				return res.redirect('/users/profile');
+			} 
+			return res.render(path.resolve(__dirname, '../views/index.ejs'), {
+				errors: {
+					password: {
+						msg: 'Las credenciales son inválidas'
+					}
+				}
+			});
+		}
+
+		return res.render(path.resolve(__dirname, '../views/index.ejs'), {
+			errors: {
+				email: {
+					msg: 'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
     },
     products: (req, res) => {
         let categoria = req.query.categoria;
