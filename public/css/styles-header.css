@@ -304,6 +304,10 @@ ul{
     font-size: 25px;
 }
 
+.text-danger{
+    font-size: 20px;
+}
+
 .modal-email input{
     width: 300px;
     height: 30px;
