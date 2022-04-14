@@ -306,6 +306,7 @@ ul{
 
 .text-danger{
     font-size: 20px;
+    text-align: center;
 }
 
 .modal-email input{
