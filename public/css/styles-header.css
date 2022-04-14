@@ -259,9 +259,13 @@ ul{
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #E9E600;
+    color: #FFF;
     font-size: 30px;
     cursor: pointer;
+}
+
+.x:hover{
+    color: #E9E600;
 }
 
 .lbl-modal{
@@ -269,7 +273,11 @@ ul{
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.5vw;
+    font-size: 25px;
+}
+
+.lbl-modal:hover{
+    color: #E9E600;
 }
 
 .titulo{
@@ -293,6 +301,7 @@ ul{
 .modal-email{
     display: flex;
     justify-content: center;
+    font-size: 25px;
 }
 
 .modal-email input{
@@ -310,6 +319,7 @@ ul{
 .modal-password{
     display: flex;
     justify-content: center;
+    font-size: 25px;
 }
 
 .modal-password input{
@@ -329,12 +339,14 @@ ul{
     margin: 5px;
     text-align: center;
     padding: 3px;
+    font-size: 20px;
 }
 
 .modal-recup{
     text-align: right;
     padding: 5px;
-    padding-right: 120px;
+    padding-right: 10vw;
+    font-size: 20px;
 }
 
 .modal-recup a{
@@ -364,7 +376,7 @@ ul{
     background-color: #E9E600;
     margin-bottom: 10px;
     border: none;
-    font-size: 0.2rem;
+    font-size: 25px;
     cursor: pointer;
 }
 
