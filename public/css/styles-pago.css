@@ -52,7 +52,6 @@ a{
  }
  main{
      width: 100vw;
-     main-height: 100vh;
      background-color: #FFF;
      font-size: 1.2rem;
      display: flex;
