@@ -483,7 +483,7 @@ ul{
     justify-content: space-between;
 
     border-radius: 5px;
-    height: 85vh;
+    height: 75vh;
     overflow: auto;
 
 }
@@ -507,15 +507,12 @@ ul{
   }
   
   .header i{
-      height: 20px;
-      position: absolute;
-      right: 20px;
-      top: 2px;
       width: 20px;
       text-decoration: none;
-      margin: 0;
+      margin-left: 80px;
       padding: 0;
       color: black;
+      font-size: 3vw;
   }
   
   .truck{
