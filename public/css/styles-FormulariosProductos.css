@@ -29,26 +29,6 @@ body {
     font-size: 1.5vw;
 }
 
-label{
-    font-size: 2vw;
-}
-
-select{
-    font-size: 1.5vw;
-}
-
-p {
-  font-size: 2vw;
-}
-
-a {
-  font-size: 4vw;
-}
-
-form a {
-  font-size: 3vw;
-}
-
 .formulario-forma {
   padding: 20px 15px;
 }
@@ -213,6 +193,12 @@ form div i {
   transition: all 0.5s;
 }
 
+.mensaje-error{
+  color: red;
+  font-size: 18px;
+
+}
+
 @media (min-width: 361px) {
 }
 
@@ -227,17 +213,6 @@ form div i {
     padding: 10px 90px;
   }
 
-  p {
-    font-size: 3vw;
-  }
-
-  a {
-    font-size: 2.5vw;
-  }
-
-  form a {
-    font-size: 2vw;
-  }
 }
 
 @media (min-width: 1200px) {

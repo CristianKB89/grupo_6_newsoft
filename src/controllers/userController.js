@@ -3,20 +3,21 @@ const path = require('path');
 const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../data/users.json');
+const User = require('../models/Usuario');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controlador = {
     users: (req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-		res.render((path.resolve(__dirname, '../views/users/profile.ejs')), { usuarios: usuarios})
+		res.render((path.resolve(__dirname, '../views/users/usersList.ejs')), { usuarios: usuarios})
 	},
 
     registro: (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/register.ejs'));
     },
 
-    detalle:(req, res) => {
+    /*detalle:(req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 		// capturar el id que el usuario quiere ver
 		let idUsuario = req.params.id
@@ -29,14 +30,31 @@ const controlador = {
 
 		// renderizar la vista detail -> usuarioBuscado
 		res.render((path.resolve(__dirname, '../views/users/userDetail.ejs')), {usuarioBuscado})
-    },
+    },*/
 
     crearUsuario: (req, res) => {
 
-        let errorsValidation = validationResult(req);
-        if(errorsValidation.errors.length > 0){
-            return res.render((path.resolve(__dirname, '../views/users/register.ejs')),{errors:errorsValidation.errors, old:req.body})
-        }
+        const resultValidation = validationResult(req);
+
+		if (resultValidation.errors.length > 0) {
+			return res.render((path.resolve(__dirname, '../views/users/register.ejs')), {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
+
+        let usuarioEnBD = User.findByField('email', req.body.email);
+
+		if (usuarioEnBD) {
+			return res.render((path.resolve(__dirname, '../views/users/register.ejs')),{
+				errors: { //No se despliega el mensaje de error en formulario
+					email: {
+						msg: 'Este email ya está registrado'
+					}
+				},
+				oldData: req.body
+			});
+		}
      
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
         let image
@@ -71,7 +89,7 @@ const controlador = {
 		fs.writeFileSync( usersFilePath , JSON.stringify(usuarios, null, 2))
 
 		// redireccionar al usuairo /products
-		res.redirect('/users/'+ req.params.id)
+		res.redirect('/users/')
     },
     
     editar: (req, res) => {
@@ -89,12 +107,16 @@ const controlador = {
         let id = req.params.id;
         let usuarioEditar = usuarios.find( users => users.id == id);
 
-        let errorsValidation = validationResult(req);
-        if(errorsValidation.errors.length > 0){
-            return res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')),{errors:errorsValidation.errors,usuarioEditar:usuarioEditar})
-        }
-       
+        const resultValidation = validationResult(req);
 
+		if (resultValidation.errors.length > 0) {
+			return res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')), {
+				errors: resultValidation.mapped(),
+				oldData: req.body,
+                usuarioEditar:usuarioEditar
+			});
+		}
+       
         let image
 	
 		if(req.file != undefined){
@@ -141,6 +163,52 @@ const controlador = {
     login: (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/login.ejs'));
     },
+
+    ProcesoLogin: (req, res) => {
+		let usuarioParaLoguear = User.findByField('email', req.body.email);
+		
+		if(usuarioParaLoguear) {
+			let passwordCorrecto = bcryptjs.compareSync(req.body.password, usuarioParaLoguear.password);
+            delete usuarioParaLoguear.password;
+            req.session.usuarioLogueado = usuarioParaLoguear;
+
+            if(req.body.remember) {
+                res.cookie('EmailUsuario', req.body.email, { maxAge: (1000 * 60) * 60 })
+            }
+
+			if (passwordCorrecto) {
+				return res.redirect('/users/profile');
+			} 
+			return res.render(path.resolve(__dirname, '../views/index.ejs'), {
+				errors: {
+					password: {
+						msg: 'Las credenciales son inválidas'
+					}
+				}
+			});
+		}
+
+		return res.render(path.resolve(__dirname, '../views/index.ejs'), {
+			errors: {
+				email: {
+					msg: 'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
+	},
+
+    perfil: (req, res) => {
+		return res.render(path.resolve(__dirname, '../views/users/userProfile.ejs'),{
+        usuario: req.session.usuarioLogueado
+		});
+    },
+
+    desconexion: (req, res) => {
+		res.clearCookie('EmailUsuario');
+		req.session.destroy();
+		return res.redirect('/');
+	},
+
     recover: (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/recover.ejs'));
     },

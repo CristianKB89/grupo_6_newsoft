@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const arrayvValidations = require('../middlewares/registerValidations');
+const invitadoMiddleware = require('../middlewares/invitadoMiddleware');
+const autenticacionMiddleware = require('../middlewares/autenticacionMiddleware');
 const multer = require('multer');
 
 var storage = multer.diskStorage({
@@ -20,10 +22,7 @@ const controlador = require('../controllers/userController.js');
 router.get('/', controlador.users);
 
 //Formulario de creación de usuarios
-router.get('/create', controlador.registro);
-
-//Detalle de un usuario particular
-router.get('/:id/', controlador.detalle); 
+router.get('/create',invitadoMiddleware, controlador.registro);
 
 //Acción de creación (a donde se envía el formulario)
 router.post('/',upload.single('imagen'),arrayvValidations,controlador.crearUsuario);
@@ -37,7 +36,16 @@ router.put('/:id',upload.single('imagen'),arrayvValidations, controlador.editarU
 //Acción de borrado
 router.delete('/:id', controlador.borrar); 
 
-router.get('/login', controlador.login);
+router.get('/login',invitadoMiddleware, controlador.login);
+
+router.post('/login', controlador.ProcesoLogin);
+
+//Perfil, detalles de usuario
+router.get('/profile/',autenticacionMiddleware, controlador.perfil);
+
+// Logout
+router.get('/logout/', controlador.desconexion);
+
 router.get('/recover', controlador.recover);
 
 module.exports = router;

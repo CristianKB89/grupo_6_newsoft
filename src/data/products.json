@@ -23,7 +23,7 @@
     "imagen": "1648258146347_img_.png",
     "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 3,
@@ -36,7 +36,7 @@
     "imagen": "1648197999024_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — CHERRY",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 4,
@@ -74,7 +74,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648224034791_img_.png",
     "descripcion": "ATX semitorre con cristal templado iCUE",
-    "visible": false,
+    "visible": true,
     "car": "false"
   },
   {
@@ -88,7 +88,7 @@
     "imagen": "1648224169146_img_.png",
     "descripcion": "Chasis ATX semitorre con cristal templado",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 8,
@@ -114,7 +114,7 @@
     "imagen": "1648225253692_img_.png",
     "descripcion": "Combina la comodidad plug and play.",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 10,
@@ -127,7 +127,7 @@
     "imagen": "1648225762998_img_.png",
     "descripcion": "Professional optics in a webcam form factor",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 11,
@@ -140,7 +140,7 @@
     "imagen": "1648225911046_img_.png",
     "descripcion": "CORSAIR M65 RGB ELITE ajustable es el ratón para juegos",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 12,
