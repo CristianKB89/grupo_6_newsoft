@@ -6,152 +6,101 @@
     /* Familias de Fuentes */
     font-family: 'Bebas Neue', cursive;
 }
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    letter-spacing: 0.02em;
-}
-img{
-    width: 100%;
-}
-
-*:before,*:after{
-    box-sizing: border-box;
-}
-
 body{
-    width: 100%;
-    background-color: black;
+    margin: 0;
 }
-.main-header{
-    display: flex;
-    background-color: black;
-    justify-content: space-between;
-    padding: 2px 10px;
-    align-items: center;
-    color: #FFF;
-    font-size: 4vw;
-    width: 100%;
-}
-.burger-menu{
-    font-size: 30px;
-    color: #FFF;
-    display: block;
-    padding: 4px 0;
-}
-
-.logo{
-    width: 30vw;
-    display: flex;
-    padding: auto 0;
-}
-.main-nav{
-    display: none;
-}
-.main-nav a{
+a{
     text-decoration: none;
-    color: #FFF;
-    padding: 5px 0;
-    font-size: 25x;
+    color: black;
 }
-
-.main-nav a:after{
-    background: #E9E600;
-    bottom: 0;
-    content: '';
-    height: 4px;
-    left: 0;
-    position: absolute;
-    transform: scaleX(0);
-    transition: 250ms transform;
+ header{
+     display: flex;
+     min-height: 70px;
+     background-color: #A8A8A8;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1.0rem 1.5rem;
+ }
+ .logo{
+     display: flex;
+     align-items: center;
+ }
+ .logo img{
+     height: 80px;
+     margin-right: 10px;
+ }
+ nav button{
+     font-size: 18px;
+     margin: 0 18px;
+     padding: 10px;
+     }
+ 
+ nav a{
+     font-weight: 600;
+     padding-right: 50px;
+ }
+ nav a:hover{
+     color: yellow
+ }
+ @media (max-width:650px){
+     header{
+            flex-direction: column;
+     }
+     nav{
+         padding: 10px 0px;
+     }
+ }
+ main{
+     width: 100vw;
+     height: 100vh;
+     background-color: #FFF;
+     font-size: 1.2rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ .container{
+     background-color: white;
+     max-width: 800px;
+     min-height: 500px;
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     padding: 2.0rem 2.5rem;
+ }
+ .left{
+     flex-basis: 50%;
+ }
+ .right{
+    flex-basis: 50%;
+}
+form{
+    padding: 1rem;
+}
+h3{
+    margin-top: 1rem;
+    color: black;
+}
+.inputbox{
     width: 100%;
+   padding: 0.5rem 0.7rem;
+   margin: 0.5rem 0;
+   outline: none;
 }
-.search-cart i{
-    margin: 0 3px;
-    font-size: 60%;
+#zip{
+    display: flex;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.7rem;
 }
+form .right{ border: solid;
+    width: 30%; 
+    height: 400px;
+    margin: 1%;
+    float: left; }
 
-.search-cart button{
-    background-color: transparent;
-    color: #FFF;
-    border: 0px;
-    font-size: 7vw;
-}
-@media (max-width: 1200px) {
-
-    .item-flex { flex-direction: column-reverse; }
-  
-    /**
-     * checkout section responsive 
-     */
-  
-    .checkout {
-      width: 100%;
-      border-right: none;
-    }
-  
-    .btn-primary { width: 100%; }
-  
-    /**
-     * cart section responsive
-     */
-  
-    .cart {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-      border-bottom: 1px solid var(--gainsboro);
-    }
-  
-    .cart .wrapper { margin-top: auto; }
-  
-    .cart .cart-item-box {
-      border-right: 1px solid var(--gainsboro);
-      margin-bottom: 0;
-    }
-  
-    .discount-token { border-top: none; }
-  
-  }
-  
-  
-  
-  
-  
-  @media (max-width: 768px) {
-  
-    :root { --px: 40px; }
-  
-    .cart { grid-template-columns: 1fr; }
-  
-    .discount-token { border-top: 1px solid var(--gainsboro); }
-  
-    .wrapper-flex { gap: 20px; }
-  
-  }
-  
-  
-  
-  
-  
-  @media (max-width: 567px) {
-  
-    :root { --px: 20px; }
-  
-    .payment-method,
-    .input-flex {
-      flex-direction: column;
-      gap: 20px;
-    }
-  
-    .payment-method .method { width: 100%; }
-  
-    .input-flex .expire-date,
-    .input-flex .cvv { width: 100%; }
-  
-    .expire-date .input-flex { flex-direction: row; }
-  
-  }
-  
+    @media screen and (max-width: 720px) {
+        form .right { border: solid;
+                  width: 90%; 
+                  height: 400px;
+                  margin: 5%; }
+                }
