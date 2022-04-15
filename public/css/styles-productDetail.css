@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
     letter-spacing: 0.02em;
-    color: #FFF;
+
 }
 img{
     width: 100%;
@@ -25,6 +25,7 @@ img{
 body{
     width: 100%;
     background-color: black;
+    color: #FFF;
 }
 
 h1{
@@ -170,7 +171,7 @@ h1{
     text-align: center;
     text-decoration: none;
     width: 100%;
-
+    
     background-color: #dad617;
     color: #000;
 }
@@ -201,6 +202,7 @@ h1{
 
 .video-rese a{
     text-decoration: none;
+    color: #FFF;
 }
 
 .video-rese i{
@@ -228,8 +230,16 @@ h1{
     cursor: pointer;
 }
 
+.button{
+    color:#FFF;
+}
+
 .video-rese:hover .button{
     color: #e90000;
+}
+
+.ocultar{
+    color: #FFF;
 }
 
 .video-rese:hover .ocultar{

@@ -9,13 +9,44 @@ const User = require('../models/Usuario');
 const controlador = {
     index: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let producto = productos.filter(producto => producto.car == "true");
+        let productoCart = productos.filter(producto => producto.car == "true");
 
-        res.render(path.resolve(__dirname, '../views/index.ejs'));
+        let total = 0;
+        if(productoCart.length > 0){
+            let preciosString = [];
+            for(let i = 0; i < productoCart.length; i++){
+                preciosString.push(productoCart[i].precio);
+                var preciosInt = preciosString.map(function(item) {
+                return parseInt(item, 10);
+                });
+            }
+            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
+        }else{ 
+            total = 0;
+        }
+
+        res.render(path.resolve(__dirname, '../views/index.ejs'), { productoCart , total });
     },
 
     login: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/index.ejs'));
+        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let productoCart = productos.filter(producto => producto.car == "true");
+
+        let total = 0;
+        if(productoCart.length > 0){
+            let preciosString = [];
+            for(let i = 0; i < productoCart.length; i++){
+                preciosString.push(productoCart[i].precio);
+                var preciosInt = preciosString.map(function(item) {
+                return parseInt(item, 10);
+                });
+            }
+            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
+        }else{ 
+            total = 0;
+        }
+
+        res.render(path.resolve(__dirname, '../views/index.ejs'), { productoCart , total });
     },
 
     loginProcess: (req, res) => {
@@ -53,8 +84,22 @@ const controlador = {
     },
     products: (req, res) => {
         let categoria = req.query.categoria;
-        
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let productoCart = productos.filter(producto => producto.car == "true");
+
+        let total = 0;
+        if(productoCart.length > 0){
+            let preciosString = [];
+            for(let i = 0; i < productoCart.length; i++){
+                preciosString.push(productoCart[i].precio);
+                var preciosInt = preciosString.map(function(item) {
+                return parseInt(item, 10);
+                });
+            }
+            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
+        }else{ 
+            total = 0;
+        }
             const cases = productos.filter( product => product.categoria === 'Cases');
             const teclado = productos.filter( product => product.categoria === 'Teclados');
             const audifonos = productos.filter( product => product.categoria === 'Audifonos');
@@ -62,7 +107,7 @@ const controlador = {
             const camaras = productos.filter( product => product.categoria === 'Camaras');
             const audio = productos.filter( product => product.categoria === 'Audio (Microfonos)');
             const producto = productos.filter( product => product.categoria === categoria);
-        res.render(path.resolve(__dirname, '../views/products/products.ejs'), { cases , teclado , audifonos , ratones , camaras , audio , categoria , producto });
+        res.render(path.resolve(__dirname, '../views/products/products.ejs'), { cases , teclado , audifonos , ratones , camaras , audio , categoria , producto , productoCart , total});
     }
 }
 

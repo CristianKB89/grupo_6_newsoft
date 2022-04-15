@@ -3,7 +3,9 @@ header{
     position: fixed;
     width: 100%;
     z-index: 1;
+    height: 30px;
 }
+
 
 img{
     width: 100%;
@@ -455,6 +457,264 @@ ul{
     color: #E9E600;
 }
 
+/* Estilos para el carrito de compras */
+#cr{
+    transition: all 500ms ease;
+    display:flex;
+    position: absolute;
+    right: 0;
+    width: 50vw;
+    transform: translate(2000px);
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+
+.head-car h2{
+    font-size: 3vw;
+}
+
+.body-cart{
+    background-color: #e4e5e7;
+    transition: all 500ms ease;
+    width: 100%;
+    color: black !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 5px;
+    height: 85vh;
+    overflow: auto;
+
+}
+.header{
+    display: flex;
+    flex-wrap: nowrap;
+    color: black !important;
+    justify-content: center;
+    font-size: 25px;
+    border-bottom: solid 1px rgb(184, 183, 183);
+    background-color: #e4e5e7;
+    margin-top: 10px;
+  }
+
+  .main{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: black!important;
+  }
+  
+  .header i{
+      height: 20px;
+      position: absolute;
+      right: 20px;
+      top: 2px;
+      width: 20px;
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+      color: black;
+  }
+  
+  .truck{
+    display: flex;
+    align-items: center;
+    background: #f0f9fa;
+    border-left: 2px solid rgba(29, 178, 191, 0.75);
+    padding: 8px 0;
+    margin: 5px;
+  }
+  
+  .truck i, .span{
+    margin-left: 18px;
+    color: #2e8e99;
+    font-size: 20px;
+  }
+  
+  .truck .span{
+    font-family: 'Franklin Gothic';
+    font-size: 12px;
+  }
+  
+  .img-car{
+    background: #e4e5e7;
+    padding: 5px;
+    width: 50%;
+  }
+  
+  .title-product{
+    width: 100%;
+    font-size: 3vw;
+
+  }
+  
+  .title-product a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .content-product{
+    display: flex;
+    width: 100%;
+
+  }
+  
+  .content-product h2{
+    font-size: 3vw;
+  }
+  
+  .content-cantidad{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .cantidad{
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+
+    width: 100%;
+  }
+  
+  .cantidad a{
+    text-decoration: none;
+    color: black;
+  }
+  .foot{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #e4e5e7;
+    z-index: 10;
+    color: black;
+  }
+
+  .subtotal{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 100%;
+  color: black;
+  }
+  
+  .subtotal h2{
+    font-size: 5vw;
+  }
+  
+  .subtotal p{
+    font-size: 4vw;
+    font-weight: 100;
+  }
+  
+  .button-end{
+    text-align: center;
+    width: 100%;
+    background-color: #E9E600;
+    padding: 10px 0;
+    font-size: 25px;
+    color: black;
+  }
+  
+  .button-end a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .car-item0{
+      display: flex !important;
+      opacity: 1;
+      transform: translateX(0%);
+      border-bottom: #9a9a9a 1px solid;
+      color: black;
+      margin: 10px;
+  }
+  
+
+  .ul-cart .li-cart{
+    margin-left: 15px auto;
+    transition: 150ms opacity, 200ms transform;
+    list-style: none;
+  }
+  
+  .add {
+    display: inline-flex;
+  }
+  
+  .incremento{
+    align-items: center;
+    border: 1px solid #e4e5e7;
+    color: #9a9a9a;
+    display: inline-flex;
+    padding: 4px 7px;
+    background-color: rgb(204, 204, 204);
+  }
+  
+  .incremento p{
+    min-width: 3em;
+    text-align: center;
+    height: 40px;
+  }
+  
+  .delete{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .delete a{
+    text-decoration: none;
+    color: black;
+    font-size: 6vw;
+  }
+  
+  .delete i{
+    color: black;
+    font-size: 4vw;
+  }
+  
+  .delete i:hover{
+    color: #E9E600;
+  }
+  
+  .precio-cart{
+      font-size: 4vw;
+  }
+
+  .info-cart{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  
+  .add-carrito-cart{
+    border: 0px;
+    background: none; 
+  }
+  
+  .add-carrito:hover{
+    cursor: pointer;
+  }
+  
+  .fa-x:hover{
+    color: #E9E600;
+  }
+  
+  .fa-x{
+    padding: 20px 0;
+  }
+
+
+
+/* Fin estilo carrito de compras  */
 @media (min-width: 769px) {
     .top-header{
         display: flex;
