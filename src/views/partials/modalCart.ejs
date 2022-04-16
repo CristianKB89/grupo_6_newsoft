@@ -19,9 +19,10 @@
       </li>
       
       <% for(let i=0; i<productoCart.length; i++){ %>
-      <a href="/products/productdetail/<%=productoCart[i].id%>">
+      
         <li class="car-item0">
         <div class="content-product">
+          <a href="/products/productdetail/<%=productoCart[i].id%>">
           <div class="img-car">
             <img src="/img/products/<%= productoCart[i].imagen %>" alt="">
           </div>
@@ -52,9 +53,10 @@
                   </div>
             </div>
           </div>
+        </a>
         </div>
       </li>
-    </a>
+
       <% } %>
     </ul>
 </div>

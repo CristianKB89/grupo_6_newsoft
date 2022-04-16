@@ -4,6 +4,27 @@ const fs = require("fs");
 const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 
+const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const productoCart = productos.filter((producto) => producto.car == "true");
+
+let total = 0;
+if (productoCart.length > 0) {
+  let preciosString = [];
+  for (let i = 0; i < productoCart.length; i++) {
+    preciosString.push(productoCart[i].precio);
+    var preciosInt = preciosString.map(function (item) {
+      return parseInt(item, 10);
+    });
+  }
+  total = preciosInt.reduce(function (a, b) {
+    return a + b;
+  }, 0);
+} else {
+  total = 0;
+}
+
+
+
 const controlador = {
   productCart: (req, res) => {
 

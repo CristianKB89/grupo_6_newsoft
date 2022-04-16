@@ -23,7 +23,7 @@
     "imagen": "1648258146347_img_.png",
     "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 3,
@@ -36,7 +36,7 @@
     "imagen": "1648197999024_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — CHERRY",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 4,
@@ -101,7 +101,7 @@
     "imagen": "1648225089256_img_.png",
     "descripcion": "VOID RGB ELITE Wireless",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 9,
@@ -127,7 +127,7 @@
     "imagen": "1648225762998_img_.png",
     "descripcion": "Professional optics in a webcam form factor",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 11,
