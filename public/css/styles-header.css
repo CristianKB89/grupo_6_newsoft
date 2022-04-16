@@ -528,12 +528,12 @@ ul{
   .truck i, .span{
     margin-left: 18px;
     color: #2e8e99;
-    font-size: 20px;
+
   }
   
   .truck .span{
     font-family: 'Franklin Gothic';
-    font-size: 12px;
+    font-size: 1.5vw;
   }
   
   .img-car{
@@ -797,6 +797,10 @@ ul{
 
     .delete i{
         font-size: 2.5vw;
-      }
+    }
+
+    .truck .span{
+        font-size: 1vw;
+    }
 }
 
