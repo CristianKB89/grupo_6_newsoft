@@ -496,6 +496,7 @@ ul{
     border-bottom: solid 1px rgb(184, 183, 183);
     background-color: #e4e5e7;
     margin-top: 10px;
+    justify-content: space-around;
   }
 
   .main{
@@ -538,13 +539,13 @@ ul{
   .img-car{
     background: #e4e5e7;
     padding: 5px;
-    width: 50%;
+    width: 15vw;
   }
+
   
   .title-product{
-    width: 100%;
+    width: 80%;
     font-size: 3vw;
-
   }
   
   .title-product a{
@@ -555,7 +556,15 @@ ul{
   .content-product{
     display: flex;
     width: 100%;
+    justify-content: space-evenly;
+  }
 
+  .content-product:hover .img-car{
+    background: #a9a9a9;
+  }
+
+  .content-product:hover{
+    background: #a9a9a9;
   }
   
   .content-product h2{
@@ -573,7 +582,7 @@ ul{
   .cantidad{
     align-items: flex-start;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 20px;
 
     width: 100%;
@@ -602,11 +611,11 @@ ul{
   }
   
   .subtotal h2{
-    font-size: 5vw;
+    font-size: 3.5vw;
   }
   
   .subtotal p{
-    font-size: 4vw;
+    font-size: 3.5vw;
     font-weight: 100;
   }
   
@@ -664,6 +673,7 @@ ul{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
   }
   
   .delete a{
@@ -674,7 +684,7 @@ ul{
   
   .delete i{
     color: black;
-    font-size: 4vw;
+    font-size: 2.5vw;
   }
   
   .delete i:hover{
@@ -682,14 +692,14 @@ ul{
   }
   
   .precio-cart{
-      font-size: 4vw;
+      font-size: 3vw;
   }
 
   .info-cart{
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+
   }
   
   .add-carrito-cart{
@@ -765,6 +775,17 @@ ul{
     .num{
         font-size: 20px;
     }
-    
+
+    #cr{
+        width: 40vw;
+    }
+
+    .title-product{
+        font-size: 2.5vw;
+    }
+      
+    .img-car{
+        width: 10vw;
+    }
 }
 

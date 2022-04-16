@@ -5,24 +5,27 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const productoCart = productos.filter((producto) => producto.car == "true");
+
+let total = 0;
+if (productoCart.length > 0) {
+  let preciosString = [];
+  for (let i = 0; i < productoCart.length; i++) {
+    preciosString.push(productoCart[i].precio);
+    var preciosInt = preciosString.map(function (item) {
+      return parseInt(item, 10);
+    });
+  }
+  total = preciosInt.reduce(function (a, b) {
+    return a + b;
+  }, 0);
+} else {
+  total = 0;
+}
+
 const controlador = {
     creacion: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let productoCart = productos.filter(producto => producto.car == "true");
-
-        let total = 0;
-        if(productoCart.length > 0){
-            let preciosString = [];
-            for(let i = 0; i < productoCart.length; i++){
-                preciosString.push(productoCart[i].precio);
-                var preciosInt = preciosString.map(function(item) {
-                return parseInt(item, 10);
-                });
-            }
-            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-        }else{ 
-            total = 0;
-        }
 
         res.render(path.resolve(__dirname, '../views/products/formularioCreacionDeProducto.ejs'), { productoCart , total });
     },
@@ -74,23 +77,7 @@ const controlador = {
     edicion: (req, res) => {
         let idProducto = req.params.id;
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let productoEditar = productos.find( products => products.id == idProducto)
-
-        let productoCart = productos.filter(producto => producto.car == "true");
-
-        let total = 0;
-        if(productoCart.length > 0){
-            let preciosString = [];
-            for(let i = 0; i < productoCart.length; i++){
-                preciosString.push(productoCart[i].precio);
-                var preciosInt = preciosString.map(function(item) {
-                return parseInt(item, 10);
-                });
-            }
-            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-        }else{ 
-            total = 0;
-        }
+        const productoEditar = productos.find( products => products.id == idProducto)
 
         res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {productoEditar:productoEditar , productoCart , total });
        
@@ -107,19 +94,6 @@ const controlador = {
 		if (resultValidation.errors.length > 0) {
             let productoCart = productos.filter(producto => producto.car == "true");
 
-            let total = 0;
-            if(productoCart.length > 0){
-                let preciosString = [];
-                for(let i = 0; i < productoCart.length; i++){
-                    preciosString.push(productoCart[i].precio);
-                    var preciosInt = preciosString.map(function(item) {
-                    return parseInt(item, 10);
-                    });
-                }
-                total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-            }else{ 
-                total = 0;
-            }
 			return res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs'),{ total, productoCart }), {
 				errors: resultValidation.mapped(),
 				oldData: req.body,
@@ -174,20 +148,6 @@ const controlador = {
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         let productoCart = productos.filter(producto => producto.car == "true");
 
-        let total = 0;
-        if(productoCart.length > 0){
-            let preciosString = [];
-            for(let i = 0; i < productoCart.length; i++){
-                preciosString.push(productoCart[i].precio);
-                var preciosInt = preciosString.map(function(item) {
-                return parseInt(item, 10);
-                });
-            }
-            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-        }else{ 
-            total = 0;
-        }
-
         let idProducto = req.params.id;
         
         const productoDetalle = productos.find( producto => producto.id == idProducto)
@@ -229,22 +189,6 @@ const controlador = {
     },
     productosOcultos: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-        let productoCart = productos.filter(producto => producto.car == "true");
-
-        let total = 0;
-        if(productoCart.length > 0){
-            let preciosString = [];
-            for(let i = 0; i < productoCart.length; i++){
-                preciosString.push(productoCart[i].precio);
-                var preciosInt = preciosString.map(function(item) {
-                return parseInt(item, 10);
-                });
-            }
-            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-        }else{ 
-            total = 0;
-        }
 
         const ocultos = productos.filter( product => product.visible === false );
         res.render(path.resolve(__dirname, '../views/products/productsOcultos.ejs'), { ocultos , total, productoCart });

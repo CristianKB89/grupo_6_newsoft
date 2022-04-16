@@ -17,16 +17,20 @@
           </div>
         </div>
       </li>
+      
       <% for(let i=0; i<productoCart.length; i++){ %>
-      <li class="car-item0">
+      <a href="/products/productdetail/<%=productoCart[i].id%>">
+        <li class="car-item0">
         <div class="content-product">
           <div class="img-car">
             <img src="/img/products/<%= productoCart[i].imagen %>" alt="">
           </div>
           <div class="info-cart">
             <div class="title-product">
-              <a href="#"><%= productoCart[i].nombre %> </a>
-                <div class="cantidad">
+              <a href="/products/productdetail/<%=productoCart[i].id%>">
+                <%= productoCart[i].nombre %> 
+              </a>
+                <!-- <div class="cantidad">
                     <div class="add">
                         <div class="incremento">
                             <a href="#">-</a>
@@ -34,7 +38,7 @@
                             <a href="#">+</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="delete">
                 <form action="/productCart/deleteProductCart" method="POST" style="display: inline-flex">
@@ -50,6 +54,7 @@
           </div>
         </div>
       </li>
+    </a>
       <% } %>
     </ul>
 </div>
