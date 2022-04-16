@@ -484,7 +484,7 @@ ul{
     border-radius: 5px;
     height: auto;
     overflow: auto;
-    max-height: 80vh;
+    max-height: 78vh;
 }
 .header{
     display: flex;
