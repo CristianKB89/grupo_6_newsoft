@@ -466,7 +466,7 @@ ul{
     width: 50vw;
     transform: translate(2000px);
     background-color: rgba(0, 0, 0, 0.8);
-    top: 50px;
+    top: 0px;
 }
 
 .head-car h2{
