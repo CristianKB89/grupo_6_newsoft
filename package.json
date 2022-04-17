@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dev": "nodemon src/app.js",
     "predeploy": "npm run src/app.js",
-    "deploy": "gh-pages -d src/app.js"
+    "deploy": "node -d src/app.js"
   },
   "repository": {
     "type": "git",
