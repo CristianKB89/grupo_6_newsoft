@@ -511,12 +511,11 @@ ul{
     justify-content: space-around;
   }
 
-  .main{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: black!important;
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .header i{
