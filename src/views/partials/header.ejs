@@ -108,6 +108,17 @@
         mb.style.right = '10vw';
       }
       function resStyle(mb) {
-        mb.style.right = '600px';
+        // mb.style.right = '600px';
+        mb.style.transform = 'translateX(0%)';
+      }
+      function ocultarCart(cr){
+        // cr.style.left = '400px';
+        cr.style.transition= "all 500ms ease";
+        cr.style.transform = 'translateX(100%)';
+      }
+      function mostrarCart(cr){
+        // // cr.style.left = '0px';
+        cr.style.transform = 'translateX(0px)';
+
       }
     </script>
