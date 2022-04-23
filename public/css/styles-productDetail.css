@@ -7,6 +7,8 @@
     font-family: 'Bebas Neue', cursive;
 }
 
+
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -26,6 +28,11 @@ body{
     width: 100%;
     background-color: black;
     color: #FFF;
+}
+
+.main{
+    position: relative;
+    top:0;
 }
 
 h1{
