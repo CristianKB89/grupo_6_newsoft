@@ -261,7 +261,8 @@ const controlador = {
   },
 
   recover: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/users/recover.ejs"));
+    res.render(path.resolve(__dirname, "../views/users/recover.ejs"),{
+	productoCart, total});
   },
 };
 
