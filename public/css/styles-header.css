@@ -3,7 +3,9 @@ header{
     position: fixed;
     width: 100%;
     z-index: 1;
+    height: 30px;
 }
+
 
 img{
     width: 100%;
@@ -59,6 +61,7 @@ img{
     width: 30vw;
     display: flex;
     padding: auto 0;
+    align-items: flex-end;
 }
 .main-nav-header{
     display: none;
@@ -155,9 +158,21 @@ ul{
     display: flex;
 }
 
+.search-cart{
+    display: flex;
+    align-items: baseline;
+}
+
 .search-cart i{
     margin: 0 3px;
     font-size: 60%;
+}
+
+.search-btn{
+    background-color: transparent;
+    color: #FFF;
+    border: 0px;
+    font-size: 7vw;
 }
 
 .num{
@@ -172,13 +187,547 @@ ul{
     border-radius: 30%;
 }
 
-.search-cart button{
-    background-color: transparent;
+.name{
+    font-size: 20px;
+    text-decoration: none;
     color: #FFF;
-    border: 0px;
-    font-size: 7vw;
+    margin: 0 5px;
 }
 
+.name:hover{
+    color: #E9E600;
+}
+
+.log-out{
+    font-size: 20px;
+    text-decoration: none;
+    color: #FFF;
+    margin: 0 5px;
+}
+
+.log-out:hover{
+    color: red;
+}
+
+.modal-content{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1vw;
+    color: black;
+}
+
+.modal{
+    position: fixed;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    right: 0;
+    top: 5px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #E9E600;
+    z-index: -10;
+}
+
+#btn-modal:checked ~ .modal{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-contenedor1{
+    width: 600px;
+    height: 650px;
+    margin: auto;
+    box-shadow: 1px, 7px, 25px, rgba(0, 0, 0, 0.6);
+    transition: all 500ms ease;
+    position: relative;
+    transform: translateY(-30%);
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#btn-modal:checked ~ .modal .modal-contenedor1{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.x{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #FFF;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.x:hover{
+    color: #E9E600;
+}
+
+.lbl-modal{
+    color: #FFF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.lbl-modal:hover{
+    color: #E9E600;
+}
+
+.titulo{
+    text-align: center;
+    padding: 25px 0;
+    color: #FFF;
+    font-size: 25px;
+}
+
+#btn-modal{
+    display: none;
+}
+
+.modal-contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-email{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.text-danger{
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-email input{
+    width: 300px;
+    height: 30px;
+    border: 1px solid #E9E600;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    background: inherit;
+    background-color:transparent;
+    color: #FFF;
+}
+
+.modal-password{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.modal-password input{
+    width: 300px;
+    height: 30px;
+    border: 1px solid #E9E600;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    background: inherit;
+    background-color:transparent;
+    color: #FFF;
+}
+
+.modal-session{
+    color: #FFF;
+    margin: 5px;
+    text-align: center;
+    padding: 3px;
+    font-size: 20px;
+}
+
+.modal-recup{
+    text-align: right;
+    padding: 5px;
+    padding-right: 10vw;
+    font-size: 20px;
+}
+
+.modal-recup a{
+    text-decoration: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.modal-recup:hover a{
+    color: #E9E600;
+}
+
+.modal-politics{
+    font-size: 15px;
+    color: #FFF;
+    text-align: center;
+}
+
+.modal-btn-sesion{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.modal-boton-inicio-sesion{
+    width: 80%;
+    padding: 8px;
+    background-color: #E9E600;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-boton-inicio-sesion:hover{
+    background-color: #bfbc00;
+}
+
+.modal-contenedor2{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.7rem;
+    color: #FFF;
+    width: 100%;
+}
+.modal-cont2{
+    width: 50%;
+    padding: 20px 0px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+
+}
+.modal-conten2{
+    width: 50%;
+    padding: 20px 0px;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+
+.modal-register{
+    text-align: center;
+    color: #FFF;
+    cursor: pointer;
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+.modal-register a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.modal-register:hover{
+    color: #E9E600;
+}
+
+#modal-icon{
+    color: white;
+    background-color: black;
+    font-size: 20px;
+}
+
+.modal-social{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 45px;
+    margin-top: 30px;
+}
+
+.modal-social i{
+    color: white;
+}
+
+.modal-social i:hover{
+    color: #E9E600;
+}
+
+/* Estilos para el carrito de compras */
+#cr{
+    transition: all 500ms ease;
+    display:flex;
+    position: absolute;
+    right: 0;
+    width: 50vw;
+    transform: translate(2000px);
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0px;
+}
+
+.head-car h2{
+    font-size: 3vw;
+}
+
+.body-cart{
+    background-color: #e4e5e7;
+    transition: all 500ms ease;
+    width: 100%;
+    color: black !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+    height: auto;
+    overflow: auto;
+    max-height: 80vh;
+}
+.header{
+    display: flex;
+    flex-wrap: nowrap;
+    color: black !important;
+    justify-content: center;
+    font-size: 25px;
+    border-bottom: solid 1px rgb(184, 183, 183);
+    background-color: #e4e5e7;
+    margin-top: 10px;
+    justify-content: space-around;
+  }
+
+  .main{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: black!important;
+  }
+  
+  .header i{
+      width: 20px;
+      text-decoration: none;
+      margin-left: 80px;
+      padding: 0;
+      color: black;
+      font-size: 3vw;
+  }
+  
+  .truck{
+    display: flex;
+    align-items: center;
+    background: #f0f9fa;
+    border-left: 2px solid rgba(29, 178, 191, 0.75);
+    padding: 8px 0;
+    margin: 5px;
+  }
+  
+  .truck i, .span{
+    margin-left: 18px;
+    color: #2e8e99;
+
+  }
+  
+  .truck .span{
+    font-family: 'Franklin Gothic';
+    font-size: 1.5vw;
+  }
+  
+  .img-car{
+    background: #e4e5e7;
+    padding: 5px;
+    width: 15vw;
+  }
+
+  .title-product{
+    width: 80%;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title-product a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .content-product{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .content-product:hover .img-car{
+    background: #a9a9a9;
+  }
+
+  .content-product:hover{
+    background: #a9a9a9;
+  }
+  
+  .content-product h2{
+    font-size: 3vw;
+  }
+
+  .car-item0:hover a{
+    color: #E9E600;
+  }
+  
+  .content-cantidad{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .cantidad{
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+
+    width: 100%;
+  }
+  
+  .cantidad a{
+    text-decoration: none;
+    color: black;
+  }
+  .foot{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #e4e5e7;
+    z-index: 10;
+    color: black;
+  }
+
+  .subtotal{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 100%;
+  color: black;
+  }
+  
+  .subtotal h2{
+    font-size: 3.5vw;
+  }
+  
+  .subtotal p{
+    font-size: 3.5vw;
+    font-weight: 100;
+  }
+  
+  .button-end{
+    text-align: center;
+    width: 100%;
+    background-color: #E9E600;
+    padding: 10px 0;
+    font-size: 25px;
+    color: black;
+  }
+  
+  .button-end a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .car-item0{
+      display: flex !important;
+      opacity: 1;
+      transform: translateX(0%);
+      border-bottom: #9a9a9a 1px solid;
+      color: black;
+      margin: 10px;
+  }
+  
+
+  .ul-cart .li-cart{
+    margin-left: 15px auto;
+    transition: 150ms opacity, 200ms transform;
+    list-style: none;
+  }
+  
+  .add {
+    display: inline-flex;
+  }
+  
+  .incremento{
+    align-items: center;
+    border: 1px solid #e4e5e7;
+    color: #9a9a9a;
+    display: inline-flex;
+    padding: 4px 7px;
+    background-color: rgb(204, 204, 204);
+  }
+  
+  .incremento p{
+    min-width: 3em;
+    text-align: center;
+    height: 40px;
+  }
+  
+  .delete{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .delete a{
+    text-decoration: none;
+    color: black;
+    font-size: 6vw;
+  }
+  
+  .delete i{
+    color: black;
+    font-size: 4vw;
+    cursor: pointer;
+  }
+
+  .delete i:hover{
+    color: red;
+  }
+  
+  .precio-cart{
+      font-size: 3vw;
+  }
+
+  .info-cart{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+
+  }
+  
+  .add-carrito-cart{
+    border: 0px;
+    background: none; 
+  }
+  
+  .add-carrito:hover{
+    cursor: pointer;
+  }
+  
+  .fa-x:hover{
+    color: #E9E600;
+  }
+  
+  .fa-x{
+    padding: 20px 0;
+  }
+
+
+
+/* Fin estilo carrito de compras  */
 @media (min-width: 769px) {
     .top-header{
         display: flex;
@@ -232,6 +781,25 @@ ul{
     .num{
         font-size: 20px;
     }
-    
+
+    #cr{
+        width: 40vw;
+    }
+
+    .title-product{
+        font-size: 2.5vw;
+    }
+      
+    .img-car{
+        width: 10vw;
+    }
+
+    .delete i{
+        font-size: 2.5vw;
+    }
+
+    .truck .span{
+        font-size: 1vw;
+    }
 }
 

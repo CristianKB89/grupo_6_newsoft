@@ -5,9 +5,29 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const productoCart = productos.filter((producto) => producto.car == "true");
+
+let total = 0;
+if (productoCart.length > 0) {
+  let preciosString = [];
+  for (let i = 0; i < productoCart.length; i++) {
+    preciosString.push(productoCart[i].precio);
+    var preciosInt = preciosString.map(function (item) {
+      return parseInt(item, 10);
+    });
+  }
+  total = preciosInt.reduce(function (a, b) {
+    return a + b;
+  }, 0);
+} else {
+  total = 0;
+}
+
 const controlador = {
     creacion: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/products/formularioCreacionDeProducto.ejs'));
+
+        res.render(path.resolve(__dirname, '../views/products/formularioCreacionDeProducto.ejs'), { productoCart , total });
     },
 
     crearProducto: (req, res) => {
@@ -57,9 +77,9 @@ const controlador = {
     edicion: (req, res) => {
         let idProducto = req.params.id;
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let productoEditar = productos.find( products => products.id == idProducto)
+        const productoEditar = productos.find( products => products.id == idProducto)
 
-        res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {productoEditar:productoEditar});
+        res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {productoEditar:productoEditar , productoCart , total });
        
     },
 
@@ -72,7 +92,9 @@ const controlador = {
         const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
-			return res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {
+            let productoCart = productos.filter(producto => producto.car == "true");
+
+			return res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs'),{ total, productoCart }), {
 				errors: resultValidation.mapped(),
 				oldData: req.body,
                 productoEditar:productoEditar
@@ -103,6 +125,7 @@ const controlador = {
             }
             return producto;
             })
+            
 
             fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
 
@@ -123,6 +146,7 @@ const controlador = {
 
     productDetail: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+        let productoCart = productos.filter(producto => producto.car == "true");
 
         let idProducto = req.params.id;
         
@@ -133,7 +157,7 @@ const controlador = {
 		}
 
         // Renderiza el detalle del producto
-        res.render(path.resolve(__dirname, '../views/products/productDetail.ejs'), { productoDetalle });
+        res.render(path.resolve(__dirname, '../views/products/productDetail.ejs'), { productoDetalle , total, productoCart });
     },
 
     ocultarProducto: (req, res) => {
@@ -167,7 +191,7 @@ const controlador = {
         const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
         const ocultos = productos.filter( product => product.visible === false );
-        res.render(path.resolve(__dirname, '../views/products/productsOcultos.ejs'), { ocultos });
+        res.render(path.resolve(__dirname, '../views/products/productsOcultos.ejs'), { ocultos , total, productoCart });
     }
 }
 

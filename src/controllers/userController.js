@@ -4,17 +4,37 @@ const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const User = require('../models/Usuario');
+const productsFilePath = path.join(__dirname, "../data/products.json");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const productoCart = productos.filter((producto) => producto.car == "true");
+
+let total = 0;
+if (productoCart.length > 0) {
+  let preciosString = [];
+  for (let i = 0; i < productoCart.length; i++) {
+    preciosString.push(productoCart[i].precio);
+    var preciosInt = preciosString.map(function (item) {
+      return parseInt(item, 10);
+    });
+  }
+  total = preciosInt.reduce(function (a, b) {
+    return a + b;
+  }, 0);
+} else {
+  total = 0;
+}
 
 const controlador = {
     users: (req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-		res.render((path.resolve(__dirname, '../views/users/usersList.ejs')), { usuarios: usuarios})
+		res.render((path.resolve(__dirname, '../views/users/usersList.ejs')), { usuarios: usuarios , productoCart, total});
 	},
 
     registro: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/users/register.ejs'));
+        res.render(path.resolve(__dirname, '../views/users/register.ejs'), { productoCart, total});
     },
 
     /*detalle:(req, res) => {
@@ -37,7 +57,7 @@ const controlador = {
         const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
-			return res.render((path.resolve(__dirname, '../views/users/register.ejs')), {
+			return res.render((path.resolve(__dirname, '../views/users/register.ejs'), {productoCart, total}), {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
@@ -46,7 +66,7 @@ const controlador = {
         let usuarioEnBD = User.findByField('email', req.body.email);
 
 		if (usuarioEnBD) {
-			return res.render((path.resolve(__dirname, '../views/users/register.ejs')),{
+			return res.render((path.resolve(__dirname, '../views/users/register.ejs'),{ productoCart, total}),{
 				errors: { //No se despliega el mensaje de error en formulario
 					email: {
 						msg: 'Este email ya está registrado'
@@ -97,7 +117,7 @@ const controlador = {
         const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
         let usuarioEditar = usuarios.find( users => users.id == idUsuario);
 
-        res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')), {usuarioEditar:usuarioEditar});
+        res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')), {usuarioEditar:usuarioEditar, productoCart, total});
        
     },
 
@@ -110,7 +130,7 @@ const controlador = {
         const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
-			return res.render((path.resolve(__dirname, '../views/users/userEdit.ejs')), {
+			return res.render((path.resolve(__dirname, '../views/users/userEdit.ejs'), { productoCart, total }), {
 				errors: resultValidation.mapped(),
 				oldData: req.body,
                 usuarioEditar:usuarioEditar
@@ -141,7 +161,6 @@ const controlador = {
             fs.writeFileSync( usersFilePath , JSON.stringify(usuarioEditado, null, 2))
 
             res.redirect('/users/'+ req.params.id)
-        
     },
 
     borrar : (req, res) => {
@@ -154,14 +173,10 @@ const controlador = {
 
         res.redirect('/users')
 
-
 	},
 
-
-    
-    
     login: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/users/login.ejs'));
+        res.render(path.resolve(__dirname, '../views/users/login.ejs'),{ productoCart, total});
     },
 
     ProcesoLogin: (req, res) => {
@@ -179,7 +194,7 @@ const controlador = {
 			if (passwordCorrecto) {
 				return res.redirect('/users/profile');
 			} 
-			return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+			return res.render(path.resolve(__dirname, '../views/users/userProfile.ejs'), {productoCart, total}, {
 				errors: {
 					password: {
 						msg: 'Las credenciales son inválidas'
@@ -188,7 +203,7 @@ const controlador = {
 			});
 		}
 
-		return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+		return res.render(path.resolve(__dirname, '../views/users/userProfile.ejs'),{productoCart, total}, {
 			errors: {
 				email: {
 					msg: 'No se encuentra este email en nuestra base de datos'
@@ -199,7 +214,7 @@ const controlador = {
 
     perfil: (req, res) => {
 		return res.render(path.resolve(__dirname, '../views/users/userProfile.ejs'),{
-        usuario: req.session.usuarioLogueado
+        usuario: req.session.usuarioLogueado, productoCart, total
 		});
     },
 

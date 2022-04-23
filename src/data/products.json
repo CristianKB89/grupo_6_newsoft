@@ -10,7 +10,7 @@
     "imagen": "1648198282620_img_.png",
     "descripcion": "Mechanical Gaming Keyboard",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 2,
@@ -23,7 +23,7 @@
     "imagen": "1648258146347_img_.png",
     "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 3,
@@ -88,7 +88,7 @@
     "imagen": "1648224169146_img_.png",
     "descripcion": "Chasis ATX semitorre con cristal templado",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 8,
@@ -101,7 +101,7 @@
     "imagen": "1648225089256_img_.png",
     "descripcion": "VOID RGB ELITE Wireless",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 9,
@@ -205,7 +205,7 @@
     "imagen": "1648243737847_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX Case",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 17,
@@ -387,7 +387,7 @@
     "imagen": "1648617164281_img_.png",
     "descripcion": "Ratón para juegos FPS",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 32,

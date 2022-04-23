@@ -1,0 +1,67 @@
+        <!-- Ventana modal del login -->
+        <div class="modal-content">
+            <input type="checkbox" id="btn-modal">
+            <label for="btn-modal" class="lbl-modal">
+              Login
+            </label>
+            <div class="modal">
+              <div class="modal-contenedor1">
+                <label class="x" for="btn-modal">X</label>
+                <div class="modal-contenido">
+                  <img class="logo-header" src="/img/logo-one.png"/>
+                  <p class="titulo">Inicie sesión con su ID de NewSoft</p>
+                  <form action="" method="POST" class="modal-formulario">
+                    <div class="modal-email">
+                      <label for="email"></label>
+                      <input type="email" name="email" id="email" placeholder="Dirección de correo">
+                    </div>
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %>
+                        </div>
+                    <% } %>
+                    <div class="modal-password">
+                      <label for="password">
+                      </label>
+                      <input type="password" name="password" id="password" required placeholder="Contraseña">
+                      
+                    </div>
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %>
+                        </div>
+                    <% } %>
+      
+                    <div class="modal-recup">
+                      <a href="/users/recover" >Recuperar contraseña</a>
+                    </div>
+                    <div class="modal-session">
+                      <input type="checkbox" name="remember" value="Remember">
+                      <label for="remember" class="remember">Mantener la sesión iniciada</label>
+                    </div>
+                    <div class="modal-politics">
+                      <p>Este sitio esta protegido por Captcha y se aplican si Política de privacidad y sus Términos de Servicio.</p>
+                    </div>
+                    <div class="modal-btn-sesion">
+                        <button type="submit" class="modal-boton-inicio-sesion">INICIAR SESIÓN</button>
+                    </div>
+                    <div class="modal-contenedor2">
+                      <p class="modal-conten2"><i class="fa fa-gift" aria-hidden="true" id="modal-icon"></i> Ganar bono</p>
+                      <p class="modal-cont2"><i class="far fa-star" id="modal-icon"></i> Somos new soft</p>
+                    </div>
+                    <div class="modal-register">
+                      <a href="/users/create"></a>No tienes cuenta? Registrate Aquí</a>
+                    </div>
+                    <div class="modal-social">
+                      <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                      <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                      <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                      <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                      <a href="https://www.twitch.tv/" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            </div>
+            <!-- FIN Ventana modal del login -->
