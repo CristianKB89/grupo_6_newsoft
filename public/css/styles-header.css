@@ -3,9 +3,12 @@ header{
     position: fixed;
     width: 100%;
     z-index: 1;
-    height: 30px;
 }
 
+main{
+    position: relative;
+    top: 100px;
+}
 
 img{
     width: 100%;
@@ -307,8 +310,18 @@ ul{
 }
 
 .text-danger{
+    display: flex;
     font-size: 20px;
     text-align: center;
+    color: red;
+    cursor: default;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-danger i:hover{
+    color: red;
+    cursor: default;
 }
 
 .modal-email input{
@@ -350,9 +363,9 @@ ul{
 }
 
 .modal-recup{
-    text-align: right;
+    text-align: center;
     padding: 5px;
-    padding-right: 10vw;
+
     font-size: 20px;
 }
 

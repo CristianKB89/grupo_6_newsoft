@@ -7,6 +7,11 @@ h2{
     text-align: center;
 }
 
+main{
+    position: relative;
+    top: 100px;
+    display: block;
+}
 
 a {
     text-decoration: none;
