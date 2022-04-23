@@ -36,15 +36,6 @@
     "newsletter": "on"
   },
   {
-    "id": 5,
-    "nombre": "Cristian",
-    "apellido": "Brijaldo",
-    "email": "cristianiksl@gmail.com",
-    "password": "123456789",
-    "image": "1648600912709_img_.jpg",
-    "newsletter": "off"
-  },
-  {
     "id": 6,
     "nombre": "Cristian 2",
     "apellido": "Brijaldo",
@@ -52,5 +43,14 @@
     "password": "1234562222",
     "image": "1648600976436_img_.png",
     "newsletter": "on"
+  },
+  {
+    "id": 7,
+    "nombre": "CRISTIAN ",
+    "apellido": "CASTRO BRIJALDO",
+    "email": "blaser89@gmail.com",
+    "password": "$2a$10$Wpk7zmv3jq0SIMlktYpde.3S.e35.Ka8N.UGDg8HBUsIVcYHDP4Ba",
+    "image": "1650734300167_img_.jpg",
+    "newsletter": "off"
   }
 ]

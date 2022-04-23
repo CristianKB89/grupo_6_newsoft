@@ -10,13 +10,14 @@
                 <div class="modal-contenido">
                   <img class="logo-header" src="/img/logo-one.png"/>
                   <p class="titulo">Inicie sesión con su ID de NewSoft</p>
-                  <form action="/users/login" method="POST" class="modal-formulario">
+                  <form action="/" method="POST" class="modal-formulario">
                     <div class="modal-email">
                       <label for="email"></label>
                       <input type="email" name="email" id="email" placeholder="Dirección de correo">
                     </div>
                     <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
+                          <i class="fa-solid fa-circle-exclamation"></i>
                             <%= errors.email.msg %>
                         </div>
                     <% } %>
@@ -28,6 +29,7 @@
                     </div>
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
+                          <i class="fa-solid fa-circle-exclamation"></i>
                             <%= errors.password.msg %>
                         </div>
                     <% } %>
@@ -50,7 +52,7 @@
                       <p class="modal-cont2"><i class="far fa-star" id="modal-icon"></i> Somos new soft</p>
                     </div>
                     <div class="modal-register">
-                      <a href="/users/create"></a>No tienes cuenta? Registrate Aquí</a>
+                      <a href="/users/create">No tienes cuenta? Registrate Aquí</a>
                     </div>
                     <div class="modal-social">
                       <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
@@ -64,4 +66,5 @@
               </div>
             </div>
             </div>
+            
             <!-- FIN Ventana modal del login -->

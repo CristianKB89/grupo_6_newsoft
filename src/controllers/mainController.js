@@ -33,7 +33,6 @@ const controlador = {
   },
 
   login: (req, res) => {
-
     res.render(path.resolve(__dirname, "../views/index.ejs"), {
       productoCart,
       total,
@@ -42,20 +41,20 @@ const controlador = {
 
   loginProcess: (req, res) => {
     let usuarioParaLoguear = User.findByField("email", req.body.email);
-
     if (usuarioParaLoguear) {
       let passwordCorrecto = bcryptjs.compareSync(
         req.body.password,
         usuarioParaLoguear.password
       );
-      delete usuarioParaLoguear.password;
-      req.session.usuarioLogueado = usuarioParaLoguear;
-
-      if (req.body.remember) {
-        res.cookie("EmailUsuario", req.body.email, { maxAge: 1000 * 60 * 60 });
-        res.render(path.resolve(__dirname, "../views/index.ejs"));
-      } else if (passwordCorrecto) {
-        return res.redirect("/users/profile");
+      if (passwordCorrecto) {
+        delete usuarioParaLoguear.password;
+        req.session.usuarioLogueado = usuarioParaLoguear;
+        if (req.body.remember) {
+          res.cookie("EmailUsuario", req.body.email, {
+            maxAge: 1000 * 60 * 60,
+          });
+        }
+        return res.redirect("/users/profile"), { productoCart, total };
       }
       return res.render(path.resolve(__dirname, "../views/index.ejs"), {
         errors: {
@@ -63,6 +62,8 @@ const controlador = {
             msg: "Las credenciales son inválidas",
           },
         },
+        productoCart,
+        total,
       });
     }
 
@@ -72,6 +73,8 @@ const controlador = {
           msg: "No se encuentra este email en nuestra base de datos",
         },
       },
+      productoCart,
+      total,
     });
   },
   products: (req, res) => {
