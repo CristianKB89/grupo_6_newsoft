@@ -1,4 +1,5 @@
 
+    
     <div class="top-header">
       <img class="flag-header" src="https://img.icons8.com/fluency/48/000000/colombia-circular.png" />
       <p class="envios-header">
@@ -10,34 +11,119 @@
       <p class="playstation-header">PLAYSTATION</p>
     </div>
     <div class="main-header">
-      <a class="burger-menu-header" href="#">
+      <a class="burger-menu-header" href="#" onclick="alterStyle(mb)">
         <div>
           <i class="fas fa-bars"></i>
         </div>
       </a>
+
       <a href="/"><img class="logo-header" src="/img/logo-one.png"/></a>
       <nav class="main-nav-header">
-        <div>
-          <a href="/products/create">
-            <span class="nav-btn-text">AGREGAR PRODUCTO</span>
-          </a>
-          <a href="/products?categoria=catalogo">
-            <span class="nav-btn-text">PRODUCTOS</span>
-          </a>
-          <a href="/products/ocultos">
-            <span class="nav-btn-text">PRODUCTOS OCULTOS</span>
-          </a>
-          <a href="#">
-            <span class="nav-btn-text">STREAMING</span>
-          </a>
-          <a href="#">
-            <span class="nav-btn-text">DIADEMAS</span>
-          </a>
-        </div>
+        <ul class="ul-menu">
+          <li>
+            <a href="/products/create">
+              <span class="nav-btn-text">AGREGAR PRODUCTO</span>
+            </a>
+          </li>
+          <li>
+            <a href="/products?categoria=catalogo">
+              <span class="nav-btn-text">PRODUCTOS</span>
+            </a>
+          </li>
+          <li>
+            <a href="/products/ocultos">
+              <span class="nav-btn-text">PRODUCTOS OCULTOS</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="nav-btn-text">STREAMING</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="nav-btn-text">DIADEMAS</span>
+            </a>
+          </li>
+        </ul>
       </nav>
       <div class="search-cart">
-        <a href="#"><button><i class="fas fa-search"></i></button></a>
-        <a href="/productCart/product-Cart"><button><i class="fas fa-shopping-cart"></i></button></a>
-        <a href="/login"><button><i class="fa-regular fa-circle-user"></i></button></a>
+        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
+        <button class="search-btn"><i class="fas fa-shopping-cart" onclick="mostrarCart(cr)"></i></button>
+        <% if (locals.estaLogueado) { %>
+          <a class="name" href="/users/profile"><%= locals.usuarioLogueado.nombre %> </a>
+          <a class="log-out" href="/users/logout">Logout</a>
+        <% } else { %>
+        <!-- Ventana modal del login -->
+        <%- include('./modal-login.ejs') %>
+        <!-- FIN Ventana modal del login -->
+        <% } %>
       </div>
     </div>
+
+
+    <div id="mb">
+      <nav class="nav-mobile">
+        <div>
+          <a class="li-a" onclick="resStyle(mb)"><i class="fa-solid fa-x"></i></a>
+        </div>
+        <ul class="ul-menu-mobile">
+          <li>
+            <a href="/">
+              <span class="nav-btn-text">HOME</span>
+            </a>
+          </li>
+          <li>
+            <a href="/products/create">
+              <span class="nav-btn-text">AGREGAR PRODUCTO</span>
+            </a>
+          </li>
+          <li>
+            <a href="/products?categoria=catalogo">
+              <span class="nav-btn-text">PRODUCTOS</span>
+            </a>
+          </li>
+          <li>
+            <a href="/products/ocultos">
+              <span class="nav-btn-text">PRODUCTOS OCULTOS</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="nav-btn-text">STREAMING</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="nav-btn-text">DIADEMAS</span>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+      <div id="cr">
+        <%- include('./modalCart.ejs') %>
+      </div>
+
+    <script type="text/javascript">
+      function alterStyle(mb) {
+        // mb.style.right = '10vw';
+        mb.style.transform = 'translateX(558px)';
+        mb.style.transition= "all 500ms ease";
+      }
+      function resStyle(mb) {
+        // mb.style.right = '600px';
+        mb.style.transform = 'translateX(0%)';
+      }
+      function ocultarCart(cr){
+        // cr.style.left = '400px';
+        cr.style.transition= "all 500ms ease";
+        cr.style.transform = 'translateX(2000px)';
+      }
+      function mostrarCart(cr){
+        // // cr.style.left = '0px';
+        cr.style.transform = 'translateX(0px)';
+
+      }
+    </script>

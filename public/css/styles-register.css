@@ -192,6 +192,10 @@ padding-bottom: 20px;
     transition: all 0.5s;
 }
 
+.mensaje-error{
+    color: red;
+}
+
 
 /*Animacion*/
 /* .logo-solo {

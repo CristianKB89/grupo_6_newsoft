@@ -13,7 +13,7 @@
     "nombre": "Jinson Stevenson",
     "apellido": "Aguilar",
     "email": "jinson.moreno@gmail.com",
-    "password": "bhkknjknl",
+    "password": "$2a$10$CA8W3YFb6/Rj2gXymhgX6uyjyGWNqW/fPsKOzq7da8Tb/42ORU/su",
     "image": "1648041008215_img_.jpg",
     "newsletter": "on"
   },
@@ -28,56 +28,29 @@
   },
   {
     "id": 4,
-    "nombre": "Noelia",
-    "apellido": "Murillo",
-    "email": "jestiven.2009@hotmail.com",
-    "password": "kmlsdmlsdmsdmmlsdlmsdl",
-    "image": "1648040869749_img_.jpg",
-    "newsletter": "on"
-  },
-  {
-    "id": 5,
-    "nombre": "Jinson Stevenson",
-    "apellido": "Aguilar",
-    "email": "jinson.moreno@gmail.com",
-    "password": "ugjbbjjbkjkkjkjbh",
-    "image": "1648041008215_img_.jpg",
-    "newsletter": "on"
-  },
-  {
-    "id": 6,
     "nombre": "camilo",
     "apellido": "perez",
-    "email": "pedritoperez@pemail.pr",
+    "email": "pedritoperez@pemail.co",
     "password": "kndsjkjdssdanjknjkdnksd",
     "image": "1648053043555_img_.jpg",
     "newsletter": "on"
   },
   {
-    "id": 7,
-    "nombre": "Cristian",
-    "apellido": "Brijaldo",
-    "email": "cristianiksl@gmail.com",
-    "password": "123456789",
-    "image": "1648600912709_img_.jpg",
-    "newsletter": "off"
-  },
-  {
-    "id": 8,
+    "id": 6,
     "nombre": "Cristian 2",
     "apellido": "Brijaldo",
-    "email": "cristianiksl@gmail.com",
+    "email": "cristianikssl@gmail.com",
     "password": "1234562222",
     "image": "1648600976436_img_.png",
     "newsletter": "on"
   },
   {
-    "id": 9,
-    "nombre": "Jinson Stevenson",
-    "apellido": "Aguilar",
-    "email": "jinson.moreno@gmail.com",
-    "password": "$2a$10$P8IJxIH5I2uku4c6a6D/kOgKUUf3Ftb3MgAD10vJZeF8pO0WijFrO",
-    "image": "default.png",
+    "id": 7,
+    "nombre": "CRISTIAN ",
+    "apellido": "CASTRO BRIJALDO",
+    "email": "blaser89@gmail.com",
+    "password": "$2a$10$Wpk7zmv3jq0SIMlktYpde.3S.e35.Ka8N.UGDg8HBUsIVcYHDP4Ba",
+    "image": "1650734300167_img_.jpg",
     "newsletter": "off"
   }
 ]

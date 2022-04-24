@@ -1,0 +1,72 @@
+<div class="body-cart">
+<div class="header">
+    <div class="head-car">
+      <h2>REVISA TU CARRITO</h2>
+    </div>
+    <i onclick="ocultarCart(cr)" class="fa-solid fa-x"></i>
+</div>
+<div class="main">
+    <ul class="ul-cart">
+      <li class="li-cart">
+        <div>
+          <div class="truck">
+            <i class="fa-solid fa-truck"></i>
+            <span class="span">
+              Items in your cart qualify for free shipping. Some exclusions may apply.
+            </span>
+          </div>
+        </div>
+      </li>
+      
+      <% for(let i=0; i<productoCart.length; i++){ %>
+      
+        <li class="car-item0">
+        <div class="content-product">
+          <a href="/products/productdetail/<%=productoCart[i].id%>">
+          <div class="img-car">
+            <img src="/img/products/<%= productoCart[i].imagen %>" alt="">
+          </div>
+          <div class="info-cart">
+            <div class="title-product">
+              <a href="/products/productdetail/<%=productoCart[i].id%>">
+                <%= productoCart[i].nombre %> 
+              </a>
+                <!-- <div class="cantidad">
+                    <div class="add">
+                        <div class="incremento">
+                            <a href="#">-</a>
+                            <p>1</p>
+                            <a href="#">+</a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="delete">
+                <form action="/productCart/deleteProductCart" method="POST" style="display: inline-flex">
+                  <label for="id"></label>
+                  <input type="hidden" name="id" value="<%=productoCart[i].id%>">   
+                  <input type="hidden" name="car" value="false">
+                  <button type="submit" class="add-carrito-cart"><i class="fa-regular fa-trash-can"></i></button>
+                </form>
+                <div class="precio-cart">
+                    $<%= productoCart[i].precio %> 
+                  </div>
+            </div>
+          </div>
+        </a>
+        </div>
+      </li>
+
+      <% } %>
+    </ul>
+</div>
+  <div class="foot">
+    <div class="subtotal">
+      <h2>TOTAL:</h2>
+      <p>$<%= total %> </p>
+    </div>
+    <div class="button-end">
+      <a href="#">FINALIZAR COMPRA</a>
+    </div>
+  </div>
+</div>

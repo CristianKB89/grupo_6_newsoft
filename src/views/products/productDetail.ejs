@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="/css/styles-productDetail.css" />
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
+  
 </head>
 
 <body>
@@ -23,7 +24,7 @@
   <header>
     <%- include('../partials/header') %>
   </header>
-  <main>
+  <main class="main">
     <section class="panel-1">
       <div class="panel-izq">
         <div>
@@ -69,8 +70,13 @@
               <i class="fa-solid fa-caret-down"></i>
             </div>
           </div>
-
-          <a class="add-carrito" href="/productCart/product-Cart"> Agregar al Carrito </a>
+          
+          <form action="/productCart/addProductCart" method="POST" style="display: inline-flex">
+            <label for="id"></label>
+            <input type="hidden" name="id" value="<%=productoDetalle.id%>">   
+            <input type="hidden" name="car" value="true">
+            <button type="submit" class="add-carrito">Agregar al Carrito</button>
+          </form>
 
           <div class="video-rese">
             <a href="https://www.youtube.com/watch?v=NU1m_dLzEh4" target="_blank" class="video">

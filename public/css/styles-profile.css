@@ -3,21 +3,15 @@
     box-sizing: border-box;
 }
 
-
-
-.linkfinal{
-    color: black;
-           background-color: yellow;
-           border-radius: 3%;
-           padding: 0.5%;
-           margin: 1%;
-           text-align: center;
-}
-
 h2{
     text-align: center;
 }
 
+main{
+    position: relative;
+    top: 100px;
+    display: block;
+}
 
 a {
     text-decoration: none;
@@ -25,38 +19,56 @@ a {
     margin: 1%;
 }
 
-a.button { color: black;
-           background-color: white;
-           border-radius: 3%;
+.botones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-self: center;
 
 }
+
+.button-eliminar{
+    color: black;
+    background-color: #E9E600;
+    border: none;
+    font-size: 12px;
+    padding:6px;
+    border-radius: 5px;
+    margin:auto;
+    margin-top: 2%;
+  
+}
+
+.boton-formulario{
+    color: black;
+    background-color: #E9E600;
+    border: none;
+    font-size: 12px;
+    padding:5px 10px;
+    border-radius: 5px;
+    margin-bottom: auto;
+}
+
+.button{
+    color: black;
+    background-color: #E9E600;
+    border: none;
+    font-size: 12px;
+    margin-top: 20%;
+    padding:5px 10px;
+    border-radius: 5px;
+    margin-bottom: auto;
+
+}
+
 
 .titulo{
-    font-size: 200%;
+    font-size: 100%;
 }
-
-.linkfinal{
-    justify-content: center;
-    text-align: center;
-    align-self:center;
-    align-items: center;
-}
-
-form .button{
-    margin-top: 30%;
-    padding: auto;
-    padding-top: 10%;
-    padding-bottom: 10%;
-    padding-left: 10%;
-    padding-right: 10%;
-    text-align: center;
-    justify-content: center;
-}
-
 
 .profileh3 {
     display: block;
-    font-size: 1.17em;
+    font-size: 100%;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
@@ -97,7 +109,7 @@ form .button{
         width: 30%;
         padding: 1rem;
         
-        background-color:rgba(236, 222, 14, 0.8);
+        background-color:rgba(236, 222, 14, 0.6);
         color: black;
         text-align: center;
         
@@ -105,8 +117,8 @@ form .button{
     }
 
     .card-left figure {
-        height: 120px;
-        width: 120px;
+        height: 90px;
+        width: 90px;
         margin: 0;
 
         overflow: hidden;
@@ -128,5 +140,86 @@ form .button{
         border-radius: 0 var(--default-radius) var(--default-radius) 0;
     }
 
+    @media(min-width:361px){
 
+    }
+   
+    @media(min-width:769px){
+        .titulo{
+            font-size: 120%;
+        }
+        
+        .profileh3 {
+            font-size: 110%;
+        }
+
+        .card-left figure {
+            height: 100px;
+            width: 100px;
+        }
+    
+        .card-left figure img {
+            width: 100%;
+        }
+
+        .botones {
+            justify-content: space-evenly;
+        }
+
+        .boton-formulario{
+            font-size: 15px;
+        }
+
+        .button-eliminar{
+            font-size: 15px;
+            margin-bottom: 3%;
+        }
+
+        .button{
+            font-size:15px ;
+        }
+        
+
+    }
+
+    @media(min-width:1200px){
+        .titulo{
+            font-size: 150%;
+        }
+        
+        .profileh3 {
+            font-size: 130%;
+        }
+
+        .profilep{
+            font-size: 110%;
+        }
+
+        .card-left figure {
+            height: 130px;
+            width: 130px;
+        }
+    
+        .card-left figure img {
+            width: 100%;
+        }
+
+        .botones {
+            justify-content: space-evenly;
+        }
+
+        .boton-formulario{
+            font-size: 20px;
+        }
+
+        .button-eliminar{
+            font-size: 20px;
+            margin-top: 4%;
+        }
+
+        .button{
+            font-size:20px ;
+        }
+
+    }
 

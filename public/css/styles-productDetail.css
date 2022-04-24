@@ -7,12 +7,14 @@
     font-family: 'Bebas Neue', cursive;
 }
 
+
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     letter-spacing: 0.02em;
-    color: #FFF;
+
 }
 img{
     width: 100%;
@@ -25,6 +27,12 @@ img{
 body{
     width: 100%;
     background-color: black;
+    color: #FFF;
+}
+
+.main{
+    position: relative;
+    top:0;
 }
 
 h1{
@@ -115,6 +123,7 @@ h1{
      padding: 30px;
 }
 
+
 .img-product:hover {filter:none;}
 
 .max{
@@ -163,26 +172,28 @@ h1{
 }
 
 .add-carrito{
-    border: #A8A8A8 1px solid;
+    border: 0px;
     padding: 20px 0;
     margin: 20px 0;
     text-align: center;
-}
-
-.add-carrito{
     text-decoration: none;
+    width: 100%;
+    
+    background-color: #dad617;
+    color: #000;
 }
 
 .add-carrito:hover{
     background-color: #E9E600;
     color: black;
-    border: 0;
+    border: 0px;
+    cursor: pointer;
 }
 
 .add-carrito:hover a{
     background-color: #E9E600;
     color: black;
-    border: 0;
+    border: 0px;
 }
 
 .video-rese{
@@ -198,6 +209,7 @@ h1{
 
 .video-rese a{
     text-decoration: none;
+    color: #FFF;
 }
 
 .video-rese i{
@@ -225,8 +237,16 @@ h1{
     cursor: pointer;
 }
 
+.button{
+    color:#FFF;
+}
+
 .video-rese:hover .button{
     color: #e90000;
+}
+
+.ocultar{
+    color: #FFF;
 }
 
 .video-rese:hover .ocultar{

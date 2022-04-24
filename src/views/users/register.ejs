@@ -19,7 +19,7 @@
 </head>
 
 <body class="body-register-confirmation">
-  <header style="position: relative;">
+  <header>
     <%- include('../partials/header') %>
   </header>
 
@@ -28,23 +28,44 @@
          <div class="mensaje-logo"><h1>FORMULARIO DE REGISTRO</h1></div>
          <P>Complete todos los campos para crear su ID</P>  
 
-         <% if (typeof errors != "undefined") { %>
-          <ul style="text-align: center;">
-          <% errors.forEach(specificError => { %>
-            <li style="text-align: center;"><%= specificError.msg %> </li>
-          <% }) %> 
-        </ul>
-        <% } %>
+
         
          <div class="formulado-interno">
           <div class="control-formulario">
-               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input" value=<%= locals.old && old.nombre ? old.nombre: null %>>
+
+            <% if (locals.errors && errors.nombre) { %>
+              <div class="mensaje-error">
+                <%= errors.nombre.msg %> 
+              </div>
+            <% } %>
+               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+               value="<%= locals.oldData ? oldData.nombre : null %>"
+             >
           </div>
           <div class="control-formulario">
-                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input" value=<%= locals.old && old.apellido ? old.apellido: null %> >
+             
+            <% if (locals.errors && errors.apellido) { %>
+              <div class="mensaje-error">
+                <%= errors.apellido.msg %> 
+              </div>
+            <% } %>
+
+                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input <%= locals.errors && errors.apellido ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.apellido : null %>"
+              >
           </div>
           <div class="control-formulario">
-               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" value=<%= locals.old && old.email ? old.email: null %> >
+
+            <% if (locals.errors && errors.email) { %>
+              <div class="mensaje-error">
+                <%= errors.email.msg %> 
+              </div>
+            <% } %>
+            
+               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+               value="<%= locals.oldData ? oldData.email : null %>"
+             >
+
           </div>
           <div class="control-formulario">
                <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input">

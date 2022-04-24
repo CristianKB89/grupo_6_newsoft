@@ -35,14 +35,15 @@
           </div>
         </div>
       </li>
+      <% for(let i=0; i<producto.length; i++){ %>
       <li class="car-item0">
         <div class="content-product">
           <div class="img-car">
-            <img src="/images/teclado.png" alt="">
+            <img src="/img/products/<%= producto[i].imagen %>" alt="">
           </div>
           <div class="info">
             <div class="title-product">
-              <a href="#">K100 RGB Optical-Mechanical Gaming Keyboard</a>
+              <a href="#"><%= producto[i].nombre %> </a>
             </div>
             <div class="cantidad">
               <div class="add">
@@ -53,33 +54,28 @@
                 </div>
               </div>
               <div>
-                $200
+                $<%= producto[i].precio %> 
               </div>
             </div>
             <div class="delete">
-              <a href="#"><i class="fa-regular fa-trash-can"></i></a>
+              <form action="/productCart/deleteProductCart" method="POST" style="display: inline-flex">
+                <label for="id"></label>
+                <input type="hidden" name="id" value="<%=producto[i].id%>">   
+                <input type="hidden" name="car" value="false">
+                <button type="submit" class="add-carrito"><i class="fa-regular fa-trash-can"></i></button>
+              </form>
+
             </div>
           </div>
         </div>
       </li>
+      <% } %>
     </ul>
   </main>
   <footer>
     <div class="subtotal">
-      <h2>SUBTOTAL:</h2>
-      <p>$79,99</p>
-    </div>
-    <div class="subtotal">
-      <p>DESCUENTO ESTIMADO:</p>
-      <p>$79,99</p>
-    </div>
-    <div class="subtotal">
-      <p>TRANSPORTE:</p>
-      <p>$79,99</p>
-    </div>
-    <div class="subtotal">
-      <p>IMPUESTO:</p>
-      <p>$79,99</p>
+      <h2>TOTAL:</h2>
+      <p>$<%= total %> </p>
     </div>
     <div class="button-end">
       <a href="#">FINALIZAR COMPRA</a>
