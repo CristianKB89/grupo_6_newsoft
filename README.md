@@ -46,5 +46,5 @@ Estos sitios fueron elegidos por el público objetivo que manejan ya que es simi
 </ul>
     <li>Diseño opcional: https://xd.adobe.com/view/a117594e-2268-463b-b4eb-823a2711b548-f444/</li>
     <li>Tablero de Trabajo en Trello: https://trello.com/invite/b/T246LXa9/509285eaeb2c064bf103c1febfea9d01/proyecto-integrador-gp-6</li>
-    <li>Link de Heroku: https://group6-newsoft.herokuapp.com/</li>
+    <li>Link de Heroku: https://newsoft-6.herokuapp.com</li>
 </ul>
