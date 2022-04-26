@@ -451,7 +451,6 @@
     "accesorios": "ninguno",
     "imagen": "1648618367768_img_.png",
     "descripcion": "Ratón para juegos",
-<<<<<<< HEAD
     "visible": true
   },
   {
@@ -645,9 +644,5 @@
     "imagen": "1648832182716_img_.png",
     "descripcion": "premium microphone and digital mixing solution",
     "visible": true
-=======
-    "visible": true,
-    "car": "false"
->>>>>>> 589a56c1e461e68861010d5c51498c4618670925
   }
 ]
