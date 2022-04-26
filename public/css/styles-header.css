@@ -480,6 +480,7 @@ ul{
     transform: translate(2000px);
     background-color: rgba(0, 0, 0, 0.8);
     top: 0px;
+    
 }
 
 .head-car h2{
@@ -493,11 +494,11 @@ ul{
     color: black !important;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
     border-radius: 5px;
     height: auto;
     overflow: auto;
-    max-height: 80vh;
+    height: 100vh;
 }
 .header{
     display: flex;
@@ -616,6 +617,9 @@ ul{
     background-color: #e4e5e7;
     z-index: 10;
     color: black;
+    position: absolute;
+    bottom: 0px;
+    border-top: solid 2px rgb(184, 183, 183);
   }
 
   .subtotal{

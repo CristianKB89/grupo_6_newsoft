@@ -10,7 +10,7 @@
     "imagen": "1648198282620_img_.png",
     "descripcion": "Mechanical Gaming Keyboard",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 2,
@@ -23,7 +23,7 @@
     "imagen": "1648258146347_img_.png",
     "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 3,
@@ -36,7 +36,7 @@
     "imagen": "1648197999024_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — CHERRY",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 4,
@@ -49,7 +49,7 @@
     "imagen": "1648198117887_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — 100%",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 5,
@@ -62,7 +62,7 @@
     "imagen": "1648219952498_img_.png",
     "descripcion": "ATX semitorre con cristal templado iCUE RGB",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 6,
@@ -114,7 +114,7 @@
     "imagen": "1648225253692_img_.png",
     "descripcion": "Combina la comodidad plug and play.",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 10,
@@ -127,7 +127,7 @@
     "imagen": "1648225762998_img_.png",
     "descripcion": "Professional optics in a webcam form factor",
     "visible": true,
-    "car": "false"
+    "car": "true"
   },
   {
     "id": 11,
@@ -387,7 +387,7 @@
     "imagen": "1648617164281_img_.png",
     "descripcion": "Ratón para juegos FPS",
     "visible": true,
-    "car": "true"
+    "car": "false"
   },
   {
     "id": 32,
