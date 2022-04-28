@@ -1,10 +1,14 @@
 1. Qué hicimos la semana pasada: 
-    - Dejamos hecho el formato para la implementación del EJS en el proyecto.
-    - Implementamos las rutas principales de nuestra pagina.
-    - Se crearon los formularios de edición y creación de productos, falta linkearlos al home.
-    - 
+    - Semana del 4 al 10 de abril:
+       - Se implementa express-validator en los formularios de edición y de registro de usuario.
+    - Semana del 11 al 17 de abril:
+       - Se sube el proceso de login completo, implementación de cookies y session.
+       - Se diseña el login como ventana modal desde el home.
+       - Se diseña el carrito de compras como ventana modal desde el home.
+       - Se implementan rutas de huespedes y de usuarios.
+    - Semana del 18 al 23 de abril:
+       - Se ajusta el proceso del login y la validación queda OK desde la ventana modal.
 2. Si se encontró con algún impedimento.
-    - Hay un problema con la ruta de los formularios ya que al ingresar el formulario a la carpeta de views/products no linkea correctamente el logo del header.
-    - 
+    - Hay un problema al hacer las validaciones en simultaneo cuando se inserta la información en los formularios, sin tener que recagar la página.
 3. Qué va a hacer hoy.
-    - Poner donde se requiera el footer y el header modularizado con EJS.
+    - Tratar de solucionar la problemática que presenta el código con la validación de los formularios.
