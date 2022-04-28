@@ -9,7 +9,7 @@
 }
 .contenedor1-recover{
     padding: 80px 0px;
-    width: 100vw;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
