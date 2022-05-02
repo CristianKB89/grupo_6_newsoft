@@ -101,7 +101,7 @@
            <% } %> 
           </select>
         </div>
-        <div class="control-formulario">
+        <div class="control-formulario-check">
           <label for="color">Seleccione el color del producto:
             <% if (locals.errors && errors.color) { %>
               <div class="mensaje-error">
@@ -109,18 +109,31 @@
               </div>
             <% } %>
           </label>
-          <select name="color" id="color" class="control-input">
-            <option value="">Seleccione un color</option>
-            <%  
-            let colores= ['Blanco', 'Negro', 'Amarillo', 'Azul','Rojo',"Violeta","Verde","Cafe"];
-           %>
-           <% for (const unColor of colores) { %>
-               <option 
-                value="<%= unColor %>"
-                <%= locals.oldData && (unColor === oldData.color) ? 'selected' : null %>>
-                 <%= unColor %> </option>
-           <% } %> 
-          </select>
+
+          <input type="checkbox" name="color" id="color" value="Blanco" class="checkbox  <%= locals.errors && errors.color ? 'checked' : null %>">
+          <label for="color">Blanco</label>
+
+          <input type="checkbox" name="color" id="color" value="Negro" class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>"> 
+          <label for="color">Negro</label>
+
+          <input type="checkbox" name="color" id="color" value="Amarillo" class="checkbox<%= locals.errors && errors.color ? 'checked' : null %>">
+          <label for="color">Amarillo</label>
+
+          <input type="checkbox" name="color" id="color" value="Azul" class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>">
+          <label for="color">Azul</label>
+
+          <input type="checkbox" name="color" id="color" value="Rojo" class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>">
+          <label for="color">Rojo</label>
+
+          <input type="checkbox" name="color" id="color" value="Violeta" class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>">
+          <label for="color">Violeta</label>
+
+          <input type="checkbox" name="color" id="color" value="Verde" class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>">
+          <label for="color">Verde</label>
+
+          <input type="checkbox" name="color" id="color" value="Cafe" class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>">
+          <label for="color">Cafe</label>
+        
         </div>
         <div class="control-formulario">
           <label for="accesorios">Indique los accesorios del producto:

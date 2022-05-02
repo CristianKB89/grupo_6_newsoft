@@ -32,6 +32,8 @@ const controlador = {
 
     crearProducto: (req, res) => {
 
+       
+
         const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
@@ -50,6 +52,7 @@ const controlador = {
 			image = 'default.jpg'
 		}
 
+
 		// capturar los datos del producto
 		const nuevoProducto = {
 			id: productos.length == 0 ? 1 : productos[productos.length -1].id +1,
@@ -57,7 +60,7 @@ const controlador = {
 			marca: req.body.marca,
 			precio: req.body.precio,
 			categoria: req.body.categoria,
-            color:req.body.color,	
+            color:[req.body.color],	
             accesorios:req.body.accesorios,	
             imagen:image,	
             descripcion:req.body.descripcion,
