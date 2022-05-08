@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/css/styles-profile.css">
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
-
+  <link rel="shortcut icon" href="/img/logo-solo.png" />
 
   <title>Detalle de usuario</title>
 </head>
@@ -27,8 +27,8 @@
 
   <main class="profile">
     <div>
-      <h2 class="titulo">Informacion del usuario <%= usuario.nombre %>
-          <%= usuario.apellido %>
+      <h2 class="titulo">Informacion del usuario <%= usuario.name %>
+          <%= usuario.lastname %>
       </h2><br>
     </div>
     <article class="card">
@@ -36,18 +36,18 @@
         <figure>
           <img src="/img/users/<%= usuario.image ? usuario.image : 'default.png' %>" alt="">
         </figure>
-        <h3 class="profileh3">#<%= usuario.id %>
+        <h3 class="profileh3">#<%= usuario.id_users %>
         </h3>
       </div>
       <div class="card-content">
-        <h3 class="profileh3"> Nombre: <%= usuario.nombre %>
-            <%= usuario.apellido %>
+        <h3 class="profileh3"> Nombre: <%= usuario.name %>
+            <%= usuario.lastname %>
         </h3>
         <p class="profilep">Email:<%= usuario.email %>
         </p>
         <div class="botones">
-          <a class="boton-formulario" href="/users/<%= usuario.id %>/edit">EDITAR MI USUARIO</a>
-          <form action="/users/<%=usuario.id%>?_method=DELETE" method="POST" style="display: inline-flex">
+          <a class="boton-formulario" href="/users/<%= usuario.id_users %>/edit">EDITAR MI USUARIO</a>
+          <form action="/users/<%=usuario.id_users%>" method="POST" style="display: inline-flex">
             <button type="submit" class="button-eliminar">ELIMINAR MI USUARIO</button>
           </form>
         </div>

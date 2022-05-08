@@ -110,9 +110,10 @@ CREATE TABLE `car` (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `products_has_colors`;
 CREATE TABLE `products_has_colors` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_products` INT NOT NULL,
   `id_colors` INT NOT NULL,
-  PRIMARY KEY (`id_products`, `id_colors`),
+  PRIMARY KEY (`id`),
   FOREIGN KEY (`id_products`)
     REFERENCES `products` (`id_products`),
   FOREIGN KEY (`id_colors`)

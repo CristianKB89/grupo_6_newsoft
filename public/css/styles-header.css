@@ -195,6 +195,17 @@ ul{
     text-decoration: none;
     color: #FFF;
     margin: 0 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: baseline;
+    display: flex;
+
+}
+
+.img-perfil{
+    width: 1.5vw;
+    border-radius: 50%;
+    display: none;
 }
 
 .name:hover{
@@ -816,6 +827,10 @@ ul{
 
     .truck .span{
         font-size: 1vw;
+    }
+
+    .img-perfil{
+        display: block;
     }
 }
 

@@ -34,7 +34,7 @@ router.get('/:id/edit', controlador.editar);
 router.put('/:id',upload.single('imagen'),arrayvValidations, controlador.editarUsuario);
 
 //Acción de borrado
-router.delete('/:id', controlador.borrar); 
+router.post('/:id', controlador.borrar); 
 
 router.get('/login',invitadoMiddleware, controlador.login);
 
