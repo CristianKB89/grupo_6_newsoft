@@ -6,6 +6,9 @@
 -- Generation Time: May 08, 2022 at 10:51 PM
 -- Server version: 10.6.5-MariaDB
 -- PHP Version: 7.4.19
+DROP DATABASE IF EXISTS cristianiksl_newsoft6;
+CREATE SCHEMA IF NOT EXISTS cristianiksl_newsoft6 DEFAULT CHARACTER SET utf8 ;
+USE cristianiksl_newsoft6 ;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
