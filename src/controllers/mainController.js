@@ -6,7 +6,8 @@ const bcryptjs = require("bcryptjs");
 const User = require("../models/Usuario");
 const db = require("../database/models");
 
-// const productos = db.Product.findAll();
+const Product = db.Product;
+// const productos = Product.findAll();
 
 // Promise.all([productos]).then(([productos]) => {
 //   const productoCart = productos.filter((producto) => producto.car == "true");
@@ -45,7 +46,7 @@ const db = require("../database/models");
 
 const controlador = {
   index: (req, res) => {
-    db.Product.findAll()
+    Product.findAll()
       .then((product) => {
         const productoCart = product.filter(
           (producto) => producto.car == "true"
@@ -63,7 +64,7 @@ const controlador = {
   },
 
   login: (req, res) => {
-    db.Product.findAll()
+    Product.findAll()
       .then((product) => {
         const productoCart = product.filter(
           (producto) => producto.car == "true"
@@ -81,7 +82,7 @@ const controlador = {
 
   loginProcess: (req, res) => {
     let promUsers = db.User.findAll();
-    let promProduct = db.Product.findAll();
+    let promProduct = Product.findAll();
     Promise.all([promUsers, promProduct])
       .then(([users, products]) => {
         //Productos del carrito
@@ -132,7 +133,7 @@ const controlador = {
   },
   products: (req, res) => {
     let categoria = req.query.categoria;
-    let promProduct = db.Product.findAll({
+    let promProduct = Product.findAll({
       include: ["brands", "categories", "colors"],
     });
     let promBrands = db.Brand.findAll();
