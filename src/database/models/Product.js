@@ -35,12 +35,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+
     };
     let config = {
-        timestamps : false,
+        //PARAOIND = PARAOINDICAR QUE SE CREE LA TABLA CON LOS TIMESTAMPS
+        timestamps : true,
+        createdAt: "created_at",
+        updatedAt: "updated_at",
+        deletedAt: false,
         //PARAOIND
-        deletedAT : 'deleted_at',
-        paranoid : true
+        deletedAt: "deleted_at",
+        paranoid: true,
     };
     const Product = sequelize.define(alias, columns, config);
     //Realaciones de la tabla

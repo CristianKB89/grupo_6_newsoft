@@ -42,27 +42,27 @@
                     <h1>PRODUCTOS OCULTOS</h1>
                 </div>
                 <% for(let i=0; i<ocultos.length; i++){ %>
-                <a href="/products/productdetail/<%= ocultos[i].id %>" class="contenedor-ocultos">
+                <a href="/products/productdetail/<%= ocultos[i].id_products%>" class="contenedor-ocultos">
                     <section class="product-item-oculto">
                         <div class="imagen-producto">
-                            <img src="/img/products/<%= ocultos[i].imagen %>" alt="imagen de producto">
+                            <img src="/img/products/<%= ocultos[i].image %>" alt="imagen de producto">
                         </div>
                         <div class="datos">
                             <p class="nombre">
-                                <%= ocultos[i].nombre %>
+                                <%= ocultos[i].name %>
                             </p>
                             <p class="descipcion">
-                                <%= ocultos[i].descripcion %>
+                                <%= ocultos[i].description %>
                             </p>
                         </div>
                         <div class="mostrar">
-                            <form action="/products/<%=ocultos[i].id%>/mostrar?_method=PUT" method="POST" style="display: inline-flex">
+                            <form action="/products/<%=ocultos[i].id_products%>/mostrar?_method=PUT" method="POST" style="display: inline-flex">
                                 <button type="submit" class="button"><i class="fa-regular fa-eye"></i>MOSTRAR PRODUCTO</button>
                             </form>
-                            <a href="/products/<%=ocultos[i].id%>/edit" target="_blank" class="edit">
+                            <a href="/products/<%=ocultos[i].id_products%>/edit" target="_blank" class="edit">
                                 <i class="fas fa-edit"></i>Editar Producto
                             </a>
-                            <form action="/products/<%=ocultos[i].id%>?_method=DELETE" method="POST" style="display: inline-flex">
+                            <form action="/products/<%=ocultos[i].id_products%>?_method=DELETE" method="POST" style="display: inline-flex">
                                 <button type="submit" class="button-delete"><i class="far fa-trash-alt"></i>ELIMINAR</button>
                             </form>
                         </div>

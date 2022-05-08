@@ -48,16 +48,17 @@
         </ul>
       </nav>
       <div class="search-cart">
-        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
-        <button class="search-btn"><i class="fas fa-shopping-cart" onclick="mostrarCart(cr)"></i></button>
         <% if (locals.estaLogueado) { %>
-          <a class="name" href="/users/profile"><%= locals.usuarioLogueado.nombre %> </a>
+          <a class="name" href="/users/profile"><img class="img-perfil" src="/img/users/<%=locals.usuarioLogueado.image%>" alt="<%=locals.usuarioLogueado.name%>"></a>
           <a class="log-out" href="/users/logout">Logout</a>
         <% } else { %>
         <!-- Ventana modal del login -->
         <%- include('./modal-login.ejs') %>
         <!-- FIN Ventana modal del login -->
         <% } %>
+        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
+        <button class="search-btn"><i class="fas fa-shopping-cart" onclick="mostrarCart(cr)"></i></button>
+
       </div>
     </div>
 

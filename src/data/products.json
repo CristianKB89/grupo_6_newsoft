@@ -117,19 +117,6 @@
     "car": "false"
   },
   {
-    "id": 10,
-    "nombre": "Facecam",
-    "marca": "Corsair",
-    "precio": "80",
-    "categoria": "Camaras",
-    "color": "Blanco",
-    "accesorios": "Ninguno",
-    "imagen": "1648225762998_img_.png",
-    "descripcion": "Professional optics in a webcam form factor",
-    "visible": true,
-    "car": "true"
-  },
-  {
     "id": 11,
     "nombre": "FPS M65 RGB ELITE",
     "marca": "Corsair",
@@ -139,7 +126,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648225911046_img_.png",
     "descripcion": "CORSAIR M65 RGB ELITE ajustable es el ratón para juegos",
-    "visible": true,
+    "visible": false,
     "car": "false"
   },
   {
@@ -152,7 +139,7 @@
     "accesorios": "Ninguno",
     "imagen": "1648229912638_img_.png",
     "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB",
-    "visible": true,
+    "visible": false,
     "car": "false"
   },
   {
@@ -451,7 +438,7 @@
     "accesorios": "ninguno",
     "imagen": "1648618367768_img_.png",
     "descripcion": "Ratón para juegos",
-    "visible": true
+    "visible": false
   },
   {
     "id": 37,

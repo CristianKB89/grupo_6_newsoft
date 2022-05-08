@@ -30,14 +30,18 @@ module.exports = (sequelize, DataTypes) => {
         newsletter: {
             type: DataTypes.BOOLEAN,
             allowNull: false
-        },
-        id_shopping_cart: {
-            type: DataTypes.BIGINT.UNSIGNED,
-            ForengKey: true
         }
+
     };
     let config = {
-        timestamps : false,
+        //PARAOIND = PARAOINDICAR QUE SE CREE LA TABLA CON LOS TIMESTAMPS
+        timestamps : true,
+        createdAt: "created_at",
+        updatedAt: "updated_at",
+        deletedAt: false,
+        //PARAOIND
+        deletedAt: "deleted_at",
+        paranoid: true,
     };
     const User = sequelize.define(alias, columns, config);
     //Realaciones de la tabla

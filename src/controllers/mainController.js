@@ -63,49 +63,72 @@ const controlador = {
   },
 
   login: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/index.ejs"), {
-      productoCart,
-      total,
-    });
+    db.Product.findAll()
+      .then((product) => {
+        const productoCart = product.filter(
+          (producto) => producto.car == "true"
+        );
+        let total = 0;
+        res.render(path.resolve(__dirname, "../views/index.ejs"), {
+          productoCart,
+          total,
+        });
+      })
+      .catch((error) => {
+        log(error);
+      });
   },
 
   loginProcess: (req, res) => {
-    let usuarioParaLoguear = User.findByField("email", req.body.email);
-    if (usuarioParaLoguear) {
-      let passwordCorrecto = bcryptjs.compareSync(
-        req.body.password,
-        usuarioParaLoguear.password
-      );
-      if (passwordCorrecto) {
-        delete usuarioParaLoguear.password;
-        req.session.usuarioLogueado = usuarioParaLoguear;
-        if (req.body.remember) {
-          res.cookie("EmailUsuario", req.body.email, {
-            maxAge: 1000 * 60 * 60,
-          });
-        }
-        return res.redirect("/users/profile"), { productoCart, total };
-      }
-      return res.render(path.resolve(__dirname, "../views/index.ejs"), {
-        errors: {
-          password: {
-            msg: "Las credenciales son inválidas",
-          },
-        },
-        productoCart,
-        total,
-      });
-    }
+    let promUsers = db.User.findAll();
+    let promProduct = db.Product.findAll();
+    Promise.all([promUsers, promProduct])
+      .then(([users, products]) => {
+        //Productos del carrito
+        const productoCart = products.filter(
+          (producto) => producto.car == "true"
+        );
+        let total = 0;
+        //Usuario que se loguea
+        let user = users.find((user) => user.email == req.body.email);
 
-    return res.render(path.resolve(__dirname, "../views/index.ejs"), {
-      errors: {
-        email: {
-          msg: "No se encuentra este email en nuestra base de datos",
-        },
-      },
-      productoCart,
-      total,
-    });
+        if (user) {
+          let passwordCorrecto = bcryptjs.compareSync(req.body.password, user.password)
+            if (passwordCorrecto) {
+              delete user.password;
+              req.session.usuarioLogueado = user;
+              if (req.body.remember) {
+                res.cookie("EmailUsuario", req.body.email, {
+                  maxAge: 1000 * 60 * 60,
+                });
+              }
+              return res.redirect("/users/profile"), { productoCart, total };
+            } else {
+              return res.render(path.resolve(__dirname, "../views/index.ejs"), {
+                errors: {
+                  password: {
+                    msg: "Las credenciales son inválidas",
+                  },
+                },
+                productoCart,
+                total,
+              });
+            }
+          };
+    
+        return res.render(path.resolve(__dirname, "../views/index.ejs"), {
+          errors: {
+            email: {
+              msg: "No se encuentra este email en nuestra base de datos",
+            },
+          },
+          productoCart,
+          total,
+        });
+      })
+      .catch((error) => {
+        log(error);
+      });
   },
   products: (req, res) => {
     let categoria = req.query.categoria;
@@ -117,7 +140,10 @@ const controlador = {
     let promColors = db.Color.findAll();
     Promise.all([promProduct, promBrands, promCategories, promColors])
       .then(([productoDetalle, Marca, Category]) => {
-        
+        const productoCart = productoDetalle.filter(
+          (producto) => producto.car == "true"
+        );
+        let total = 0;
         const cases = productoDetalle.filter(
           (producto) => producto.id_categories == 1
         );
@@ -139,7 +165,6 @@ const controlador = {
         const producto = productoDetalle.filter(
           (producto) => producto.categories.categories == categoria
         );
-
         res.render(path.resolve(__dirname, "../views/products/products.ejs"), {
           cases,
           teclado,

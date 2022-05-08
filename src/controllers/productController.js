@@ -154,24 +154,20 @@ const controlador = {
   },
 
   eliminar: (req, res) => {
-    const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let idProducto = req.params.id;
-
-    let productoFiltrado = productos.filter(
-      (producto) => producto.id != idProducto
+    let producto_id = req.params.id;
+    db.Product.destroy({
+        where: {
+            id_products: producto_id,
+        },
+    }).then(() => {
+        res.redirect("/products?categoria=catalogo");
+    }
     );
-
-    fs.writeFileSync(
-      productsFilePath,
-      JSON.stringify(productoFiltrado, null, 2)
-    );
-
-    res.redirect("/products?categoria=catalogo");
   },
 
   productDetail: (req, res) => {
     let promProduct = db.Product.findByPk(req.params.id, {
-      include: ["brands",'categories','colors'],
+      include: ["brands", "categories", "colors"],
     });
     let promBrands = db.Brand.findAll();
     let promCategories = db.Category.findAll();
@@ -185,10 +181,14 @@ const controlador = {
             (brand) => brand.id_brands == productoDetalle.id_brands
           );
           let category = Category.find(
-            (category) => category.id_categories == productoDetalle.id_categories
+            (category) =>
+              category.id_categories == productoDetalle.id_categories
           );
-           // res.send(productoDetalle)
-          res.render(path.resolve(__dirname, '../views/products/productDetail.ejs'), {productoDetalle, brand , category , productoCart , total });
+          // res.send(productoDetalle)
+          res.render(
+            path.resolve(__dirname, "../views/products/productDetail.ejs"),
+            { productoDetalle, brand, category, productoCart, total }
+          );
         }
       })
       .catch((err) => {
@@ -197,39 +197,50 @@ const controlador = {
   },
 
   ocultarProducto: (req, res) => {
-    const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let id = req.params.id;
-    const productoOculto = productos.map((producto) => {
-      if (producto.id == id) {
-        producto.visible = false;
-      }
-      return producto;
-    });
-
-    fs.writeFileSync(productsFilePath, JSON.stringify(productoOculto, null, 2));
-
-    res.redirect("/products?categoria=catalogo");
+    db.Product.update(
+        {
+          visible: false,
+        },
+        {
+          where: {
+            id_products: req.params.id,
+          },
+        }
+      )
+        .then(() => {
+          res.redirect("/products?categoria=catalogo");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   },
   mostrarProducto: (req, res) => {
-    const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let id = req.params.id;
-    const productoOculto = productos.map((producto) => {
-      if (producto.id == id) {
-        producto.visible = true;
+    db.Product.update(
+      {
+        visible: true,
+      },
+      {
+        where: {
+          id_products: req.params.id,
+        },
       }
-      return producto;
-    });
-    fs.writeFileSync(productsFilePath, JSON.stringify(productoOculto, null, 2));
-    res.redirect("/products?categoria=catalogo");
+    )
+      .then(() => {
+        res.redirect("/products?categoria=catalogo");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   productosOcultos: (req, res) => {
-    const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-
-    const ocultos = productos.filter((product) => product.visible === false);
-    res.render(
-      path.resolve(__dirname, "../views/products/productsOcultos.ejs"),
-      { ocultos, total, productoCart }
-    );
+    const productos = db.Product.findAll();
+    Promise.all([productos]).then(([productos]) => {
+      const ocultos = productos.filter((product) => product.visible === false);
+      res.render(
+        path.resolve(__dirname, "../views/products/productsOcultos.ejs"),
+        { ocultos, total, productoCart }
+      );
+    });
   },
 };
 
