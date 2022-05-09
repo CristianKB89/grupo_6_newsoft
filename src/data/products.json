@@ -135,6 +135,27 @@
     "car": "false"
   },
   {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    "id": 10,
+    "nombre": "Facecam",
+    "marca": "Corsair",
+    "precio": "80",
+    "categoria": "Camaras",
+    "color": [
+      "Blanco"
+    ],
+    "accesorios": "Ninguno",
+    "imagen": "1648225762998_img_.png",
+    "descripcion": "Professional optics in a webcam form factor",
+    "visible": true,
+    "car": "true"
+  },
+  {
+=======
+>>>>>>> origin/main
+>>>>>>> 1ab6a00e1b7e2a25061afe67997ee85cf7c391aa
     "id": 11,
     "nombre": "FPS M65 RGB ELITE",
     "marca": "Corsair",
