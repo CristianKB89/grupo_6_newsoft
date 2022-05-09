@@ -5,6 +5,7 @@ const bcryptjs = require("bcryptjs");
 const usersFilePath = path.join(__dirname, "../data/users.json");
 const User = require("../models/Usuario");
 const productsFilePath = path.join(__dirname, "../data/products.json");
+const db = require("../database/models");
 
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -182,14 +183,24 @@ const controlador = {
   },
 
   borrar: (req, res) => {
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    let idUsuario = req.params.id;
+    let id = req.params.id;
+    db.User.destroy({
+        where: {
+            id_users: id,
+        },
+    }).then(() => {
+        res.redirect("/");
+    }
+    );
 
-    let usuarioFiltrado = usuarios.filter((users) => users.id != idUsuario);
+    // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    // let idUsuario = req.params.id;
 
-    fs.writeFileSync(usersFilePath, JSON.stringify(usuarioFiltrado, null, 2));
+    // let usuarioFiltrado = usuarios.filter((users) => users.id != idUsuario);
 
-    res.redirect("/");
+    // fs.writeFileSync(usersFilePath, JSON.stringify(usuarioFiltrado, null, 2));
+
+    // res.redirect("/");
   },
 
   login: (req, res) => {
@@ -200,58 +211,81 @@ const controlador = {
   },
 
   ProcesoLogin: (req, res) => {
-    let usuarioParaLoguear = User.findByField("email", req.body.email);
+    let promUsers = db.User.findAll();
+    let promProduct = db.Product.findAll();
+    Promise.all([promUsers, promProduct])
+      .then(([users, products]) => {
+        //Productos del carrito
+        const productoCart = products.filter(
+          (producto) => producto.car == "true"
+        );
+        let total = 0;
+        //Usuario que se loguea
+        let user = users.find((user) => user.email == req.body.email);
 
-    if (usuarioParaLoguear) {
-      let passwordCorrecto = bcryptjs.compareSync(
-        req.body.password,
-        usuarioParaLoguear.password
-      );
-      delete usuarioParaLoguear.password;
-      req.session.usuarioLogueado = usuarioParaLoguear;
-
-      if (req.body.remember) {
-        res.cookie("EmailUsuario", req.body.email, { maxAge: 1000 * 60 * 60 });
-      }
-
-      if (passwordCorrecto) {
-        return res.redirect("/users/profile");
-      }
-      return res.render(
-        path.resolve(__dirname, "../views/users/userProfile.ejs"),
-        { productoCart, total },
-        {
+        if (user) {
+          let passwordCorrecto = bcryptjs.compareSync(req.body.password, user.password)
+            if (passwordCorrecto) {
+              delete user.password;
+              req.session.usuarioLogueado = user;
+              if (req.body.remember) {
+                res.cookie("EmailUsuario", req.body.email, {
+                  maxAge: 1000 * 60 * 60,
+                });
+              }
+              return res.redirect("/users/profile"), { productoCart, total };
+            } else {
+              return res.render(path.resolve(__dirname, "../views/index.ejs"), {
+                errors: {
+                  password: {
+                    msg: "Las credenciales son inválidas",
+                  },
+                },
+                productoCart,
+                total,
+              });
+            }
+          };
+    
+        return res.render(path.resolve(__dirname, "../views/index.ejs"), {
           errors: {
-            password: {
-              msg: "Las credenciales son inválidas",
+            email: {
+              msg: "No se encuentra este email en nuestra base de datos",
             },
           },
-        }
-      );
-    }
-
-    return res.render(
-      path.resolve(__dirname, "../views/users/userProfile.ejs"),
-      { productoCart, total },
-      {
-        errors: {
-          email: {
-            msg: "No se encuentra este email en nuestra base de datos",
-          },
-        },
-      }
-    );
+          productoCart,
+          total,
+        });
+      })
+      .catch((error) => {
+        log(error);
+      });
   },
 
   perfil: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, "../views/users/userProfile.ejs"),
-      {
-        usuario: req.session.usuarioLogueado,
-        productoCart,
-        total,
+    let promUsers = db.User.findAll();
+    let promProduct = db.Product.findAll();
+    Promise.all([promUsers, promProduct])
+      .then(([users, products]) => {
+        usuario = users.find((user) => user.id_users == req.session.usuarioLogueado.id_users);
+        if (usuario) {
+          res.render(path.resolve(__dirname, "../views/users/userProfile.ejs"), {
+            usuario,
+            products,
+            productoCart,
+            total,
+          });
+        }
+        else {
+          res.redirect("/");
+        }
+
+        
       }
-    );
+      ).catch((err) => {
+        console.log(err);
+      }
+      );
   },
 
   desconexion: (req, res) => {

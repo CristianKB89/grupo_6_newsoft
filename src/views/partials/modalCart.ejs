@@ -22,14 +22,14 @@
 
         <li class="car-item0">
           <div class="content-product">
-            <a href="/products/productdetail/<%=productoCart[i].id%>">
+            <a href="/products/productdetail/<%=productoCart[i].id_products%>">
               <div class="img-car">
-                <img src="/img/products/<%= productoCart[i].imagen %>" alt="">
+                <img src="/img/products/<%= productoCart[i].image %>" alt="">
               </div>
               <div class="info-cart">
                 <div class="title-product">
-                  <a href="/products/productdetail/<%=productoCart[i].id%>">
-                    <%= productoCart[i].nombre %>
+                  <a href="/products/productdetail/<%=productoCart[i].id_products%>">
+                    <%= productoCart[i].name %>
                   </a>
                   <!-- <div class="cantidad">
                     <div class="add">
@@ -44,12 +44,12 @@
                 <div class="delete">
                   <form action="/productCart/deleteProductCart" method="POST" style="display: inline-flex">
                     <label for="id"></label>
-                    <input type="hidden" name="id" value="<%=productoCart[i].id%>">
+                    <input type="hidden" name="id" value="<%=productoCart[i].id_products%>">
                     <input type="hidden" name="car" value="false">
                     <button type="submit" class="add-carrito-cart"><i class="fa-regular fa-trash-can"></i></button>
                   </form>
                   <div class="precio-cart">
-                    $<%= productoCart[i].precio %>
+                    $<%= productoCart[i].price %>
                   </div>
                 </div>
               </div>
