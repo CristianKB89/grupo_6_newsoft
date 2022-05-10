@@ -89,40 +89,26 @@
             <option value="Audio (Microfonos)" <%= productoEditar.categoria == "Audio (Microfonos)" ? "selected" : null %>>Audio (Microfonos)</option>
           </select>
         </div>
-        <div class="control-formulario-check">
-            <label for="color">Seleccione el color del producto:
-              <% if (locals.errors && errors.color) { %>
-                <div class="mensaje-error">
-                  <%= errors.color.msg %> 
-                </div>
-              <% } %>
-            </label>
-  
-            <input type="checkbox" name="color" id="color"  value="Blanco" <%= productoEditar.color == "Blanco" ? "checked" : null %>>
-            <label for="color">Blanco</label>
-  
-            <input type="checkbox" name="color" id="color" value="Negro" <%= productoEditar.color == "Negro" ? "checked" : null %>>
-            <label for="color">Negro</label>
-  
-            <input type="checkbox" name="color" id="color" value="Amarillo" <%= productoEditar.color == "Amarillo" ? "checked" : null %>>
-            <label for="color">Amarillo</label>
-  
-            <input type="checkbox" name="color" id="color" value="azul" <%= productoEditar.color == "Azul" ? "checked" : null %>>
-            <label for="color">Azul</label>
-  
-            <input type="checkbox" name="color" id="color" value="Rojo" <%= productoEditar.color == "Rojo" ? "checked" : null %>>
-            <label for="color">Rojo</label>
-  
-            <input type="checkbox" name="color" id="color" value="Violeta" <%= productoEditar.color == "Violeta" ? "checked" : null %>>
-            <label for="color">Violeta</label>
-  
-            <input type="checkbox" name="color" id="color" value="Verde" <%= productoEditar.color == "Verde" ? "checked" : null %>>
-            <label for="color">Verde</label>
-  
-            <input type="checkbox" name="color" id="Cafe" value="Blanco" <%= productoEditar.color == "Cafe" ? "checked" : null %>>
-            <label for="color">Cafe</label>
-        </div> 
-
+        <div class="control-formulario">
+          <label for="color">Seleccione el color del producto:
+            <% if (locals.errors && errors.color) { %>
+              <div class="mensaje-error">
+                <%= errors.color.msg %> 
+              </div>
+            <% } %>
+          </label>
+          <select name="color" id="color" class="control-input" value="<%= productoEditar.color %>" required>
+            <option value="">Seleccione un color</option>
+            <option value="Blanco" <%= productoEditar.color == "Blanco" ? "selected" : null %>>Blanco</option>
+            <option value="Negro" <%= productoEditar.color == "Negro" ? "selected" : null %>>Negro</option>
+            <option value="Amarillo" <%= productoEditar.color == "Amarillo" ? "selected" : null %>>Amarillo</option>
+            <option value="Azul" <%= productoEditar.color == "Azul" ? "selected" : null %>>Azul</option>
+            <option value="Rojo" <%= productoEditar.color == "Rojo" ? "selected" : null %>>Rojo</option>
+            <option value="Violeta" <%= productoEditar.color == "Violeta" ? "selected" : null %>>Violeta</option>
+            <option value="Verde" <%= productoEditar.color == "Verde" ? "selected" : null %>>Verde</option>
+            <option value="Cafe" <%= productoEditar.color == "Cafe" ? "selected" : null %>>Cafe</option>
+          </select>
+        </div>
         <div class="control-formulario">
           <label for="accesorios">Indique los accesorios del producto:
             <% if (locals.errors && errors.accesorios) { %>

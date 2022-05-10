@@ -5,9 +5,7 @@
     "marca": "Corsair",
     "precio": "87",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648198282620_img_.png",
     "descripcion": "Mechanical Gaming Keyboard",
@@ -20,9 +18,7 @@
     "marca": "Corsair",
     "precio": "89",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Blanco",
     "accesorios": "Ninguno",
     "imagen": "1648258146347_img_.png",
     "descripcion": "The CORSAIR HARPOON RGB WIRELESS gaming mouse",
@@ -35,9 +31,7 @@
     "marca": "Corsair",
     "precio": "109",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648197999024_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — CHERRY",
@@ -50,9 +44,7 @@
     "marca": "Corsair",
     "precio": "89",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Azul",
     "accesorios": "Ninguno",
     "imagen": "1648198117887_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — 100%",
@@ -65,9 +57,7 @@
     "marca": "Corsair",
     "precio": "89",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648219952498_img_.png",
     "descripcion": "ATX semitorre con cristal templado iCUE RGB",
@@ -80,9 +70,7 @@
     "marca": "Corsair",
     "precio": "102",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Blanco",
     "accesorios": "Ninguno",
     "imagen": "1648224034791_img_.png",
     "descripcion": "ATX semitorre con cristal templado iCUE",
@@ -95,9 +83,7 @@
     "marca": "Corsair",
     "precio": "120",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648224169146_img_.png",
     "descripcion": "Chasis ATX semitorre con cristal templado",
@@ -110,9 +96,7 @@
     "marca": "Corsair",
     "precio": "110",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Azul",
     "accesorios": "Ninguno",
     "imagen": "1648225089256_img_.png",
     "descripcion": "VOID RGB ELITE Wireless",
@@ -125,9 +109,7 @@
     "marca": "Corsair",
     "precio": "200",
     "categoria": "Audio (Microfonos)",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "Ninguno",
     "imagen": "1648225253692_img_.png",
     "descripcion": "Combina la comodidad plug and play.",
@@ -135,35 +117,12 @@
     "car": "false"
   },
   {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    "id": 10,
-    "nombre": "Facecam",
-    "marca": "Corsair",
-    "precio": "80",
-    "categoria": "Camaras",
-    "color": [
-      "Blanco"
-    ],
-    "accesorios": "Ninguno",
-    "imagen": "1648225762998_img_.png",
-    "descripcion": "Professional optics in a webcam form factor",
-    "visible": true,
-    "car": "true"
-  },
-  {
-=======
->>>>>>> origin/main
->>>>>>> 1ab6a00e1b7e2a25061afe67997ee85cf7c391aa
     "id": 11,
     "nombre": "FPS M65 RGB ELITE",
     "marca": "Corsair",
     "precio": "85",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648225911046_img_.png",
     "descripcion": "CORSAIR M65 RGB ELITE ajustable es el ratón para juegos",
@@ -176,9 +135,7 @@
     "marca": "Corsair",
     "precio": "135",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "Ninguno",
     "imagen": "1648229912638_img_.png",
     "descripcion": "El incomparable teclado mecánico para juegos CORSAIR K100 RGB",
@@ -191,15 +148,12 @@
     "marca": "Razer",
     "precio": "399",
     "categoria": "Cases",
-    "color": [
-      "Negro",
-      "azul"
-    ],
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648243423959_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX PC Case ",
     "visible": true,
-    "car": false
+    "car": "false"
   },
   {
     "id": 14,
@@ -207,9 +161,7 @@
     "marca": "Corsair",
     "precio": "129",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Azul",
     "accesorios": "Ninguno",
     "imagen": "1648243553606_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX Case",
@@ -222,9 +174,7 @@
     "marca": "Corsair",
     "precio": "269",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648243654060_img_.JPG",
     "descripcion": "Full-Tower ATX PC Case ",
@@ -237,9 +187,7 @@
     "marca": "Logitech",
     "precio": "94",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Violeta",
     "accesorios": "Ninguno",
     "imagen": "1648243737847_img_.JPG",
     "descripcion": "Tempered Glass Mid-Tower ATX Case",
@@ -252,9 +200,7 @@
     "marca": "Razer",
     "precio": "109",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Verde",
     "accesorios": "Ninguno",
     "imagen": "1648243966796_img_.JPG",
     "descripcion": "RGB Airflow Tempered Glass Mid-Tower Smart Case",
@@ -267,9 +213,7 @@
     "marca": "Razer",
     "precio": "349",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Cafe",
     "accesorios": "Ninguno",
     "imagen": "1648244070511_img_.JPG",
     "descripcion": "RGB QL Edition Mid-Tower ATX Case — True ",
@@ -282,9 +226,7 @@
     "marca": "Ozone",
     "precio": "274",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648244176570_img_.JPG",
     "descripcion": "RGB ATX High Airflow Tempered Glass Smart Case ",
@@ -297,9 +239,7 @@
     "marca": "Logitech",
     "precio": "124",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Cafe",
     "accesorios": "Ninguno",
     "imagen": "1648244257950_img_.JPG",
     "descripcion": "RGB Tempered Glass Mid-Tower Smart Case — Black",
@@ -312,9 +252,7 @@
     "marca": "Corsair",
     "precio": "104",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Verde",
     "accesorios": "Ninguno",
     "imagen": "1648244398405_img_.JPG",
     "descripcion": "RGB Tempered Glass Mid-Tower ATX Gaming Case — Black",
@@ -327,9 +265,7 @@
     "marca": "Razer",
     "precio": "94",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Amarillo",
     "accesorios": "Ninguno",
     "imagen": "1648244500519_img_.JPG",
     "descripcion": "Glass Mid-Tower ATX Case — Black",
@@ -342,9 +278,7 @@
     "marca": "Logitech",
     "precio": "64",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "Ninguno",
     "imagen": "1648244650418_img_.JPG",
     "descripcion": "SPEC-04 Tempered Glass Mid-Tower Gaming Case — Black/Red",
@@ -357,9 +291,7 @@
     "marca": "Razer",
     "precio": "249",
     "categoria": "Cases",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Verde",
     "accesorios": "Ninguno",
     "imagen": "1648244761798_img_.JPG",
     "descripcion": "RGB SIGNATURE SERIES Mid-Tower Smart Case — Glitch",
@@ -372,9 +304,7 @@
     "marca": "Corsair",
     "precio": "80",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Azul",
     "accesorios": "Ninguno",
     "imagen": "1648601987667_img_.png",
     "descripcion": "The M65 PRO RGB is a competition-grade FPS gaming",
@@ -387,9 +317,7 @@
     "marca": "Corsair",
     "precio": "70",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "ninguno",
     "imagen": "1648615794337_img_.png",
     "descripcion": "Ratón para juegos",
@@ -402,9 +330,7 @@
     "marca": "Corsair",
     "precio": "90",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Azul",
     "accesorios": "ninguno",
     "imagen": "1648616418716_img_.png",
     "descripcion": "Ratón para juegos FPS",
@@ -417,9 +343,7 @@
     "marca": "Corsair",
     "precio": "68",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Verde",
     "accesorios": "ninguno",
     "imagen": "1648616764663_img_.png",
     "descripcion": "Ratón para juegos",
@@ -432,9 +356,7 @@
     "marca": "Corsair",
     "precio": "83",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "ninguno",
     "imagen": "1648616938700_img_.png",
     "descripcion": "FPS/MOBA Ratón para juegos",
@@ -447,9 +369,7 @@
     "marca": "Corsair",
     "precio": "65",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Azul",
     "accesorios": "ninguno",
     "imagen": "1648617164281_img_.png",
     "descripcion": "Ratón para juegos FPS",
@@ -462,9 +382,7 @@
     "marca": "Corsair",
     "precio": "102",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "ninguno",
     "imagen": "1648617470851_img_.png",
     "descripcion": "Ratón para juegos Inalámbrico ",
@@ -477,9 +395,7 @@
     "marca": "Corsair",
     "precio": "88",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Amarillo",
     "accesorios": "ninguno",
     "imagen": "1648617710975_img_.png",
     "descripcion": "Ratón óptico para juegos.",
@@ -492,9 +408,7 @@
     "marca": "Corsair",
     "precio": "64",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "ninguno",
     "imagen": "1648617963505_img_.png",
     "descripcion": "Ratón para juegos",
@@ -507,9 +421,7 @@
     "marca": "Corsair",
     "precio": "95",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Azul",
     "accesorios": "ninguno",
     "imagen": "1648618215001_img_.png",
     "descripcion": "Ratón para juegos",
@@ -522,9 +434,7 @@
     "marca": "Corsair",
     "precio": "77",
     "categoria": "Mouse",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Verde",
     "accesorios": "ninguno",
     "imagen": "1648618367768_img_.png",
     "descripcion": "Ratón para juegos",
@@ -536,9 +446,7 @@
     "marca": "Corsair",
     "precio": "169",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648826324864_img_.png",
     "descripcion": "Mechanical Gaming Keyboard ",
@@ -550,9 +458,7 @@
     "marca": "Corsair",
     "precio": "49",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648826599173_img_.png",
     "descripcion": "Gaming keyboard",
@@ -564,9 +470,7 @@
     "marca": "Corsair",
     "precio": "100",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Blanco",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648827047867_img_.png",
     "descripcion": "Mechanical Gaming Keyboard - CHERRY ",
@@ -578,9 +482,7 @@
     "marca": "Corsair",
     "precio": "130",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648827441629_img_.png",
     "descripcion": "Mechanical Gaming Keyboard — CHERRY",
@@ -592,9 +494,7 @@
     "marca": "Corsair",
     "precio": "70",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648827722190_img_.PNG",
     "descripcion": "Mechanical Gaming Keyboard — CHERRY",
@@ -606,9 +506,7 @@
     "marca": "Corsair",
     "precio": "110",
     "categoria": "Teclados",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648827957274_img_.PNG",
     "descripcion": "Mechanical Gaming Keyboard — CHERRY",
@@ -620,9 +518,7 @@
     "marca": "Corsair",
     "precio": "100",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Azul",
     "accesorios": "Stereo Gaming — Carbon",
     "imagen": "1648828505001_img_.PNG",
     "descripcion": "Stereo Gaming — Carbon",
@@ -634,9 +530,7 @@
     "marca": "Corsair",
     "precio": "150",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648828787471_img_.PNG",
     "descripcion": "Gaming Headset — Cream",
@@ -648,9 +542,7 @@
     "marca": "Corsair",
     "precio": "120",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648829028538_img_.png",
     "descripcion": "Gaming Headset for Xbox",
@@ -662,9 +554,7 @@
     "marca": "Corsair",
     "precio": "150",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648829568360_img_.png",
     "descripcion": "Gaming Headset with Haptic Bass",
@@ -676,9 +566,7 @@
     "marca": "Corsair",
     "precio": "95",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648829846429_img_.PNG",
     "descripcion": "Gaming Headset — Carbon",
@@ -690,9 +578,7 @@
     "marca": "Corsair",
     "precio": "150",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Rojo",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648830246666_img_.PNG",
     "descripcion": "Premium Gaming Headset",
@@ -704,9 +590,7 @@
     "marca": "Corsair",
     "precio": "110",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "Fidelity Gaming Headset",
     "imagen": "1648830472314_img_.png",
     "descripcion": "Fidelity Gaming Headset",
@@ -718,9 +602,7 @@
     "marca": "Corsair",
     "precio": "130",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648830658613_img_.png",
     "descripcion": "Gaming Headset — Carbon",
@@ -732,9 +614,7 @@
     "marca": "Corsair",
     "precio": "100",
     "categoria": "Audifonos",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648830804699_img_.png",
     "descripcion": "Premium Gaming Headset ",
@@ -746,9 +626,7 @@
     "marca": "Corsair",
     "precio": "200",
     "categoria": "Audio (Microfonos)",
-    "color": [
-      "Blanco"
-    ],
+    "color": "Negro",
     "accesorios": "PBT DOUBLE SHOT PRO",
     "imagen": "1648832182716_img_.png",
     "descripcion": "premium microphone and digital mixing solution",
