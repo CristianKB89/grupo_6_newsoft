@@ -25,20 +25,16 @@ router.get('/', controlador.users);
 router.get('/create',invitadoMiddleware, controlador.registro);
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/',upload.single('imagen'),arrayvValidations,controlador.crearUsuario);
+router.post('/',upload.single('image'),arrayvValidations,controlador.crearUsuario);
 
 //Formulario de edición de usuario
 router.get('/:id/edit', controlador.editar);
 
 //Acción de edición (a donde se envía el formulario):
-router.put('/:id',upload.single('imagen'),arrayvValidations, controlador.editarUsuario);
+router.put('/:id',upload.single('image'),arrayvValidations, controlador.editarUsuario);
 
 //Acción de borrado
 router.post('/:id', controlador.borrar); 
-
-router.get('/login',invitadoMiddleware, controlador.login);
-
-router.post('/login', controlador.ProcesoLogin);
 
 //Perfil, detalles de usuario
 router.get('/profile/',autenticacionMiddleware, controlador.perfil);

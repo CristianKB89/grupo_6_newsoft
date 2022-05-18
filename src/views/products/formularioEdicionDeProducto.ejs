@@ -30,65 +30,63 @@
         <h1>EDICIÓN DE PRODUCTO</h1>
 
       </div>
-      <P>Complete todos los campos para editar correctamente el producto: <%= productoEditar.nombre %></P><br>
+      <P>Complete todos los campos para editar correctamente el producto: <%= productoEditar.name %></P><br>
+      
       <div class="formulado-interno">
         <div class="control-formulario">
-          <label for="nombre">Nombre del producto:
-            <% if (locals.errors && errors.nombre) { %>
+          <label for="name">Nombre del producto:
+            <% if (locals.errors && errors.name) { %>
               <div class="mensaje-error">
-                <%= errors.nombre.msg %> 
+                <%= errors.name.msg %> 
               </div>
             <% } %>
           </label>
-          <input type="text" name="nombre" id="nombre" placeholder="NOMBRE DEL PRODUCTO"
-            class="control-input" value="<%= productoEditar.nombre %>" required>
+          <input type="text" name="name" id="nombre" placeholder="NOMBRE DEL PRODUCTO"
+            class="control-input" value="<%= productoEditar.name %>" required>
         </div>
+
         <div class="control-formulario">
-          <label for="marca">Seleccione la marca del producto:
-            <% if (locals.errors && errors.marca) { %>
+          <label for="brand">Seleccione la marca del producto:
+            <% if (locals.errors && errors.brand) { %>
               <div class="mensaje-error">
-                <%= errors.marca.msg %> 
+                <%= errors.brand.msg %> 
               </div>
             <% } %>
           </label>
-          <select name="marca" id="marca" class="control-input" value="<%= productoEditar.marca %>" required>
-            <option value="">Seleccione una marca</option>
-            <option value="Logitech" <%= productoEditar.marca == "Logitech" ? "selected" : null %>>Logitech</option>
-            <option value="Corsair" <%= productoEditar.marca == "Corsair" ? "selected" : null %>>Corsair</option>
-            <option value="Razer" <%= productoEditar.marca == "Razer" ? "selected" : null %>>Razer</option>
-            <option value="Ozone" <%= productoEditar.marca == "Ozone" ? "selected" : null %>>Ozone</option>
-
+          <select name="brand" id="brand" class="control-input" value="<%= productoEditar.brand %>" required>
+            <% Brands.forEach(brand => { %>
+              <option value="<%= brand.id_brands %>"><%= brand.brand %></option>
+              <% }); %>
           </select>
         </div>
+
         <div class="control-formulario">
-          <label for="precio">Indique el precio del producto:
-            <% if (locals.errors && errors.precio) { %>
+          <label for="price">Indique el precio del producto:
+            <% if (locals.errors && errors.price) { %>
               <div class="mensaje-error">
-                <%= errors.precio.msg %> 
+                <%= errors.price.msg %> 
               </div>
             <% } %>
           </label>
-          <input type="number" name="precio" id="precio" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.precio %>"
+          <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.precio %>"
             required>
         </div>
+
         <div class="control-formulario">
-          <label for="categoria">Seleccione la categoria del producto:
-            <% if (locals.errors && errors.categoria) { %>
+          <label for="categories">Seleccione la categoria del producto:
+            <% if (locals.errors && errors.categories) { %>
               <div class="mensaje-error">
-                <%= errors.categoria.msg %> 
+                <%= errors.categories.msg %> 
               </div>
             <% } %>
           </label>
-          <select name="categoria" id="categoria" class="control-input" value="<%= productoEditar.categoria %>" required>
-            <option value="">Seleccione una categoria</option>
-            <option value="Cases" <%= productoEditar.categoria == "Cases" ? "selected" : null %>>Cases</option>
-            <option value="Teclados" <%= productoEditar.categoria == "Teclados" ? "selected" : null %>>Teclados</option>
-            <option value="Audifonos" <%= productoEditar.categoria == "Audifonos" ? "selected" : null %>>Audifonos</option>
-            <option value="Mouse" <%= productoEditar.categoria == "Mouse" ? "selected" : null %>>Mouse</option>
-            <option value="Camaras" <%= productoEditar.categoria == "Camaras" ? "selected" : null %>>Camaras</option>
-            <option value="Audio (Microfonos)" <%= productoEditar.categoria == "Audio (Microfonos)" ? "selected" : null %>>Audio (Microfonos)</option>
+          <select name="categories" id="categories" class="control-input" value="<%= productoEditar.categories %>" required>
+            <% Categories.forEach(category => { %>
+            <option value="<%= category.id_categories %>"><%= category.categories %></option>
+            <% }); %>
           </select>
         </div>
+
         <div class="control-formulario">
           <label for="color">Seleccione el color del producto:
             <% if (locals.errors && errors.color) { %>
@@ -97,42 +95,38 @@
               </div>
             <% } %>
           </label>
-          <select name="color" id="color" class="control-input" value="<%= productoEditar.color %>" required>
-            <option value="">Seleccione un color</option>
-            <option value="Blanco" <%= productoEditar.color == "Blanco" ? "selected" : null %>>Blanco</option>
-            <option value="Negro" <%= productoEditar.color == "Negro" ? "selected" : null %>>Negro</option>
-            <option value="Amarillo" <%= productoEditar.color == "Amarillo" ? "selected" : null %>>Amarillo</option>
-            <option value="Azul" <%= productoEditar.color == "Azul" ? "selected" : null %>>Azul</option>
-            <option value="Rojo" <%= productoEditar.color == "Rojo" ? "selected" : null %>>Rojo</option>
-            <option value="Violeta" <%= productoEditar.color == "Violeta" ? "selected" : null %>>Violeta</option>
-            <option value="Verde" <%= productoEditar.color == "Verde" ? "selected" : null %>>Verde</option>
-            <option value="Cafe" <%= productoEditar.color == "Cafe" ? "selected" : null %>>Cafe</option>
-          </select>
+          <% Colors.forEach(color => { %>
+            <label for="color"><%= color.colors %></label>
+            <input type="checkbox" name="color" id="color" value="<%= color.id_colors %>"  class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>"> 
+            <% }); %>
         </div>
+
         <div class="control-formulario">
-          <label for="accesorios">Indique los accesorios del producto:
-            <% if (locals.errors && errors.accesorios) { %>
+          <label for="accesories">Indique los accesorios del producto:
+            <% if (locals.errors && errors.accesories) { %>
               <div class="mensaje-error">
-                <%= errors.accesorios.msg %> 
+                <%= errors.accesories.msg %> 
               </div>
             <% } %>
           </label>
-          <input type="texT" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input" value="<%= productoEditar.accesorios %>" required>
+          <input type="texT" name="accesories" id="accesories" placeholder="ACCESORIOS" class="control-input" value="<%= productoEditar.accesories %>" required>
         </div>
+
         <div class="control-formulario">
-          <label for="imagen">Ingrese una imagen del producto:<br><br></label>
-          <input type="file" name="imagen" id="imagen" class="control-input"  value="<%= productoEditar.imagen %>" multiple >
+          <label for="image">Ingrese una imagen del producto:<br><br></label>
+          <input type="file" name="image" id="image" class="control-input"  value="<%= productoEditar.image %>" multiple >
         </div>
+
         <div class="control-formulario">
-          <label for="descripcion">Realice una breve descripcion del producto:
-            <% if (locals.errors && errors.descripcion) { %>
+          <label for="description">Realice una breve descripcion del producto:
+            <% if (locals.errors && errors.description) { %>
               <div class="mensaje-error">
-                <%= errors.descripcion.msg %> 
+                <%= errors.description.msg %> 
               </div>
             <% } %>
           </label>
-          <textarea name="descripcion" id="descripcion" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input" required><%= productoEditar.descripcion %></textarea>
+          <textarea name="description" id="description" placeholder="DESCRIPCION DEL PRODUCTO"
+            class="control-input" required><%= productoEditar.description %></textarea>
         </div>
 
 

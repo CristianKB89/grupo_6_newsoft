@@ -26,13 +26,13 @@ router.get('/create', controlador.creacion);
 router.get('/productdetail/:id', controlador.productDetail);
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/',upload.single('imagen'),arrayvValidations, controlador.crearProducto);
+router.post('/',upload.single('image'),arrayvValidations, controlador.crearProducto);
 
 //Formulario de edición de producto
 router.get('/:id/edit', controlador.edicion);
 
 //Acción de edición (a donde se envía el formulario):
-router.put('/:id',upload.single('imagen'),arrayvValidations, controlador.editarProducto);
+router.put('/:id',upload.single('image'),arrayvValidations, controlador.editarProducto);
 
 //Acción de borrado
 router.delete('/:id',controlador.eliminar);

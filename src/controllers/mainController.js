@@ -59,7 +59,7 @@ const controlador = {
         });
       })
       .catch((error) => {
-        log(error);
+        console.log(error)
       });
   },
 
@@ -76,7 +76,7 @@ const controlador = {
         });
       })
       .catch((error) => {
-        log(error);
+        console.log(error)
       });
   },
 
@@ -95,28 +95,28 @@ const controlador = {
 
         if (user) {
           let passwordCorrecto = bcryptjs.compareSync(req.body.password, user.password)
-            if (passwordCorrecto) {
-              delete user.password;
-              req.session.usuarioLogueado = user;
-              if (req.body.remember) {
-                res.cookie("EmailUsuario", req.body.email, {
-                  maxAge: 1000 * 60 * 60,
-                });
-              }
-              return res.redirect("/users/profile"), { productoCart, total };
-            } else {
-              return res.render(path.resolve(__dirname, "../views/index.ejs"), {
-                errors: {
-                  password: {
-                    msg: "Las credenciales son inválidas",
-                  },
-                },
-                productoCart,
-                total,
+          if (passwordCorrecto) {
+            delete user.password;
+            req.session.usuarioLogueado = user;
+            if (req.body.remember) {
+              res.cookie("EmailUsuario", req.body.email, {
+                maxAge: 1000 * 60 * 60,
               });
             }
-          };
-    
+            return res.redirect("/users/profile"), { productoCart, total };
+          } else {
+            return res.render(path.resolve(__dirname, "../views/index.ejs"), {
+              errors: {
+                password: {
+                  msg: "Las credenciales son inválidas",
+                },
+              },
+              productoCart,
+              total,
+            });
+          }
+        };
+
         return res.render(path.resolve(__dirname, "../views/index.ejs"), {
           errors: {
             email: {
@@ -128,9 +128,11 @@ const controlador = {
         });
       })
       .catch((error) => {
-        log(error);
+        console.log(error)
       });
   },
+
+
   products: (req, res) => {
     let categoria = req.query.categoria;
     let promProduct = Product.findAll({
