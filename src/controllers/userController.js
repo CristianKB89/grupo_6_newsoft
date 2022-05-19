@@ -9,56 +9,20 @@ const db = require("../database/models");
 
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-const productoCart = productos.filter((producto) => producto.car == "true");
-
-let total = 0;
-if (productoCart.length > 0) {
-  let preciosString = [];
-  for (let i = 0; i < productoCart.length; i++) {
-    preciosString.push(productoCart[i].precio);
-    var preciosInt = preciosString.map(function (item) {
-      return parseInt(item, 10);
-    });
-  }
-  total = preciosInt.reduce(function (a, b) {
-    return a + b;
-  }, 0);
-} else {
-  total = 0;
-}
 
 const controlador = {
   users: (req, res) => {
     const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
     res.render(path.resolve(__dirname, "../views/users/usersList.ejs"), {
-      usuarios: usuarios,
-      productoCart,
-      total,
+      usuarios: usuarios
     });
   },
 
   registro: (req, res) => {
     res.render(path.resolve(__dirname, "../views/users/register.ejs"), {
-      productoCart,
-      total,
     });
   },
 
-  /*detalle:(req, res) => {
-        const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-		// capturar el id que el usuario quiere ver
-		let idUsuario = req.params.id
-		// buscar el usuario
-		let usuarioBuscado = usuarios.find( user => user.id == idUsuario )
-
-		if (!usuarioBuscado) {
-			res.redirect('/users')
-		}
-
-		// renderizar la vista detail -> usuarioBuscado
-		res.render((path.resolve(__dirname, '../views/users/userDetail.ejs')), {usuarioBuscado})
-    },*/
 
   crearUsuario: (req, res) => {
     const resultValidation = validationResult(req);
@@ -66,7 +30,7 @@ const controlador = {
     if (resultValidation.errors.length > 0) {
       return res.render(
         (path.resolve(__dirname, "../views/users/register.ejs"),
-        { productoCart, total }),
+        { }),
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
@@ -79,7 +43,7 @@ const controlador = {
     if (usuarioEnBD) {
       return res.render(
         (path.resolve(__dirname, "../views/users/register.ejs"),
-        { productoCart, total }),
+        {  }),
         {
           errors: {
             //No se despliega el mensaje de error en formulario
@@ -133,9 +97,7 @@ const controlador = {
     let usuarioEditar = usuarios.find((users) => users.id == idUsuario);
 
     res.render(path.resolve(__dirname, "../views/users/userEdit.ejs"), {
-      usuarioEditar: usuarioEditar,
-      productoCart,
-      total,
+      usuarioEditar: usuarioEditar
     });
   },
 
@@ -149,7 +111,7 @@ const controlador = {
     if (resultValidation.errors.length > 0) {
       return res.render(
         (path.resolve(__dirname, "../views/users/userEdit.ejs"),
-        { productoCart, total }),
+        { }),
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
@@ -193,20 +155,10 @@ const controlador = {
     }
     );
 
-    // const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    // let idUsuario = req.params.id;
-
-    // let usuarioFiltrado = usuarios.filter((users) => users.id != idUsuario);
-
-    // fs.writeFileSync(usersFilePath, JSON.stringify(usuarioFiltrado, null, 2));
-
-    // res.redirect("/");
   },
 
   login: (req, res) => {
     res.render(path.resolve(__dirname, "../views/users/login.ejs"), {
-      productoCart,
-      total,
     });
   },
 
@@ -215,11 +167,6 @@ const controlador = {
     let promProduct = db.Product.findAll();
     Promise.all([promUsers, promProduct])
       .then(([users, products]) => {
-        //Productos del carrito
-        const productoCart = products.filter(
-          (producto) => producto.car == "true"
-        );
-        let total = 0;
         //Usuario que se loguea
         let user = users.find((user) => user.email == req.body.email);
 
@@ -233,16 +180,14 @@ const controlador = {
                   maxAge: 1000 * 60 * 60,
                 });
               }
-              return res.redirect("/users/profile"), { productoCart, total };
+              return res.redirect("/users/profile"), {  };
             } else {
               return res.render(path.resolve(__dirname, "../views/index.ejs"), {
                 errors: {
                   password: {
                     msg: "Las credenciales son inválidas",
                   },
-                },
-                productoCart,
-                total,
+                }
               });
             }
           };
@@ -252,9 +197,7 @@ const controlador = {
             email: {
               msg: "No se encuentra este email en nuestra base de datos",
             },
-          },
-          productoCart,
-          total,
+          }
         });
       })
       .catch((error) => {
@@ -271,9 +214,7 @@ const controlador = {
         if (usuario) {
           res.render(path.resolve(__dirname, "../views/users/userProfile.ejs"), {
             usuario,
-            products,
-            productoCart,
-            total,
+            products
           });
         }
         else {
@@ -295,8 +236,7 @@ const controlador = {
   },
 
   recover: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/users/recover.ejs"),{
-	productoCart, total});
+    res.render(path.resolve(__dirname, "../views/users/recover.ejs"),{ });
   },
 };
 

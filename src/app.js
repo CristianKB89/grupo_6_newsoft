@@ -9,6 +9,7 @@ const rutas_productcart= require('./routes/productCart')
 const path = require('path');
 
 const usuarioLogueadoMiddleware = require('./middlewares/usuarioLogueadoMiddleware');
+const valoresProductCart = require('./middlewares/productCartMiddlewares');
 
 app.use(session({
 	secret: "Shhh, Es un secreto!!!",
@@ -19,6 +20,7 @@ app.use(session({
 app.use(cookies());
 
 app.use(usuarioLogueadoMiddleware);
+app.use(valoresProductCart);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); 

@@ -6,34 +6,15 @@ const db = require("../database/models");
 
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-const productoCart = productos.filter((producto) => producto.car == "true");
-
-let total = 0;
-if (productoCart.length > 0) {
-  let preciosString = [];
-  for (let i = 0; i < productoCart.length; i++) {
-    preciosString.push(productoCart[i].precio);
-    var preciosInt = preciosString.map(function (item) {
-      return parseInt(item, 10);
-    });
-  }
-  total = preciosInt.reduce(function (a, b) {
-    return a + b;
-  }, 0);
-} else {
-  total = 0;
-}
-
 const controlador = {
   creacion: (req, res) => {
     res.render(
       path.resolve(
         __dirname,
         "../views/products/formularioCreacionDeProducto.ejs"
-      ),
-      { productoCart, total }
+      )
     );
+    console.log("Hola mundo")
   },
 
   crearProducto: (req, res) => {
@@ -96,7 +77,7 @@ const controlador = {
         __dirname,
         "../views/products/formularioEdicionDeProducto.ejs"
       ),
-      { productoEditar: productoEditar, productoCart, total }
+      { productoEditar: productoEditar }
     );
   },
 
@@ -108,14 +89,12 @@ const controlador = {
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
-      let productoCart = productos.filter((producto) => producto.car == "true");
-
+      
       return res.render(
-        (path.resolve(
+        path.resolve(
           __dirname,
           "../views/products/formularioEdicionDeProducto.ejs"
         ),
-        { total, productoCart }),
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
@@ -156,13 +135,12 @@ const controlador = {
   eliminar: (req, res) => {
     let producto_id = req.params.id;
     db.Product.destroy({
-        where: {
-            id_products: producto_id,
-        },
+      where: {
+        id_products: producto_id,
+      },
     }).then(() => {
-        res.redirect("/products?categoria=catalogo");
-    }
-    );
+      res.redirect("/products?categoria=catalogo");
+    });
   },
 
   productDetail: (req, res) => {
@@ -187,7 +165,7 @@ const controlador = {
           // res.send(productoDetalle)
           res.render(
             path.resolve(__dirname, "../views/products/productDetail.ejs"),
-            { productoDetalle, brand, category, productoCart, total }
+            { productoDetalle, brand, category }
           );
         }
       })
@@ -198,21 +176,21 @@ const controlador = {
 
   ocultarProducto: (req, res) => {
     db.Product.update(
-        {
-          visible: false,
+      {
+        visible: false,
+      },
+      {
+        where: {
+          id_products: req.params.id,
         },
-        {
-          where: {
-            id_products: req.params.id,
-          },
-        }
-      )
-        .then(() => {
-          res.redirect("/products?categoria=catalogo");
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      }
+    )
+      .then(() => {
+        res.redirect("/products?categoria=catalogo");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   mostrarProducto: (req, res) => {
     db.Product.update(
@@ -238,7 +216,7 @@ const controlador = {
       const ocultos = productos.filter((product) => product.visible === false);
       res.render(
         path.resolve(__dirname, "../views/products/productsOcultos.ejs"),
-        { ocultos, total, productoCart }
+        { ocultos }
       );
     });
   },

@@ -7,76 +7,27 @@ const User = require("../models/Usuario");
 const db = require("../database/models");
 
 const Product = db.Product;
-// const productos = Product.findAll();
-
-// Promise.all([productos]).then(([productos]) => {
-//   const productoCart = productos.filter((producto) => producto.car == "true");
-//   if (productoCart.length > 0) {
-//     let preciosString = [];
-//     for (let i = 0; i < productoCart.length; i++) {
-//       preciosString.push(productoCart[i].precio);
-//       var preciosInt = preciosString.map(function (item) {
-//         return parseInt(item, 10);
-//       });
-//     }
-//     return total = preciosInt.reduce(function (a, b) {
-//       return a + b;
-//     }, 0);
-//   } else {
-//     return total = 0;
-//   }
-//   console.log(total);
-// });
-
-// let total = 0;
-// if (productoCart.length > 0) {
-//   let preciosString = [];
-//   for (let i = 0; i < productoCart.length; i++) {
-//     preciosString.push(productoCart[i].precio);
-//     var preciosInt = preciosString.map(function (item) {
-//       return parseInt(item, 10);
-//     });
-//   }
-//   total = preciosInt.reduce(function (a, b) {
-//     return a + b;
-//   }, 0);
-// } else {
-//   total = 0;
-// }
 
 const controlador = {
   index: (req, res) => {
     Product.findAll()
       .then((product) => {
-        const productoCart = product.filter(
-          (producto) => producto.car == "true"
-        );
-        let total = 0;
-        // res.send(producto);
         res.render(path.resolve(__dirname, "../views/index.ejs"), {
-          productoCart,
-          total,
         });
       })
       .catch((error) => {
-        log(error);
+        console.log(error);
       });
   },
 
   login: (req, res) => {
     Product.findAll()
       .then((product) => {
-        const productoCart = product.filter(
-          (producto) => producto.car == "true"
-        );
-        let total = 0;
         res.render(path.resolve(__dirname, "../views/index.ejs"), {
-          productoCart,
-          total,
         });
       })
       .catch((error) => {
-        log(error);
+        console.log(error);
       });
   },
 
@@ -85,12 +36,7 @@ const controlador = {
     let promProduct = Product.findAll();
     Promise.all([promUsers, promProduct])
       .then(([users, products]) => {
-        //Productos del carrito
-        const productoCart = products.filter(
-          (producto) => producto.car == "true"
-        );
-        let total = 0;
-        //Usuario que se loguea
+        
         let user = users.find((user) => user.email == req.body.email);
 
         if (user) {
@@ -98,21 +44,20 @@ const controlador = {
             if (passwordCorrecto) {
               delete user.password;
               req.session.usuarioLogueado = user;
+              
               if (req.body.remember) {
                 res.cookie("EmailUsuario", req.body.email, {
                   maxAge: 1000 * 60 * 60,
                 });
               }
-              return res.redirect("/users/profile"), { productoCart, total };
+              return res.redirect("/users/profile"), {  };
             } else {
               return res.render(path.resolve(__dirname, "../views/index.ejs"), {
                 errors: {
                   password: {
                     msg: "Las credenciales son inválidas",
                   },
-                },
-                productoCart,
-                total,
+                }
               });
             }
           };
@@ -122,13 +67,11 @@ const controlador = {
             email: {
               msg: "No se encuentra este email en nuestra base de datos",
             },
-          },
-          productoCart,
-          total,
+          }
         });
       })
       .catch((error) => {
-        log(error);
+        console.log(error);
       });
   },
   products: (req, res) => {
@@ -141,10 +84,7 @@ const controlador = {
     let promColors = db.Color.findAll();
     Promise.all([promProduct, promBrands, promCategories, promColors])
       .then(([productoDetalle, Marca, Category]) => {
-        const productoCart = productoDetalle.filter(
-          (producto) => producto.car == "true"
-        );
-        let total = 0;
+
         const cases = productoDetalle.filter(
           (producto) => producto.id_categories == 1
         );
@@ -174,9 +114,7 @@ const controlador = {
           camaras,
           audio,
           categoria,
-          producto,
-          productoCart,
-          total,
+          producto
         });
       })
       .catch((err) => {

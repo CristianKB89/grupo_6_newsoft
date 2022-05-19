@@ -1,3 +1,4 @@
+const db = require("../database/models");
 const User = require('../models/Usuario');
 
 function usuarioLogueadoMiddleware(req, res, next) {
