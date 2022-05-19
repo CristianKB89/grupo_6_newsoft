@@ -101,7 +101,7 @@
             <% } %>
           </label>
           <input type="text" name="name" id="nombre" placeholder="NOMBRE DEL PRODUCTO"
-            class="control-input" value="<%= productoEditar.name %>" required>
+            class="control-input" value="<%= productoEditar.name %>">
         </div>
 
         <div class="control-formulario">
@@ -112,7 +112,7 @@
               </div>
             <% } %>
           </label>
-          <select name="brand" id="brand" class="control-input" value="<%= productoEditar.brand %>" required>
+          <select name="brand" id="brand" class="control-input" value="<%= productoEditar.brand %>">
             <option value="">Seleccione una marca</option>
             <% brands.forEach(brand => { %>
               <option value="<%= brand.id_brands %>"><%= brand.brand %> <%= productoEditar.brand == "brand[i]" ? "selected" : null %></option>
@@ -129,7 +129,7 @@
             <% } %>
           </label>
           <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.price %>"
-            required>
+          >
         </div>
 
         <div class="control-formulario">
@@ -140,7 +140,7 @@
               </div>
             <% } %>
           </label>
-          <select name="categories" id="categories" class="control-input" value="<%= productoEditar.categories %>" required>
+          <select name="categories" id="categories" class="control-input" value="<%= productoEditar.categories %>">
             <option value="">Seleccione una categoria</option>
             <% categories.forEach(category => { %>
             <option value="<%= category.id_categories %>"><%= category.categories %></option>
@@ -170,7 +170,7 @@
               </div>
             <% } %>
           </label>
-          <input type="texT" name="accesories" id="accesories" placeholder="ACCESORIOS" class="control-input" value="<%= productoEditar.accesories %>" required>
+          <input type="texT" name="accesories" id="accesories" placeholder="ACCESORIOS" class="control-input" value="<%= productoEditar.accesories %>">
         </div>
 
         <div class="control-formulario">
@@ -187,7 +187,7 @@
             <% } %>
           </label>
           <textarea name="description" id="description" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input" required><%= productoEditar.description %></textarea>
+            class="control-input"><%= productoEditar.description %></textarea>
         </div>
 
 

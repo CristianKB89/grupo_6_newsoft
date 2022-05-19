@@ -117,7 +117,27 @@ const controlador = {
     
     let idProduct = req.params.id;
 
-    let productoEditar = await db.Product.findByPk(idProduct)
+    let productoEditar = await db.Product.findByPk(idProduct, {
+      include: [
+        { association: 'colors' },
+        { association: 'brands' },
+        { association: 'categories' },
+      ]
+    }).catch(function (errors) {
+      console.log(errors);
+    });
+
+    let brands = await db.Brand.findAll()
+    .catch(function (errors) {
+      console.log(errors);
+    });
+
+  let categories = await db.Category.findAll()
+    .catch(function (errors) {
+      console.log(errors);
+    });
+
+  let colors = await db.Color.findAll()
     .catch(function (errors) {
       console.log(errors);
     });
@@ -129,12 +149,14 @@ const controlador = {
         (path.resolve(
           __dirname,
           "../views/products/formularioEdicionDeProducto.ejs"
-        ),
-          { total, productoCart }),
+        )),
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
           productoEditar: productoEditar,
+          colors,
+          categories,
+          brands
         }
       );
     }
@@ -152,7 +174,7 @@ const controlador = {
       brand: req.body.brand,
       price: req.body.price,
       categories: req.body.categories,
-      color: [req.body.color],
+      color: req.body.color,
       accesories: req.body.accesories,
       image: image,
       description: req.body.description,
