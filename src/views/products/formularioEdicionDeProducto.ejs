@@ -84,7 +84,7 @@
   </header>
 
   <main>
-    <form action="/products/<%= productoEditar.id %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
+    <form action="/products/<%= productoEditar.id_products %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
 
@@ -113,8 +113,9 @@
             <% } %>
           </label>
           <select name="brand" id="brand" class="control-input" value="<%= productoEditar.brand %>" required>
+            <option value="">Seleccione una marca</option>
             <% brands.forEach(brand => { %>
-              <option value="<%= brand.id_brands %>"><%= brand.brand %></option>
+              <option value="<%= brand.id_brands %>"><%= brand.brand %> <%= productoEditar.brand == "brand[i]" ? "selected" : null %></option>
               <% }); %>
           </select>
         </div>
@@ -127,7 +128,7 @@
               </div>
             <% } %>
           </label>
-          <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.precio %>"
+          <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.price %>"
             required>
         </div>
 

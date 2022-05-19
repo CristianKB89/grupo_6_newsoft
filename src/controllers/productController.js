@@ -27,29 +27,29 @@ if (productoCart.length > 0) {
 
 const controlador = {
   creacion: async (req, res) => {
-    
+
     let brands = await db.Brand.findAll()
-    .catch(function(errors){
-      console.log(errors);
-  });
+      .catch(function (errors) {
+        console.log(errors);
+      });
 
     let categories = await db.Category.findAll()
-    .catch(function(errors){
-      console.log(errors);
-  });
+      .catch(function (errors) {
+        console.log(errors);
+      });
 
     let colors = await db.Color.findAll()
-    .catch(function(errors){
-      console.log(errors);
-  });
+      .catch(function (errors) {
+        console.log(errors);
+      });
 
-      res.render(
-        path.resolve(__dirname,"../views/products/formularioCreacionDeProducto.ejs"),
-        {brands,colors,categories})
+    res.render(
+      path.resolve(__dirname, "../views/products/formularioCreacionDeProducto.ejs"),
+      { brands, colors, categories })
 
-},
+  },
 
-  crearProducto: (req, res) => {
+  crearProducto: async (req, res) => {
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
@@ -73,13 +73,13 @@ const controlador = {
       image = "default.jpg";
     }
 
-    
+
     let nuevoProducto = {
       name: req.body.name,
       brand: req.body.brand,
       price: req.body.prcie,
       categories: req.body.categories,
-      color: req.body.color,
+      color: [req.body.color],
       accesories: req.body.accesories,
       image: image,
       description: req.body.description,
@@ -87,13 +87,13 @@ const controlador = {
       car: false,
     }
 
-    db.Product.create(nuevoProducto)
-    .then(() => {
-      res.redirect("/products/productdetail/" + req.params.id);
-    })
-    .catch(error => console.log(error));
+    await db.Product.create(nuevoProducto)
+      .then(() => {
+        res.redirect("/products/productdetail/" + req.params.id);
+      })
+      .catch(error => console.log(error));
 
-  
+
   },
 
   edicion: async (req, res) => {
@@ -101,52 +101,55 @@ const controlador = {
     let idProduct = req.params.id;
 
     let productoEditar = await db.Product.findByPk(idProduct, {
-        include: [
-            {association: 'colors'},
-            {association: 'brands'},
-            {association: 'categories'},
-        ]
-    }).catch(function(errors){
-        console.log(errors);
+      include: [
+        { association: 'colors' },
+        { association: 'brands' },
+        { association: 'categories' },
+      ]
+    }).catch(function (errors) {
+      console.log(errors);
     });
 
     let brands = await db.Brand.findAll()
-    .catch(function(errors){
-      console.log(errors);
-  });
+      .catch(function (errors) {
+        console.log(errors);
+      });
 
     let categories = await db.Category.findAll()
-    .catch(function(errors){
-      console.log(errors);
-  });
+      .catch(function (errors) {
+        console.log(errors);
+      });
 
     let colors = await db.Color.findAll()
-    .catch(function(errors){
-      console.log(errors);
-  });
+      .catch(function (errors) {
+        console.log(errors);
+      });
 
     res.render(
-        path.resolve(__dirname,"../views/products/formularioEdicionDeProducto.ejs"),
-        {brands,colors,categories,productoEditar})
+      path.resolve(__dirname, "../views/products/formularioEdicionDeProducto.ejs"),
+      { brands, colors, categories, productoEditar })
 
   },
 
-  editarProducto: (req, res) => {
-    const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let id = req.params.id;
-    let productoEditar = productos.find((products) => products.id == id);
+  editarProducto: async (req, res) => {
+
+    
+    let idProduct = req.params.id;
+
+    let productoEditar = await db.Product.findByPk(idProduct)
+    .catch(function (errors) {
+      console.log(errors);
+    });
 
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
-      let productoCart = productos.filter((producto) => producto.car == "true");
-
       return res.render(
         (path.resolve(
           __dirname,
           "../views/products/formularioEdicionDeProducto.ejs"
         ),
-        { total, productoCart }),
+          { total, productoCart }),
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
@@ -163,92 +166,72 @@ const controlador = {
       image = productoEditar.image;
     }
 
-    const productoOculto = productos.map((producto) => {
-      if (producto.id == id) {
-        producto.nombre = req.body.nombre;
-        producto.marca = req.body.marca;
-        producto.precio = req.body.precio;
-        producto.categoria = req.body.categoria;
-        producto.color = [req.body.color];
-        producto.accesorios = req.body.accesorios;
-        producto.image = image;
-        producto.descripcion = req.body.descripcion;
-        producto.visible = true;
-        producto.car = false;
-      }
-      return producto;
+   await db.Product.update({
+      name: req.body.name,
+      brand: req.body.brand,
+      price: req.body.price,
+      categories: req.body.categories,
+      color: [req.body.color],
+      accesories: req.body.accesories,
+      image: image,
+      description: req.body.description,
+    },
+     {
+      where: { id_products: idProduct,}
+    }).catch(function (errors) {
+      console.log(errors);
     });
 
-    fs.writeFileSync(productsFilePath, JSON.stringify(productoOculto, null, 2));
-
     res.redirect("/products/productdetail/" + req.params.id);
-  },
+},
 
   eliminar: (req, res) => {
     let producto_id = req.params.id;
-    db.Product.destroy({
-        where: {
-            id_products: producto_id,
-        },
-    }).then(() => {
-        res.redirect("/products?categoria=catalogo");
-    }
-    );
+db.Product.destroy({
+  where: {
+    id_products: producto_id,
+  },
+}).then(() => {
+  res.redirect("/products?categoria=catalogo");
+}
+);
   },
 
-  productDetail: (req, res) => {
-    let promProduct = db.Product.findByPk(req.params.id, {
-      include: ["brands", "categories", "colors"],
+productDetail: (req, res) => {
+  let promProduct = db.Product.findByPk(req.params.id, {
+    include: ["brands", "categories", "colors"],
+  });
+  let promBrands = db.Brand.findAll();
+  let promCategories = db.Category.findAll();
+  let promColors = db.Color.findAll();
+  Promise.all([promProduct, promBrands, promCategories, promColors])
+    .then(([productoDetalle, Marca, Category]) => {
+      if (!productoDetalle) {
+        res.redirect("/products?categoria=catalogo");
+      } else {
+        let brand = Marca.find(
+          (brand) => brand.id_brands == productoDetalle.id_brands
+        );
+        let category = Category.find(
+          (category) =>
+            category.id_categories == productoDetalle.id_categories
+        );
+        // res.send(productoDetalle)
+        res.render(
+          path.resolve(__dirname, "../views/products/productDetail.ejs"),
+          { productoDetalle, brand, category, productoCart, total }
+        );
+      }
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    let promBrands = db.Brand.findAll();
-    let promCategories = db.Category.findAll();
-    let promColors = db.Color.findAll();
-    Promise.all([promProduct, promBrands, promCategories, promColors])
-      .then(([productoDetalle, Marca, Category]) => {
-        if (!productoDetalle) {
-          res.redirect("/products?categoria=catalogo");
-        } else {
-          let brand = Marca.find(
-            (brand) => brand.id_brands == productoDetalle.id_brands
-          );
-          let category = Category.find(
-            (category) =>
-              category.id_categories == productoDetalle.id_categories
-          );
-          // res.send(productoDetalle)
-          res.render(
-            path.resolve(__dirname, "../views/products/productDetail.ejs"),
-            { productoDetalle, brand, category, productoCart, total }
-          );
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },
+},
 
   ocultarProducto: (req, res) => {
     db.Product.update(
-        {
-          visible: false,
-        },
-        {
-          where: {
-            id_products: req.params.id,
-          },
-        }
-      )
-        .then(() => {
-          res.redirect("/products?categoria=catalogo");
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-  },
-  mostrarProducto: (req, res) => {
-    db.Product.update(
       {
-        visible: true,
+        visible: false,
       },
       {
         where: {
@@ -263,16 +246,34 @@ const controlador = {
         console.log(err);
       });
   },
-  productosOcultos: (req, res) => {
-    const productos = db.Product.findAll();
-    Promise.all([productos]).then(([productos]) => {
-      const ocultos = productos.filter((product) => product.visible === false);
-      res.render(
-        path.resolve(__dirname, "../views/products/productsOcultos.ejs"),
-        { ocultos, total, productoCart }
-      );
-    });
-  },
+    mostrarProducto: (req, res) => {
+      db.Product.update(
+        {
+          visible: true,
+        },
+        {
+          where: {
+            id_products: req.params.id,
+          },
+        }
+      )
+        .then(() => {
+          res.redirect("/products?categoria=catalogo");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+      productosOcultos: (req, res) => {
+        const productos = db.Product.findAll();
+        Promise.all([productos]).then(([productos]) => {
+          const ocultos = productos.filter((product) => product.visible === false);
+          res.render(
+            path.resolve(__dirname, "../views/products/productsOcultos.ejs"),
+            { ocultos, total, productoCart }
+          );
+        });
+      },
 };
 
 module.exports = controlador;
