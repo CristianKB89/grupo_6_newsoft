@@ -31,6 +31,21 @@ const controlador = {
   },
 
   crearProducto: async (req, res) => {
+    let brands = await db.Brand.findAll()
+      .catch(function (errors) {
+        console.log(errors);
+      });
+
+    let categories = await db.Category.findAll()
+      .catch(function (errors) {
+        console.log(errors);
+      });
+
+    let colors = await db.Color.findAll()
+      .catch(function (errors) {
+        console.log(errors);
+      });
+
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
@@ -41,7 +56,8 @@ const controlador = {
         ),
         {
           errors: resultValidation.mapped(),
-          oldData: req.body,
+          oldData: req.body, 
+          brands, colors, categories
         }
       );
     }
@@ -57,10 +73,9 @@ const controlador = {
 
     let nuevoProducto = {
       name: req.body.name,
-      brand: req.body.brand,
+      id_brands: req.body.brand,
       price: req.body.prcie,
-      categories: req.body.categories,
-      color: [req.body.color],
+      id_categories: req.body.categories,
       accesories: req.body.accesories,
       image: image,
       description: req.body.description,
@@ -68,11 +83,10 @@ const controlador = {
       car: false,
     }
 
-    await db.Product.create(nuevoProducto)
-      .then(() => {
-        res.redirect("/products/productdetail/" + req.params.id);
-      })
+  let newProductDB =  await db.Product.create(nuevoProducto)
       .catch(error => console.log(error));
+
+      res.redirect("/products/productdetail/" + req.params.id);
 
 
   },
@@ -184,6 +198,8 @@ const controlador = {
     }).catch(function (errors) {
       console.log(errors);
     });
+
+    
 
     res.redirect("/products/productdetail/" + req.params.id);
 },
