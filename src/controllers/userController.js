@@ -17,8 +17,6 @@ const controlador = {
       .then(usuarios => {
         res.render(path.resolve(__dirname, "../views/users/usersList.ejs"), {
           usuarios,
-          productoCart,
-          total,
         })
       });
   },
@@ -152,7 +150,6 @@ const controlador = {
           }
         },
         oldData: req.body,
-        productoCart, total,
         usuarioEditar: usuarioLogueado
       });
     }

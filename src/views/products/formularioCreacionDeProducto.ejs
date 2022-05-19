@@ -117,7 +117,7 @@
           <select name="brand" id="brand" class="control-input <%= locals.errors && errors.brand ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.brand : null %>">
             <option value="">Seleccione una marca</option>
-            <% Brands.forEach(brand => { %>
+            <% brands.forEach(brand => { %>
               <option value="<%= brand.id_brands %>"><%= brand.brand %></option>
               <% }); %>
           </select>
@@ -146,7 +146,7 @@
           <select name="categories" id="categories" class="control-input <%= locals.errors && errors.categories ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.categories : null %>">
               <option value="">Seleccione una categoria</option>
-              <% Categories.forEach(category => { %>
+              <% categories.forEach(category => { %>
               <option value="<%= category.id_categories %>"><%= category.categories %></option>
               <% }); %>
           </select>
@@ -161,7 +161,7 @@
             <% } %>
           </label>
 
-          <% Colors.forEach(color => { %>
+          <% colors.forEach(color => { %>
             <label for="color"><%= color.colors %></label>
             <input type="checkbox" name="color" id="color" value="<%= color.id_colors %>"  class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>"> 
             <% }); %>

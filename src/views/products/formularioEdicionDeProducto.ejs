@@ -84,7 +84,7 @@
   </header>
 
   <main>
-    <form action="/products/<%= productoEditar.id %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
+    <form action="/products/<%= productoEditar.id_products %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
 
@@ -113,8 +113,9 @@
             <% } %>
           </label>
           <select name="brand" id="brand" class="control-input" value="<%= productoEditar.brand %>" required>
-            <% Brands.forEach(brand => { %>
-              <option value="<%= brand.id_brands %>"><%= brand.brand %></option>
+            <option value="">Seleccione una marca</option>
+            <% brands.forEach(brand => { %>
+              <option value="<%= brand.id_brands %>"><%= brand.brand %> <%= productoEditar.brand == "brand[i]" ? "selected" : null %></option>
               <% }); %>
           </select>
         </div>
@@ -127,7 +128,7 @@
               </div>
             <% } %>
           </label>
-          <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.precio %>"
+          <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.price %>"
             required>
         </div>
 
@@ -140,13 +141,14 @@
             <% } %>
           </label>
           <select name="categories" id="categories" class="control-input" value="<%= productoEditar.categories %>" required>
-            <% Categories.forEach(category => { %>
+            <option value="">Seleccione una categoria</option>
+            <% categories.forEach(category => { %>
             <option value="<%= category.id_categories %>"><%= category.categories %></option>
             <% }); %>
           </select>
         </div>
 
-        <div class="control-formulario">
+        <div class="control-formulario-check">
           <label for="color">Seleccione el color del producto:
             <% if (locals.errors && errors.color) { %>
               <div class="mensaje-error">
@@ -154,7 +156,7 @@
               </div>
             <% } %>
           </label>
-          <% Colors.forEach(color => { %>
+          <% colors.forEach(color => { %>
             <label for="color"><%= color.colors %></label>
             <input type="checkbox" name="color" id="color" value="<%= color.id_colors %>"  class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>"> 
             <% }); %>

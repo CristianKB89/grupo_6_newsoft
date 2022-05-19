@@ -7,27 +7,29 @@ const db = require("../database/models");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controlador = {
-  creacion: (req, res) => {
-    let pedidoMarca = db.Brand.findAll();
-    let pedidoCategoria = db.Category.findAll();
-    let pedidoColor = db.Color.findAll();
+  creacion: async (req, res) => {
+    let brands = await db.Brand.findAll().catch(function (errors) {
+      console.log(errors);
+    });
 
-    Promise.all([pedidoMarca, pedidoCategoria, pedidoColor])
-      .then(function ([Brands, Colors, Categories]) {
-        res.render(
-          path.resolve(
-            __dirname,
-            "../views/products/formularioCreacionDeProducto.ejs"
-          ),
-          { Brands, Colors, Categories }
-        );
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    let categories = await db.Category.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    let colors = await db.Color.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    res.render(
+      path.resolve(
+        __dirname,
+        "../views/products/formularioCreacionDeProducto.ejs"
+      ),
+      { brands, colors, categories }
+    );
   },
 
-  crearProducto: (req, res) => {
+  crearProducto: async (req, res) => {
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
@@ -56,7 +58,7 @@ const controlador = {
       brand: req.body.brand,
       price: req.body.prcie,
       categories: req.body.categories,
-      color: req.body.color,
+      color: [req.body.color],
       accesories: req.body.accesories,
       image: image,
       description: req.body.description,
@@ -64,7 +66,7 @@ const controlador = {
       car: false,
     };
 
-    db.Product.create(nuevoProducto)
+    await db.Product.create(nuevoProducto)
       .then(() => {
         res.redirect("/products/productdetail/" + req.params.id);
       })
@@ -91,20 +93,24 @@ const controlador = {
         console.log(error);
       });
   },
+  editarProducto: async (req, res) => {
+    let idProduct = req.params.id;
 
-  editarProducto: (req, res) => {
-    const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    let id = req.params.id;
-    let productoEditar = productos.find((products) => products.id == id);
+    let productoEditar = await db.Product.findByPk(idProduct).catch(function (
+      errors
+    ) {
+      console.log(errors);
+    });
 
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
       return res.render(
-        path.resolve(
+        (path.resolve(
           __dirname,
           "../views/products/formularioEdicionDeProducto.ejs"
         ),
+        { total, productoCart }),
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
@@ -121,23 +127,23 @@ const controlador = {
       image = productoEditar.image;
     }
 
-    const productoOculto = productos.map((producto) => {
-      if (producto.id == id) {
-        producto.nombre = req.body.nombre;
-        producto.marca = req.body.marca;
-        producto.precio = req.body.precio;
-        producto.categoria = req.body.categoria;
-        producto.color = [req.body.color];
-        producto.accesorios = req.body.accesorios;
-        producto.image = image;
-        producto.descripcion = req.body.descripcion;
-        producto.visible = true;
-        producto.car = false;
+    await db.Product.update(
+      {
+        name: req.body.name,
+        brand: req.body.brand,
+        price: req.body.price,
+        categories: req.body.categories,
+        color: [req.body.color],
+        accesories: req.body.accesories,
+        image: image,
+        description: req.body.description,
+      },
+      {
+        where: { id_products: idProduct },
       }
-      return producto;
+    ).catch(function (errors) {
+      console.log(errors);
     });
-
-    fs.writeFileSync(productsFilePath, JSON.stringify(productoOculto, null, 2));
 
     res.redirect("/products/productdetail/" + req.params.id);
   },
