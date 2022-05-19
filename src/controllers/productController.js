@@ -8,20 +8,24 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controlador = {
   creacion: (req, res) => {
-    
     let pedidoMarca = db.Brand.findAll();
     let pedidoCategoria = db.Category.findAll();
     let pedidoColor = db.Color.findAll();
 
-    Promise.all([pedidoMarca,pedidoCategoria,pedidoColor])
-    .then(function([Brands,Colors,Categories]) {
-      res.render(
-        path.resolve(__dirname,"../views/products/formularioCreacionDeProducto.ejs"),
-        {Brands,Colors,Categories})
-    }).catch(error => {
-       console.log(error)
-   })
-},
+    Promise.all([pedidoMarca, pedidoCategoria, pedidoColor])
+      .then(function ([Brands, Colors, Categories]) {
+        res.render(
+          path.resolve(
+            __dirname,
+            "../views/products/formularioCreacionDeProducto.ejs"
+          ),
+          { Brands, Colors, Categories }
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 
   crearProducto: (req, res) => {
     const resultValidation = validationResult(req);
@@ -47,7 +51,6 @@ const controlador = {
       image = "default.jpg";
     }
 
-    
     let nuevoProducto = {
       name: req.body.name,
       brand: req.body.brand,
@@ -59,15 +62,13 @@ const controlador = {
       description: req.body.description,
       visible: true,
       car: false,
-    }
+    };
 
     db.Product.create(nuevoProducto)
-    .then(() => {
-      res.redirect("/products/productdetail/" + req.params.id);
-    })
-    .catch(error => console.log(error));
-
-  
+      .then(() => {
+        res.redirect("/products/productdetail/" + req.params.id);
+      })
+      .catch((error) => console.log(error));
   },
 
   edicion: (req, res) => {
@@ -75,16 +76,20 @@ const controlador = {
     let pedidoCategoria = db.Category.findAll();
     let pedidoColor = db.Color.findAll();
 
-    Promise.all([pedidoMarca,pedidoCategoria,pedidoColor])
-    .then(function([Brands,Colors,Categories]) {
-      let productoEditar = db.Product.findByPk(req.params.id)
-      res.render(
-        path.resolve(__dirname,"../views/products/formularioCreacionDeProducto.ejs"),
-        {Brands,Colors,Categories, productoEditar: productoEditar})
-    }).catch(error => {
-       console.log(error)
-   })
-
+    Promise.all([pedidoMarca, pedidoCategoria, pedidoColor])
+      .then(function ([Brands, Colors, Categories]) {
+        let productoEditar = db.Product.findByPk(req.params.id);
+        res.render(
+          path.resolve(
+            __dirname,
+            "../views/products/formularioCreacionDeProducto.ejs"
+          ),
+          { Brands, Colors, Categories, productoEditar: productoEditar }
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
   editarProducto: (req, res) => {
@@ -95,7 +100,6 @@ const controlador = {
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
-      
       return res.render(
         path.resolve(
           __dirname,
