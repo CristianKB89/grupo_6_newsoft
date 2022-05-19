@@ -26,7 +26,7 @@ router.get('/create', controlador.creacion);
 router.get('/productdetail/:id', controlador.productDetail);
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/',upload.single('image'),arrayvValidations, controlador.crearProducto);
+router.post('/crear',upload.single('image'),arrayvValidations, controlador.crearProducto);
 
 //Formulario de edición de producto
 router.get('/:id/edit', controlador.edicion);
