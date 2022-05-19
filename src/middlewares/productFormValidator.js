@@ -2,13 +2,13 @@ const {body} = require('express-validator');
 
 
 const arrayvValidations = [
-    body("nombre").notEmpty().withMessage("Debes completar el campo nombre"), 
-    body("marca").isLength({min:1}).withMessage("Debes completar el campo marca"), 
-    body("precio").notEmpty().withMessage("Debes completar el campo precio"), 
-    body("categoria").isLength({min:1}).withMessage("Debes seleccionar una categoria"), 
+    body("name").notEmpty().withMessage("Debes completar el campo nombre"), 
+    body("brand").isLength({min:1}).withMessage("Debes completar el campo marca"), 
+    body("price").notEmpty().withMessage("Debes completar el campo precio"), 
+    body("catcategoriesegoria").isLength({min:1}).withMessage("Debes seleccionar una categoria"), 
     body("color").isLength({min:1}).withMessage("Debes seleccionar un color"), 
-    body("accesorios").notEmpty().withMessage("Debes completar el campo accesorios"), 
-    body("descripcion").notEmpty().withMessage("Debes completar el campo descripcion"), 
+    body("accesories").notEmpty().withMessage("Debes completar el campo accesorios"), 
+    body("description").notEmpty().withMessage("Debes completar el campo descripcion"), 
 
 
 ];

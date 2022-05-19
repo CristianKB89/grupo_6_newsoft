@@ -113,7 +113,7 @@
             <% } %>
           </label>
           <select name="brand" id="brand" class="control-input" value="<%= productoEditar.brand %>" required>
-            <% Brands.forEach(brand => { %>
+            <% brands.forEach(brand => { %>
               <option value="<%= brand.id_brands %>"><%= brand.brand %></option>
               <% }); %>
           </select>
@@ -140,13 +140,14 @@
             <% } %>
           </label>
           <select name="categories" id="categories" class="control-input" value="<%= productoEditar.categories %>" required>
-            <% Categories.forEach(category => { %>
+            <option value="">Seleccione una categoria</option>
+            <% categories.forEach(category => { %>
             <option value="<%= category.id_categories %>"><%= category.categories %></option>
             <% }); %>
           </select>
         </div>
 
-        <div class="control-formulario">
+        <div class="control-formulario-check">
           <label for="color">Seleccione el color del producto:
             <% if (locals.errors && errors.color) { %>
               <div class="mensaje-error">
@@ -154,7 +155,7 @@
               </div>
             <% } %>
           </label>
-          <% Colors.forEach(color => { %>
+          <% colors.forEach(color => { %>
             <label for="color"><%= color.colors %></label>
             <input type="checkbox" name="color" id="color" value="<%= color.id_colors %>"  class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>"> 
             <% }); %>

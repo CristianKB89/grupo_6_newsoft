@@ -6,21 +6,47 @@ const db = require("../database/models");
 
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const controlador = {
-  creacion: (req, res) => {
-    
-    let pedidoMarca = db.Brand.findAll();
-    let pedidoCategoria = db.Category.findAll();
-    let pedidoColor = db.Color.findAll();
+const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+const productoCart = productos.filter((producto) => producto.car == "true");
 
-    Promise.all([pedidoMarca,pedidoCategoria,pedidoColor])
-    .then(function([Brands,Colors,Categories]) {
+let total = 0;
+if (productoCart.length > 0) {
+  let preciosString = [];
+  for (let i = 0; i < productoCart.length; i++) {
+    preciosString.push(productoCart[i].precio);
+    var preciosInt = preciosString.map(function (item) {
+      return parseInt(item, 10);
+    });
+  }
+  total = preciosInt.reduce(function (a, b) {
+    return a + b;
+  }, 0);
+} else {
+  total = 0;
+}
+
+const controlador = {
+  creacion: async (req, res) => {
+    
+    let brands = await db.Brand.findAll()
+    .catch(function(errors){
+      console.log(errors);
+  });
+
+    let categories = await db.Category.findAll()
+    .catch(function(errors){
+      console.log(errors);
+  });
+
+    let colors = await db.Color.findAll()
+    .catch(function(errors){
+      console.log(errors);
+  });
+
       res.render(
         path.resolve(__dirname,"../views/products/formularioCreacionDeProducto.ejs"),
-        {Brands,Colors,Categories})
-    }).catch(error => {
-       console.log(error)
-   })
+        {brands,colors,categories})
+
 },
 
   crearProducto: (req, res) => {
@@ -70,20 +96,38 @@ const controlador = {
   
   },
 
-  edicion: (req, res) => {
-    let pedidoMarca = db.Brand.findAll();
-    let pedidoCategoria = db.Category.findAll();
-    let pedidoColor = db.Color.findAll();
+  edicion: async (req, res) => {
 
-    Promise.all([pedidoMarca,pedidoCategoria,pedidoColor])
-    .then(function([Brands,Colors,Categories]) {
-      let productoEditar = db.Product.findByPk(req.params.id)
-      res.render(
-        path.resolve(__dirname,"../views/products/formularioCreacionDeProducto.ejs"),
-        {Brands,Colors,Categories, productoEditar: productoEditar})
-    }).catch(error => {
-       console.log(error)
-   })
+    let idProduct = req.params.id;
+
+    let productoEditar = await db.Product.findByPk(idProduct, {
+        include: [
+            {association: 'colors'},
+            {association: 'brands'},
+            {association: 'categories'},
+        ]
+    }).catch(function(errors){
+        console.log(errors);
+    });
+
+    let brands = await db.Brand.findAll()
+    .catch(function(errors){
+      console.log(errors);
+  });
+
+    let categories = await db.Category.findAll()
+    .catch(function(errors){
+      console.log(errors);
+  });
+
+    let colors = await db.Color.findAll()
+    .catch(function(errors){
+      console.log(errors);
+  });
+
+    res.render(
+        path.resolve(__dirname,"../views/products/formularioEdicionDeProducto.ejs"),
+        {brands,colors,categories,productoEditar})
 
   },
 
@@ -95,12 +139,14 @@ const controlador = {
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
-      
+      let productoCart = productos.filter((producto) => producto.car == "true");
+
       return res.render(
-        path.resolve(
+        (path.resolve(
           __dirname,
           "../views/products/formularioEdicionDeProducto.ejs"
         ),
+        { total, productoCart }),
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
@@ -141,12 +187,13 @@ const controlador = {
   eliminar: (req, res) => {
     let producto_id = req.params.id;
     db.Product.destroy({
-      where: {
-        id_products: producto_id,
-      },
+        where: {
+            id_products: producto_id,
+        },
     }).then(() => {
-      res.redirect("/products?categoria=catalogo");
-    });
+        res.redirect("/products?categoria=catalogo");
+    }
+    );
   },
 
   productDetail: (req, res) => {
@@ -171,7 +218,7 @@ const controlador = {
           // res.send(productoDetalle)
           res.render(
             path.resolve(__dirname, "../views/products/productDetail.ejs"),
-            { productoDetalle, brand, category }
+            { productoDetalle, brand, category, productoCart, total }
           );
         }
       })
@@ -182,21 +229,21 @@ const controlador = {
 
   ocultarProducto: (req, res) => {
     db.Product.update(
-      {
-        visible: false,
-      },
-      {
-        where: {
-          id_products: req.params.id,
+        {
+          visible: false,
         },
-      }
-    )
-      .then(() => {
-        res.redirect("/products?categoria=catalogo");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        {
+          where: {
+            id_products: req.params.id,
+          },
+        }
+      )
+        .then(() => {
+          res.redirect("/products?categoria=catalogo");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   },
   mostrarProducto: (req, res) => {
     db.Product.update(
@@ -222,7 +269,7 @@ const controlador = {
       const ocultos = productos.filter((product) => product.visible === false);
       res.render(
         path.resolve(__dirname, "../views/products/productsOcultos.ejs"),
-        { ocultos }
+        { ocultos, total, productoCart }
       );
     });
   },
