@@ -6,25 +6,6 @@ const db = require("../database/models");
 
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-const productoCart = productos.filter((producto) => producto.car == "true");
-
-let total = 0;
-if (productoCart.length > 0) {
-  let preciosString = [];
-  for (let i = 0; i < productoCart.length; i++) {
-    preciosString.push(productoCart[i].precio);
-    var preciosInt = preciosString.map(function (item) {
-      return parseInt(item, 10);
-    });
-  }
-  total = preciosInt.reduce(function (a, b) {
-    return a + b;
-  }, 0);
-} else {
-  total = 0;
-}
-
 const controlador = {
   creacion: async (req, res) => {
 
@@ -219,7 +200,7 @@ productDetail: (req, res) => {
         // res.send(productoDetalle)
         res.render(
           path.resolve(__dirname, "../views/products/productDetail.ejs"),
-          { productoDetalle, brand, category, productoCart, total }
+          { productoDetalle, brand, category }
         );
       }
     })
@@ -270,7 +251,7 @@ productDetail: (req, res) => {
           const ocultos = productos.filter((product) => product.visible === false);
           res.render(
             path.resolve(__dirname, "../views/products/productsOcultos.ejs"),
-            { ocultos, total, productoCart }
+            { ocultos }
           );
         });
       },
