@@ -36,14 +36,14 @@
                  <figure>
                    <img src="/img/users/<%= usuarios[i].image ? usuarios[i].image : 'default.png' %>"  alt="">
                  </figure>
-                  <h3 class="profileh3">#<%= usuarios[i].id %></h3>
+                  <h3 class="profileh3">#<%= usuarios[i].id_users %></h3>
               </div>
               <div class="card-content">
-                    <h3 class="profileh3">Nombre usuario:<%= usuarios[i].nombre %> <%= usuarios[i].apellido %></h3>
+                    <h3 class="profileh3">Nombre usuario:<%= usuarios[i].name %> <%= usuarios[i].lastname %></h3>
                     <p class="profilep">Email:<%= usuarios[i].email %> </p>
                     <div>
-						         <a class="boton-formulario" href="/users/<%= usuarios[i].id %>/edit" >EDITAR USUARIO</a>
-                     <form action="/users/<%=usuarios[i].id%>?_method=DELETE" method="POST" style="display: inline-flex">
+						         <a class="boton-formulario" href="/users/<%= usuarios[i].id_users %>/edit" >EDITAR USUARIO</a>
+                     <form action="/users/<%=usuarios[i].id_users%>?_method=DELETE" method="POST" style="display: inline-flex">
                       <button type="submit" class="button" >ELIMINAR USUARIO</button>
                     </div>
 

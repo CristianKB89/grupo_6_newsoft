@@ -2,27 +2,31 @@ const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const usersFilePath = path.join(__dirname, "../data/users.json");
-const User = require("../models/Usuario");
+// const usersFilePath = path.join(__dirname, "../data/users.json");
+// const User = require("../models/Usuario");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
 const controlador = {
   users: (req, res) => {
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    res.render(path.resolve(__dirname, "../views/users/usersList.ejs"), {
-      usuarios: usuarios
-    });
+    db.User.findAll()
+      .then(usuarios => {
+        res.render(path.resolve(__dirname, "../views/users/usersList.ejs"), {
+          usuarios,
+          productoCart,
+          total,
+        })
+      });
   },
 
   registro: (req, res) => {
     res.render(path.resolve(__dirname, "../views/users/register.ejs"), {
     });
   },
-
 
   crearUsuario: (req, res) => {
     const resultValidation = validationResult(req);
@@ -33,79 +37,88 @@ const controlador = {
         { }),
         {
           errors: resultValidation.mapped(),
-          oldData: req.body,
+          oldData: req.body
         }
       );
     }
 
-    let usuarioEnBD = User.findByField("email", req.body.email);
+    db.User.findAll()
+      .then(users => {
 
-    if (usuarioEnBD) {
-      return res.render(
-        (path.resolve(__dirname, "../views/users/register.ejs"),
-        {  }),
-        {
-          errors: {
-            //No se despliega el mensaje de error en formulario
-            email: {
-              msg: "Este email ya está registrado",
-            },
-          },
-          oldData: req.body,
+        let usuarioEnBD = users.find((user) => user.email == req.body.email);
+
+        if (usuarioEnBD) {
+          return res.render
+            (path.resolve(__dirname, "../views/users/register.ejs"),
+
+              {
+                errors: {
+                  //No se despliega el mensaje de error en formulario
+                  email: {
+                    msg: "Este email ya está registrado",
+                  },
+                },
+                oldData: req.body
+              }
+            );
         }
-      );
-    }
 
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    let image;
+        let image;
 
-    if (req.file != undefined) {
-      image = req.file.filename;
-    } else {
-      image = "default.png";
-    }
+        if (req.file != undefined) {
+          image = req.file.filename;
+        } else {
+          image = "default.png";
+        }
 
-    // capturar los datos del usuario
-    const nuevoUsuario = {
-      id: usuarios.length == 0 ? 1 : usuarios[usuarios.length - 1].id + 1,
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      email: req.body.email,
-      password: bcryptjs.hashSync(req.body.password, 10),
-      image: image,
-      newsletter: req.body.newsletter,
-    };
+        let user = {
+          name: req.body.name,
+          lastname: req.body.lastname,
+          email: req.body.email,
+          password: bcryptjs.hashSync(req.body.password, 10),
+          image: image,
+          newsletter: req.body.newsletter
+        }
 
-    if (req.body.newsletter != null) {
-      nuevoUsuario.newsletter = req.body.newsletter;
-    } else {
-      nuevoUsuario.newsletter = "off";
-    }
+        if (req.body.newsletter != null) {
+          user.newsletter = req.body.newsletter;
+        } else {
+          user.newsletter = "off";
+        }
 
-    // guardarlo BD
-    usuarios.push(nuevoUsuario);
-    // guardar los productos en archivo.json
-    fs.writeFileSync(usersFilePath, JSON.stringify(usuarios, null, 2));
+        db.User.create(user)
+          .then((storedUser) => {
+            return res.redirect('/');
+          })
+          .catch(error => console.log(error));
+      }).catch(error => {
+        console.log(error)
+      })
 
-    // redireccionar al usuairo /products
-    res.redirect("/");
   },
 
   editar: (req, res) => {
-    let idUsuario = req.params.id;
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    let usuarioEditar = usuarios.find((users) => users.id == idUsuario);
+    db.User.findByPk(req.params.id)
+      .then(function (usuarioEditar) {
+        res.render(path.resolve(__dirname, "../views/users/userEdit.ejs"), { usuarioEditar: usuarioEditar });
+      })
+      .catch(error => {
+        console.log(error)
+      })
 
-    res.render(path.resolve(__dirname, "../views/users/userEdit.ejs"), {
-      usuarioEditar: usuarioEditar
-    });
   },
 
-  editarUsuario: (req, res) => {
-    const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-    let id = req.params.id;
-    let usuarioEditar = usuarios.find((users) => users.id == id);
+  editarUsuario: async (req, res) => {
 
+    // Búsqueda del usuario
+    let usuarioLogueado = await db.User.findByPk(req.session.usuarioLogueado.id_users)
+      .catch(function (errors) {
+        console.log(errors);
+      });
+
+    let userId = usuarioLogueado.id_users;
+
+    // Verificación de errores
     const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
@@ -115,45 +128,80 @@ const controlador = {
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
-          usuarioEditar: usuarioEditar,
+          usuarioEditar: usuarioLogueado
         }
       );
     }
 
-    let image;
+    // Verificar que el email no sea usado por otro usuario
+    let emailInDB = await db.User.findAll({
+      where: {
+        email: req.body.email,
+        id_users: { [Op.not]: userId }
+      }
+    }).catch(function (errors) {
+      console.log(errors);
+    });
 
+    if (emailInDB.length > 0) {
+      return res.render(
+        (path.resolve(__dirname, "../views/users/userEdit.ejs")), {
+        errors: {
+          email: {
+            msg: 'Este email ya está en uso',
+          }
+        },
+        oldData: req.body,
+        productoCart, total,
+        usuarioEditar: usuarioLogueado
+      });
+    }
+
+    let image;
     if (req.file != undefined) {
       image = req.file.filename;
     } else {
-      image = usuarioEditar.image;
+      image = usuarioLogueado.image;
     }
 
-    const usuarioEditado = usuarios.map((user) => {
-      if (user.id == id) {
-        user.nombre = req.body.nombre;
-        user.apellido = req.body.apellido;
-        user.email = req.body.email;
-        (user.password = bcryptjs.hashSync(req.body.password, 10)),
-          (user.image = image);
-      }
-      return user;
-    });
+    let password;
+    if (req.body.password == usuarioLogueado.password) {
+      password = usuarioLogueado.password;
+    } else {
+      password = bcryptjs.hashSync(req.body.password, 10);
+    }
 
-    fs.writeFileSync(usersFilePath, JSON.stringify(usuarioEditado, null, 2));
-
-    res.redirect("/");
+    await db.User.update({
+      name: req.body.name,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      password: password,
+      image: image,
+    },
+    {
+      where: { id_users: userId }
+    })
+    .then(() => {
+      res.redirect('profile');
+    })
+    .catch(error => {
+    console.log(error)
+      })
   },
 
   borrar: (req, res) => {
     let id = req.params.id;
     db.User.destroy({
-        where: {
-            id_users: id,
-        },
+      where: {
+        id_users: id,
+      },
     }).then(() => {
-        res.redirect("/");
-    }
-    );
+      res.clearCookie("EmailUsuario");
+      req.session.destroy();
+      res.redirect("/");
+    }).catch(error => {
+      console.log(error)
+    })
 
   },
 
@@ -200,9 +248,7 @@ const controlador = {
           }
         });
       })
-      .catch((error) => {
-        log(error);
-      });
+      .catch((error) => console.log(error));
   },
 
   perfil: (req, res) => {

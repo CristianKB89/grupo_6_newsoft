@@ -20,6 +20,7 @@
 
 <body class="body-register-confirmation">
   <header>
+<<<<<<< HEAD
     <div class="top-header">
       <img class="flag-header" src="https://img.icons8.com/fluency/48/000000/colombia-circular.png" />
       <p class="envios-header">
@@ -80,6 +81,9 @@
 
       </div>
     </div>
+=======
+    <%- include('../partials/header.ejs') %>
+>>>>>>> origin/dev_stevenson
   </header>
 
     <main>
@@ -92,25 +96,25 @@
          <div class="formulado-interno">
           <div class="control-formulario">
 
-            <% if (locals.errors && errors.nombre) { %>
+            <% if (locals.errors && errors.name) { %>
               <div class="mensaje-error">
-                <%= errors.nombre.msg %> 
+                <%= errors.name.msg %> 
               </div>
             <% } %>
-               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.nombre : null %>"
+               <input type="text" name="name" placeholder="NOMBRE" class="control-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+               value="<%= locals.oldData ? oldData.name : null %>"
              >
           </div>
           <div class="control-formulario">
              
-            <% if (locals.errors && errors.apellido) { %>
+            <% if (locals.errors && errors.lastname) { %>
               <div class="mensaje-error">
-                <%= errors.apellido.msg %> 
+                <%= errors.lastname.msg %> 
               </div>
             <% } %>
 
-                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input <%= locals.errors && errors.apellido ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.apellido : null %>"
+                <input type="text" name="lastname" placeholder="APELLIDOS" class="control-input <%= locals.errors && errors.lastname ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.lastname : null %>"
               >
           </div>
           <div class="control-formulario">
@@ -122,16 +126,22 @@
             <% } %>
             
                <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input <%= locals.errors && errors.email ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.email : null %>"
-             >
+               value="<%= locals.oldData ? oldData.email : null %>">
+          </div>
+          <div class="control-formulario">
 
+            <% if (locals.errors && errors.password) { %>
+              <div class="mensaje-error">
+                <%= errors.password.msg %> 
+              </div>
+            <% } %>
+
+               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+               value="<%= locals.oldData ? oldData.password : null %>">
           </div>
           <div class="control-formulario">
-               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input">
-          </div>
-          <div class="control-formulario">
-            <label for="imagen" class="form-label">Cargue una imagen para su perfil</label>
-						<input type="file" id="imagen" name="imagen" class="control-input" multiple>
+            <label for="image" class="form-label">Cargue una imagen para su perfil</label>
+						<input type="file" id="image" name="image" class="control-input" multiple>
 					</div>
             
           <div>

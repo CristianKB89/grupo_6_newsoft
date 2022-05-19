@@ -24,26 +24,26 @@
   </header>
 
     <main>
-        <form action="/users/<%= usuarioEditar.id %>?_method=PUT" method="POST" class="formulario-forma" enctype="multipart/form-data">
-         <div class="mensaje-logo"><h1>EDICIÓN DE USUARIO <%= usuarioEditar.nombre %></h1></div>
-         <P>Completa todos los campos para editar tu ID <%= usuarioEditar.nombre %></P>  
+        <form action="/users/<%= usuarioEditar.id_users %>?_method=PUT" method="POST" class="formulario-forma" enctype="multipart/form-data">
+         <div class="mensaje-logo"><h1>EDICIÓN DE USUARIO <%= usuarioEditar.name %></h1></div>
+         <P>Completa todos los campos para editar tu ID <%= usuarioEditar.name %></P>  
 
          <div class="formulado-interno">
           <div class="control-formulario">
-            <% if (locals.errors && errors.nombre) { %>
+            <% if (locals.errors && errors.name) { %>
               <div class="mensaje-error">
-                <%= errors.nombre.msg %> 
+                <%= errors.name.msg %> 
               </div>
             <% } %>
-               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input"  value="<%= usuarioEditar.nombre %>" >
+               <input type="text" name="name" placeholder="NOMBRE" class="control-input"  value="<%= usuarioEditar.name %>" >
           </div>
           <div class="control-formulario">
-            <% if (locals.errors && errors.apellido) { %>
+            <% if (locals.errors && errors.lastname) { %>
               <div class="mensaje-error">
-                <%= errors.apellido.msg %> 
+                <%= errors.lastname.msg %> 
               </div>
             <% } %>
-                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input" value="<%= usuarioEditar.apellido %>" >
+                <input type="text" name="lastname" placeholder="APELLIDOS" class="control-input" value="<%= usuarioEditar.lastname%>" >
           </div>
           <div class="control-formulario">
             <% if (locals.errors && errors.email) { %>
@@ -57,8 +57,8 @@
                <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input" value="<%= usuarioEditar.password %>" >
           </div>
           <div class="control-formulario">
-            <label for="imagen" class="form-label">Cargue una nueva imagen para su perfil</label>
-						<input type="file" id="imagen" name="imagen" class="control-input" value="<%= usuarioEditar.imagen %>" multiple>
+            <label for="image" class="form-label">Cargue una nueva imagen para su perfil</label>
+						<input type="file" id="image" name="image" class="control-input" value="<%= usuarioEditar.image%>" multiple>
 					</div>
     
 

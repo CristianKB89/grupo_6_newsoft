@@ -8,14 +8,20 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controlador = {
   creacion: (req, res) => {
-    res.render(
-      path.resolve(
-        __dirname,
-        "../views/products/formularioCreacionDeProducto.ejs"
-      )
-    );
-    console.log("Hola mundo")
-  },
+    
+    let pedidoMarca = db.Brand.findAll();
+    let pedidoCategoria = db.Category.findAll();
+    let pedidoColor = db.Color.findAll();
+
+    Promise.all([pedidoMarca,pedidoCategoria,pedidoColor])
+    .then(function([Brands,Colors,Categories]) {
+      res.render(
+        path.resolve(__dirname,"../views/products/formularioCreacionDeProducto.ejs"),
+        {Brands,Colors,Categories})
+    }).catch(error => {
+       console.log(error)
+   })
+},
 
   crearProducto: (req, res) => {
     const resultValidation = validationResult(req);
@@ -33,7 +39,6 @@ const controlador = {
       );
     }
 
-    const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
     let image;
 
     if (req.file != undefined) {
@@ -42,43 +47,44 @@ const controlador = {
       image = "default.jpg";
     }
 
-    // capturar los datos del producto
-    const nuevoProducto = {
-      id: productos.length == 0 ? 1 : productos[productos.length - 1].id + 1,
-      nombre: req.body.nombre,
-      marca: req.body.marca,
-      precio: req.body.precio,
-      categoria: req.body.categoria,
+    
+    let nuevoProducto = {
+      name: req.body.name,
+      brand: req.body.brand,
+      price: req.body.prcie,
+      categories: req.body.categories,
       color: req.body.color,
-      accesorios: req.body.accesorios,
-      imagen: image,
-      descripcion: req.body.descripcion,
+      accesories: req.body.accesories,
+      image: image,
+      description: req.body.description,
       visible: true,
       car: false,
-    };
-    // guardarlo BD
-    productos.push(nuevoProducto);
-    // guardar los productos en archivo.json
-    fs.writeFileSync(productsFilePath, JSON.stringify(productos, null, 2));
+    }
 
-    // redireccionar al usuairo /products
-    res.redirect("/products/productdetail/" + req.params.id);
+    db.Product.create(nuevoProducto)
+    .then(() => {
+      res.redirect("/products/productdetail/" + req.params.id);
+    })
+    .catch(error => console.log(error));
+
+  
   },
 
   edicion: (req, res) => {
-    let idProducto = req.params.id;
-    const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-    const productoEditar = productos.find(
-      (products) => products.id == idProducto
-    );
+    let pedidoMarca = db.Brand.findAll();
+    let pedidoCategoria = db.Category.findAll();
+    let pedidoColor = db.Color.findAll();
 
-    res.render(
-      path.resolve(
-        __dirname,
-        "../views/products/formularioEdicionDeProducto.ejs"
-      ),
-      { productoEditar: productoEditar }
-    );
+    Promise.all([pedidoMarca,pedidoCategoria,pedidoColor])
+    .then(function([Brands,Colors,Categories]) {
+      let productoEditar = db.Product.findByPk(req.params.id)
+      res.render(
+        path.resolve(__dirname,"../views/products/formularioCreacionDeProducto.ejs"),
+        {Brands,Colors,Categories, productoEditar: productoEditar})
+    }).catch(error => {
+       console.log(error)
+   })
+
   },
 
   editarProducto: (req, res) => {
@@ -108,7 +114,7 @@ const controlador = {
     if (req.file != undefined) {
       image = req.file.filename;
     } else {
-      image = productoEditar.imagen;
+      image = productoEditar.image;
     }
 
     const productoOculto = productos.map((producto) => {
@@ -117,9 +123,9 @@ const controlador = {
         producto.marca = req.body.marca;
         producto.precio = req.body.precio;
         producto.categoria = req.body.categoria;
-        producto.color = req.body.color;
+        producto.color = [req.body.color];
         producto.accesorios = req.body.accesorios;
-        producto.imagen = image;
+        producto.image = image;
         producto.descripcion = req.body.descripcion;
         producto.visible = true;
         producto.car = false;
