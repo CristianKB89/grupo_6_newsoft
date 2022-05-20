@@ -131,59 +131,96 @@ const controlador = {
       { brands, colors, categories, productoEditar }
     );
   },
-  editarProducto: (req, res) => {
+  editarProducto: async (req, res) => {
     let idProduct = req.params.id;
-    
-    products_has_colors.destroy({
-      where: {
-        id_products: idProduct,
-      },
+    const resultValidation = validationResult(req);
+    let productoEditar = await db.Product.findByPk(idProduct, {
+      include: [
+        { association: "colors" },
+        { association: "brands" },
+        { association: "categories" },
+      ],
+    }).catch(function (errors) {
+      console.log(errors);
     });
-    db.Product.update(
-      {
-        name: req.body.name,
-        id_brands: req.body.brand,
-        price: req.body.price,
-        id_categories: req.body.categories,
-        accesories: req.body.accesories,
-        description: req.body.description,
-      },
-      {
+    
+    let brands = await db.Brand.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    let categories = await db.Category.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    let colors = await db.Color.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    if (resultValidation.errors.length > 0) {
+      return res.render(
+        path.resolve(
+          __dirname,
+          "../views/products/formularioEdicionDeProducto.ejs"
+        ),
+        {
+          errors: resultValidation.mapped(),
+          oldData: req.body,
+          brands, colors, categories, productoEditar
+        }
+      );
+    } else{
+      products_has_colors.destroy({
         where: {
           id_products: idProduct,
         },
-      }
-    ).then(() => {
-        if (typeof req.body.color === "string") {
-          products_has_colors
-            .create({
-              id_products: idProduct,
-              id_colors: req.body.color,
-            })
-            .then((result) => {
-              console.log(result);
-            })
-            .catch((error) => console.log(error));
-        } else {
-          //res.send(req.body.color);
-          req.body.color.forEach((color) => {
+      });
+      db.Product.update(
+        {
+          name: req.body.name,
+          id_brands: req.body.brand,
+          price: req.body.price,
+          id_categories: req.body.categories,
+          accesories: req.body.accesories,
+          description: req.body.description,
+        },
+        {
+          where: {
+            id_products: idProduct,
+          },
+        }
+      ).then(() => {
+          if (typeof req.body.color === "string") {
             products_has_colors
               .create({
                 id_products: idProduct,
-                id_colors: color,
+                id_colors: req.body.color,
               })
-
               .then((result) => {
                 console.log(result);
               })
               .catch((error) => console.log(error));
-          });
-        }
-        res.redirect("/products/productdetail/" + idProduct);
-      })
-      .catch(function (errors) {
-        console.log(errors);
-      });
+          } else {
+            //res.send(req.body.color);
+            req.body.color.forEach((color) => {
+              products_has_colors
+                .create({
+                  id_products: idProduct,
+                  id_colors: color,
+                })
+  
+                .then((result) => {
+                  console.log(result);
+                })
+                .catch((error) => console.log(error));
+            });
+          }
+          res.redirect("/products/productdetail/" + idProduct);
+        })
+        .catch(function (errors) {
+          console.log(errors);
+        });
+    }
+    
   },
 
   eliminar: (req, res) => {
