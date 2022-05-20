@@ -111,6 +111,10 @@ img{
     top: 6%;
 }
 
+.num_carrito:hover{
+    cursor: pointer;
+}
+
 .li-a:hover{
     cursor: pointer;
 }
