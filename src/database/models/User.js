@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
-        user_role: {
+        user_rol: {
             type: DataTypes.STRING,
             allowNull: false
         },
