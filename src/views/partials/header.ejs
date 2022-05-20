@@ -57,7 +57,8 @@
         <!-- FIN Ventana modal del login -->
         <% } %>
         <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
-        <button class="search-btn"><i class="fas fa-shopping-cart" onclick="mostrarCart(cr)"></i></button>
+        <button class="search-btn"><i class="fas fa-shopping-cart" onclick="mostrarCart(cr)">
+        </i><span class="num_carrito" id="badge-cart"><%= locals.numCarrito  %> </span></button>
 
       </div>
     </div>

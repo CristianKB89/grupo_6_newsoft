@@ -30,6 +30,18 @@ module.exports = (sequelize, DataTypes) => {
         newsletter: {
             type: DataTypes.BOOLEAN,
             allowNull: false
+        },
+        user_role: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        user_phone: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        user_address: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
 
     };

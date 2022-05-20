@@ -1,31 +1,25 @@
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 function valoresProductCart(req, res, next) {
 
-    db.Product.findAll()
-        .then((product) => {
-            let productoCart = product.filter((producto) => producto.car == "true");
-            let total = 0;
-            if (productoCart.length > 0) {
-                let preciosString = [];
-                for (let i = 0; i < productoCart.length; i++) {
-                    preciosString.push(productoCart[i].precio);
-                    var preciosInt = preciosString.map(function (item) {
-                        return parseInt(item, 10);
-                    });
-                }
-                total = preciosInt.reduce(function (a, b) {
-                    return a + b;
-                }, 0);
-            } else {
-                total = 0;
+    db.Product.findAll(
+        {
+            where: {
+                car: "true"
             }
-            req.total = total;
+        }
+    )
+    .then((product) => {
+            let numCarrito = product.length;
+            res.locals.productoCart = product;
+            let total = 0;
+            product.forEach(i => {
+                total += i.price;
+            });
             res.locals.total = total;
-            res.locals.productoCart = productoCart;
-           //res.send(productoCart);
-        })
-        .catch((error) => {
+            res.locals.numCarrito = numCarrito;
+        }).catch((error) => {
             console.log(error);
         });
         
