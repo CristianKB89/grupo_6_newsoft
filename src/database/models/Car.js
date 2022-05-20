@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-        car: {
+        status_car: {
             type: DataTypes.STRING,
             allowNull: true
         },
@@ -23,8 +23,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BIGINT.UNSIGNED,
             ForengKey: true
         },
+        total_car: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        }
+
     };
     let config = {
+        
         timestamps : false,
     };
     const Car = sequelize.define(alias, columns, config);

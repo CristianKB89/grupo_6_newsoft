@@ -17,6 +17,7 @@ const controlador = {
       .catch((error) => {
         console.log(error);
       });
+      
   },
 
   login: (req, res) => {

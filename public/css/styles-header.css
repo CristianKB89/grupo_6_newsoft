@@ -99,6 +99,22 @@ img{
     color: #FFF;
 }
 
+.num_carrito{
+    padding: 1px 3px;
+    color: #FFF;
+    font-size: 3vw;
+    font-weight: bold;
+    position: absolute;
+    background-color: red;
+    right: 1%;
+    border-radius: 50%;
+    top: 6%;
+}
+
+.num_carrito:hover{
+    cursor: pointer;
+}
+
 .li-a:hover{
     cursor: pointer;
 }
@@ -176,6 +192,7 @@ ul{
     color: #FFF;
     border: 0px;
     font-size: 7vw;
+    position: relative;
 }
 
 .num{
@@ -487,7 +504,7 @@ ul{
     display:flex;
     position: absolute;
     right: 0;
-    width: 35vw;
+    width: 50vw;
     transform: translate(2000px);
     background-color: rgba(0, 0, 0, 0.8);
     top: 0px;
@@ -831,6 +848,12 @@ ul{
 
     .img-perfil{
         display: block;
+    }
+
+    .num_carrito{
+        font-size: 1vw;
+        padding: 0.5px 3px;
+        top: 0.5%;
     }
 }
 

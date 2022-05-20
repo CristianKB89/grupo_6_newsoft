@@ -26,7 +26,7 @@ router.get('/create', controlador.creacion);
 router.get('/productdetail/:id', controlador.productDetail);
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/',upload.single('image'),arrayvValidations, controlador.crearProducto);
+router.post('/crear',upload.single('image'),arrayvValidations, controlador.crearProducto);
 
 //Formulario de edición de producto
 router.get('/:id/edit', controlador.edicion);
@@ -45,6 +45,9 @@ router.put('/:id/mostrar',controlador.mostrarProducto);
 
 //Vista de productos ocultos
 router.get('/ocultos', controlador.productosOcultos);
+
+//Buscador de productos
+router.get('/search', controlador.buscador);
 
 
 module.exports = router;
