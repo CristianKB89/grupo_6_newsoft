@@ -3,6 +3,8 @@ const path = require("path");
 const { validationResult } = require("express-validator");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const db = require("../database/models");
+const products_has_colors = db.products_has_colors;
+const Op = db.Sequelize.Op;
 
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -43,128 +45,145 @@ const controlador = {
           oldData: req.body,
         }
       );
-    }
-
-    let image;
-
-    if (req.file != undefined) {
-      image = req.file.filename;
     } else {
-      image = "default.jpg";
+      let image;
+
+      if (req.file != undefined) {
+        image = req.file.filename;
+      } else {
+        image = "default.jpg";
+      }
+
+      db.Product.create({
+        name: req.body.name,
+        id_brands: req.body.brand,
+        price: req.body.price,
+        id_categories: req.body.categories,
+        accesories: req.body.accesories,
+        image: image,
+        description: req.body.description,
+        visible: true,
+        car: "false",
+      })
+        .then((result) => {
+          if (typeof req.body.color === "string") {
+            products_has_colors
+              .create({
+                id_products: result.id_products,
+                id_colors: req.body.color,
+              })
+              .then((result) => {
+                console.log(result);
+              })
+              .catch((error) => console.log(error));
+          } else {
+            req.body.color.forEach((color) => {
+              products_has_colors
+                .create({
+                  id_products: result.id_products,
+                  id_colors: color,
+                })
+                .then((result) => {
+                  console.log(result);
+                })
+                .catch((error) => console.log(error));
+            });
+          }
+          //res.send(req.body.color);
+        })
+
+        .catch((errors) => {
+          console.log(errors);
+        });
     }
-
-    let nuevoProducto = {
-      name: req.body.name,
-      brand: req.body.brand,
-      price: req.body.prcie,
-      categories: req.body.categories,
-      color: [req.body.color],
-      accesories: req.body.accesories,
-      image: image,
-      description: req.body.description,
-      visible: true,
-      car: false,
-    };
-
-    await db.Product.create(nuevoProducto)
-      .then(() => {
-        res.redirect("/products/productdetail/" + req.params.id);
-      })
-      .catch((error) => console.log(error));
   },
 
-  edicion: (req, res) => {
-    let pedidoMarca = db.Brand.findAll();
-    let pedidoCategoria = db.Category.findAll();
-    let pedidoColor = db.Color.findAll();
-
-    Promise.all([pedidoMarca, pedidoCategoria, pedidoColor])
-      .then(function ([Brands, Colors, Categories]) {
-        let productoEditar = db.Product.findByPk(req.params.id);
-        res.render(
-          path.resolve(
-            __dirname,
-            "../views/products/formularioCreacionDeProducto.ejs"
-          ),
-          { Brands, Colors, Categories, productoEditar: productoEditar }
-        );
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
-  editarProducto: async (req, res) => {
+  edicion: async (req, res) => {
     let idProduct = req.params.id;
 
     let productoEditar = await db.Product.findByPk(idProduct, {
       include: [
-        { association: 'colors' },
-        { association: 'brands' },
-        { association: 'categories' },
-      ]
+        { association: "colors" },
+        { association: "brands" },
+        { association: "categories" },
+      ],
     }).catch(function (errors) {
       console.log(errors);
     });
 
-    let brands = await db.Brand.findAll()
-    .catch(function (errors) {
+    let brands = await db.Brand.findAll().catch(function (errors) {
       console.log(errors);
     });
 
-  let categories = await db.Category.findAll()
-    .catch(function (errors) {
+    let categories = await db.Category.findAll().catch(function (errors) {
       console.log(errors);
     });
 
-  let colors = await db.Color.findAll()
-    .catch(function (errors) {
+    let colors = await db.Color.findAll().catch(function (errors) {
       console.log(errors);
     });
 
-    const resultValidation = validationResult(req);
+    res.render(
+      path.resolve(
+        __dirname,
+        "../views/products/formularioEdicionDeProducto.ejs"
+      ),
+      { brands, colors, categories, productoEditar }
+    );
+  },
+  editarProducto: (req, res) => {
+    let idProduct = req.params.id;
+    
+    products_has_colors.destroy({
+      where: {
+        id_products: idProduct,
+      },
+    });
+    db.Product.update(
+      {
+        name: req.body.name,
+        id_brands: req.body.brand,
+        price: req.body.price,
+        id_categories: req.body.categories,
+        accesories: req.body.accesories,
+        description: req.body.description,
+      },
+      {
+        where: {
+          id_products: idProduct,
+        },
+      }
+    ).then(() => {
+        if (typeof req.body.color === "string") {
+          products_has_colors
+            .create({
+              id_products: idProduct,
+              id_colors: req.body.color,
+            })
+            .then((result) => {
+              console.log(result);
+            })
+            .catch((error) => console.log(error));
+        } else {
+          //res.send(req.body.color);
+          req.body.color.forEach((color) => {
+            products_has_colors
+              .create({
+                id_products: idProduct,
+                id_colors: color,
+              })
 
-    if (resultValidation.errors.length > 0) {
-      return res.render(
-        (path.resolve(
-          __dirname,
-          "../views/products/formularioEdicionDeProducto.ejs"
-        )),
-        {
-          errors: resultValidation.mapped(),
-          oldData: req.body,
-          productoEditar: productoEditar,
-          colors,
-          categories,
-          brands
+              .then((result) => {
+                console.log(result);
+              })
+              .catch((error) => console.log(error));
+          });
         }
-      );
-    }
-
-    let image;
-
-    if (req.file != undefined) {
-      image = req.file.filename;
-    } else {
-      image = productoEditar.image;
-    }
-
-   await db.Product.update({
-      name: req.body.name,
-      brand: req.body.brand,
-      price: req.body.price,
-      categories: req.body.categories,
-      color: req.body.color,
-      accesories: req.body.accesories,
-      image: image,
-      description: req.body.description,
-    },
-     {
-      where: { id_products: idProduct,}
-    }).catch(function (errors) {
-      console.log(errors);
-    });
-
-    res.redirect("/products/productdetail/" + req.params.id);
+        res.redirect("/products/productdetail/" + idProduct);
+      })
+      .catch(function (errors) {
+        console.log(errors);
+      });
   },
 
   eliminar: (req, res) => {
@@ -255,6 +274,23 @@ const controlador = {
       );
     });
   },
+  buscador: async (req, res) => {
+    let busqueda = req.query.search;
+    let producto = await db.Product.findAll({
+        where: {
+        name: {
+          [Op.like]: "%" + busqueda + "%",
+        },
+      },
+    });
+    let categoria = "";
+
+    Promise.all([producto]).then(([producto]) => {
+      res.render(path.resolve(__dirname, "../views/products/products.ejs"),
+        { producto, categoria }
+      );
+    });
+  }
 };
 
 module.exports = controlador;

@@ -46,5 +46,8 @@ router.put('/:id/mostrar',controlador.mostrarProducto);
 //Vista de productos ocultos
 router.get('/ocultos', controlador.productosOcultos);
 
+//Buscador de productos
+router.get('/search', controlador.buscador);
+
 
 module.exports = router;

@@ -11,7 +11,7 @@ module.exports = {
   "test": {
     "username": "root",
     "password": '',
-    "database": "cristianiksl_newsoft6",
+    "database": "newsoft6",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
