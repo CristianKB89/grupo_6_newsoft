@@ -118,10 +118,11 @@
             value="<%= locals.oldData ? oldData.brand : null %>">
             <option value="">Seleccione una marca</option>
             <% brands.forEach(brand => { %>
-              <option value="<%= brand.id_brands %>"><%= brand.brand %></option>
+              <option value="<%= brand.id_brands %>"  <%= locals.oldData && (brand.brand === oldData.brand) ? 'selected' : null %>><%= brand.brand %></option>
               <% }); %>
           </select>
         </div>
+
 
         <div class="control-formulario">
           <label for="precio">Indique el precio del producto:
@@ -191,7 +192,7 @@
             <% } %>
           </label>
           <textarea name="description" id="description" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input"></textarea>
+            class="control-input"><%= locals.oldData?locals.oldData.description:null %></textarea>
         </div>
         <br>
         <br>
