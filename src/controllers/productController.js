@@ -169,6 +169,14 @@ const controlador = {
         }
       );
     } else{
+      let image;
+
+      if (req.file != undefined) {
+        image = req.file.filename;
+      } else {
+        image = productoEditar.image;
+      }
+
       products_has_colors.destroy({
         where: {
           id_products: idProduct,
@@ -182,6 +190,7 @@ const controlador = {
           id_categories: req.body.categories,
           accesories: req.body.accesories,
           description: req.body.description,
+          image: image
         },
         {
           where: {

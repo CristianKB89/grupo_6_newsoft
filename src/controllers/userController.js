@@ -208,13 +208,10 @@ const controlador = {
   },
 
   ProcesoLogin: (req, res) => {
-    let promUsers = db.User.findAll();
-    let promProduct = db.Product.findAll();
-    Promise.all([promUsers, promProduct])
-      .then(([users, products]) => {
+    db.User.findAll()
+    .then(([users]) => {
         //Usuario que se loguea
         let user = users.find((user) => user.email == req.body.email);
-
         if (user) {
           let passwordCorrecto = bcryptjs.compareSync(req.body.password, user.password)
             if (passwordCorrecto) {
