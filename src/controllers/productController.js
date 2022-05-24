@@ -337,7 +337,7 @@ const controlador = {
         where: {
         name: {
           [Op.like]: "%" + busqueda + "%",
-        },
+        }
       },
     });
     let categoria = "";
