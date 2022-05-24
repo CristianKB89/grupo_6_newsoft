@@ -33,7 +33,15 @@ const controlador = {
 
   crearProducto: async (req, res) => {
     const resultValidation = validationResult(req);
-
+    let brands = await db.Brand.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+    let categories = await db.Category.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+    let colors = await db.Color.findAll().catch(function (errors) {
+      console.log(errors);
+    });
     if (resultValidation.errors.length > 0) {
       return res.render(
         path.resolve(
@@ -43,6 +51,9 @@ const controlador = {
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
+          brands,
+          categories,
+          colors
         }
       );
     } else {
