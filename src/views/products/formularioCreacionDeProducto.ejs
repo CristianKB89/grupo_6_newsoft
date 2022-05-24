@@ -114,14 +114,18 @@
               </div>
             <% } %>
           </label>
-          <select name="brand" id="brand" class="control-input <%= locals.errors && errors.brand ? 'is-invalid' : null %>"
-            value="<%= locals.oldData ? oldData.brand : null %>">
+          <select name="brand" id="brand" class="control-input">
             <option value="">Seleccione una marca</option>
-            <% brands.forEach(brand => { %>
-              <option value="<%= brand.id_brands %>"><%= brand.brand %></option>
-              <% }); %>
+            <%brands.forEach(brand =>{%>
+                <%if(locals.oldData && oldData.brand == brand.brand){%>
+                    <option id="<%=brand.id_brands%>" value="<%=brand.brand%>" selected><%=brand.brand%></option>
+                <%}else{%>
+                    <option id="<%=brand.id_brands%>" value="<%=brand.brand%>"><%=brand.brand%></option>
+                <%}%>
+            <%})%>
           </select>
         </div>
+
 
         <div class="control-formulario">
           <label for="precio">Indique el precio del producto:
@@ -143,12 +147,15 @@
               </div>
             <% } %>
           </label>
-          <select name="categories" id="categories" class="control-input <%= locals.errors && errors.categories ? 'is-invalid' : null %>"
-            value="<%= locals.oldData ? oldData.categories : null %>">
+          <select name="categories" id="categories" class="control-input">
               <option value="">Seleccione una categoria</option>
-              <% categories.forEach(category => { %>
-              <option value="<%= category.id_categories %>"><%= category.categories %></option>
-              <% }); %>
+              <%categories.forEach(category =>{%>
+                  <%if(locals.oldData && oldData.categories == category.categories){%>
+                      <option id="<%=category.id_categories%>" value="<%=category.categories%>" selected><%=category.categories%></option>
+                  <%}else{%>
+                      <option id="<%=category.id_categories%>" value="<%=category.categories%>"><%=category.categories%></option>
+                  <%}%>
+              <%})%>
           </select>
         </div>
 
@@ -161,10 +168,17 @@
             <% } %>
           </label>
 
-          <% colors.forEach(color => { %>
-            <label for="color"><%= color.colors %></label>
-            <input type="checkbox" name="color" id="color" value="<%= color.id_colors %>"  class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>"> 
-            <% }); %>
+          <% if (locals.colors && colors.length > 0) { %>
+            <% colors.forEach(color => { %>
+                <label for="<%= color.colors %>">
+                <% if(locals.oldData && oldData.color){ %>
+                    <input type="checkbox" name="color" id="color" class="checkbox" value="<%= color.id_colors %>" <%= oldData.color.includes(color.id_colors.toString()) ? 'checked' : '' %> /><%= color.colors %>
+                <% } else { %>
+                    <input type="checkbox" name="color" id="color" class="checkbox" value="<%= color.id_colors %>"><%= color.colors %>
+                <% } %>
+                </label>
+            <% }) %>
+        <% } %>
         </div>
 
         <div class="control-formulario">
@@ -191,7 +205,7 @@
             <% } %>
           </label>
           <textarea name="description" id="description" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input"></textarea>
+            class="control-input"><%= locals.oldData?locals.oldData.description:null %></textarea>
         </div>
         <br>
         <br>

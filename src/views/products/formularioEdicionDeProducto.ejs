@@ -112,10 +112,10 @@
               </div>
             <% } %>
           </label>
-          <select name="brand" id="brand" class="control-input" value="<%= productoEditar.brand %>">
+          <select name="brand" id="brand" class="control-input">
             <option value="">Seleccione una marca</option>
             <% brands.forEach(brand => { %>
-              <option value="<%= brand.id_brands %>"><%= brand.brand %> <%= productoEditar.brand == "brand[i]" ? "selected" : null %></option>
+              <option value="<%= brand.id_brands %>" <%= productoEditar.id_brands== brand.id_brands? "selected" : null %>><%= brand.brand %></option>
               <% }); %>
           </select>
         </div>
@@ -140,10 +140,10 @@
               </div>
             <% } %>
           </label>
-          <select name="categories" id="categories" class="control-input" value="<%= productoEditar.categories %>">
+          <select name="categories" id="categories" class="control-input">
             <option value="">Seleccione una categoria</option>
             <% categories.forEach(category => { %>
-            <option value="<%= category.id_categories %>"><%= category.categories %></option>
+            <option value="<%= category.id_categories %>" <%= productoEditar.id_categories == category.id_categories? "selected" : null %>> <%= category.categories %> </option>
             <% }); %>
           </select>
         </div>
@@ -156,10 +156,20 @@
               </div>
             <% } %>
           </label>
-          <% colors.forEach(color => { %>
-            <label for="color"><%= color.colors %></label>
-            <input type="checkbox" name="color" id="color" value="<%= color.id_colors %>"  class="checkbox <%= locals.errors && errors.color ? 'checked' : null %>"> 
-            <% }); %>
+
+          <% for(let i = 0; i < colors.length; i++) { %>
+                <input
+                    type="checkbox"
+                    value="<%= colors[i].id_colors %>" 
+                    <% for( let j = 0; j < productoEditar.colors.length; j++ ) { %>
+                        <% if (colors[i].id_colors == productoEditar.colors[j].id_colors) { %>
+                            checked
+                        <% } %>    
+                    <% } %>
+                    name="color" id="color" class="checkbox">
+                    <%= colors[i].colors %>  
+            
+        <% } %>
         </div>
 
         <div class="control-formulario">
