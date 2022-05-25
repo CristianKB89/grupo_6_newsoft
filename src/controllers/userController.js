@@ -4,7 +4,6 @@ const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 // const usersFilePath = path.join(__dirname, "../data/users.json");
 // const User = require("../models/Usuario");
-const productsFilePath = path.join(__dirname, "../data/products.json");
 const db = require("../database/models");
 const Op = db.Sequelize.Op;
 
@@ -31,8 +30,8 @@ const controlador = {
 
     if (resultValidation.errors.length > 0) {
       return res.render(
-        (path.resolve(__dirname, "../views/users/register.ejs"),
-        { }),
+        path.resolve(__dirname, "../views/users/register.ejs"
+        ),
         {
           errors: resultValidation.mapped(),
           oldData: req.body
@@ -75,7 +74,10 @@ const controlador = {
           email: req.body.email,
           password: bcryptjs.hashSync(req.body.password, 10),
           image: image,
-          newsletter: req.body.newsletter
+          newsletter: req.body.newsletter,
+          user_phone:req.body.user_phone,
+          user_address:req.body.user_address,
+          user_rol:"usuario"
         }
 
         if (req.body.newsletter != null) {
@@ -121,8 +123,7 @@ const controlador = {
 
     if (resultValidation.errors.length > 0) {
       return res.render(
-        (path.resolve(__dirname, "../views/users/userEdit.ejs"),
-        { }),
+        path.resolve(__dirname, "../views/users/userEdit.ejs"),
         {
           errors: resultValidation.mapped(),
           oldData: req.body,
@@ -174,6 +175,8 @@ const controlador = {
       email: req.body.email,
       password: password,
       image: image,
+      user_phone:req.body.user_phone,
+      user_address:req.body.user_address,
     },
     {
       where: { id_users: userId }
