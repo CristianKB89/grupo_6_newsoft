@@ -81,9 +81,15 @@
                <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input" value="<%= usuarioEditar.password %>" >
           </div>
           <div class="control-formulario">
-            <label for="image" class="form-label">Cargue una nueva imagen para su perfil</label>
-						<input type="file" id="image" name="image" class="control-input" value="<%= usuarioEditar.image%>" multiple>
-					</div>
+              <label for="image" class="form-label">Cargue una nueva imagen para su perfil:
+                <% if (locals.errors && errors.image) { %>
+                  <div class="mensaje-error">
+                    <%= errors.image.msg %> 
+                  </div>
+                <% } %>
+              </label>
+              <input type="file" id="image" name="image" class="control-input" value="<%= usuarioEditar.image%>" multiple>
+            </div>
     
 
           <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR USUARIO</button></div>

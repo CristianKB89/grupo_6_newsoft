@@ -1,4 +1,6 @@
 const {body} = require('express-validator');
+const path = require('path');
+
 
 const arrayvValidations = [
     body("name")
@@ -27,7 +29,23 @@ const arrayvValidations = [
         minNumbers: 1,
 		minSymbols: 1
     })
-    .withMessage('Minimo 8 caracteres, 1 mayuscula, 1 numero y 1 caracter')
+    .withMessage('Minimo 8 caracteres, 1 mayuscula, 1 numero y 1 caracter'),
+
+    body('image').custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = ['.jpg','.png', ".jpeg",'.gif'];
+
+		if (!file) {
+
+		} else {
+			let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+			}
+		}
+
+		return true;
+	})
 
         //Las validaciones der la base de datos se realizan en el controlador
 

@@ -1,4 +1,5 @@
 const {body} = require('express-validator');
+const path = require('path');
 
 
 const arrayvValidations = [
@@ -19,6 +20,22 @@ const arrayvValidations = [
     body("description")
     .notEmpty().withMessage("Debes completar el campo descripcion").bail()
     .isLength({min:20}).withMessage("La descripcion del producto debe tener minimo 20 caracteres"),  
+
+    body('image').custom((value, { req }) => {
+		let file = req.file;
+		let acceptedExtensions = ['.png', ".jpeg"];
+
+		if (!file) {
+
+		} else {
+			let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+			}
+		}
+
+		return true;
+	})
 
 
 ];

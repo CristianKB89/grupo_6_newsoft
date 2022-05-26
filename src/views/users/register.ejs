@@ -157,8 +157,14 @@
                value="<%= locals.oldData ? oldData.password : null %>">
           </div>
           <div class="control-formulario">
-            <label for="image" class="form-label">Cargue una imagen para su perfil</label>
-						<input type="file" id="image" name="image" class="control-input" multiple>
+            <label for="image" class="form-label">Cargue una imagen para su perfil:
+              <% if (locals.errors && errors.image) { %>
+                <div class="mensaje-error">
+                  <%= errors.image.msg %> 
+                </div>
+              <% } %>
+            </label>
+						<input type="file" id="image" name="image" class="control-input">
 					</div>
             
           <div>
