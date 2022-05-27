@@ -20,6 +20,15 @@ const controlador = {
       });
   },
 
+  admin: (req, res) => {
+    db.User.findAll()
+      .then(usuarios => {
+        res.render(path.resolve(__dirname, "../views/users/admin.ejs"), {
+          usuarios,
+        })
+      });
+  },
+
   registro: (req, res) => {
     res.render(path.resolve(__dirname, "../views/users/register.ejs"), {
     });

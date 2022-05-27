@@ -23,7 +23,7 @@ const arrayvValidations = [
 
     body('image').custom((value, { req }) => {
 		let file = req.file;
-		let acceptedExtensions = ['.png', ".jpeg"];
+		let acceptedExtensions = ['.jpg','.png', ".jpeg",'.gif'];
 
 		if (!file) {
 

@@ -4,6 +4,7 @@ const path = require('path');
 const arrayvValidations = require('../middlewares/registerValidations');
 const invitadoMiddleware = require('../middlewares/invitadoMiddleware');
 const autenticacionMiddleware = require('../middlewares/autenticacionMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 const multer = require('multer');
 
 var storage = multer.diskStorage({
@@ -20,6 +21,9 @@ const controlador = require('../controllers/userController.js');
 
 //Listado de usuarios
 router.get('/', controlador.users);
+
+//Vista de administrador
+router.get('/admin', controlador.admin);
 
 //Formulario de creación de usuarios
 router.get('/create',invitadoMiddleware, controlador.registro);
