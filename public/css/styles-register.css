@@ -196,6 +196,18 @@ padding-bottom: 20px;
     color: red;
 }
 
+.is-valid {
+    color: #198754;
+  }
+  
+  .is-invalid {
+    color: #842029;
+  }
+  
+  .alert-warning{
+    color: #842029;
+  }
+
 
 /*Animacion*/
 /* .logo-solo {
