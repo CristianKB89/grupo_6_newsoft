@@ -53,13 +53,43 @@
             <% } %>
                <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" value="<%= usuarioEditar.email %>" >
           </div>
+
           <div class="control-formulario">
+            <% if (locals.errors && errors.user_phone) { %>
+              <div class="mensaje-error">
+                <%= errors.user_phone.msg %> 
+              </div>
+            <% } %>
+               <input type="number" name="user_phone" placeholder="TELÉFONO" class="control-input" value="<%= usuarioEditar.user_phone %>">
+          </div>
+
+          <div class="control-formulario">
+            <% if (locals.errors && errors.user_address) { %>
+              <div class="mensaje-error">
+                <%= errors.user_address.msg %> 
+              </div>
+            <% } %>
+               <input type="text" name="user_address" placeholder="DIRECCIÓN" class="control-input" value="<%= usuarioEditar.user_address %>">
+          </div>
+          
+          <div class="control-formulario">
+            <% if (locals.errors && errors.password) { %>
+              <div class="mensaje-error">
+                <%= errors.password.msg %> 
+              </div>
+            <% } %>
                <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input" value="<%= usuarioEditar.password %>" >
           </div>
           <div class="control-formulario">
-            <label for="image" class="form-label">Cargue una nueva imagen para su perfil</label>
-						<input type="file" id="image" name="image" class="control-input" value="<%= usuarioEditar.image%>" multiple>
-					</div>
+              <label for="image" class="form-label">Cargue una nueva imagen para su perfil:
+                <% if (locals.errors && errors.image) { %>
+                  <div class="mensaje-error">
+                    <%= errors.image.msg %> 
+                  </div>
+                <% } %>
+              </label>
+              <input type="file" id="image" name="image" class="control-input" value="<%= usuarioEditar.image%>" multiple>
+            </div>
     
 
           <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR USUARIO</button></div>

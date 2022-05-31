@@ -193,8 +193,14 @@
           value="<%= locals.oldData ? oldData.accesories : null %>">
         </div>
         <div class="control-formulario">
-          <label for="image">Ingrese una imagen del producto:<br><br></label>
-          <input type="file" name="image" id="image" class="control-input"  multiple >
+          <label for="image">Ingrese una imagen del producto:
+            <% if (locals.errors && errors.image) { %>
+              <div class="mensaje-error">
+                <%= errors.image.msg %> 
+              </div>
+            <% } %>
+            </label>
+          <input type="file" name="image" id="image" class="control-input">
         </div>
         <div class="control-formulario">
           <label for="description">Realice una breve descripcion del producto:

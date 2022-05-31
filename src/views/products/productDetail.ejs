@@ -66,25 +66,25 @@
         </div>
         <div class="content-product-color">
           <form class="form-car" action="/productCart/addProductCart" method="POST" style="display: inline-flex">
-           <div class="product-color">
-            <div class="img-color">
-              <img src="/img/products/<%=productoDetalle.image ? productoDetalle.image : 'default.jpg'%>" alt="">
-            </div>
+            <div class="product-color">
+              <div class="img-color">
+                <img src="/img/products/<%=productoDetalle.image ? productoDetalle.image : 'default.jpg'%>" alt="">
+              </div>
               <div class="color">
                 <select class="color-select" name="color" id="color" value="<%= productoDetalle.colors %>">
                   <% productoDetalle.colors.forEach(color=> { %>
-                  <option value="<%= productoDetalle.colors.colors_id %>">
-                    <%= productoDetalle.colors.colors==color.colors ? "selected": null %> 
-                    <%= color.colors %>
-                  </option>
-                  <% }); %>
+                    <option value="<%= productoDetalle.colors.colors_id %>">
+                      <%= productoDetalle.colors.colors==color.colors ? "selected" : null %>
+                        <%= color.colors %>
+                    </option>
+                    <% }); %>
                 </select>
               </div>
             </div>
-          <label for="id"></label>
-          <input type="hidden" name="id" value="<%=productoDetalle.id_products%>">
-          <input type="hidden" name="car" value="true">
-          <button type="submit" class="add-carrito">Agregar al Carrito</button>
+            <label for="id"></label>
+            <input type="hidden" name="id" value="<%=productoDetalle.id_products%>">
+            <input type="hidden" name="car" value="true">
+            <button type="submit" class="add-carrito">Agregar al Carrito</button>
           </form>
 
           <div class="video-rese">
@@ -92,35 +92,39 @@
               <i class="fa-solid fa-cube"></i>Video
             </a>
           </div>
-          <div class="video-rese">
-            <a href="/products/<%=productoDetalle.id_products%>/edit" target="_blank" class="video">
-              <i class="fas fa-edit"></i>Editar Producto
-            </a>
-          </div>
+          <% if (locals.estaLogueado) { %>
+            <% if (locals.usuarioLogueado.user_rol=='admin' ) { %>
+              <div class="video-rese">
+                <a href="/products/<%=productoDetalle.id_products%>/edit" target="_blank" class="video">
+                  <i class="fas fa-edit"></i>Editar Producto
+                </a>
+              </div>
 
-          <div class="video-rese">
-            <%if (productoDetalle.visible==true) { %>
-              <form action="/products/<%=productoDetalle.id_products%>/ocultar?_method=PUT" method="POST"
-                style="display: inline-flex">
-                <i class="fa-regular fa-eye-slash"></i>
-                <button type="submit" class="ocultar">OCULTAR PRODUCTO</button>
-              </form>
-              <% } %>
-                <%if (productoDetalle.visible==false) { %>
-                  <form action="/products/<%=productoDetalle.id_products%>/mostrar?_method=PUT" method="POST"
+              <div class="video-rese">
+                <%if (productoDetalle.visible==true) { %>
+                  <form action="/products/<%=productoDetalle.id_products%>/ocultar?_method=PUT" method="POST"
                     style="display: inline-flex">
-                    <i class="fa-regular fa-eye"></i>
-                    <button type="submit" class="ocultar">MOSTRAR PRODUCTO</button>
+                    <i class="fa-regular fa-eye-slash"></i>
+                    <button type="submit" class="ocultar">OCULTAR PRODUCTO</button>
                   </form>
                   <% } %>
-          </div>
-          <div class="video-rese">
-            <form action="/products/<%=productoDetalle.id_products%>?_method=DELETE" method="POST"
-              style="display: inline-flex">
-              <i class="far fa-trash-alt"></i>
-              <button type="submit" class="button">ELIMINAR</button>
-            </form>
-          </div>
+                    <%if (productoDetalle.visible==false) { %>
+                      <form action="/products/<%=productoDetalle.id_products%>/mostrar?_method=PUT" method="POST"
+                        style="display: inline-flex">
+                        <i class="fa-regular fa-eye"></i>
+                        <button type="submit" class="ocultar">MOSTRAR PRODUCTO</button>
+                      </form>
+                      <% } %>
+              </div>
+              <div class="video-rese">
+                <form action="/products/<%=productoDetalle.id_products%>?_method=DELETE" method="POST"
+                  style="display: inline-flex">
+                  <i class="far fa-trash-alt"></i>
+                  <button type="submit" class="button">ELIMINAR</button>
+                </form>
+              </div>
+              <% } %>
+                <% } %>
         </div>
       </div>
       </div>

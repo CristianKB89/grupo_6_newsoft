@@ -27,7 +27,7 @@
 
   <main class="profile">
     <div>
-      <h2 class="titulo">Informacion del usuario <%= usuario.name %>
+      <h2 class="titulo">Administrador <%= usuario.name %>
           <%= usuario.lastname %>
       </h2><br>
     </div>
@@ -46,11 +46,12 @@
         <p class="profilep">Email:<%= usuario.email %>
         </p>
         <div class="botones">
-          <a class="boton-formulario" href="/users/<%= usuario.id_users %>/edit">EDITAR MI USUARIO</a>
-          <form action="/users/<%=usuario.id_users%>" method="POST" style="display: inline-flex">
-            <button type="submit" class="button-eliminar">ELIMINAR MI USUARIO</button>
-          </form>
-        </div>
+          <a class="boton-formulario" href="/users">LISTADO DE TODOS LOS USUARIOS</a>
+          <a class="boton-formulario" href="/products?categoria=catalogo">CATALOGO</a>
+          <a class="boton-formulario" href="/products/ocultos">PRODUCTOS OCULTOS</a>
+          <a class="boton-formulario" href="/products/create">AGREGAR PRODUCTO</a>
+
+
     </article>
     <br>
 
