@@ -163,7 +163,6 @@ window.addEventListener('load', function () {
         // 
 
         //validaciones de email
-        //email obligatorio y vaido 
         if (email.value == "") {
             errores.push('El campo email no debe estar vacio');
             email.classList.add('is-invalid');

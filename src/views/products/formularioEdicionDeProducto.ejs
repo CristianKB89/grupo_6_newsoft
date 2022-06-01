@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <script src="/js/productValidations.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
@@ -84,11 +85,11 @@
   </header>
 
   <main>
-    <form action="/products/<%= productoEditar.id_products %>?_method=PUT"  method="POST" class="formulario-forma" enctype="multipart/form-data">
+    <form action="/products/<%= productoEditar.id_products %>?_method=PUT"  method="POST" id="form" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
-
       </div>
+      <ul class="errores alert-warning"></ul><br>
       <P>Complete todos los campos para editar correctamente el producto: <%= productoEditar.name %></P><br>
       
       <div class="formulado-interno">
@@ -100,7 +101,8 @@
               </div>
             <% } %>
           </label>
-          <input type="text" name="name" id="nombre" placeholder="NOMBRE DEL PRODUCTO"
+          <div class="ulErrorsNombreBlur alert-warning"></div>
+          <input type="text" name="name" id="name" placeholder="NOMBRE DEL PRODUCTO"
             class="control-input" value="<%= productoEditar.name %>">
         </div>
 
@@ -112,6 +114,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsMarcaBlur alert-warning"></div>
           <select name="brand" id="brand" class="control-input">
             <option value="">Seleccione una marca</option>
             <% brands.forEach(brand => { %>
@@ -128,6 +131,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsPrecioBlur alert-warning"></div>
           <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input" value="<%= productoEditar.price %>"
           >
         </div>
@@ -140,6 +144,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsCategoriasBlur alert-warning"></div>
           <select name="categories" id="categories" class="control-input">
             <option value="">Seleccione una categoria</option>
             <% categories.forEach(category => { %>
@@ -180,6 +185,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsAccesoriosBlur alert-warning"></div>
           <input type="texT" name="accesories" id="accesories" placeholder="ACCESORIOS" class="control-input" value="<%= productoEditar.accesories %>">
         </div>
 
@@ -196,6 +202,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsDescripcionBlur alert-warning"></div>
           <textarea name="description" id="description" placeholder="DESCRIPCION DEL PRODUCTO"
             class="control-input"><%= productoEditar.description %></textarea>
         </div>

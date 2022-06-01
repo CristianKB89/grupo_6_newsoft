@@ -207,6 +207,19 @@ form div i {
 
 }
 
+.is-valid {
+  color: #198754;
+}
+
+.is-invalid {
+  color: #842029;
+}
+
+.alert-warning{
+  color: #842029;
+  padding-left: 3%;
+}
+
 @media (min-width: 361px) {
 }
 

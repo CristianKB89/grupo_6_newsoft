@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <script src="/js/productValidations.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
@@ -85,10 +86,11 @@
   </header>
 
   <main>
-    <form action="/products/crear" method="post" class="formulario-forma" enctype="multipart/form-data">
+    <form action="/products/crear" method="post" id="form" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>FORMULARIO DE CREACION DE PRODUCTO</h1>
       </div>
+      <ul class="errores alert-warning"></ul><br>
       <P>Complete todos los campos para ingresar un nuevo producto</P><br>
 
       <div class="formulado-interno">
@@ -101,10 +103,12 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsNombreBlur alert-warning"></div>
           <input type="text" name="name" id="name" placeholder="NOMBRE DEL PRODUCTO"
             class="control-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.name : null %>">
         </div>
+        
 
         <div class="control-formulario">
           <label for="brand">Seleccione la marca del producto:
@@ -114,6 +118,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsMarcaBlur alert-warning"></div>
           <select name="brand" id="brand" class="control-input">
             <option value="">Seleccione una marca</option>
             <%brands.forEach(brand =>{%>
@@ -135,6 +140,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsPrecioBlur alert-warning"></div>
           <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input <%= locals.errors && errors.price ? 'is-invalid' : null %>"
           value="<%= locals.oldData ? oldData.price : null %>">
         </div>
@@ -147,6 +153,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsCategoriasBlur alert-warning"></div>
           <select name="categories" id="categories" class="control-input">
               <option value="">Seleccione una categoria</option>
               <%categories.forEach(category =>{%>
@@ -167,7 +174,6 @@
               </div>
             <% } %>
           </label>
-
           <% if (locals.colors && colors.length > 0) { %>
             <% colors.forEach(color => { %>
                 <label for="<%= color.colors %>">
@@ -189,6 +195,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsAccesoriosBlur alert-warning"></div>
           <input type="text" name="accesories" id="accesories" placeholder="ACCESORIOS" class="control-input <%= locals.errors && errors.accesories ? 'is-invalid' : null %>"
           value="<%= locals.oldData ? oldData.accesories : null %>">
         </div>
@@ -200,6 +207,7 @@
               </div>
             <% } %>
             </label>
+
           <input type="file" name="image" id="image" class="control-input">
         </div>
         <div class="control-formulario">
@@ -210,6 +218,7 @@
               </div>
             <% } %>
           </label>
+          <div class="ulErrorsDescripcionBlur alert-warning"></div>
           <textarea name="description" id="description" placeholder="DESCRIPCION DEL PRODUCTO"
             class="control-input"><%= locals.oldData?locals.oldData.description:null %></textarea>
         </div>
