@@ -6,11 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
   <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <script src="/js/userValidations.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/normalize.css"/>
+  <link rel="stylesheet" href="/css/normalize.css" />
   <link rel="stylesheet" href="/css/styles-register.css">
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
@@ -23,84 +25,105 @@
     <%- include('../partials/header') %>
   </header>
 
-    <main>
-        <form action="/users/<%= usuarioEditar.id_users %>?_method=PUT" method="POST" class="formulario-forma" enctype="multipart/form-data">
-         <div class="mensaje-logo"><h1>EDICIÓN DE USUARIO <%= usuarioEditar.name %></h1></div>
-         <P>Completa todos los campos para editar tu ID <%= usuarioEditar.name %></P>  
+  <main>
+    <form action="/users/<%= usuarioEditar.id_users %>?_method=PUT" method="POST" id="form" class="formulario-forma"
+      enctype="multipart/form-data">
+      <div class="mensaje-logo">
+        <h1>EDICIÓN DE USUARIO <%= usuarioEditar.name %>
+        </h1>
+      </div>
+      <ul class="errores alert-warning"></ul><br>
+      <P>Completa todos los campos para editar tu ID <%= usuarioEditar.name %>
+      </P>
 
-         <div class="formulado-interno">
-          <div class="control-formulario">
-            <% if (locals.errors && errors.name) { %>
-              <div class="mensaje-error">
-                <%= errors.name.msg %> 
-              </div>
-            <% } %>
-               <input type="text" name="name" placeholder="NOMBRE" class="control-input"  value="<%= usuarioEditar.name %>" >
-          </div>
-          <div class="control-formulario">
-            <% if (locals.errors && errors.lastname) { %>
-              <div class="mensaje-error">
-                <%= errors.lastname.msg %> 
-              </div>
-            <% } %>
-                <input type="text" name="lastname" placeholder="APELLIDOS" class="control-input" value="<%= usuarioEditar.lastname%>" >
-          </div>
-          <div class="control-formulario">
-            <% if (locals.errors && errors.email) { %>
-              <div class="mensaje-error">
-                <%= errors.email.msg %> 
-              </div>
-            <% } %>
-               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input" value="<%= usuarioEditar.email %>" >
-          </div>
-
-          <div class="control-formulario">
-            <% if (locals.errors && errors.user_phone) { %>
-              <div class="mensaje-error">
-                <%= errors.user_phone.msg %> 
-              </div>
-            <% } %>
-               <input type="number" name="user_phone" placeholder="TELÉFONO" class="control-input" value="<%= usuarioEditar.user_phone %>">
-          </div>
-
-          <div class="control-formulario">
-            <% if (locals.errors && errors.user_address) { %>
-              <div class="mensaje-error">
-                <%= errors.user_address.msg %> 
-              </div>
-            <% } %>
-               <input type="text" name="user_address" placeholder="DIRECCIÓN" class="control-input" value="<%= usuarioEditar.user_address %>">
-          </div>
-          
-          <div class="control-formulario">
-            <% if (locals.errors && errors.password) { %>
-              <div class="mensaje-error">
-                <%= errors.password.msg %> 
-              </div>
-            <% } %>
-               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input" value="<%= usuarioEditar.password %>" >
-          </div>
-          <div class="control-formulario">
-              <label for="image" class="form-label">Cargue una nueva imagen para su perfil:
-                <% if (locals.errors && errors.image) { %>
-                  <div class="mensaje-error">
-                    <%= errors.image.msg %> 
-                  </div>
-                <% } %>
-              </label>
-              <input type="file" id="image" name="image" class="control-input" value="<%= usuarioEditar.image%>" multiple>
+      <div class="formulado-interno">
+        <div class="control-formulario">
+          <% if (locals.errors && errors.name) { %>
+            <div class="mensaje-error">
+              <%= errors.name.msg %>
             </div>
-    
-
-          <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR USUARIO</button></div>
-          <br>
+            <% } %>
+              <div class="ulErrorsNombreBlur alert-warning"></div>
+              <input type="text" name="name" id="name" placeholder="NOMBRE" class="control-input"
+                value="<%= usuarioEditar.name %>">
         </div>
-        </form>
-    </main> 
- 
-    <footer>
-      <%- include('../partials/footer.ejs') %>
-    </footer>
+        <div class="control-formulario">
+          <% if (locals.errors && errors.lastname) { %>
+            <div class="mensaje-error">
+              <%= errors.lastname.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsApellidoBlur alert-warning"></div>
+              <input type="text" name="lastname" id="lastname" placeholder="APELLIDOS" class="control-input"
+                value="<%= usuarioEditar.lastname%>">
+        </div>
+        <div class="control-formulario">
+          <% if (locals.errors && errors.email) { %>
+            <div class="mensaje-error">
+              <%= errors.email.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsEmailBlur alert-warning"></div>
+              <input type="email" name="email" id="correo" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO"
+                class="control-input" value="<%= usuarioEditar.email %>">
+        </div>
 
- </body>
+        <div class="control-formulario">
+          <% if (locals.errors && errors.user_phone) { %>
+            <div class="mensaje-error">
+              <%= errors.user_phone.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsTelefonoBlur alert-warning"></div>
+              <input type="number" name="user_phone" id="user_phone" placeholder="TELÉFONO" class="control-input"
+                value="<%= usuarioEditar.user_phone %>">
+        </div>
+
+        <div class="control-formulario">
+          <% if (locals.errors && errors.user_address) { %>
+            <div class="mensaje-error">
+              <%= errors.user_address.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsDireccionBlur alert-warning"></div>
+              <input type="text" name="user_address" id="user_address" placeholder="DIRECCIÓN" class="control-input"
+                value="<%= usuarioEditar.user_address %>">
+        </div>
+
+        <div class="control-formulario">
+          <% if (locals.errors && errors.password) { %>
+            <div class="mensaje-error">
+              <%= errors.password.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsContrasenaBlur alert-warning"></div>
+              <input type="password" name="password" placeholder="CONTRASEÑA" id="pass" class="control-input"
+                value="<%= usuarioEditar.password %>">
+        </div>
+        <div class="control-formulario">
+          <label for="image" class="form-label">Cargue una nueva imagen para su perfil:
+            <% if (locals.errors && errors.image) { %>
+              <div class="mensaje-error">
+                <%= errors.image.msg %>
+              </div>
+              <% } %>
+          </label>
+          <input type="file" id="image" name="image" id="image" class="control-input" value="<%= usuarioEditar.image%>"
+            multiple>
+        </div>
+
+
+        <div class="control-envio"><button type="submit" id="botonEnviar" class="boton-formulario">EDITAR
+            USUARIO</button></div>
+        <br>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer.ejs') %>
+  </footer>
+
+</body>
+
 </html>

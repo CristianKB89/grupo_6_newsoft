@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <script src="/js/userValidations.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/normalize.css"/>
+  <link rel="stylesheet" href="/css/normalize.css" />
   <link rel="stylesheet" href="/css/styles-register.css">
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
@@ -37,7 +38,7 @@
         </div>
       </a>
 
-      <a href="/"><img class="logo-header" src="/img/logo-one.png"/></a>
+      <a href="/"><img class="logo-header" src="/img/logo-one.png" /></a>
       <nav class="main-nav-header">
         <ul class="ul-menu">
           <li>
@@ -69,123 +70,136 @@
       </nav>
       <div class="search-cart">
         <% if (locals.estaLogueado) { %>
-          <a class="name" href="/users/profile"><img class="img-perfil" src="/img/users/<%=locals.usuarioLogueado.image%>" alt="<%=locals.usuarioLogueado.name%>"></a>
+          <a class="name" href="/users/profile"><img class="img-perfil"
+              src="/img/users/<%=locals.usuarioLogueado.image%>" alt="<%=locals.usuarioLogueado.name%>"></a>
           <a class="log-out" href="/users/logout">Logout</a>
-        <% } else { %>
-        <!-- Ventana modal del login -->
-        <%- include('../partials/modal-login.ejs') %>
-        <!-- FIN Ventana modal del login -->
-        <% } %>
-        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
+          <% } else { %>
+            <!-- Ventana modal del login -->
+            <%- include('../partials/modal-login.ejs') %>
+              <!-- FIN Ventana modal del login -->
+              <% } %>
+                <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
       </div>
     </div>
   </header>
 
-    <main>
-        <form action="/users/" method="post" class="formulario-forma" enctype="multipart/form-data">
-         <div class="mensaje-logo"><h1>FORMULARIO DE REGISTRO</h1></div>
-         <P>Complete todos los campos para crear su ID</P>  
+  <main>
 
+    <form action="/users/" method="post" id="form" class="formulario-forma" enctype="multipart/form-data">
+      <div class="mensaje-logo">
+        <h1>FORMULARIO DE REGISTRO</h1>
+      </div>
+      <ul class="errores alert-warning"></ul><br>
+      <P>Complete todos los campos para crear su ID</P>
+      <div class="formulado-interno">
+        <div class="control-formulario">
 
-        
-         <div class="formulado-interno">
-          <div class="control-formulario">
-
-            <% if (locals.errors && errors.name) { %>
-              <div class="mensaje-error">
-                <%= errors.name.msg %> 
-              </div>
+          <% if (locals.errors && errors.name) { %>
+            <div class="mensaje-error">
+              <%= errors.name.msg %>
+            </div>
             <% } %>
-               <input type="text" name="name" placeholder="NOMBRE" class="control-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.name : null %>"
-             >
-          </div>
-          <div class="control-formulario">
-             
-            <% if (locals.errors && errors.lastname) { %>
-              <div class="mensaje-error">
-                <%= errors.lastname.msg %> 
-              </div>
-            <% } %>
-
-                <input type="text" name="lastname" placeholder="APELLIDOS" class="control-input <%= locals.errors && errors.lastname ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.lastname : null %>"
-              >
-          </div>
-          <div class="control-formulario">
-
-            <% if (locals.errors && errors.email) { %>
-              <div class="mensaje-error">
-                <%= errors.email.msg %> 
-              </div>
-            <% } %>
-            
-               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input <%= locals.errors && errors.email ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.email : null %>">
-          </div>
-
-          <div class="control-formulario">
-            <% if (locals.errors && errors.user_phone) { %>
-              <div class="mensaje-error">
-                <%= errors.user_phone.msg %> 
-              </div>
-            <% } %>
-               <input type="number" name="user_phone" placeholder="TELÉFONO" class="control-input <%= locals.errors && errors.user_phone ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.user_phone : null %>">
-          </div>
-
-          <div class="control-formulario">
-            <% if (locals.errors && errors.user_address) { %>
-              <div class="mensaje-error">
-                <%= errors.user_address.msg %> 
-              </div>
-            <% } %>
-               <input type="text" name="user_address" placeholder="DIRECCIÓN" class="control-input <%= locals.errors && errors.user_address ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.user_address : null %>">
-          </div>
-          
-
-          <div class="control-formulario">
-
-            <% if (locals.errors && errors.password) { %>
-              <div class="mensaje-error">
-                <%= errors.password.msg %> 
-              </div>
-            <% } %>
-
-               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input <%= locals.errors && errors.password ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.password : null %>">
-          </div>
-          <div class="control-formulario">
-            <label for="image" class="form-label">Cargue una imagen para su perfil:
-              <% if (locals.errors && errors.image) { %>
-                <div class="mensaje-error">
-                  <%= errors.image.msg %> 
-                </div>
-              <% } %>
-            </label>
-						<input type="file" id="image" name="image" class="control-input">
-					</div>
-            
-          <div>
-            <input type="checkbox" name="newsletter" id="newsletter">
-            <label for="newsletter">Si, quiero recibir noticias y correos electrónicos de productos</label>
-          </div>
-          <p> Al crear una cuenta, acepta nuestros <a href="#">Términos de servicio</a> y confirma que ha leido nuestra <a href="#">
-              Política de privacidad.</a> Este sitio está protegido por Captcha.</p>
-              <br>
-          <div class="control-envio"><button type="submit" class="boton-formulario">CREAR CUENTA</button></div>
-          <br>
-          
-          <br>
-          <div><a href="/login" class="control-input">INICIAR SESIÓN</a></div>
+              <div class="ulErrorsNombreBlur alert-warning"></div>
+              <input type="text" name="name" placeholder="NOMBRE" id="name"
+                class="control-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.name : null %>">
         </div>
-        </form>
-    </main> 
- 
-    <footer>
-      <%- include('../partials/footer.ejs') %>
-    </footer>
+        <div class="control-formulario">
 
- </body>
+          <% if (locals.errors && errors.lastname) { %>
+            <div class="mensaje-error">
+              <%= errors.lastname.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsApellidoBlur alert-warning"></div>
+              <input type="text" name="lastname" placeholder="APELLIDOS" id="lastname"
+                class="control-input <%= locals.errors && errors.lastname ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.lastname : null %>">
+        </div>
+        <div class="control-formulario">
+
+          <% if (locals.errors && errors.email) { %>
+            <div class="mensaje-error">
+              <%= errors.email.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsEmailBlur alert-warning"></div>
+              <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" id="correo"
+                class="control-input <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.email : null %>">
+        </div>
+
+        <div class="control-formulario">
+          <% if (locals.errors && errors.user_phone) { %>
+            <div class="mensaje-error">
+              <%= errors.user_phone.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsTelefonoBlur alert-warning"></div>
+              <input type="number" name="user_phone" placeholder="TELÉFONO" id="user_phone"
+                class="control-input <%= locals.errors && errors.user_phone ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.user_phone : null %>">
+        </div>
+
+        <div class="control-formulario">
+          <% if (locals.errors && errors.user_address) { %>
+            <div class="mensaje-error">
+              <%= errors.user_address.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsDireccionBlur alert-warning"></div>
+              <input type="text" name="user_address" placeholder="DIRECCIÓN" id="user_address"
+                class="control-input <%= locals.errors && errors.user_address ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.user_address : null %>">
+        </div>
+
+
+        <div class="control-formulario">
+          <% if (locals.errors && errors.password) { %>
+            <div class="mensaje-error">
+              <%= errors.password.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsContrasenaBlur alert-warning"></div>
+              <input type="password" name="password" placeholder="CONTRASEÑA" id="pass"
+                class="control-input <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.password : null %>">
+        </div>
+
+        <div class="control-formulario">
+          <label for="image" class="form-label">Cargue una imagen para su perfil:
+            <% if (locals.errors && errors.image) { %>
+              <div class="mensaje-error">
+                <%= errors.image.msg %>
+              </div>
+              <% } %>
+          </label>
+
+          <input type="file" id="image" name="image" id="image" class="control-input">
+        </div>
+
+        <div>
+          <input type="checkbox" name="newsletter" id="newsletter">
+          <label for="newsletter">Si, quiero recibir noticias y correos electrónicos de productos</label>
+        </div>
+        <p> Al crear una cuenta, acepta nuestros <a href="#">Términos de servicio</a> y confirma que ha leido nuestra <a
+            href="#">
+            Política de privacidad.</a> Este sitio está protegido por Captcha.</p>
+        <br>
+        <div class="control-envio"><button type="submit" id="botonEnviar" class="boton-formulario">CREAR CUENTA</button>
+        </div>
+        <br>
+
+        <br>
+        <div><a href="/login" class="control-input">INICIAR SESIÓN</a></div>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer.ejs') %>
+  </footer>
+
+</body>
+
 </html>
