@@ -123,9 +123,9 @@
             <option value="">Seleccione una marca</option>
             <%brands.forEach(brand =>{%>
                 <%if(locals.oldData && oldData.brand == brand.brand){%>
-                    <option id="<%=brand.id_brands%>" value="<%=brand.brand%>" selected><%=brand.brand%></option>
+                    <option id="<%=brand.id_brands%>" value="<%=brand.id_brands%>" selected><%=brand.brand%></option>
                 <%}else{%>
-                    <option id="<%=brand.id_brands%>" value="<%=brand.brand%>"><%=brand.brand%></option>
+                    <option id="<%=brand.id_brands%>" value="<%=brand.id_brands%>"><%=brand.brand%></option>
                 <%}%>
             <%})%>
           </select>
@@ -158,9 +158,9 @@
               <option value="">Seleccione una categoria</option>
               <%categories.forEach(category =>{%>
                   <%if(locals.oldData && oldData.categories == category.categories){%>
-                      <option id="<%=category.id_categories%>" value="<%=category.categories%>" selected><%=category.categories%></option>
+                      <option id="<%=category.id_categories%>" value="<%=category.id_categories%>" selected><%=category.categories%></option>
                   <%}else{%>
-                      <option id="<%=category.id_categories%>" value="<%=category.categories%>"><%=category.categories%></option>
+                      <option id="<%=category.id_categories%>" value="<%=category.id_categories%>"><%=category.categories%></option>
                   <%}%>
               <%})%>
           </select>

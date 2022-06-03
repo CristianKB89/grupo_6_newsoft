@@ -77,6 +77,7 @@ const controlador = {
         car: "false",
       })
         .then((result) => {
+          
           if (typeof req.body.color === "string") {
             products_has_colors
               .create({
@@ -100,7 +101,7 @@ const controlador = {
                 .catch((error) => console.log(error));
             });
           }
-          //res.send(req.body.color);
+          res.redirect("/products/productdetail/" + result.id_products);
         })
 
         .catch((errors) => {
