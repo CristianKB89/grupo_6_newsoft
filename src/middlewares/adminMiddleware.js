@@ -5,7 +5,7 @@ function admin (req, res, next) {
 		return next();
 	}
 
-	res.render(path.resolve(__dirname, "../views/index.ejs"))
+	res.redirect('/');
 }
 
 module.exports = admin;
