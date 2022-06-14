@@ -20,10 +20,10 @@ var upload = multer({ storage: storage })
 const controlador = require('../controllers/userController.js');
 
 //Listado de usuarios
-router.get('/', controlador.users);
+router.get('/',adminMiddleware, controlador.users);
 
 //Vista de administrador
-router.get('/admin', controlador.admin);
+router.get('/admin',adminMiddleware, controlador.admin);
 
 //Formulario de creación de usuarios
 router.get('/create',invitadoMiddleware, controlador.registro);

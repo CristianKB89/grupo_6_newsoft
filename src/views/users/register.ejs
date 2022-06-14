@@ -41,19 +41,18 @@
       <a href="/"><img class="logo-header" src="/img/logo-one.png" /></a>
       <nav class="main-nav-header">
         <ul class="ul-menu">
-          <li>
-            <a href="/products/create">
-              <span class="nav-btn-text">AGREGAR PRODUCTO</span>
-            </a>
-          </li>
+          <% if (locals.estaLogueado) { %>
+            <% if (locals.usuarioLogueado.user_rol=='admin' ) { %>
+              <li>
+                <a href="/users/admin">
+                  <span class="nav-btn-text">ADMIN</span>
+                </a>
+              </li>
+          <% } %>
+          <% } %>
           <li>
             <a href="/products?categoria=catalogo">
               <span class="nav-btn-text">PRODUCTOS</span>
-            </a>
-          </li>
-          <li>
-            <a href="/products/ocultos">
-              <span class="nav-btn-text">PRODUCTOS OCULTOS</span>
             </a>
           </li>
           <li>
@@ -69,16 +68,7 @@
         </ul>
       </nav>
       <div class="search-cart">
-        <% if (locals.estaLogueado) { %>
-          <a class="name" href="/users/profile"><img class="img-perfil"
-              src="/img/users/<%=locals.usuarioLogueado.image%>" alt="<%=locals.usuarioLogueado.name%>"></a>
-          <a class="log-out" href="/users/logout">Logout</a>
-          <% } else { %>
-            <!-- Ventana modal del login -->
-            <%- include('../partials/modal-login.ejs') %>
-              <!-- FIN Ventana modal del login -->
-              <% } %>
-                <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
+        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
       </div>
     </div>
   </header>
@@ -89,7 +79,6 @@
       <div class="mensaje-logo">
         <h1>FORMULARIO DE REGISTRO</h1>
       </div>
-      <ul class="errores alert-warning"></ul><br>
       <P>Complete todos los campos para crear su ID</P>
       <div class="formulado-interno">
         <div class="control-formulario">
@@ -191,6 +180,7 @@
         <br>
 
         <br>
+        <ul class="errores alert-warning"></ul><br>
         <div><a href="/login" class="control-input">INICIAR SESIÓN</a></div>
       </div>
     </form>

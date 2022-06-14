@@ -43,19 +43,18 @@
       <a href="/"><img class="logo-header" src="/img/logo-one.png"/></a>
       <nav class="main-nav-header">
         <ul class="ul-menu">
-          <li>
-            <a href="/products/create">
-              <span class="nav-btn-text">AGREGAR PRODUCTO</span>
-            </a>
-          </li>
+          <% if (locals.estaLogueado) { %>
+            <% if (locals.usuarioLogueado.user_rol=='admin' ) { %>
+              <li>
+                <a href="/users/admin">
+                  <span class="nav-btn-text">ADMIN</span>
+                </a>
+              </li>
+          <% } %>
+          <% } %>
           <li>
             <a href="/products?categoria=catalogo">
               <span class="nav-btn-text">PRODUCTOS</span>
-            </a>
-          </li>
-          <li>
-            <a href="/products/ocultos">
-              <span class="nav-btn-text">PRODUCTOS OCULTOS</span>
             </a>
           </li>
           <li>
@@ -90,7 +89,6 @@
       <div class="mensaje-logo">
         <h1>FORMULARIO DE CREACION DE PRODUCTO</h1>
       </div>
-      <ul class="errores alert-warning"></ul><br>
       <P>Complete todos los campos para ingresar un nuevo producto</P><br>
 
       <div class="formulado-interno">
@@ -224,6 +222,7 @@
         </div>
         <br>
         <br>
+        <ul class="errores alert-warning"></ul><br>
         <div class="control-envio"><button type="submit" class="boton-formulario">GUARDAR PRODUCTO</button>
           <a href="/products" class="control-final">EDITAR PRODUCTO EXISTENTE</a>
         </div>

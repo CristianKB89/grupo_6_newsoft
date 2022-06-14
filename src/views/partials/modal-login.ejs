@@ -10,10 +10,11 @@
                 <div class="modal-contenido">
                   <img class="logo-header" src="/img/logo-one.png"/>
                   <p class="titulo">Inicie sesión con su ID de NewSoft</p>
-                  <form action="/" method="POST" class="modal-formulario">
+                  <form action="/" method="POST" class="modal-formulario" id="form">
                     <div class="modal-email">
                       <label for="email"></label>
-                      <input type="email" name="email" id="email" placeholder="Dirección de correo" >
+                      <div class="ulErrorsEmailBlur alert-warning"></div><!-- Aqui se muestra el error email de email atraves de la validacion blur -->
+                      <input type="email" name="email" id="correo" placeholder="Dirección de correo" >
                     </div>
                     <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
@@ -24,7 +25,8 @@
                     <div class="modal-password">
                       <label for="password">
                       </label>
-                      <input type="password" name="password" id="password"  placeholder="Contraseña">
+                      <div class="ulErrorsContrasenaBlur alert-warning"></div> <!-- Aqui se muestra el error de contraseña atraves de la validacion blur -->
+                      <input type="password" name="password" id="pass"  placeholder="Contraseña">
                       
                     </div>
                     <% if (locals.errors && errors.password) { %>
@@ -44,6 +46,7 @@
                     <div class="modal-politics">
                       <p>Este sitio esta protegido por Captcha y se aplican si Política de privacidad y sus Términos de Servicio.</p>
                     </div>
+                    <ul class="errores alert-warning"></ul><br><!-- Aqui se muestra el array de errores de la validacion al hacer submit -->
                     <div class="modal-btn-sesion">
                         <button type="submit" class="modal-boton-inicio-sesion">INICIAR SESIÓN</button>
                     </div>
