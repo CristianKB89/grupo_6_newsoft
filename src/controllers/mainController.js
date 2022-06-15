@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const productsFilePath = path.join(__dirname, "../data/products.json");
 const bcryptjs = require("bcryptjs");
-const User = require("../models/Usuario");
+
 const db = require("../database/models");
 
 const Product = db.Product;

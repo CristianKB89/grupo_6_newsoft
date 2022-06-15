@@ -2,8 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-// const usersFilePath = path.join(__dirname, "../data/users.json");
-// const User = require("../models/Usuario");
+
 const db = require("../database/models");
 const Op = db.Sequelize.Op;
 

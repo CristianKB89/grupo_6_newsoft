@@ -3,7 +3,8 @@ window.addEventListener('load', function () {
 
     let formulario = document.querySelector('#form');
     let nombre = document.querySelector('#name');
-    nombre.focus();
+    
+    nombre?.focus();
     let apellido = document.querySelector('#lastname');
     let email = document.querySelector('#correo');
     let telefono = document.querySelector('#user_phone');
@@ -14,7 +15,7 @@ window.addEventListener('load', function () {
 
     //============Validaciones en tiempo real ==============//
     //validaciones de nombre
-    nombre.addEventListener('blur', function () {
+    nombre?.addEventListener('blur', function () {
         let ulErrorsNombreBlur = document.querySelector('.ulErrorsNombreBlur')
         if (nombre.value == '') {
             ulErrorsNombreBlur.innerHTML += '<li>El campo nombre no debe estar vacio</li>'
@@ -25,14 +26,14 @@ window.addEventListener('load', function () {
         }
     });
 
-    nombre.addEventListener('focus', function () {
+    nombre?.addEventListener('focus', function () {
         let ulErrorsNombreBlur = document.querySelector('.ulErrorsNombreBlur')
         ulErrorsNombreBlur.innerHTML = ''
     })
     //
 
     //validaciones de apellido
-    apellido.addEventListener('blur', function () {
+    apellido?.addEventListener('blur', function () {
         let ulErrorsApellidoBlur = document.querySelector('.ulErrorsApellidoBlur')
         if (apellido.value == '') {
             ulErrorsApellidoBlur.innerHTML += '<li>El campo apellido no debe estar vacio</li>'
@@ -43,7 +44,7 @@ window.addEventListener('load', function () {
         }
     });
 
-    apellido.addEventListener('focus', function () {
+    apellido?.addEventListener('focus', function () {
         let ulErrorsApellidoBlur = document.querySelector('.ulErrorsApellidoBlur')
         ulErrorsApellidoBlur.innerHTML = ''
     })
@@ -70,7 +71,7 @@ window.addEventListener('load', function () {
     //
 
     //validaciones de telefono
-    telefono.addEventListener('blur', function () {
+    telefono?.addEventListener('blur', function () {
         let ulErrorsTelefonoBlur = document.querySelector('.ulErrorsTelefonoBlur')
         if (telefono.value == "") {
             ulErrorsTelefonoBlur.innerHTML += '<li>El campo telefono no debe estar vacio</li>'
@@ -83,7 +84,7 @@ window.addEventListener('load', function () {
         }
     })
 
-    telefono.addEventListener('focus', function () {
+    telefono?.addEventListener('focus', function () {
         let ulErrorsTelefonoBlur = document.querySelector('.ulErrorsTelefonoBlur')
         ulErrorsTelefonoBlur.innerHTML = ''
     })
@@ -91,7 +92,7 @@ window.addEventListener('load', function () {
 
 
     //validaciones de direccion
-    direccion.addEventListener('blur', function () {
+    direccion?.addEventListener('blur', function () {
         let ulErrorsDireccionBlur = document.querySelector('.ulErrorsDireccionBlur')
         if (direccion.value == "") {
             ulErrorsDireccionBlur.innerHTML += '<li>El campo direccion no debe estar vacio</li>'
@@ -100,7 +101,7 @@ window.addEventListener('load', function () {
         }
     })
 
-    direccion.addEventListener('focus', function () {
+    direccion?.addEventListener('focus', function () {
         let ulErrorsDireccionBlur = document.querySelector('.ulErrorsDireccionBlur')
         ulErrorsDireccionBlur.innerHTML = ''
     })

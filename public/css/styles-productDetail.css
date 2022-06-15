@@ -87,15 +87,12 @@ h1{
  }
    
  #form label {
-   font-size: 3vw;
+   
+   color: grey;
  }
    
  input[type="radio"] {
    display: none;
- }
-   
- label {
-  color: grey;
  }
    
  .clasificacion {

@@ -9,7 +9,7 @@ const rutas_productcart= require('./routes/productCart')
 
 // Routes API
 const userApiRoutes = require('./routes/apiRoutes/userApiRouter.js');
-
+const productApiRoutes = require('./routes/apiRoutes/productApiRouter.js');
 
 const path = require('path');
 
@@ -43,6 +43,7 @@ app.use('/productCart', rutas_productcart);
 
 
 app.use(userApiRoutes);
+app.use(productApiRoutes);
 
 app.listen(process.env.PORT || 3030,() => {
     console.log('Servidor corriendo en el puerto 3030');
