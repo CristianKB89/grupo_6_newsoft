@@ -6,10 +6,12 @@ const rutas = require('./routes/main.js');
 const rutas_usuarios = require('./routes/users.js');
 const rutas_productos = require('./routes/products.js');
 const rutas_productcart= require('./routes/productCart')
+const cors = require('cors');
+
 
 // Routes API
-const userApiRoutes = require('./routes/apiRoutes/userApiRouter.js');
-const productApiRoutes = require('./routes/apiRoutes/productApiRouter.js');
+const userApiRoutes = require('./api/routes/userApiRouter');
+const productApiRoutes = require('./api/routes/productApiRouter');
 
 const path = require('path');
 
@@ -23,7 +25,7 @@ app.use(session({
 }));
 
 app.use(cookies());
-
+app.use(cors());
 app.use(usuarioLogueadoMiddleware);
 app.use(valoresProductCart);
 

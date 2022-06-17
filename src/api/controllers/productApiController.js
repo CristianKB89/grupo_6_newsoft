@@ -2,37 +2,15 @@ const db = require("../../database/models");
 
 const productApiController = {
   list: async (req, res) => {
-    try {
-      const products = await db.Product.findAll({
-        include: [{ association: "categories"}],
-        attributes: {
+    db.Product.findAll({
+      include: [{ association: "categories"}],
+          attributes: {
           exclude: ["price", "created_at", "updated_at", "deleted_at", "image", "accesories", "car", "visible","id_brands", "id_categories"],
         }
-      });
-      const count = await db.Product.count();
-      const countByCategory = await db.Product.count({
-        include: [{ association: "categories" }],
-        group: ["categories.categories"],
-      });
-
-      const data = products.map((product) => {
-        return {
-          ...product.dataValues,
-          detail: `/api/products/${product.dataValues.id_products}`,
-        };
-      });
-      return res.json({
-        meta: {
-          status: 200,
-          count,
-          url: req.originalUrl,
-          countByCategory
-        },
-        data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    }).then(products => {
+      res.json(products);
+    })
+    .catch(error => {res.json(error)});
   },
 
   detail: async (req, res) => {
