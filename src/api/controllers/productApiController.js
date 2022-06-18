@@ -2,24 +2,56 @@ const db = require("../../database/models");
 
 const productApiController = {
   list: async (req, res) => {
-    db.Product.findAll({
-      include: [{ association: "categories"}],
-          attributes: {
-          exclude: ["price", "created_at", "updated_at", "deleted_at", "image", "accesories", "car", "visible","id_brands", "id_categories"],
-        }
-    }).then(products => {
-      res.json(products);
-    })
-    .catch(error => {res.json(error)});
+    try {
+      const products = await db.Product.findAll({
+        include: ["brands", "categories", "colors"],
+        attributes: {
+          exclude: [
+            "price",
+            "created_at",
+            "updated_at",
+            "deleted_at",
+            "image",
+            "accesories",
+            "car",
+            "visible",
+            "id_brands",
+            "id_categories",
+            "id_colors",
+          ],
+        },
+      });
+      const count = await db.Product.count();
+      const countByCategory = await db.Product.count({
+        include: [{ association: "categories" }],
+        group: ["categories.categories"],
+      });
+      const data = products.map((product) => {
+        return {
+          ...product.dataValues,
+          detail: `/api/products/${product.dataValues.id_products}`,
+        };
+      });
+      return res.json({
+        meta: {
+          status: 200,
+          count,
+          countByCategory
+        },
+        data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   detail: async (req, res) => {
     try {
       const id = req.params.id;
-      const product = await db.Product.findByPk(id, 
-        { include: ["brands", "categories", "colors"],
+      const product = await db.Product.findByPk(id, {
+        include: ["brands", "categories", "colors"],
         attributes: {
-          exclude : ["created_at", "updated_at", "deleted_at", "car", "visible"],
+          exclude: ["created_at", "updated_at", "deleted_at", "car", "visible"],
         },
       });
       const data = {
@@ -28,9 +60,7 @@ const productApiController = {
       };
       return res.json({
         meta: {
-          status: 200,
-          count: 1,
-          url: req.originalUrl,
+          status: 200
         },
         data,
       });

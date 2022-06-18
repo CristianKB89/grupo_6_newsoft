@@ -19,7 +19,6 @@ const userApiController = {
                     meta: {
                         status: 200,
                         count,
-                        url: req.originalUrl,
                     },
                     data
                 });
