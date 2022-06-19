@@ -16,82 +16,42 @@
 
   <title>Carrito</title>
 </head>
-
+<header>
+  <%- include('../partials/header') %>
+</header>
 <body>
-  <header>
-    <div class="main-header">
-      <a class="burger-menu" href="#">
-        <div>
-          <i class="fas fa-bars"></i>
-        </div>
-      </a>
-      <img src="/images/logo-one.png" class="logo" />
-      <nav class="main-nav">
-        <div>
-          <i class="fa-solid fa-square-1"></i>
-          <span class="nav-btn-text">Información de contacto</span>
-          </a>
-          <a href="#">
-            <i class="fa-solid fa-square-2"></i>
-            <span class="nav-btn-text">Método de pago</span>
-          </a>
-          <a href="#">
-            <i class="fa-solid fa-square-3"></i>
-            <span class="nav-btn-text">Método de envio</span>
-          </a>
+  <div class="container">
 
-        </div>
-      </nav>
-      <div class="search-cart">
-        <button><i class="fas fa-search"></i></button>
-        <button><i class="fas fa-shopping-cart"></i></button>
-      </div>
-    </div>
-  </header>
+    <form action="">
 
-  <!----Envió-->
-  <section class="checkout">
+        <div class="row">
 
-    <h2 class="section-heading">Dirección entrega</h2>
-    <form>
-      <div class="form-group col-md-6">
-        <label class="font-weight-bold">Contacto<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" placeholder="contacto">
-      </div>
-      <div class="form-row mb-2">
-        <div class="form-group col-md-6">
-          <label class="font-weight-bold">País<span class="text-danger">*</span></label>
-          <input type="text" class="form-control" placeholder="País">
-        </div>
-        <div class="form-group col-md-6">
-          <label class="font-weight-bold">Departamento, ciudad, región<span class="text-danger">*</span></label>
-          <input type="text" class="form-control" placeholder="Departamento, ciudad, región">
-        </div>
-        <div class="form-row mb-2">
-          <div class="form-group col-md-6">
-            <label class="font-weight-bold">Descripción (Manzana, conjunto, casa (opcional)<span
-                class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="(Manzana, conjunto, casa (opcional)">
-          </div>
+            <div class="col">
 
-          <h2 class="section-heading">Medio de envió</h2>
-          <div class="form-group col-md-6">
-            <label class="font-weight-bold">Retiro en punto aliado Corsair<span class="text-danger">*</span></label>
-            <input type="text" class="form-control" placeholder="Retiro en punto aliado Corsair ">
-          </div>
-        </div>
-        <div class="form-group mb-3">
-          <label class="font-weight-bold">Envío estándar<span class="text-danger">*</span></label>
-          <input type="email" class="form-control" placeholder="Envío estándar">
-        </div>
-        <div class="form-group mb-3">
-          <label class="font-weight-bold">Envío día siguiente <span class="text-danger">*</span></label>
-          <input type="password" class="form-control" placeholder="Envío día siguiente">
+                <h3 class="title">Dirección de entrega</h3>
+
+                <div class="inputBox">
+                    <input type="text" placeholder="Contacto">
+                    <input type="text" placeholder="Departamento, región, país">
+                    <input type="text" placeholder="Dirección">
+                    <input type="text" placeholder="Descripción (manzana, conjunto, casa opcional)">
+                </div>
+                
+                <h3 class="title">Medios de envío</h3>
+                <div class="inputBox">
+                    <input type="text" placeholder="Retiro en punto aliado Corsair">
+                    <input type="text" placeholder="Envío estándar">
+                    <input type="text" placeholder="Envío al día siguiente">
+                </div>
+            </div>
+    
         </div>
 
-        <button class="btn btn-primary width-100">Continuar a pagar</button>
+        <input type="submit" value="Continuar a pagar" class="submit-btn">
+
     </form>
-    </main>
+
+</div>  
 </body>
 
 </html>
