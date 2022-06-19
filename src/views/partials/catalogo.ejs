@@ -1,21 +1,21 @@
 
 <% for(let i=0; i<cases.length; i++){ %>
     <% if (cases[i].visible==true) { %>
-    <a href="/products/productdetail/<%= cases[i].id %>">
+    <a href="/products/productdetail/<%= cases[i].id_products%>">
         <section class="product-item">
             <div class="imagen-producto">
-                <img src="/img/products/<%= cases[i].imagen %>" alt="imagen de producto">
+                <img src="/img/products/<%= cases[i].image %>" alt="imagen de producto">
             </div>
             <div class="datos">
                 <p class="nombre">
-                    <%= cases[i].nombre %>
+                    <%= cases[i].name %>
                 </p>
                 <p class="descipcion">
-                    <%= cases[i].descripcion %>
+                    <%= cases[i].description %>
                 </p>
             </div>
             <div class="precio">
-                <p>$<%= cases[i].precio %>
+                <p>$<%= cases[i].price %>
                 </p>
             </div>
         </section>
@@ -26,22 +26,22 @@
     <!-- TECLADOS -->
     <% for(let i=0; i<teclado.length; i++){ %>
     <% if (teclado[i].visible==true) { %>
-    <a href="/products/productdetail/<%= teclado[i].id %>">
+    <a href="/products/productdetail/<%= teclado[i].id_products %>">
         <section class="product-item">
             <div class="imagen-producto">
-                <img src="/img/products/<%= teclado[i].imagen %>"
+                <img src="/img/products/<%= teclado[i].image %>"
                     alt="imagen de producto">
             </div>
             <div class="datos">
                 <p class="nombre">
-                    <%= teclado[i].nombre %>
+                    <%= teclado[i].name %>
                 </p>
                 <p class="descipcion">
-                    <%= teclado[i].descripcion %>
+                    <%= teclado[i].description %>
                 </p>
             </div>
             <div class="precio">
-                <p>$<%= teclado[i].precio %>
+                <p>$<%= teclado[i].price %>
                 </p>
             </div>
         </section>
@@ -51,22 +51,22 @@
     <!-- AUDIFONOS -->
     <% for(let i=0; i<audifonos.length; i++){ %>
     <% if (audifonos[i].visible==true) { %>
-    <a href="/products/productdetail/<%= audifonos[i].id %>">
+    <a href="/products/productdetail/<%= audifonos[i].id_products %>">
         <section class="product-item">
             <div class="imagen-producto">
-                <img src="/img/products/<%= audifonos[i].imagen %>"
+                <img src="/img/products/<%= audifonos[i].image %>"
                     alt="imagen de producto">
             </div>
             <div class="datos">
                 <p class="nombre">
-                    <%= audifonos[i].nombre %>
+                    <%= audifonos[i].name %>
                 </p>
                 <p class="descipcion">
-                    <%= audifonos[i].descripcion %>
+                    <%= audifonos[i].description %>
                 </p>
             </div>
             <div class="precio">
-                <p>$<%= audifonos[i].precio %>
+                <p>$<%= audifonos[i].price %>
                 </p>
             </div>
         </section>
@@ -76,22 +76,22 @@
     <!-- RATONES -->
     <% for(let i=0; i<ratones.length; i++){ %>
     <% if (ratones[i].visible==true) { %>
-    <a href="/products/productdetail/<%= ratones[i].id %>">
+    <a href="/products/productdetail/<%= ratones[i].id_products %>">
         <section class="product-item">
             <div class="imagen-producto">
-                <img src="/img/products/<%= ratones[i].imagen %>"
+                <img src="/img/products/<%= ratones[i].image %>"
                     alt="imagen de producto">
             </div>
             <div class="datos">
                 <p class="nombre">
-                    <%= ratones[i].nombre %>
+                    <%= ratones[i].name %>
                 </p>
                 <p class="descipcion">
-                    <%= ratones[i].descripcion %>
+                    <%= ratones[i].description %>
                 </p>
             </div>
             <div class="precio">
-                <p>$<%= ratones[i].precio %>
+                <p>$<%= ratones[i].price %>
                 </p>
             </div>
         </section>
@@ -102,22 +102,22 @@
     <!-- CÁMARAS -->
     <% for(let i=0; i<camaras.length; i++){ %>
     <% if (camaras[i].visible==true) { %>
-    <a href="/products/productdetail/<%= camaras[i].id %>">
+    <a href="/products/productdetail/<%= camaras[i].id_products %>">
         <section class="product-item">
             <div class="imagen-producto">
-                <img src="/img/products/<%= camaras[i].imagen %>"
+                <img src="/img/products/<%= camaras[i].image %>"
                     alt="imagen de producto">
             </div>
             <div class="datos">
                 <p class="nombre">
-                    <%= camaras[i].nombre %>
+                    <%= camaras[i].name %>
                 </p>
                 <p class="descipcion">
-                    <%= camaras[i].descripcion %>
+                    <%= camaras[i].description %>
                 </p>
             </div>
             <div class="precio">
-                <p>$<%= camaras[i].precio %>
+                <p>$<%= camaras[i].price %>
                 </p>
             </div>
         </section>
@@ -128,22 +128,22 @@
     <!-- AUDIO -->
     <% for(let i=0; i<audio.length; i++){ %>
     <% if (audio[i].visible==true) { %>
-    <a href="/products/productdetail/<%= audio[i].id %>">
+    <a href="/products/productdetail/<%= audio[i].id_products %>">
         <section class="product-item">
             <div class="imagen-producto">
-                <img src="/img/products/<%= audio[i].imagen %>"
+                <img src="/img/products/<%= audio[i].image %>"
                     alt="imagen de producto">
             </div>
             <div class="datos">
                 <p class="nombre">
-                    <%= audio[i].nombre %>
+                    <%= audio[i].name %>
                 </p>
                 <p class="descipcion">
-                    <%= audio[i].descripcion %>
+                    <%= audio[i].description %>
                 </p>
             </div>
             <div class="precio">
-                <p>$<%= audio[i].precio %>
+                <p>$<%= audio[i].price %>
                 </p>
             </div>
         </section>

@@ -6,9 +6,17 @@ const rutas = require('./routes/main.js');
 const rutas_usuarios = require('./routes/users.js');
 const rutas_productos = require('./routes/products.js');
 const rutas_productcart= require('./routes/productCart')
+const cors = require('cors');
+
+
+// Routes API
+const userApiRoutes = require('./api/routes/userApiRouter');
+const productApiRoutes = require('./api/routes/productApiRouter');
+
 const path = require('path');
 
 const usuarioLogueadoMiddleware = require('./middlewares/usuarioLogueadoMiddleware');
+const valoresProductCart = require('./middlewares/productCartMiddlewares');
 
 app.use(session({
 	secret: "Shhh, Es un secreto!!!",
@@ -17,8 +25,9 @@ app.use(session({
 }));
 
 app.use(cookies());
-
+app.use(cors());
 app.use(usuarioLogueadoMiddleware);
+app.use(valoresProductCart);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); 
@@ -34,6 +43,9 @@ app.use('/users', rutas_usuarios);
 app.use('/products', rutas_productos);
 app.use('/productCart', rutas_productcart);
 
+
+app.use(userApiRoutes);
+app.use(productApiRoutes);
 
 app.listen(process.env.PORT || 3030,() => {
     console.log('Servidor corriendo en el puerto 3030');

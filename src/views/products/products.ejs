@@ -1,56 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Products</title>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-            rel="stylesheet">
-        <script src="https://kit.fontawesome.com/fcf9db6539.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/normalize.css" />
-        <link rel="stylesheet" href="/css/styles-header.css" />
-        <link rel="stylesheet" href="/css/styles-footer.css" />
-        <link rel="stylesheet" href="/css/styles.css" />
-        <link rel="stylesheet" href="/css/styles-products.css" />
-    </head>
-    <body>
-        <!-- HEADER -->
-        <header>
-            <%- include('../partials/header') %>
-        </header>
-        <main>
-            <div class="banner">
-                <div class="slide-1">
-                    <img class="banner-image" src="/img/bgn-banner-products-1.png" />
-                    <div class="des-slide">
-                        <h1>K70 RGB PRO</h1>
-                        <p>Timeless design meets peerless technology.</p>
-                        <button><a href="/products">COMPRAR AHORA</a></button>
-                    </div>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <script src="/js/loginValidations.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fcf9db6539.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/styles-header.css" />
+    <link rel="stylesheet" href="/css/styles-footer.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/styles-products.css" />
+    <link rel="shortcut icon" href="/img/logo-solo.png" />
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <%- include('../partials/header') %>
+    </header>
+    <main>
+        <div class="banner">
+            <div class="slide-1">
+                <img class="banner-image" src="/img/bgn-banner-products-1.png" />
+                <div class="des-slide">
+                    <h1>K70 RGB PRO</h1>
+                    <p>Timeless design meets peerless technology.</p>
+                    <button><a href="/products">COMPRAR AHORA</a></button>
                 </div>
             </div>
-            <div class="container-products">
+        </div>
+        <div>
+            <!-- Barra de búsqueda y botón -->
+            <form action="/products/search" method="GET" class="">
+                <input type="text" placeholder="Buscar..." class="" name="search">
+                <button type="submit" class=""><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="container-products">
+
+            <% if (categoria=="catalogo" ) { %>
                 <div class="categoria">
-                    <h1><%= categoria %> </h1>
+                    <h1>
+                        <%= categoria %>
+                    </h1>
                 </div>
-                <% if (categoria=="catalogo") { %>
-                    <%- include('../partials/catalogo') %>
-                
-                <% } else { %>
-                    <%- include('../partials/productsCat') %>
-                <% } %>
-            </div>
-        </main>
-        <!-- FOOTER -->
-        <footer>
-            <%- include('../partials/footer') %>
-        </footer>
-    </body>
+                <%- include('../partials/catalogo') %>
+
+                    <% } else { %>
+                        <%- include('../partials/productsCat') %>
+                            <% } %>
+
+        </div>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
+</body>
+
 </html>

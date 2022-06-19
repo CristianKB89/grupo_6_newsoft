@@ -9,9 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+  <script src="/js/loginValidations.js"></script>
   <link rel="stylesheet" href="/css/styles-productCart.css">
   <link rel="stylesheet" href="/css/normalize.css" />
-
+  <link rel="shortcut icon" href="/img/logo-solo.png" />
   <title>Carrito</title>
 </head>
 
@@ -39,11 +40,11 @@
       <li class="car-item0">
         <div class="content-product">
           <div class="img-car">
-            <img src="/img/products/<%= producto[i].imagen %>" alt="">
+            <img src="/img/products/<%= producto[i].image %>" alt="">
           </div>
           <div class="info">
             <div class="title-product">
-              <a href="#"><%= producto[i].nombre %> </a>
+              <a href="#"><%= producto[i].name %> </a>
             </div>
             <div class="cantidad">
               <div class="add">
@@ -54,13 +55,13 @@
                 </div>
               </div>
               <div>
-                $<%= producto[i].precio %> 
+                $<%= producto[i].price %> 
               </div>
             </div>
             <div class="delete">
               <form action="/productCart/deleteProductCart" method="POST" style="display: inline-flex">
                 <label for="id"></label>
-                <input type="hidden" name="id" value="<%=producto[i].id%>">   
+                <input type="hidden" name="id" value="<%=producto[i].id_products%>">   
                 <input type="hidden" name="car" value="false">
                 <button type="submit" class="add-carrito"><i class="fa-regular fa-trash-can"></i></button>
               </form>

@@ -1,65 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-    <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
 
-    <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
-    rel="stylesheet"
-  />
-  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/js/loginValidations.js"></script>
+  <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="/css/styles-register.css">
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
-
-    <title>Register confirmation</title>
+  <link rel="shortcut icon" href="/img/logo-solo.png" />
+  <title>Register confirmation</title>
 </head>
+
 <body>
 
-    <header style="position: relative;">
-      <%- include('../partials/header') %>
-      </header>
-<br>
-<br>
-<br>
-<br>
+  <header>
+    <%- include('../partials/header') %>
+  </header>
+  <br>
+  <br>
+  <br>
+  <br>
 
-<video autoplay="autoplay" loop="loop" id="video_background" preload="auto" volume="50">
-  <source src="/img/Corsair_iCue_Room_Explore.webm" type="video/mp4" />
-</video>
+  <video autoplay="autoplay" loop="loop" id="video_background" preload="auto" volume="50">
+    <source src="/img/Corsair_iCue_Room_Explore.webm" type="video/mp4" />
+  </video>
 
-    <main class="register-confirmation">
-        <form action="/formulario-registro" method="post" class="formulario-forma">
-         <h2>Confirmacion</h2><br>  
-         <div class="formulado-interno">
-         <p>INGRESE EL CODIGO ENVIADO A SU CORREO ELECTRÓNICO</p>
-          <div class="control-formulario">
-               <input type="text" name="codigo_confirmacion" placeholder="*1A2B3C" class="control-input-confirmation" required minlength="6">
-          </div>
-        
-          <div class="control-envio"><button type="submit" class="boton-formulario">ENVIAR</button></div>
-          <br>
-          <p>¿No recibiste el codigo? <a href="#">Presiona aqui</a>.</p>
-          <div><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-instagram"></i></div>
+  <main class="register-confirmation">
+    <form action="/formulario-registro" method="post" class="formulario-forma">
+      <h2>Confirmacion</h2><br>
+      <div class="formulado-interno">
+        <p>INGRESE EL CODIGO ENVIADO A SU CORREO ELECTRÓNICO</p>
+        <div class="control-formulario">
+          <input type="text" name="codigo_confirmacion" placeholder="*1A2B3C" class="control-input-confirmation"
+            required minlength="6">
         </div>
-        </form>
 
-        <footer style="position: fixed; bottom: 0;" >
-          <%- include('../partials/footer.ejs') %>
-        </footer>
-    </main>   
- </body>
+        <div class="control-envio"><button type="submit" class="boton-formulario">ENVIAR</button></div>
+        <br>
+        <p>¿No recibiste el codigo? <a href="#">Presiona aqui</a>.</p>
+        <div><i class="fab fa-twitter"></i> <i class="fab fa-youtube"></i> <i class="fab fa-facebook-f"></i> <i
+            class="fab fa-instagram"></i></div>
+      </div>
+    </form>
+
+    <footer style="position: fixed; bottom: 0;">
+      <%- include('../partials/footer.ejs') %>
+    </footer>
+  </main>
+</body>
+
 </html>

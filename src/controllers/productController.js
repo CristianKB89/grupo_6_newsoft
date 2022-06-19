@@ -1,254 +1,354 @@
-const fs = require('fs');
-const path = require('path');
-const {validationResult} = require('express-validator');
-const productsFilePath = path.join(__dirname, '../data/products.json');
+const fs = require("fs");
+const path = require("path");
+const { validationResult } = require("express-validator");
+const productsFilePath = path.join(__dirname, "../data/products.json");
+const db = require("../database/models");
+const products_has_colors = db.products_has_colors;
+const Op = db.Sequelize.Op;
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controlador = {
-    creacion: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let productoCart = productos.filter(producto => producto.car == "true");
+  creacion: async (req, res) => {
+    let brands = await db.Brand.findAll().catch(function (errors) {
+      console.log(errors);
+    });
 
-        let total = 0;
-        if(productoCart.length > 0){
-            let preciosString = [];
-            for(let i = 0; i < productoCart.length; i++){
-                preciosString.push(productoCart[i].precio);
-                var preciosInt = preciosString.map(function(item) {
-                return parseInt(item, 10);
-                });
-            }
-            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-        }else{ 
-            total = 0;
+    let categories = await db.Category.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    let colors = await db.Color.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    res.render(
+      path.resolve(
+        __dirname,
+        "../views/products/formularioCreacionDeProducto.ejs"
+      ),
+      { brands, colors, categories }
+    );
+  },
+
+  crearProducto: async (req, res) => {
+    const resultValidation = validationResult(req);
+    let brands = await db.Brand.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+    let categories = await db.Category.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+    let colors = await db.Color.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+    if (resultValidation.errors.length > 0) {
+      return res.render(
+        path.resolve(
+          __dirname,
+          "../views/products/formularioCreacionDeProducto.ejs"
+        ),
+        {
+          errors: resultValidation.mapped(),
+          oldData: req.body,
+          brands,
+          categories,
+          colors
         }
+      );
+    } else {
+      let image;
 
-        res.render(path.resolve(__dirname, '../views/products/formularioCreacionDeProducto.ejs'), { productoCart , total });
-    },
+      if (req.file != undefined) {
+        image = req.file.filename;
+      } else {
+        image = "default.jpg";
+      }
 
-    crearProducto: (req, res) => {
+      db.Product.create({
+        name: req.body.name,
+        id_brands: req.body.brand,
+        price: req.body.price,
+        id_categories: req.body.categories,
+        accesories: req.body.accesories,
+        image: image,
+        description: req.body.description,
+        visible: true,
+        car: "false",
+      })
+        .then((result) => {
+          
+          if (typeof req.body.color === "string") {
+            products_has_colors
+              .create({
+                id_products: result.id_products,
+                id_colors: req.body.color,
+              })
+              .then((result) => {
+                console.log(result);
+              })
+              .catch((error) => console.log(error));
+          } else {
+            req.body.color.forEach((color) => {
+              products_has_colors
+                .create({
+                  id_products: result.id_products,
+                  id_colors: color,
+                })
+                .then((result) => {
+                  console.log(result);
+                })
+                .catch((error) => console.log(error));
+            });
+          }
+          res.redirect("/products/productdetail/" + result.id_products);
+        })
 
-        const resultValidation = validationResult(req);
-
-		if (resultValidation.errors.length > 0) {
-			return res.render((path.resolve(__dirname, '../views/products/formularioCreacionDeProducto.ejs')), {
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
-		}
-     
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let image
-
-        if(req.file != undefined){
-			image = req.file.filename
-		} else {
-			image = 'default.jpg'
-		}
-
-		// capturar los datos del producto
-		const nuevoProducto = {
-			id: productos.length == 0 ? 1 : productos[productos.length -1].id +1,
-			nombre: req.body.nombre,
-			marca: req.body.marca,
-			precio: req.body.precio,
-			categoria: req.body.categoria,
-            color:req.body.color,	
-            accesorios:req.body.accesorios,	
-            imagen:image,	
-            descripcion:req.body.descripcion,
-            visible: true,
-            car: false
-		};
-		// guardarlo BD
-		productos.push(nuevoProducto)
-		// guardar los productos en archivo.json
-		fs.writeFileSync( productsFilePath , JSON.stringify(productos, null, 2))
-
-		// redireccionar al usuairo /products
-		res.redirect('/products/productdetail/'+ req.params.id)
-    },
-
- 
-    edicion: (req, res) => {
-        let idProducto = req.params.id;
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let productoEditar = productos.find( products => products.id == idProducto)
-
-        let productoCart = productos.filter(producto => producto.car == "true");
-
-        let total = 0;
-        if(productoCart.length > 0){
-            let preciosString = [];
-            for(let i = 0; i < productoCart.length; i++){
-                preciosString.push(productoCart[i].precio);
-                var preciosInt = preciosString.map(function(item) {
-                return parseInt(item, 10);
-                });
-            }
-            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-        }else{ 
-            total = 0;
-        }
-
-        res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs')), {productoEditar:productoEditar , productoCart , total });
-       
-    },
-
-    editarProducto:(req, res) => {
-
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let id = req.params.id;
-        let productoEditar = productos.find( products => products.id == id);
-
-        const resultValidation = validationResult(req);
-
-		if (resultValidation.errors.length > 0) {
-            let productoCart = productos.filter(producto => producto.car == "true");
-
-            let total = 0;
-            if(productoCart.length > 0){
-                let preciosString = [];
-                for(let i = 0; i < productoCart.length; i++){
-                    preciosString.push(productoCart[i].precio);
-                    var preciosInt = preciosString.map(function(item) {
-                    return parseInt(item, 10);
-                    });
-                }
-                total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-            }else{ 
-                total = 0;
-            }
-			return res.render((path.resolve(__dirname, '../views/products/formularioEdicionDeProducto.ejs'),{ total, productoCart }), {
-				errors: resultValidation.mapped(),
-				oldData: req.body,
-                productoEditar:productoEditar
-			});
-		}
-
-        let image
-	
-		if(req.file != undefined){
-			image = req.file.filename
-		} else {
-			image = productoEditar.imagen
-		}
-        
-        const productoOculto = productos.map(producto =>{
-            
-            if (producto.id == id){
-                producto.nombre = req.body.nombre;
-                producto.marca = req.body.marca;
-                producto.precio = req.body.precio;
-                producto.categoria = req.body.categoria;
-				producto.color = req.body.color;
-				producto.accesorios = req.body.accesorios;
-				producto.imagen = image;
-				producto.descripcion = req.body.descripcion;
-                producto.visible = true;
-                producto.car = false;
-            }
-            return producto;
-            })
-            
-
-            fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
-
-            res.redirect('/products/productdetail/'+ req.params.id)
-        
-    },
-
-    eliminar : (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let idProducto = req.params.id
-		
-		let productoFiltrado = productos.filter( producto => producto.id != idProducto)
-
-		fs.writeFileSync( productsFilePath , JSON.stringify(productoFiltrado, null, 2))
-
-        res.redirect('/products?categoria=catalogo')
-	},
-
-    productDetail: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let productoCart = productos.filter(producto => producto.car == "true");
-
-        let total = 0;
-        if(productoCart.length > 0){
-            let preciosString = [];
-            for(let i = 0; i < productoCart.length; i++){
-                preciosString.push(productoCart[i].precio);
-                var preciosInt = preciosString.map(function(item) {
-                return parseInt(item, 10);
-                });
-            }
-            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-        }else{ 
-            total = 0;
-        }
-
-        let idProducto = req.params.id;
-        
-        const productoDetalle = productos.find( producto => producto.id == idProducto)
-
-        if (!productoDetalle) {
-			res.redirect('/products?categoria=catalogo')
-		}
-
-        // Renderiza el detalle del producto
-        res.render(path.resolve(__dirname, '../views/products/productDetail.ejs'), { productoDetalle , total, productoCart });
-    },
-
-    ocultarProducto: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let id = req.params.id;
-        const productoOculto = productos.map(producto =>{
-            
-            if (producto.id == id){
-                producto.visible = false;
-            }
-            return producto;
-            })
-
-            fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
-
-            res.redirect('/products?categoria=catalogo');
-    },
-    mostrarProducto: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        let id = req.params.id;
-        const productoOculto = productos.map(producto =>{
-            if (producto.id == id){
-                producto.visible = true;
-            }
-            return producto;
-            })
-            fs.writeFileSync( productsFilePath , JSON.stringify(productoOculto, null, 2))
-            res.redirect('/products?categoria=catalogo');
-    },
-    productosOcultos: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-        let productoCart = productos.filter(producto => producto.car == "true");
-
-        let total = 0;
-        if(productoCart.length > 0){
-            let preciosString = [];
-            for(let i = 0; i < productoCart.length; i++){
-                preciosString.push(productoCart[i].precio);
-                var preciosInt = preciosString.map(function(item) {
-                return parseInt(item, 10);
-                });
-            }
-            total = preciosInt.reduce(function(a, b) { return a + b; }, 0);
-        }else{ 
-            total = 0;
-        }
-
-        const ocultos = productos.filter( product => product.visible === false );
-        res.render(path.resolve(__dirname, '../views/products/productsOcultos.ejs'), { ocultos , total, productoCart });
+        .catch((errors) => {
+          console.log(errors);
+        });
     }
-}
+  },
+
+  edicion: async (req, res) => {
+    let idProduct = req.params.id;
+
+    let productoEditar = await db.Product.findByPk(idProduct, {
+      include: [
+        { association: "colors" },
+        { association: "brands" },
+        { association: "categories" },
+      ],
+    }).catch(function (errors) {
+      console.log(errors);
+    });
+
+    let brands = await db.Brand.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    let categories = await db.Category.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    let colors = await db.Color.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    res.render(
+      path.resolve(
+        __dirname,
+        "../views/products/formularioEdicionDeProducto.ejs"
+      ),
+      { brands, colors, categories, productoEditar }
+    );
+  },
+  editarProducto: async (req, res) => {
+    let idProduct = req.params.id;
+    const resultValidation = validationResult(req);
+    let productoEditar = await db.Product.findByPk(idProduct, {
+      include: [
+        { association: "colors" },
+        { association: "brands" },
+        { association: "categories" },
+      ],
+    }).catch(function (errors) {
+      console.log(errors);
+    });
+    
+    let brands = await db.Brand.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    let categories = await db.Category.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    let colors = await db.Color.findAll().catch(function (errors) {
+      console.log(errors);
+    });
+
+    if (resultValidation.errors.length > 0) {
+      return res.render(
+        path.resolve(
+          __dirname,
+          "../views/products/formularioEdicionDeProducto.ejs"
+        ),
+        {
+          errors: resultValidation.mapped(),
+          oldData: req.body,
+          brands, colors, categories, productoEditar
+        }
+      );
+    } else{
+      let image;
+
+      if (req.file != undefined) {
+        image = req.file.filename;
+      } else {
+        image = productoEditar.image;
+      }
+
+      products_has_colors.destroy({
+        where: {
+          id_products: idProduct,
+        },
+      });
+      db.Product.update(
+        {
+          name: req.body.name,
+          id_brands: req.body.brand,
+          price: req.body.price,
+          id_categories: req.body.categories,
+          accesories: req.body.accesories,
+          description: req.body.description,
+          image: image
+        },
+        {
+          where: {
+            id_products: idProduct,
+          },
+        }
+      ).then(() => {
+          if (typeof req.body.color === "string") {
+            products_has_colors
+              .create({
+                id_products: idProduct,
+                id_colors: req.body.color,
+              })
+              .then((result) => {
+                console.log(result);
+              })
+              .catch((error) => console.log(error));
+          } else {
+            //res.send(req.body.color);
+            req.body.color.forEach((color) => {
+              products_has_colors
+                .create({
+                  id_products: idProduct,
+                  id_colors: color,
+                })
+  
+                .then((result) => {
+                  console.log(result);
+                })
+                .catch((error) => console.log(error));
+            });
+          }
+          res.redirect("/products/productdetail/" + idProduct);
+        })
+        .catch(function (errors) {
+          console.log(errors);
+        });
+    }
+    
+  },
+
+  eliminar: (req, res) => {
+    let producto_id = req.params.id;
+    db.Product.destroy({
+      where: {
+        id_products: producto_id,
+      },
+    }).then(() => {
+      res.redirect("/products?categoria=catalogo");
+    });
+  },
+
+  productDetail: (req, res) => {
+    let promProduct = db.Product.findByPk(req.params.id, {
+      include: ["brands", "categories", "colors"],
+    });
+    let promBrands = db.Brand.findAll();
+    let promCategories = db.Category.findAll();
+    let promColors = db.Color.findAll();
+    Promise.all([promProduct, promBrands, promCategories, promColors])
+      .then(([productoDetalle, Marca, Category]) => {
+        if (!productoDetalle) {
+          res.redirect("/products?categoria=catalogo");
+        } else {
+          let brand = Marca.find(
+            (brand) => brand.id_brands == productoDetalle.id_brands
+          );
+          let category = Category.find(
+            (category) =>
+              category.id_categories == productoDetalle.id_categories
+          );
+          // res.send(productoDetalle)
+          res.render(
+            path.resolve(__dirname, "../views/products/productDetail.ejs"),
+            { productoDetalle, brand, category }
+          );
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+
+  ocultarProducto: (req, res) => {
+    db.Product.update(
+      {
+        visible: false,
+      },
+      {
+        where: {
+          id_products: req.params.id,
+        },
+      }
+    )
+      .then(() => {
+        res.redirect("/products?categoria=catalogo");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+  mostrarProducto: (req, res) => {
+    db.Product.update(
+      {
+        visible: true,
+      },
+      {
+        where: {
+          id_products: req.params.id,
+        },
+      }
+    )
+      .then(() => {
+        res.redirect("/products?categoria=catalogo");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+  productosOcultos: (req, res) => {
+    const productos = db.Product.findAll();
+    Promise.all([productos]).then(([productos]) => {
+      const ocultos = productos.filter((product) => product.visible === false);
+      res.render(
+        path.resolve(__dirname, "../views/products/productsOcultos.ejs"),
+        { ocultos }
+      );
+    });
+  },
+  buscador: async (req, res) => {
+    let busqueda = req.query.search;
+    let producto = await db.Product.findAll({
+        where: {
+        name: {
+          [Op.like]: "%" + busqueda + "%",
+        }
+      },
+    });
+    let categoria = "";
+
+    Promise.all([producto]).then(([producto]) => {
+      res.render(path.resolve(__dirname, "../views/products/products.ejs"),
+        { producto, categoria }
+      );
+    });
+  }
+};
 
 module.exports = controlador;

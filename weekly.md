@@ -1,10 +1,8 @@
+Semana del 30 de mayo al 06 de junio:
 1. Qué hicimos la semana pasada: 
-    - Dejamos hecho el formato para la implementación del EJS en el proyecto.
-    - Implementamos las rutas principales de nuestra pagina.
-    - Se crearon los formularios de edición y creación de productos, falta linkearlos al home.
-    - 
+    - Se corrigen bugs y se agregan cosas que faltaban en las validaciones de express-validator de todos los formularios
+    - Se agregan validaciones front-end a los formularios
 2. Si se encontró con algún impedimento.
-    - Hay un problema con la ruta de los formularios ya que al ingresar el formulario a la carpeta de views/products no linkea correctamente el logo del header.
-    - 
+    - No se pudo agregar validacion front end al formulario de log in ya que se encuentra en una ventana modal y no funciona el script.
 3. Qué va a hacer hoy.
-    - Poner donde se requiera el footer y el header modularizado con EJS.
+    - Tratar de solucionar la problemática que presenta en el mformulario de login

@@ -1,11 +1,11 @@
 <div class="body-cart">
-<div class="header">
+  <div class="header">
     <div class="head-car">
       <h2>REVISA TU CARRITO</h2>
     </div>
     <i onclick="ocultarCart(cr)" class="fa-solid fa-x"></i>
-</div>
-<div class="main">
+  </div>
+  <div class="main">
     <ul class="ul-cart">
       <li class="li-cart">
         <div>
@@ -17,16 +17,21 @@
           </div>
         </div>
       </li>
+      
       <% for(let i=0; i<productoCart.length; i++){ %>
-      <li class="car-item0">
-        <div class="content-product">
-          <div class="img-car">
-            <img src="/img/products/<%= productoCart[i].imagen %>" alt="">
-          </div>
-          <div class="info-cart">
-            <div class="title-product">
-              <a href="#"><%= productoCart[i].nombre %> </a>
-                <div class="cantidad">
+
+        <li class="car-item0">
+          <div class="content-product">
+            <a href="/products/productdetail/<%=productoCart[i].id_products%>">
+              <div class="img-car">
+                <img src="/img/products/<%= productoCart[i].image %>" alt="">
+              </div>
+              <div class="info-cart">
+                <div class="title-product">
+                  <a href="/products/productdetail/<%=productoCart[i].id_products%>">
+                    <%= productoCart[i].name %>
+                  </a>
+                  <!-- <div class="cantidad">
                     <div class="add">
                         <div class="incremento">
                             <a href="#">-</a>
@@ -34,29 +39,39 @@
                             <a href="#">+</a>
                         </div>
                     </div>
+                </div> -->
                 </div>
-            </div>
-            <div class="delete">
-                <form action="/productCart/deleteProductCart" method="POST" style="display: inline-flex">
-                  <label for="id"></label>
-                  <input type="hidden" name="id" value="<%=productoCart[i].id%>">   
-                  <input type="hidden" name="car" value="false">
-                  <button type="submit" class="add-carrito-cart"><i class="fa-regular fa-trash-can"></i></button>
-                </form>
-                <div class="precio-cart">
-                    $<%= productoCart[i].precio %> 
+                <div class="delete">
+                  <form action="/productCart/deleteProductCart" method="POST" style="display: inline-flex">
+                    <label for="id"></label>
+                    <input type="hidden" name="id" value="<%=productoCart[i].id_products%>">
+                    <input type="hidden" name="car" value="false">
+                    <button type="submit" class="add-carrito-cart"><i class="fa-regular fa-trash-can"></i></button>
+                  </form>
+                  <div class="precio-cart">
+                    $<%= productoCart[i].price %>
                   </div>
-            </div>
+                </div>
+              </div>
+            </a>
           </div>
-        </div>
-      </li>
-      <% } %>
+        </li>
+
+        <% } %>
+          <li>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+          </li>
     </ul>
-</div>
+  </div>
   <div class="foot">
     <div class="subtotal">
       <h2>TOTAL:</h2>
-      <p>$<%= total %> </p>
+      <p>$<%= total %>
+      </p>
     </div>
     <div class="button-end">
       <a href="#">FINALIZAR COMPRA</a>

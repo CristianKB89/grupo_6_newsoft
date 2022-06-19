@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const arrayvValidations = require('../middlewares/productFormValidator');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 const multer = require('multer');
 
 var storage = multer.diskStorage({
@@ -20,19 +21,19 @@ const controlador = require('../controllers/productController.js');
 //Listado de productos: ESTA RUTA ESTA EN MAIN
 
 //Formulario de creación de productos
-router.get('/create', controlador.creacion);
+router.get('/create',adminMiddleware, controlador.creacion);
 
 //Detalle de un producto particular
 router.get('/productdetail/:id', controlador.productDetail);
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/',upload.single('imagen'),arrayvValidations, controlador.crearProducto);
+router.post('/crear',upload.single('image'),arrayvValidations, controlador.crearProducto);
 
 //Formulario de edición de producto
-router.get('/:id/edit', controlador.edicion);
+router.get('/:id/edit',adminMiddleware, controlador.edicion);
 
 //Acción de edición (a donde se envía el formulario):
-router.put('/:id',upload.single('imagen'),arrayvValidations, controlador.editarProducto);
+router.put('/:id',upload.single('image'),arrayvValidations, controlador.editarProducto);
 
 //Acción de borrado
 router.delete('/:id',controlador.eliminar);
@@ -44,7 +45,10 @@ router.put('/:id/ocultar',controlador.ocultarProducto);
 router.put('/:id/mostrar',controlador.mostrarProducto);
 
 //Vista de productos ocultos
-router.get('/ocultos', controlador.productosOcultos);
+router.get('/ocultos',adminMiddleware, controlador.productosOcultos);
+
+//Buscador de productos
+router.get('/search', controlador.buscador);
 
 
 module.exports = router;

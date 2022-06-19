@@ -4,6 +4,7 @@ const path = require('path');
 const arrayvValidations = require('../middlewares/registerValidations');
 const invitadoMiddleware = require('../middlewares/invitadoMiddleware');
 const autenticacionMiddleware = require('../middlewares/autenticacionMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 const multer = require('multer');
 
 var storage = multer.diskStorage({
@@ -19,26 +20,25 @@ var upload = multer({ storage: storage })
 const controlador = require('../controllers/userController.js');
 
 //Listado de usuarios
-router.get('/', controlador.users);
+router.get('/',adminMiddleware, controlador.users);
+
+//Vista de administrador
+router.get('/admin',adminMiddleware, controlador.admin);
 
 //Formulario de creación de usuarios
 router.get('/create',invitadoMiddleware, controlador.registro);
 
 //Acción de creación (a donde se envía el formulario)
-router.post('/',upload.single('imagen'),arrayvValidations,controlador.crearUsuario);
+router.post('/',upload.single('image'),arrayvValidations,controlador.crearUsuario);
 
 //Formulario de edición de usuario
 router.get('/:id/edit', controlador.editar);
 
 //Acción de edición (a donde se envía el formulario):
-router.put('/:id',upload.single('imagen'),arrayvValidations, controlador.editarUsuario);
+router.put('/:id',upload.single('image'),arrayvValidations, controlador.editarUsuario);
 
 //Acción de borrado
-router.delete('/:id', controlador.borrar); 
-
-router.get('/login',invitadoMiddleware, controlador.login);
-
-router.post('/login', controlador.ProcesoLogin);
+router.post('/:id', controlador.borrar); 
 
 //Perfil, detalles de usuario
 router.get('/profile/',autenticacionMiddleware, controlador.perfil);

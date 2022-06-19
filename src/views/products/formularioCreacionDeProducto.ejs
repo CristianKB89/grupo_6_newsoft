@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <script src="/js/productValidations.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
@@ -14,19 +15,77 @@
   <link rel="stylesheet" href="/css/styles-FormulariosProductos.css">
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
-
+  <link rel="shortcut icon" href="/img/logo-solo.png" />
 
   <title>Registro de productos</title>
 </head>
 
 <body class="body-register-confirmation">
   <!-- HEADER -->
-  <header style="position: relative;">
-    <%- include('../partials/header') %>
+  <header>
+    <div class="top-header">
+      <img class="flag-header" src="https://img.icons8.com/fluency/48/000000/colombia-circular.png" />
+      <p class="envios-header">
+        Envío gratis a partir de $500.000 | Debido a COVID-19, algunos pedidos
+        pueden sufrir retrasos.
+      </p>
+      <p class="xbox-header">XBOX</p>
+      <p class="nintendo-header">NINTENDO</p>
+      <p class="playstation-header">PLAYSTATION</p>
+    </div>
+    <div class="main-header">
+      <a class="burger-menu-header" href="#" onclick="alterStyle(mb)">
+        <div>
+          <i class="fas fa-bars"></i>
+        </div>
+      </a>
+
+      <a href="/"><img class="logo-header" src="/img/logo-one.png"/></a>
+      <nav class="main-nav-header">
+        <ul class="ul-menu">
+          <% if (locals.estaLogueado) { %>
+            <% if (locals.usuarioLogueado.user_rol=='admin' ) { %>
+              <li>
+                <a href="/users/admin">
+                  <span class="nav-btn-text">ADMIN</span>
+                </a>
+              </li>
+          <% } %>
+          <% } %>
+          <li>
+            <a href="/products?categoria=catalogo">
+              <span class="nav-btn-text">PRODUCTOS</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="nav-btn-text">STREAMING</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="nav-btn-text">DIADEMAS</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-cart">
+        <% if (locals.estaLogueado) { %>
+          <a class="name" href="/users/profile"><img class="img-perfil" src="/img/users/<%=locals.usuarioLogueado.image%>" alt="<%=locals.usuarioLogueado.name%>"></a>
+          <a class="log-out" href="/users/logout">Logout</a>
+        <% } else { %>
+        <!-- Ventana modal del login -->
+        <%- include('../partials/modal-login.ejs') %>
+        <!-- FIN Ventana modal del login -->
+        <% } %>
+        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
+
+      </div>
+    </div>
   </header>
 
   <main>
-    <form action="/products/" method="post" class="formulario-forma" enctype="multipart/form-data">
+    <form action="/products/crear" method="post" id="form" class="formulario-forma" enctype="multipart/form-data">
       <div class="mensaje-logo">
         <h1>FORMULARIO DE CREACION DE PRODUCTO</h1>
       </div>
@@ -35,73 +94,77 @@
       <div class="formulado-interno">
         <div class="control-formulario">
 
-          <label for="nombre">Escriba el nombre del producto:
-            <% if (locals.errors && errors.nombre) { %>
+          <label for="name">Escriba el nombre del producto:
+            <% if (locals.errors && errors.name) { %>
               <div class="mensaje-error">
-                <%= errors.nombre.msg %> 
+                <%= errors.name.msg %> 
               </div>
             <% } %>
-
           </label>
-          <input type="text" name="nombre" id="nombre" placeholder="NOMBRE DEL PRODUCTO"
-            class="control-input <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
-            value="<%= locals.oldData ? oldData.nombre : null %>">
+          <div class="ulErrorsNombreBlur alert-warning"></div>
+          <input type="text" name="name" id="name" placeholder="NOMBRE DEL PRODUCTO"
+            class="control-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.name : null %>">
         </div>
+        
+
         <div class="control-formulario">
-          <label for="marca">Seleccione la marca del producto:
-            <% if (locals.errors && errors.marca) { %>
+          <label for="brand">Seleccione la marca del producto:
+            <% if (locals.errors && errors.brand) { %>
               <div class="mensaje-error">
-                <%= errors.marca.msg %> 
+                <%= errors.brand.msg %> 
               </div>
             <% } %>
           </label>
-          <select name="marca" id="marca" class="control-input <%= locals.errors && errors.marca ? 'is-invalid' : null %>"
-            value="<%= locals.oldData ? oldData.marca : null %>">
+          <div class="ulErrorsMarcaBlur alert-warning"></div>
+          <select name="brand" id="brand" class="control-input">
             <option value="">Seleccione una marca</option>
-            <%  
-            let marcas = ['Logitech', 'Corsair', 'Razer', 'Ozone'];
-           %>
-           <% for (const unaMarca of marcas) { %>
-               <option 
-                value="<%= unaMarca %>"
-                <%= locals.oldData && (unaMarca === oldData.marca) ? 'selected' : null %>>
-                 <%= unaMarca %> </option>
-           <% } %> 
+            <%brands.forEach(brand =>{%>
+                <%if(locals.oldData && oldData.brand == brand.brand){%>
+                    <option id="<%=brand.id_brands%>" value="<%=brand.id_brands%>" selected><%=brand.brand%></option>
+                <%}else{%>
+                    <option id="<%=brand.id_brands%>" value="<%=brand.id_brands%>"><%=brand.brand%></option>
+                <%}%>
+            <%})%>
           </select>
         </div>
+
+
         <div class="control-formulario">
           <label for="precio">Indique el precio del producto:
-            <% if (locals.errors && errors.precio) { %>
+            <% if (locals.errors && errors.price) { %>
               <div class="mensaje-error">
-                <%= errors.precio.msg %> 
+                <%= errors.price.msg %> 
               </div>
             <% } %>
           </label>
-          <input type="number" name="precio" id="precio" placeholder="$ 000.000" class="control-input <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
-          value="<%= locals.oldData ? oldData.precio : null %>">
+          <div class="ulErrorsPrecioBlur alert-warning"></div>
+          <input type="number" name="price" id="price" placeholder="$ 000.000" class="control-input <%= locals.errors && errors.price ? 'is-invalid' : null %>"
+          value="<%= locals.oldData ? oldData.price : null %>">
         </div>
+
         <div class="control-formulario">
-          <label for="categoria">Seleccione la categoria del producto:
-            <% if (locals.errors && errors.categoria) { %>
+          <label for="categories">Seleccione la categoria del producto:
+            <% if (locals.errors && errors.categories) { %>
               <div class="mensaje-error">
-                <%= errors.categoria.msg %> 
+                <%= errors.categories.msg %> 
               </div>
             <% } %>
           </label>
-          <select name="categoria" id="categoria" class="control-input">
-            <option value="">Seleccione una categoria</option>
-            <%  
-            let categorias= ['Cases', 'Teclados', 'Audifonos', 'Mouse','Camaras',"Audio (Microfonos)"];
-           %>
-           <% for (const unaCategoria of categorias) { %>
-               <option 
-                value="<%= unaCategoria %>"
-                <%= locals.oldData && (unaCategoria === oldData.categoria) ? 'selected' : null %>>
-                 <%= unaCategoria %> </option>
-           <% } %> 
+          <div class="ulErrorsCategoriasBlur alert-warning"></div>
+          <select name="categories" id="categories" class="control-input">
+              <option value="">Seleccione una categoria</option>
+              <%categories.forEach(category =>{%>
+                  <%if(locals.oldData && oldData.categories == category.categories){%>
+                      <option id="<%=category.id_categories%>" value="<%=category.id_categories%>" selected><%=category.categories%></option>
+                  <%}else{%>
+                      <option id="<%=category.id_categories%>" value="<%=category.id_categories%>"><%=category.categories%></option>
+                  <%}%>
+              <%})%>
           </select>
         </div>
-        <div class="control-formulario">
+
+        <div class="control-formulario-check">
           <label for="color">Seleccione el color del producto:
             <% if (locals.errors && errors.color) { %>
               <div class="mensaje-error">
@@ -109,47 +172,57 @@
               </div>
             <% } %>
           </label>
-          <select name="color" id="color" class="control-input">
-            <option value="">Seleccione un color</option>
-            <%  
-            let colores= ['Blanco', 'Negro', 'Amarillo', 'Azul','Rojo',"Violeta","Verde","Cafe"];
-           %>
-           <% for (const unColor of colores) { %>
-               <option 
-                value="<%= unColor %>"
-                <%= locals.oldData && (unColor === oldData.color) ? 'selected' : null %>>
-                 <%= unColor %> </option>
-           <% } %> 
-          </select>
+          <% if (locals.colors && colors.length > 0) { %>
+            <% colors.forEach(color => { %>
+                <label for="<%= color.colors %>">
+                <% if(locals.oldData && oldData.color){ %>
+                    <input type="checkbox" name="color" id="color" class="checkbox" value="<%= color.id_colors %>" <%= oldData.color.includes(color.id_colors.toString()) ? 'checked' : '' %> /><%= color.colors %>
+                <% } else { %>
+                    <input type="checkbox" name="color" id="color" class="checkbox" value="<%= color.id_colors %>"><%= color.colors %>
+                <% } %>
+                </label>
+            <% }) %>
+        <% } %>
         </div>
+
         <div class="control-formulario">
-          <label for="accesorios">Indique los accesorios del producto:
-            <% if (locals.errors && errors.accesorios) { %>
+          <label for="accesories">Indique los accesorios del producto:
+            <% if (locals.errors && errors.accesories) { %>
               <div class="mensaje-error">
-                <%= errors.accesorios.msg %> 
+                <%= errors.accesories.msg %> 
               </div>
             <% } %>
           </label>
-          <input type="text" name="accesorios" id="accesorios" placeholder="ACCESORIOS" class="control-input <%= locals.errors && errors.accesorios ? 'is-invalid' : null %>"
-          value="<%= locals.oldData ? oldData.accesorios : null %>">
+          <div class="ulErrorsAccesoriosBlur alert-warning"></div>
+          <input type="text" name="accesories" id="accesories" placeholder="ACCESORIOS" class="control-input <%= locals.errors && errors.accesories ? 'is-invalid' : null %>"
+          value="<%= locals.oldData ? oldData.accesories : null %>">
         </div>
         <div class="control-formulario">
-          <label for="imagen">Ingrese una imagen del producto:<br><br></label>
-          <input type="file" name="imagen" id="imagen" class="control-input"  multiple >
-        </div>
-        <div class="control-formulario">
-          <label for="descripcion">Realice una breve descripcion del producto:
-            <% if (locals.errors && errors.descripcion) { %>
+          <label for="image">Ingrese una imagen del producto:
+            <% if (locals.errors && errors.image) { %>
               <div class="mensaje-error">
-                <%= errors.descripcion.msg %> 
+                <%= errors.image.msg %> 
+              </div>
+            <% } %>
+            </label>
+
+          <input type="file" name="image" id="image" class="control-input">
+        </div>
+        <div class="control-formulario">
+          <label for="description">Realice una breve descripcion del producto:
+            <% if (locals.errors && errors.description) { %>
+              <div class="mensaje-error">
+                <%= errors.description.msg %> 
               </div>
             <% } %>
           </label>
-          <textarea name="descripcion" id="descripcion" placeholder="DESCRIPCION DEL PRODUCTO"
-            class="control-input"></textarea>
+          <div class="ulErrorsDescripcionBlur alert-warning"></div>
+          <textarea name="description" id="description" placeholder="DESCRIPCION DEL PRODUCTO"
+            class="control-input"><%= locals.oldData?locals.oldData.description:null %></textarea>
         </div>
         <br>
         <br>
+        <ul class="errores alert-warning"></ul><br>
         <div class="control-envio"><button type="submit" class="boton-formulario">GUARDAR PRODUCTO</button>
           <a href="/products" class="control-final">EDITAR PRODUCTO EXISTENTE</a>
         </div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/loginValidations.js"></script>
+  <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/styles-register.css">
+  <link rel="stylesheet" href="/css/styles-profile.css">
+  <link rel="stylesheet" href="/css/styles-header.css" />
+  <link rel="stylesheet" href="/css/styles-footer.css" />
+  <link rel="shortcut icon" href="/img/logo-solo.png" />
+
+  <title>Detalle de usuario</title>
+</head>
+
+<body>
+  <header>
+    <%- include('../partials/header') %>
+  </header>
+
+  <main class="profile">
+    <div>
+      <h2 class="titulo">Administrador <%= usuario.name %>
+          <%= usuario.lastname %>
+      </h2><br>
+    </div>
+    <article class="card">
+      <div class="card-left">
+        <figure>
+          <img src="/img/users/<%= usuario.image ? usuario.image : 'default.png' %>" alt="">
+        </figure>
+        <h3 class="profileh3">#<%= usuario.id_users %>
+        </h3>
+      </div>
+      <div class="card-content">
+        <h3 class="profileh3"> Nombre: <%= usuario.name %>
+            <%= usuario.lastname %>
+        </h3>
+        <p class="profilep">Email:<%= usuario.email %>
+        </p>
+        <div class="botones">
+          <a class="boton-formulario" href="/users">LISTADO DE TODOS LOS USUARIOS</a>
+          <a class="boton-formulario" href="/products?categoria=catalogo">CATALOGO</a>
+          <a class="boton-formulario" href="/products/ocultos">PRODUCTOS OCULTOS</a>
+          <a class="boton-formulario" href="/products/create">AGREGAR PRODUCTO</a>
+
+
+    </article>
+    <br>
+
+
+    <h2><a class="boton-formulario" href="/">REGRESAR AL INICIO</a></h2>
+    </div>
+
+
+
+  </main>
+
+  <footer>
+    <%- include('../partials/footer.ejs') %>
+  </footer>
+
+</body>
+
+</html>

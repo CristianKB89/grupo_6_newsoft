@@ -7,6 +7,8 @@
     font-family: 'Bebas Neue', cursive;
 }
 
+
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -26,6 +28,11 @@ body{
     width: 100%;
     background-color: black;
     color: #FFF;
+}
+
+.main{
+    position: relative;
+    top:0;
 }
 
 h1{
@@ -80,15 +87,12 @@ h1{
  }
    
  #form label {
-   font-size: 3vw;
+   
+   color: grey;
  }
    
  input[type="radio"] {
    display: none;
- }
-   
- label {
-  color: grey;
  }
    
  .clasificacion {
@@ -111,11 +115,23 @@ h1{
  }
  /*Estrellas-End*/
 
+ .color-select{
+    width: 100%;
+    text-align: center;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
  .img-product{
      width: 90%;
      padding: 30px;
 }
 
+.form-car{
+    flex-direction: column;
+}
 
 .img-product:hover {filter:none;}
 
@@ -140,7 +156,7 @@ h1{
     display: flex;
     flex-direction: row;
     align-items:center;
-    justify-content: space-between;
+    justify-content: center;
     border: #A8A8A8 1px solid;
     padding: 5px 0;
     margin: 20px 0;
@@ -218,7 +234,6 @@ h1{
     color: #e90000;
 }
 
-
 .video-rese:hover a{
     color: #E9E600;
 }
@@ -249,6 +264,9 @@ h1{
     color: #E9E600;
 }
 
+.category{
+    font-size: 1.5vw;
+}
 
 @media (min-width: 361px) {
     .panel-1{

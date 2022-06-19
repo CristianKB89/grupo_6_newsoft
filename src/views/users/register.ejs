@@ -5,95 +5,190 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <script src="/js/userValidations.js"></script>
   <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/normalize.css"/>
+  <link rel="stylesheet" href="/css/normalize.css" />
   <link rel="stylesheet" href="/css/styles-register.css">
   <link rel="stylesheet" href="/css/styles-header.css" />
   <link rel="stylesheet" href="/css/styles-footer.css" />
-
+  <link rel="shortcut icon" href="/img/logo-solo.png" />
   <title>Registro</title>
 </head>
 
 <body class="body-register-confirmation">
-  <header style="position: relative;">
-    <%- include('../partials/header') %>
+  <header>
+    <div class="top-header">
+      <img class="flag-header" src="https://img.icons8.com/fluency/48/000000/colombia-circular.png" />
+      <p class="envios-header">
+        Envío gratis a partir de $500.000 | Debido a COVID-19, algunos pedidos
+        pueden sufrir retrasos.
+      </p>
+      <p class="xbox-header">XBOX</p>
+      <p class="nintendo-header">NINTENDO</p>
+      <p class="playstation-header">PLAYSTATION</p>
+    </div>
+    <div class="main-header">
+      <a class="burger-menu-header" href="#" onclick="alterStyle(mb)">
+        <div>
+          <i class="fas fa-bars"></i>
+        </div>
+      </a>
+
+      <a href="/"><img class="logo-header" src="/img/logo-one.png" /></a>
+      <nav class="main-nav-header">
+        <ul class="ul-menu">
+          <% if (locals.estaLogueado) { %>
+            <% if (locals.usuarioLogueado.user_rol=='admin' ) { %>
+              <li>
+                <a href="/users/admin">
+                  <span class="nav-btn-text">ADMIN</span>
+                </a>
+              </li>
+          <% } %>
+          <% } %>
+          <li>
+            <a href="/products?categoria=catalogo">
+              <span class="nav-btn-text">PRODUCTOS</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="nav-btn-text">STREAMING</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="nav-btn-text">DIADEMAS</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-cart">
+        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
+      </div>
+    </div>
   </header>
 
-    <main>
-        <form action="/users/" method="post" class="formulario-forma" enctype="multipart/form-data">
-         <div class="mensaje-logo"><h1>FORMULARIO DE REGISTRO</h1></div>
-         <P>Complete todos los campos para crear su ID</P>  
+  <main>
 
+    <form action="/users/" method="post" id="form" class="formulario-forma" enctype="multipart/form-data">
+      <div class="mensaje-logo">
+        <h1>FORMULARIO DE REGISTRO</h1>
+      </div>
+      <P>Complete todos los campos para crear su ID</P>
+      <div class="formulado-interno">
+        <div class="control-formulario">
 
-        
-         <div class="formulado-interno">
-          <div class="control-formulario">
-
-            <% if (locals.errors && errors.nombre) { %>
-              <div class="mensaje-error">
-                <%= errors.nombre.msg %> 
-              </div>
+          <% if (locals.errors && errors.name) { %>
+            <div class="mensaje-error">
+              <%= errors.name.msg %>
+            </div>
             <% } %>
-               <input type="text" name="nombre" placeholder="NOMBRE" class="control-input <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.nombre : null %>"
-             >
-          </div>
-          <div class="control-formulario">
-             
-            <% if (locals.errors && errors.apellido) { %>
-              <div class="mensaje-error">
-                <%= errors.apellido.msg %> 
-              </div>
-            <% } %>
-
-                <input type="text" name="apellido" placeholder="APELLIDOS" class="control-input <%= locals.errors && errors.apellido ? 'is-invalid' : null %>"
-                value="<%= locals.oldData ? oldData.apellido : null %>"
-              >
-          </div>
-          <div class="control-formulario">
-
-            <% if (locals.errors && errors.email) { %>
-              <div class="mensaje-error">
-                <%= errors.email.msg %> 
-              </div>
-            <% } %>
-            
-               <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" class="control-input <%= locals.errors && errors.email ? 'is-invalid' : null %>"
-               value="<%= locals.oldData ? oldData.email : null %>"
-             >
-
-          </div>
-          <div class="control-formulario">
-               <input type="password" name="password" placeholder="CONTRASEÑA" class="control-input">
-          </div>
-          <div class="control-formulario">
-            <label for="imagen" class="form-label">Cargue una imagen para su perfil</label>
-						<input type="file" id="imagen" name="imagen" class="control-input" multiple>
-					</div>
-            
-          <div>
-            <input type="checkbox" name="newsletter" id="newsletter">
-            <label for="newsletter">Si, quiero recibir noticias y correos electrónicos de productos</label>
-          </div>
-          <p> Al crear una cuenta, acepta nuestros <a href="#">Términos de servicio</a> y confirma que ha leido nuestra <a href="#">
-              Política de privacidad.</a> Este sitio está protegido por Captcha.</p>
-              <br>
-          <div class="control-envio"><button type="submit" class="boton-formulario">CREAR CUENTA</button></div>
-          <br>
-          
-          <br>
-          <div><a href="/login" class="control-input">INICIAR SESIÓN</a></div>
+              <div class="ulErrorsNombreBlur alert-warning"></div>
+              <input type="text" name="name" placeholder="NOMBRE" id="name"
+                class="control-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.name : null %>">
         </div>
-        </form>
-    </main> 
- 
-    <footer>
-      <%- include('../partials/footer.ejs') %>
-    </footer>
+        <div class="control-formulario">
 
- </body>
+          <% if (locals.errors && errors.lastname) { %>
+            <div class="mensaje-error">
+              <%= errors.lastname.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsApellidoBlur alert-warning"></div>
+              <input type="text" name="lastname" placeholder="APELLIDOS" id="lastname"
+                class="control-input <%= locals.errors && errors.lastname ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.lastname : null %>">
+        </div>
+        <div class="control-formulario">
+
+          <% if (locals.errors && errors.email) { %>
+            <div class="mensaje-error">
+              <%= errors.email.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsEmailBlur alert-warning"></div>
+              <input type="email" name="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" id="correo"
+                class="control-input <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.email : null %>">
+        </div>
+
+        <div class="control-formulario">
+          <% if (locals.errors && errors.user_phone) { %>
+            <div class="mensaje-error">
+              <%= errors.user_phone.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsTelefonoBlur alert-warning"></div>
+              <input type="number" name="user_phone" placeholder="TELÉFONO" id="user_phone"
+                class="control-input <%= locals.errors && errors.user_phone ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.user_phone : null %>">
+        </div>
+
+        <div class="control-formulario">
+          <% if (locals.errors && errors.user_address) { %>
+            <div class="mensaje-error">
+              <%= errors.user_address.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsDireccionBlur alert-warning"></div>
+              <input type="text" name="user_address" placeholder="DIRECCIÓN" id="user_address"
+                class="control-input <%= locals.errors && errors.user_address ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.user_address : null %>">
+        </div>
+
+
+        <div class="control-formulario">
+          <% if (locals.errors && errors.password) { %>
+            <div class="mensaje-error">
+              <%= errors.password.msg %>
+            </div>
+            <% } %>
+              <div class="ulErrorsContrasenaBlur alert-warning"></div>
+              <input type="password" name="password" placeholder="CONTRASEÑA" id="pass"
+                class="control-input <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.password : null %>">
+        </div>
+
+        <div class="control-formulario">
+          <label for="image" class="form-label">Cargue una imagen para su perfil:
+            <% if (locals.errors && errors.image) { %>
+              <div class="mensaje-error">
+                <%= errors.image.msg %>
+              </div>
+              <% } %>
+          </label>
+
+          <input type="file" id="image" name="image" id="image" class="control-input">
+        </div>
+
+        <div>
+          <input type="checkbox" name="newsletter" id="newsletter">
+          <label for="newsletter">Si, quiero recibir noticias y correos electrónicos de productos</label>
+        </div>
+        <p> Al crear una cuenta, acepta nuestros <a href="#">Términos de servicio</a> y confirma que ha leido nuestra <a
+            href="#">
+            Política de privacidad.</a> Este sitio está protegido por Captcha.</p>
+        <br>
+        <div class="control-envio"><button type="submit" id="botonEnviar" class="boton-formulario">CREAR CUENTA</button>
+        </div>
+        <br>
+
+        <br>
+        <ul class="errores alert-warning"></ul><br>
+        <div><a href="/login" class="control-input">INICIAR SESIÓN</a></div>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer.ejs') %>
+  </footer>
+
+</body>
+
 </html>
