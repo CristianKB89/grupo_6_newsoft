@@ -9,12 +9,18 @@ window.addEventListener("load", function () {
     if (email.value == "") {
       ulErrorsEmailBlur.innerHTML +=
         "<li>El campo email no debe estar vacio</li>";
+        email.style.border = "1px solid red";
+        email.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
     } else {
       let expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (expresion.test(email.value) == false) {
         ulErrorsEmailBlur.innerHTML += "<li>El campo email no es valido</li>";
+        email.style.border = "1px solid red";
+        email.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
       } else {
         ulErrorsEmailBlur.innerHTML = "";
+        email.style.border = "2px solid green";
+        email.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
       }
     }
   });
@@ -32,8 +38,12 @@ window.addEventListener("load", function () {
     if (contrasena.value == "") {
       ulErrorsContrasenaBlur.innerHTML +=
         "<li>El campo contraseña no debe estar vacio</li>";
+        contrasena.style.border = "1px solid red";
+        contrasena.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
     } else {
       ulErrorsContrasenaBlur.innerHTML = "";
+      contrasena.style.border = "2px solid green";
+      contrasena.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
     }
   });
 
@@ -60,7 +70,7 @@ window.addEventListener("load", function () {
     //
     //validacion de contrasena
     if (contrasena.value == "") {
-      errores.push("El campo contraseña no debe estar vacio");
+      errores.push(" El campo contraseña no debe estar vacio");
       contrasena.classList.add("is-invalid");
     } else {
       contrasena.classList.remove("is-invalid");
@@ -71,9 +81,7 @@ window.addEventListener("load", function () {
       evento.preventDefault();
       let ulErrors = document.querySelector(".errores");
       ulErrors.innerHTML = "";
-      for (let i = 0; i < errores.length; i++) {
-        ulErrors.innerHTML += "<li>" + errores[i] + "</li>";
-      }
+      alert(errores);
     }
   });
 

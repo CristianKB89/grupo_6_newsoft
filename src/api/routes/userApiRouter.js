@@ -5,5 +5,6 @@ const userApiController = require('../../api/controllers/userApiController');
 
 router.get('/api/users/',userApiController.list);
  router.get('/api/users/:id',userApiController.detail);
+ router.get('/api/dashboard/users',userApiController.listado);
 
 module.exports = router;

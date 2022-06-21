@@ -44,7 +44,6 @@ const productApiController = {
       console.log(error);
     }
   },
-
   detail: async (req, res) => {
     try {
       const id = req.params.id;
@@ -60,7 +59,7 @@ const productApiController = {
       };
       return res.json({
         meta: {
-          status: 200
+          status: 200,
         },
         data,
       });
@@ -68,6 +67,25 @@ const productApiController = {
       console.log(error);
     }
   },
+  listadoProductos: async (req, res) => {
+    const products = await db.Product.findAll({
+      include: [{ association: "categories"}],
+          attributes: { }
+    }).then(products => {
+      res.json(products);
+    }).then(() => {})
+    .catch(error => {res.json(error)});
+  },
+
+  listadoCategorias: async (req, res) => {
+    const categorias = await db.Category.findAll({
+         attributes: {}
+    }).then(categories => {
+      res.json(categories);
+    }).then(() => {})
+    .catch(error => {res.json(error)});
+  }
+
 };
 
 module.exports = productApiController;
