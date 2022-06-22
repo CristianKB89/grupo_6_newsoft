@@ -5,93 +5,87 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="/css/styles-productCart.css">
-  <link rel="stylesheet" href="/css/informacion.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/styles-información.css" />
+  <link rel="stylesheet" href="/css/normalize.css" />
   <script src="https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+
+  <title>Carrito</title>
+=======
   <script src="/js/loginValidations.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
   <link rel="shortcut icon" href="/img/logo-solo.png" />
   <title>Register confirmation</title>
+>>>>>>> origin/main
 </head>
+<header>
+  <%- include('../partials/header') %>
+</header>
 
 <body>
+  <div class="container">
 
-  <header>
-    <div class="main-header">
-      <a class="burger-menu" href="#">
-        <div>
-          <i class="fas fa-bars"></i>
+    <form action="">
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">sesión iniciada como ascatiso@gmail.com</h3>
+
+                <div class="inputBox">
+                    <span>Contacto :</span>
+                    <input type="number" placeholder="">
+                </div>
+                <div class="inputBox">
+                    <span></span>
+                    <input type="text" placeholder="Apellidos">
+                </div>
+                <div class="inputBox">
+                    <span></span>
+                    <input type="text" placeholder="Celular">
+                </div>
+                <div class="inputBox">
+                    <span></span>
+                    <input type="text" placeholder="Departamento,ciudad,región">
+                </div>
+                <div class="inputBox">
+                    <span></span>
+                    <input type="number" placeholder="código postal">
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <div class="inputBox">
+                    <span>Tramitación rápida:</span>
+                    <img src="images/card_img.png" alt="">
+                </div>
+                
+                <div class="inputBox">
+                    <span></span>
+                    <input type="text" placeholder="Nombres">
+                </div>
+                <div class="inputBox">
+                    <span></span>
+                    <input type="text" placeholder="Teléfono (opcional)">
+                </div>
+            </div>
+    
         </div>
-      </a>
-      <img src="/images/logo-one.png" class="logo" />
-      <nav class="main-nav">
-        <div>
-          <a href="#">
-            <i class="fa-solid fa-square-1"></i>
-            <span class="nav-btn-text">Información de contacto</span>
-          </a>
-          <a href="#">
-            <i class="fa-solid fa-square-2"></i>
-            <span class="nav-btn-text">Método de pago</span>
-          </a>
-          <a href="#">
-            <i class="fa-solid fa-square-3"></i>
-            <span class="nav-btn-text">Método de envío</span>
-          </a>
-        </div>
-      </nav>
-      <div class="search-cart">
-        <button><i class="fas fa-search"></i></button>
-        <button><i class="fas fa-shopping-cart"></i></button>
-      </div>
-    </div>
-  </header>
 
-  <!----información-->
-  <div class="contenedor">
-    <main id="contenedorprincipal">
-      <article>
-  
-        <header>
-          <h2>Sesión iniciada como: ascatiso@gmail.com</h2>
-        </header>
-        <form id="informacion">
+        <input type="submit" value="continuar a método de pago" class="submit-btn">
 
-          <div class="datos-form">
-          <div class="form-datos linea-izq">
-            <label for="apellido">Apellido *</label>
-            <input id="apellido" type="text" name="apellido" required>
-          </div><div class="form-datos linea-der">
-            <label for="nombre">Nombre *</label>
-            <input id="nombre" type="text" name="nombre"required>
-          </div>
-          
-          </div>
-          
-    <div class="datos-form">
-      <label for="celular">Celular *</label>
-      <input id="celular" type="number" name="celular"required>
-  
-      <label for="telefono">Teléfono (opcional)</label>
-      <input id="telefono" type="number" name="telefono"required>
-    </div>
-         
-  <div class="datos-form">
-    <label for="ciudad">Departamento, ciudad, región</label>
-          <input id="ciudad" type="text" name="ciudad"required>
-          <label for="codigo">Código postal (Opcional)</label>
-          <input id="codigo" type="number" name="codigo" required>
-  </div>
-  <div class="form-btn">
-    <input id="button" type="submit" name="boton" value="Cotinuar a método de pago">
-  </div>
-          
-        </form>
-      </article>
-    </main>
+    </form>
+
+</div> 
 
 </body>
 
