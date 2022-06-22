@@ -53,7 +53,7 @@ const userApiController = {
       });
       const data = {
         ...user.dataValues,
-        imageUrl: `/img/users/${user.dataValues.image}`,
+        imageUrl: `${process.env.URL_BACKEND}/img/users/${user.dataValues.image}`,
       };
       return res.json({
         meta: {
@@ -67,15 +67,20 @@ const userApiController = {
       console.log(error);
     }
   },
-  
+
   listado: async (req, res) => {
     const users = await db.User.findAll({
-      attributes: { },
+      attributes: {},
     })
-      .then((products) => {
-        res.json(products);
+      .then((users) => {
+        const data = users.map((user) => {
+          return {
+            ...user.dataValues,
+            imageUrl: `${process.env.URL_BACKEND}/img/users/${user.dataValues.image}`,
+          };
+        });
+        res.json(data);
       })
-      .then(() => {})
       .catch((error) => {
         res.json(error);
       });

@@ -72,7 +72,13 @@ const productApiController = {
       include: [{ association: "categories"}],
           attributes: { }
     }).then(products => {
-      res.json(products);
+      const data = products.map((product) => {
+        return {
+          ...product.dataValues,
+          imageUrl: `${process.env.URL_BACKEND}/img/products/${product.image}`,
+        };
+      });
+      res.json(data);
     }).then(() => {})
     .catch(error => {res.json(error)});
   },
