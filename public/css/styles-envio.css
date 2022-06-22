@@ -12,7 +12,7 @@
   align-items: center;
   padding:25px;
   min-height: 100vh;
-  background: linear-gradient(90deg, #848484 60%, #848484 40.1%);
+  background: linear-gradient(90deg, #DCDCDC 60%, #DCDCDC 40.1%);
 }
 
 .container form{
