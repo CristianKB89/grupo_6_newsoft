@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/styles-register.css">
+  <link rel="stylesheet" href="/css/styles-pago.css">
   <link rel="stylesheet" href="/css/normalize.css" />
   <script src="/js/loginValidations.js"></script>
   <script src="/https://kit.fontawesome.com/8b485465bd.js" crossorigin="anonymous"></script>
@@ -15,113 +15,69 @@
   <title>Carrito</title>
   <link rel="shortcut icon" href="/img/logo-solo.png" />
 </head>
+<header>
+  
+</header>
 
 <body>
-  <header>
-    <div class="main-header">
-      <a class="burger-menu" href="#">
-        <div>
-          <i class="fas fa-bars"></i>
-        </div>
-      </a>
-      <img src="/images/logo-one.png" class="logo" />
-      <nav class="main-nav">
-        <div>
-          <a href="#">
-            <i class="fa-solid fa-square-1"></i>
-            <span class="nav-btn-text">Información de contacto</span>
-          </a>
-          <a href="#">
-            <i class="fa-solid fa-square-2"></i>
-            <span class="nav-btn-text">Método de pago</span>
-          </a>
-          <a href="#">
-            <i class="fa-solid fa-square-3"></i>
-            <span class="nav-btn-text">Método de envío</span>
-          </a>
-        </div>
-      </nav>
-      <div class="search-cart">
-        <button><i class="fas fa-search"></i></button>
-        <button><i class="fas fa-shopping-cart"></i></button>
-      </div>
-    </div>
-  </header>
-  <!----Pago-->
-  <section class="checkout">
+  <div class="container">
 
-    <h2 class="section-heading">Resumen de envio </h2>
-    <form>
-      <div class="form-group col-md-6">
-        <label class="font-weight-bold">Contacto <span class="text-danger">*</span></label>
-        <input type="text" class="form-control" placeholder="Confirma tu contacto">
-      </div>
-      <div class="form-group col-md-6">
-        <label class="font-weight-bold">Dirección <span class="text-danger">*</span></label>
-        <input type="text" class="form-control" placeholder="confirma dirección">
-      </div>
-      <h2 class="section-heading">Método de envío</h2>
+    <form action="">
 
-      <div class="payment-form">
+        <div class="row">
 
-        <div class="payment-method">
+            <div class="col">
 
-          <button class="method selected">
-            <ion-icon name="card"></ion-icon>
+                <h3 class="title">Resumen de envío</h3>
 
-            <span>Tarjeta débito7crédito</span>
-
-            <ion-icon class="checkmark fill" name="checkmark-circle"></ion-icon>
-          </button>
-          <div class="form-row mb-2">
-            <div class="form-group col-md-6">
-              <label class="font-weight-bold">Número de tarjeta <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="Número de tarjeta">
-            </div>
-            <div class="form-group col-md-6">
-              <label class="font-weight-bold">Nombre titular<span class="text-danger">*</span></label>
-              <input type="text" class="form-control" placeholder="Nombre títular">
-            </div>
-
-            <button class="method">
-              <ion-icon name="logo-paypal"></ion-icon>
-
-              <span>Pago PSE y cuentas bancarias</span>
-              <div class="form-group col-md-6">
-                <label class="font-weight-bold">Pago Paypal<span class="text-danger">*</span></label>
-                <input type="text" class="form-control" placeholder="Pago Paypal">
-              </div>
-              <div class="form-group col-md-6">
-                <label class="font-weight-bold">Pago contraentrega<span class="text-danger">*</span></label>
-                <input type="text" class="form-control" placeholder="Pago contraentrega">
-              </div>
-              <div class="form-group col-md-6">
-                <label class="font-weight-bold">Pago víaBaloto<span class="text-danger">*</span></label>
-                <input type="text" class="form-control" placeholder="Pago víaBaloto">
-              </div>
-
-              <ion-icon class="checkmark" name="checkmark-circle-outline"></ion-icon>
-            </button>
-            <button class="btn btn-primary width-100">Continuar con método de envió</button>
-            <div class="input-flex">
-              <div class="expire-date">
-                <label for="expire-date" class="label-default">Fecha de vencimiento</label>
-                <div class="input-flex">
-
-                  <input type="number" name="day" id="expire-date" placeholder="31" min="1" max="31"
-                    class="input-default">
-                  /
-                  <input type="number" name="month" id="expire-date" placeholder="12" min="1" max="12"
-                    class="input-default">
+                <div class="inputBox">
+                    <input type="text" placeholder="Contacto">
+                    <input type="text" placeholder="Dirección">
                 </div>
-                
-                </section>
+              
+                <h3 class="title">Método de envío</h3>
+                <div class="inputBox">
+                    <input type="text" placeholder="Tarjeta débito o crédito">
+                    <input type="text" placeholder="Número de tarjeta">
+                    <input type="text" placeholder="Titular">
+                </div>
+            </div>
+
+            <div class="col">
+               
+                <div class="inputBox">
+
+                    <h3 class="title">Fecha de vencimiento</h3>
+                <div class="flex">
+                    <div class="inputBox">
+                        <input type="text" placeholder="mes">
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" placeholder="año">
+                    </div>
+                </div>
+                    
+                </div>
+                <div class="inputBox"> 
+                    <input type="text" placeholder="pago PSE  y cuentas bancarías">
+                </div>
+                <div class="inputBox">
+                    <input type="text" placeholder="Pago PayPal">
+                </div>
+                <div class="inputBox">
+                    <input type="text" placeholder="pago contraentrega">
+                </div>
+                <div class="inputBox">
+                    <input type="text" placeholder="pago vía baloto">
+                </div>
+            </div>
+    
+        </div>
+
+        <input type="submit" value="Completar pedido" class="submit-btn">
+
     </form>
 
-    <div class="discount-token">
-      <label for="discount-token" class="label-default">Código de descuento o tarjeta regalo</label>
-  </section>
-  </main>
+</div>
 </body>
-
 </html>
