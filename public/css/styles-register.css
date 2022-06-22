@@ -39,7 +39,7 @@ form a{
 }
 
 .control-formulario{
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -181,11 +181,11 @@ padding-bottom: 20px;
 
 .control-input:hover{
     background-color: #fff;
-    margin: 1px solid white;
+    /* margin: 1px solid white; */
     color:black;
-    border-radius: 5px;
+    /* border-radius: 5px;
     padding:5px 10px;
-    border: none;
+    border: none; */
 }
 
 .control-input{
