@@ -35,64 +35,76 @@
 
       <div class="formulado-interno">
         <div class="control-formulario">
-          <% if (locals.errors && errors.name) { %>
-            <div class="mensaje-error">
-              <%= errors.name.msg %>
-            </div>
+          <label for="name" class="form-label">INGRESE SU NOMBRE:
+            <% if (locals.errors && errors.name) { %>
+              <div class="mensaje-error">
+                <%= errors.name.msg %> 
+              </div>
             <% } %>
+          </label>
               <div class="ulErrorsNombreBlur alert-warning"></div>
               <input type="text" name="name" id="name" placeholder="NOMBRE" class="control-input"
                 value="<%= usuarioEditar.name %>">
         </div>
         <div class="control-formulario">
-          <% if (locals.errors && errors.lastname) { %>
-            <div class="mensaje-error">
-              <%= errors.lastname.msg %>
-            </div>
-            <% } %>
+          <label for="lastname" class="form-label">INGRESE SU APELLIDO:
+            <% if (locals.errors && errors.lastname) { %>
+              <div class="mensaje-error">
+                <%= errors.lastname.msg %>
+              </div>
+              <% } %>
+          </label>
               <div class="ulErrorsApellidoBlur alert-warning"></div>
               <input type="text" name="lastname" id="lastname" placeholder="APELLIDOS" class="control-input"
                 value="<%= usuarioEditar.lastname%>">
         </div>
         <div class="control-formulario">
-          <% if (locals.errors && errors.email) { %>
-            <div class="mensaje-error">
-              <%= errors.email.msg %>
-            </div>
-            <% } %>
+          <label for="correo" class="form-label">INGRESE SU CORREO ELECTRÓNICO:
+            <% if (locals.errors && errors.email) { %>
+              <div class="mensaje-error">
+                <%= errors.email.msg %>
+              </div>
+              <% } %>
+          </label>
               <div class="ulErrorsEmailBlur alert-warning"></div>
               <input type="email" name="email" id="correo" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO"
                 class="control-input" value="<%= usuarioEditar.email %>">
         </div>
 
         <div class="control-formulario">
-          <% if (locals.errors && errors.user_phone) { %>
-            <div class="mensaje-error">
-              <%= errors.user_phone.msg %>
-            </div>
-            <% } %>
+          <label for="user_phone" class="form-label">INGRESE SU TELÉFONO:
+            <% if (locals.errors && errors.user_phone) { %>
+              <div class="mensaje-error">
+                <%= errors.user_phone.msg %>
+              </div>
+              <% } %>
+          </label>
               <div class="ulErrorsTelefonoBlur alert-warning"></div>
               <input type="number" name="user_phone" id="user_phone" placeholder="TELÉFONO" class="control-input"
                 value="<%= usuarioEditar.user_phone %>">
         </div>
 
         <div class="control-formulario">
-          <% if (locals.errors && errors.user_address) { %>
-            <div class="mensaje-error">
-              <%= errors.user_address.msg %>
-            </div>
-            <% } %>
+          <label for="user_address" class="form-label">INGRESE SU DIRECCIÓN:
+            <% if (locals.errors && errors.user_address) { %>
+              <div class="mensaje-error">
+                <%= errors.user_address.msg %>
+              </div>
+              <% } %>
+          </label>
               <div class="ulErrorsDireccionBlur alert-warning"></div>
               <input type="text" name="user_address" id="user_address" placeholder="DIRECCIÓN" class="control-input"
                 value="<%= usuarioEditar.user_address %>">
         </div>
 
         <div class="control-formulario">
-          <% if (locals.errors && errors.password) { %>
-            <div class="mensaje-error">
-              <%= errors.password.msg %>
-            </div>
-            <% } %>
+          <label for="pass" class="form-label">INGRESE SU CONTRASEÑA:
+            <% if (locals.errors && errors.password) { %>
+              <div class="mensaje-error">
+                <%= errors.password.msg %>
+              </div>
+              <% } %>
+          </label>
               <div class="ulErrorsContrasenaBlur alert-warning"></div>
               <input type="password" name="password" placeholder="CONTRASEÑA" id="pass" class="control-input"
                 value="<%= usuarioEditar.password %>">
