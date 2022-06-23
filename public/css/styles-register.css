@@ -39,7 +39,7 @@ form a{
 }
 
 .control-formulario{
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -121,6 +121,10 @@ form div i{
     font-size: 2vw;
 }
 
+.form-label{
+    text-align: left;
+}
+
 /*video*/
 #video_background {
 
@@ -181,11 +185,11 @@ padding-bottom: 20px;
 
 .control-input:hover{
     background-color: #fff;
-    margin: 1px solid white;
+    /* margin: 1px solid white; */
     color:black;
-    border-radius: 5px;
+    /* border-radius: 5px;
     padding:5px 10px;
-    border: none;
+    border: none; */
 }
 
 .control-input{
@@ -206,6 +210,7 @@ padding-bottom: 20px;
   
   .alert-warning{
     color: #842029;
+    margin-left: 3%;
   }
 
 
