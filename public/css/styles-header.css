@@ -179,7 +179,7 @@ ul {
 
 .search-cart {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 .search-cart i {
@@ -220,6 +220,7 @@ ul {
 
 .img-perfil {
   width: 1.5vw;
+  height: 25px;
   border-radius: 50%;
   display: none;
 }

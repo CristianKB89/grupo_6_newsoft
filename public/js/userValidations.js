@@ -29,6 +29,7 @@ window.addEventListener('load', function () {
             ulErrorsNombreBlur.innerHTML = '';
             nombre.style.border = "2px solid green";
             nombre.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+            nombre.style.color = "white";
         }
     });
 
@@ -53,6 +54,7 @@ window.addEventListener('load', function () {
             ulErrorsApellidoBlur.innerHTML = '';
             apellido.style.border = "2px solid green";
             apellido.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+            apellido.style.color = "white";
         }
     });
 
@@ -79,6 +81,7 @@ window.addEventListener('load', function () {
                 ulErrorsEmailBlur.innerHTML = '';
                 email.style.border = "2px solid green";
                 email.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+                email.style.color = "white";
             }
         }
     })
@@ -100,6 +103,7 @@ window.addEventListener('load', function () {
                 ulErrorsTelefonoBlur.innerHTML = '';
                 telefono.style.border = "2px solid green";
                 telefono.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+                telefono.style.color = "white";
             } else {
                 ulErrorsTelefonoBlur.innerHTML += '<li>El campo telefono debe ser numerico</li>';
                 telefono.style.border = "1px solid red";
@@ -126,6 +130,7 @@ window.addEventListener('load', function () {
             ulErrorsDireccionBlur.innerHTML = '';
             direccion.style.border = "2px solid green";
             direccion.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+            direccion.style.color = "white";
         }
     })
 
@@ -152,6 +157,7 @@ window.addEventListener('load', function () {
                 ulErrorsContrasenaBlur.innerHTML = '';
                 contrasena.style.border = "2px solid green";
                 contrasena.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+                contrasena.style.color = "white";
             }
         }
     })
@@ -309,8 +315,6 @@ window.addEventListener('load', function () {
         } else {
             alert('Accion realizada exitosamente')
         }
-
-
     })
 
     //============Fin Validaciones al hacer submit ==============//
