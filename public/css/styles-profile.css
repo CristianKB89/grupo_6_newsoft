@@ -1,225 +1,215 @@
-
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-h2{
-    text-align: center;
+h2 {
+  text-align: center;
 }
 
-main{
-    position: relative;
-    top: 100px;
-    display: block;
+main {
+  position: relative;
+  top: 100px;
+  display: block;
 }
 
 a {
-    text-decoration: none;
-    padding: 0.5%;
-    margin: 1%;
+  text-decoration: none;
+  padding: 0.5%;
+  margin: 1%;
 }
 
-.botones{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-self: center;
-
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-self: center;
 }
 
-.button-eliminar{
-    color: black;
-    background-color: #E9E600;
-    border: none;
-    font-size: 12px;
-    padding:6px;
-    border-radius: 5px;
-    margin:auto;
-    margin-top: 2%;
-  
+.button-eliminar {
+  color: black;
+  background-color: #e9e600;
+  border: none;
+  font-size: 12px;
+  padding: 6px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 2%;
 }
 
-.boton-formulario{
-    color: black;
-    background-color: #E9E600;
-    border: none;
-    font-size: 12px;
-    padding:5px 10px;
-    border-radius: 5px;
-    margin-bottom: auto;
+.boton-formulario {
+  color: black;
+  background-color: #e9e600;
+  border: none;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: auto;
 }
 
-.button{
-    color: black;
-    background-color: #E9E600;
-    border: none;
-    font-size: 12px;
-    margin-top: 20%;
-    padding:5px 10px;
-    border-radius: 5px;
-    margin-bottom: auto;
-
+.button {
+  color: black;
+  background-color: #e9e600;
+  border: none;
+  font-size: 12px;
+  margin-top: 20%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: auto;
 }
 
-
-.titulo{
-    font-size: 100%;
+.titulo {
+  font-size: 100%;
 }
 
 .profileh3 {
-    display: block;
-    font-size: 100%;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+  display: block;
+  font-size: 100%;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 .profilep {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
-
-
 
 /* Contenedores */
 
-.container { padding: 0 2rem; }
+.container {
+  padding: 0 2rem;
+}
 
 /* Cards */
 
 .card {
-    display: flex;
-    margin-bottom: 1rem;
-    border-radius: var(--default-radius);
+  display: flex;
+  margin-bottom: 1rem;
+  border-radius: var(--default-radius);
 
-    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.15);
+  box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.15);
 }
-    .card-left {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+.card-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  width: 30%;
+  padding: 1rem;
 
-        width: 30%;
-        padding: 1rem;
-        
-        background-color:rgba(236, 222, 14, 0.6);
-        color: black;
-        text-align: center;
-        
-        border-radius: var(--default-radius) 0 0 var(--default-radius);
-    }
+  background-color: rgba(236, 222, 14, 0.6);
+  color: black;
+  text-align: center;
 
-    .card-left figure {
-        height: 90px;
-        width: 90px;
-        margin: 0;
+  border-radius: var(--default-radius) 0 0 var(--default-radius);
+}
 
-        overflow: hidden;
-    
-        border-radius: 50%;
-        background-color: white;
-    }
+.card-left figure {
+  height: 90px;
+  width: 90px;
+  margin: 0;
 
-    .card-left figure img {
-        width: 100%;
-    }
+  overflow: hidden;
 
-    .card-content {
-        width: 70%;
-        padding: 1rem;
+  border-radius: 50%;
+  background-color: white;
+}
 
-        background-color:  rgba(150, 152, 154, 0.2);
-        
-        border-radius: 0 var(--default-radius) var(--default-radius) 0;
-    }
+.card-left figure img {
+  width: 100%;
+  height: 100%;
+}
 
-    @media(min-width:361px){
+.card-content {
+  width: 70%;
+  padding: 1rem;
 
-    }
-   
-    @media(min-width:769px){
-        .titulo{
-            font-size: 120%;
-        }
-        
-        .profileh3 {
-            font-size: 110%;
-        }
+  background-color: rgba(150, 152, 154, 0.2);
 
-        .card-left figure {
-            height: 100px;
-            width: 100px;
-        }
-    
-        .card-left figure img {
-            width: 100%;
-        }
+  border-radius: 0 var(--default-radius) var(--default-radius) 0;
+}
 
-        .botones {
-            justify-content: space-evenly;
-        }
+@media (min-width: 361px) {
+}
 
-        .boton-formulario{
-            font-size: 15px;
-        }
+@media (min-width: 769px) {
+  .titulo {
+    font-size: 120%;
+  }
 
-        .button-eliminar{
-            font-size: 15px;
-            margin-bottom: 3%;
-        }
+  .profileh3 {
+    font-size: 110%;
+  }
 
-        .button{
-            font-size:15px ;
-        }
-        
+  .card-left figure {
+    height: 100px;
+    width: 100px;
+  }
 
-    }
+  .card-left figure img {
+    width: 100%;
+  }
 
-    @media(min-width:1200px){
-        .titulo{
-            font-size: 150%;
-        }
-        
-        .profileh3 {
-            font-size: 130%;
-        }
+  .botones {
+    justify-content: space-evenly;
+  }
 
-        .profilep{
-            font-size: 110%;
-        }
+  .boton-formulario {
+    font-size: 15px;
+  }
 
-        .card-left figure {
-            height: 130px;
-            width: 130px;
-        }
-    
-        .card-left figure img {
-            width: 100%;
-        }
+  .button-eliminar {
+    font-size: 15px;
+    margin-bottom: 3%;
+  }
 
-        .botones {
-            justify-content: space-evenly;
-        }
+  .button {
+    font-size: 15px;
+  }
+}
 
-        .boton-formulario{
-            font-size: 20px;
-        }
+@media (min-width: 1200px) {
+  .titulo {
+    font-size: 150%;
+  }
 
-        .button-eliminar{
-            font-size: 20px;
-            margin-top: 4%;
-        }
+  .profileh3 {
+    font-size: 130%;
+  }
 
-        .button{
-            font-size:20px ;
-        }
+  .profilep {
+    font-size: 110%;
+  }
 
-    }
+  .card-left figure {
+    height: 130px;
+    width: 130px;
+  }
 
+  .card-left figure img {
+    width: 100%;
+  }
+
+  .botones {
+    justify-content: space-evenly;
+  }
+
+  .boton-formulario {
+    font-size: 20px;
+  }
+
+  .button-eliminar {
+    font-size: 20px;
+    margin-top: 4%;
+  }
+
+  .button {
+    font-size: 20px;
+  }
+}

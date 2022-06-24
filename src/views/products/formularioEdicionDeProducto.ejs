@@ -40,7 +40,7 @@
         </div>
       </a>
 
-      <a href="/"><img class="logo-header" src="/img/logo-one.png"/></a>
+      <a href="/"><img class="logo-header" src="/img/logo-one.png" /></a>
       <nav class="main-nav-header">
         <ul class="ul-menu">
           <% if (locals.estaLogueado) { %>
@@ -50,35 +50,36 @@
                   <span class="nav-btn-text">ADMIN</span>
                 </a>
               </li>
-          <% } %>
-          <% } %>
-          <li>
-            <a href="/products?categoria=catalogo">
-              <span class="nav-btn-text">PRODUCTOS</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="nav-btn-text">STREAMING</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="nav-btn-text">DIADEMAS</span>
-            </a>
-          </li>
+              <% } %>
+                <% } %>
+                  <li>
+                    <a href="/products?categoria=catalogo">
+                      <span class="nav-btn-text">PRODUCTOS</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="nav-btn-text">STREAMING</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="nav-btn-text">DIADEMAS</span>
+                    </a>
+                  </li>
         </ul>
       </nav>
       <div class="search-cart">
         <% if (locals.estaLogueado) { %>
-          <a class="name" href="/users/profile"><img class="img-perfil" src="/img/users/<%=locals.usuarioLogueado.image%>" alt="<%=locals.usuarioLogueado.name%>"></a>
+          <a class="name" href="/users/profile"><img class="img-perfil"
+              src="/img/users/<%=locals.usuarioLogueado.image%>" alt="<%=locals.usuarioLogueado.name%>"></a>
           <a class="log-out" href="/users/logout">Logout</a>
-        <% } else { %>
-        <!-- Ventana modal del login -->
-        <%- include('../partials/modal-login.ejs') %>
-        <!-- FIN Ventana modal del login -->
-        <% } %>
-        <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
+          <% } else { %>
+            <!-- Ventana modal del login -->
+            <%- include('../partials/modal-login.ejs') %>
+              <!-- FIN Ventana modal del login -->
+              <% } %>
+                <a href="#"><button class="search-btn"><i class="fas fa-search"></i></button></a>
 
       </div>
     </div>
@@ -90,8 +91,8 @@
       <div class="mensaje-logo">
         <h1>EDICIÓN DE PRODUCTO</h1>
       </div>
-      <P>Complete todos los campos para editar correctamente el producto: <%= productoEditar.name %>
-      </P><br>
+      <p>Complete todos los campos para editar correctamente el producto: <%= productoEditar.name %>
+      </p><br>
 
       <div class="formulado-interno">
         <div class="control-formulario">
@@ -212,13 +213,9 @@
             class="control-input"><%= productoEditar.description %></textarea>
         </div>
 
-
-        <br>
-        <br>
         <ul class="errores alert-warning"></ul><br>
         <div class="control-envio"><button type="submit" class="boton-formulario">EDITAR PRODUCTO</button>
           <a href="/products/create" class="control-final">INGRESAR UN NUEVO PRODUCTO</a>
-
           <br>
     </form>
     <form action="/products/<%=productoEditar.id%>?_method=DELETE" method="POST" style="display: inline-flex">
