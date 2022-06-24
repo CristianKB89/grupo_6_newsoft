@@ -189,18 +189,15 @@ window.addEventListener('load', function () {
         if (nombre.value == "") {
             errores.push('El campo nombre de producto no debe estar vacio');
             nombre.classList.add('is-invalid');
-            nombre.style.border = "1px solid red";
-            nombre.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else if (nombre.value.length < 5) {
             errores.push('El campo nombre debe tener al menos cinco caracteres');
             nombre.classList.add('is-invalid');
-            nombre.style.border = "1px solid red";
-            nombre.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             nombre.classList.remove('is-invalid');
             nombre.classList.add('is-valid');
-            nombre.style.border = "2px solid green";
-            nombre.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -208,13 +205,11 @@ window.addEventListener('load', function () {
         if (brand.value == "") {
             errores.push('El campo marca no debe estar vacio');
             brand.classList.add('is-invalid');
-            brand.style.border = "1px solid red";
-            brand.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             brand.classList.remove('is-invalid');
             brand.classList.add('is-valid');
-            brand.style.border = "2px solid green";
-            brand.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -223,19 +218,16 @@ window.addEventListener('load', function () {
         if (precio.value == "") {
             errores.push('El campo precio no debe estar vacio');
             precio.classList.add('is-invalid');
-            precio.style.border = "1px solid red";
-            precio.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             if (!isNaN(precio.value)) {
                 precio.classList.remove('is-invalid');
                 precio.classList.add('is-valid');
-                precio.style.border = "2px solid green";
-                precio.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
             } else {
                 errores.push('El campo precio debe ser numerico');
                 precio.classList.add('is-invalid');
-                precio.style.border = "1px solid red";
-                precio.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
             }
         }
         // 
@@ -244,13 +236,11 @@ window.addEventListener('load', function () {
         if (categorias.value == "") {
             errores.push('El campo categorias no debe estar vacio');
             categorias.classList.add('is-invalid');
-            categorias.style.border = "1px solid red";
-            categorias.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             categorias.classList.remove('is-invalid');
             categorias.classList.add('is-valid');
-            categorias.style.border = "2px solid green";
-            categorias.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -258,13 +248,11 @@ window.addEventListener('load', function () {
         if (color.checked == false) {
             errores.push('Debe seleccionar almenos un color');
             color.classList.add('is-invalid');
-            color.style.border = "1px solid red";
-            color.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             color.classList.remove('is-invalid');
             color.classList.add('is-valid');
-            color.style.border = "2px solid green";
-            color.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -272,13 +260,11 @@ window.addEventListener('load', function () {
         if (accesorios.value == "") {
             errores.push('El campo accesorios no debe estar vacio');
             accesorios.classList.add('is-invalid');
-            accesorios.style.border = "1px solid red";
-            accesorios.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             accesorios.classList.remove('is-invalid');
             accesorios.classList.add('is-valid');
-            accesorios.style.border = "2px solid green";
-            accesorios.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -286,18 +272,15 @@ window.addEventListener('load', function () {
         if (descripcion.value == "") {
             errores.push('El campo descripcion de producto no debe estar vacio');
             descripcion.classList.add('is-invalid');
-            descripcion.style.border = "1px solid red";
-            descripcion.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else if (descripcion.value.length < 20) {
             errores.push('El campo descripcion debe tener al menos veinte caracteres');
             descripcion.classList.add('is-invalid');
-            descripcion.style.border = "1px solid red";
-            descripcion.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             descripcion.classList.remove('is-invalid');
             descripcion.classList.add('is-valid');
-            descripcion.style.border = "2px solid green";
-            descripcion.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -316,10 +299,11 @@ window.addEventListener('load', function () {
         if (errores.length > 0) {
             evento.preventDefault();
             let ulErrors = document.querySelector('.errores')
-            ulErrors.innerHTML = ""
-            for (let i = 0; i < errores.length; i++) {
-                ulErrors.innerHTML += "<li>" + errores[i] + "</li>"
-            }
+            ulErrors.innerHTML = "";
+            // for (let i = 0; i < errores.length; i++) {
+            //     ulErrors.innerHTML += "<li>" + errores[i] + "</li>"
+            // }
+            alert(errores);
         } else {
             alert('Accion realizada exitosamente')
         }

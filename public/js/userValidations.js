@@ -181,18 +181,15 @@ window.addEventListener('load', function () {
         if (nombre.value == "") {
             errores.push('El campo nombre no debe estar vacio');
             nombre.classList.add('is-invalid');
-            nombre.style.border = "1px solid red";
-            nombre.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else if (nombre.value.length < 2) {
             errores.push('El campo nombre debe tener al menos 2 caracteres');
             nombre.classList.add('is-invalid');
-            nombre.style.border = "1px solid red";
-            nombre.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             nombre.classList.remove('is-invalid');
             nombre.classList.add('is-valid');
-            nombre.style.border = "2px solid green";
-            nombre.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -200,18 +197,15 @@ window.addEventListener('load', function () {
         if (apellido.value == "") {
             errores.push('El campo apellido no debe estar vacio');
             apellido.classList.add('is-invalid');
-            apellido.style.border = "1px solid red";
-            apellido.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else if (apellido.value.length < 2) {
             errores.push('El campo apellido debe tener al menos 2 caracteres');
             apellido.classList.add('is-invalid');
-            apellido.style.border = "1px solid red";
-            apellido.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             apellido.classList.remove('is-invalid');
             apellido.classList.add('is-valid');
-            apellido.style.border = "2px solid green";
-            apellido.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -219,20 +213,17 @@ window.addEventListener('load', function () {
         if (email.value == "") {
             errores.push('El campo email no debe estar vacio');
             email.classList.add('is-invalid');
-            email.style.border = "1px solid red";
-            email.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             let expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
             if (expresion.test(email.value) == false) {
                 errores.push('El campo email no es valido');
                 email.classList.add('is-invalid');
-                email.style.border = "1px solid red";
-                email.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
             } else {
                 email.classList.remove('is-invalid');
                 email.classList.add('is-valid');
-                email.style.border = "2px solid green";
-                email.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
             }
         }
         // 
@@ -241,19 +232,16 @@ window.addEventListener('load', function () {
         if (telefono.value == "") {
             errores.push('El campo telefono no debe estar vacio');
             telefono.classList.add('is-invalid');
-            telefono.style.border = "1px solid red";
-            telefono.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             if (!isNaN(telefono.value)) {
                 telefono.classList.remove('is-invalid');
                 telefono.classList.add('is-valid');
-                telefono.style.border = "2px solid green";
-                telefono.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
             } else {
                 errores.push('El campo telefono debe ser numerico');
                 telefono.classList.add('is-invalid');
-                telefono.style.border = "1px solid red";
-                telefono.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
             }
         }
         // 
@@ -262,13 +250,11 @@ window.addEventListener('load', function () {
         if (direccion.value == "") {
             errores.push('El campo direccion no debe estar vacio');
             direccion.classList.add('is-invalid');
-            direccion.style.border = "1px solid red";
-            direccion.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             direccion.classList.remove('is-invalid');
             direccion.classList.add('is-valid');
-            direccion.style.border = "2px solid green";
-            direccion.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
         }
         // 
 
@@ -276,20 +262,17 @@ window.addEventListener('load', function () {
         if (contrasena.value == "") {
             errores.push('El campo contraseña no debe estar vacio');
             contrasena.classList.add('is-invalid');
-            contrasena.style.border = "1px solid red";
-            contrasena.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
         } else {
             let expresion = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/
             if (expresion.test(contrasena.value) == false) {
                 errores.push('La contraseña debe tener al menos 8 caracteres, al menos una letra mayuscula, al menos una letra minuscula, al menos un numero y al menos un caracter especial');
                 contrasena.classList.add('is-invalid');
-                contrasena.style.border = "1px solid red";
-                contrasena.style.backgroundColor = "rgba(220, 90, 114, 0.1)";
+
             } else {
                 contrasena.classList.remove('is-invalid');
                 contrasena.classList.add('is-valid');
-                contrasena.style.border = "2px solid green";
-                contrasena.style.backgroundColor = "rgba(90, 220, 108, 0.1)";
+
             }
         }
         //
@@ -308,10 +291,11 @@ window.addEventListener('load', function () {
         if (errores.length > 0) {
             evento.preventDefault();
             let ulErrors = document.querySelector('.errores')
-            ulErrors.innerHTML = ""
-            for (let i = 0; i < errores.length; i++) {
-                ulErrors.innerHTML += "<li>" + errores[i] + "</li>"
-            }
+            ulErrors.innerHTML = "";
+            // for (let i = 0; i < errores.length; i++) {
+            //     ulErrors.innerHTML += "<li>" + errores[i] + "</li>"
+            // }
+            alert(errores);
         } else {
             alert('Accion realizada exitosamente')
         }
