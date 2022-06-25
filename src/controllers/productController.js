@@ -1,12 +1,9 @@
-const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
-const productsFilePath = path.join(__dirname, "../data/products.json");
 const db = require("../database/models");
 const products_has_colors = db.products_has_colors;
-const Op = db.Sequelize.Op;
+const Op = db.Sequelize.Op; //Nos permite usar operadores de sequelize
 
-const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controlador = {
   creacion: async (req, res) => {
@@ -78,11 +75,11 @@ const controlador = {
       })
         .then((result) => {
           
-          if (typeof req.body.color === "string") {
+          if (typeof req.body.color === "string") { //Si el color es un string
             products_has_colors
               .create({
-                id_products: result.id_products,
-                id_colors: req.body.color,
+                id_products: result.id_products, 
+                id_colors: req.body.color,  
               })
               .then((result) => {
                 console.log(result);
