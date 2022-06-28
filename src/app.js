@@ -6,14 +6,14 @@ const rutas = require('./routes/main.js');
 const rutas_usuarios = require('./routes/users.js');
 const rutas_productos = require('./routes/products.js');
 const rutas_productcart= require('./routes/productCart')
-const cors = require('cors');
+const cors = require('cors'); //Para que se puedan hacer peticiones desde otro dominio
 
 
 // Routes API
 const userApiRoutes = require('./api/routes/userApiRouter');
 const productApiRoutes = require('./api/routes/productApiRouter');
 
-const path = require('path');
+const path = require('path'); 
 
 const usuarioLogueadoMiddleware = require('./middlewares/usuarioLogueadoMiddleware');
 const valoresProductCart = require('./middlewares/productCartMiddlewares');
@@ -24,10 +24,10 @@ app.use(session({
 	saveUninitialized: false,
 }));
 
-app.use(cookies());
-app.use(cors());
-app.use(usuarioLogueadoMiddleware);
-app.use(valoresProductCart);
+app.use(cookies());  
+app.use(cors());  
+app.use(usuarioLogueadoMiddleware);  
+app.use(valoresProductCart);  
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); 

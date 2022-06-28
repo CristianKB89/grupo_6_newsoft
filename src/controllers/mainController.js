@@ -1,40 +1,26 @@
-const { log } = require("console");
-const fs = require("fs");
 const path = require("path");
-const productsFilePath = path.join(__dirname, "../data/products.json");
 const bcryptjs = require("bcryptjs");
-
 const db = require("../database/models");
-
 const Product = db.Product;
 
 const controlador = {
   index: (req, res) => {
     Product.findAll()
       .then((product) => {
-        res.render(path.resolve(__dirname, "../views/index.ejs"), {});
+        res.render(path.resolve(__dirname, "../views/index.ejs"), {product});
       })
       .catch((error) => {
         console.log(error);
       });
-      
   },
 
   login: (req, res) => {
-    Product.findAll()
-      .then((product) => {
-        res.render(path.resolve(__dirname, "../views/index.ejs"), {});
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        res.render(path.resolve(__dirname, "../views/index.ejs"));
   },
 
   loginProcess: (req, res) => {
-    let promUsers = db.User.findAll();
-    let promProduct = Product.findAll();
-    Promise.all([promUsers, promProduct])
-      .then(([users, products]) => {
+    db.User.findAll()
+      .then((users) => {
         let user = users.find((user) => user.email == req.body.email);
 
         if (user) {
@@ -51,7 +37,7 @@ const controlador = {
                 maxAge: 1000 * 60 * 60,
               });
             }
-            return res.redirect("/users/profile"), {};
+            return res.redirect("/users/profile");
           } else {
             return res.render(path.resolve(__dirname, "../views/index.ejs"), {
               errors: {

@@ -1,13 +1,8 @@
-const fs = require("fs");
 const path = require("path");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-
 const db = require("../database/models");
-const Op = db.Sequelize.Op;
-
-const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
+const Op = db.Sequelize.Op; //Nos permite usar operadores de sequelize
 
 const controlador = {
   users: (req, res) => {
@@ -83,9 +78,9 @@ const controlador = {
           password: bcryptjs.hashSync(req.body.password, 10),
           image: image,
           newsletter: req.body.newsletter,
-          user_phone:req.body.user_phone,
-          user_address:req.body.user_address,
-          user_rol:"usuario"
+          user_phone: req.body.user_phone,
+          user_address: req.body.user_address,
+          user_rol: "usuario"
         }
 
         if (req.body.newsletter != null) {
@@ -127,7 +122,7 @@ const controlador = {
     let userId = usuarioLogueado.id_users;
 
     // Verificación de errores
-    const resultValidation = validationResult(req);
+    const resultValidation = validationResult(req); //Obtenemos los errores de validación
 
     if (resultValidation.errors.length > 0) {
       return res.render(
@@ -143,8 +138,8 @@ const controlador = {
     // Verificar que el email no sea usado por otro usuario
     let emailInDB = await db.User.findAll({
       where: {
-        email: req.body.email,
-        id_users: { [Op.not]: userId }
+        email: req.body.email,  
+        id_users: { [Op.not]: userId } // Excluye el usuario que está editando
       }
     }).catch(function (errors) {
       console.log(errors);
@@ -183,17 +178,17 @@ const controlador = {
       email: req.body.email,
       password: password,
       image: image,
-      user_phone:req.body.user_phone,
-      user_address:req.body.user_address,
+      user_phone: req.body.user_phone,
+      user_address: req.body.user_address,
     },
-    {
-      where: { id_users: userId }
-    })
-    .then(() => {
-      res.redirect('profile');
-    })
-    .catch(error => {
-    console.log(error)
+      {
+        where: { id_users: userId }
+      })
+      .then(() => {
+        res.redirect('profile');
+      })
+      .catch(error => {
+        console.log(error)
       })
   },
 
@@ -213,66 +208,18 @@ const controlador = {
 
   },
 
-  login: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/users/login.ejs"), {
-    });
-  },
-
-  ProcesoLogin: (req, res) => {
-    db.User.findAll()
-    .then(([users]) => {
-        //Usuario que se loguea
-        let user = users.find((user) => user.email == req.body.email);
-        if (user) {
-          let passwordCorrecto = bcryptjs.compareSync(req.body.password, user.password)
-            if (passwordCorrecto) {
-              delete user.password;
-              req.session.usuarioLogueado = user;
-              if (req.body.remember) {
-                res.cookie("EmailUsuario", req.body.email, {
-                  maxAge: 1000 * 60 * 60,
-                });
-              }
-              return res.redirect("/users/profile"), {  };
-            } else {
-              return res.render(path.resolve(__dirname, "../views/index.ejs"), {
-                errors: {
-                  password: {
-                    msg: "Las credenciales son inválidas",
-                  },
-                }
-              });
-            }
-          };
-    
-        return res.render(path.resolve(__dirname, "../views/index.ejs"), {
-          errors: {
-            email: {
-              msg: "No se encuentra este email en nuestra base de datos",
-            },
-          }
-        });
-      })
-      .catch((error) => console.log(error));
-  },
-
   perfil: (req, res) => {
-    let promUsers = db.User.findAll();
-    let promProduct = db.Product.findAll();
-    Promise.all([promUsers, promProduct])
-      .then(([users, products]) => {
+    db.User.findAll()
+      .then((users) => {
         usuario = users.find((user) => user.id_users == req.session.usuarioLogueado.id_users);
         if (usuario) {
           res.render(path.resolve(__dirname, "../views/users/userProfile.ejs"), {
-            usuario,
-            products
+            usuario
           });
         }
         else {
           res.redirect("/");
         }
-
-        
       }
       ).catch((err) => {
         console.log(err);
@@ -287,7 +234,7 @@ const controlador = {
   },
 
   recover: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/users/recover.ejs"),{ });
+    res.render(path.resolve(__dirname, "../views/users/recover.ejs"), {});
   },
 };
 
